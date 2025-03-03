@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) XIXUM.ORG 2010-2023.
+
+    XIXUM.ORG AND ITS AFFILIATES MAKE NO WARRANTY OF ANY KIND
+    WITH REGARD TO THIS MATERIAL INCLUDING, BUT NOT LIMITED TO,
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+    THIS EXCLUSION OF LIABILITY BUT WILL NOT APPLY TO CLAIMS,
+    LOSSES, DAMAGES, COSTS (INCLUDING LEGAL COSTS), EXPENSES AND LIABILITIES
+    CAUSED BY GROSS NEGLIGENCE OF THE MANAGERIAL
+    AND SENIOR SUPERVISORY PERSONNEL OF XIXUM.ORG AND ITS AFFILIATES,
+    OR THE WILLFUL MISCONDUCT OF XIXUM.ORG AND ITS AFFILIATES.
+    IT IS ALSO NOT APPLICABLE IN CASE THE GERMAN PRODUCT LIABILITY ACT IS APPLICABLE
+    OR IN CASE OF INJURY OR DEATH TO PERSONS.
+    XIXUM.ORG AND ITS AFFILIATES SHALL NOT BE LIABLE FOR ANY INCIDENTAL,
+    INDIRECT, SPECIAL, OR CONSEQUENTIAL DAMAGES WHATSOEVER
+    (INCLUDING BUT NOT LIMITED TO LOST PROFITS) ARISING OUT OF
+    OR RELATED TO THIS PUBLICATION OR THE INFORMATION CONTAINED IN IT,
+    EVEN IF XIXUM.ORG AND ITS AFFILIATES HAVE BEEN ADVISED
+    OF THE POSSIBILITY OF SUCH DAMAGES.
+
+-->
+<project
+ xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.xixum.modeler.core</groupId>
+	<artifactId>org.xixum.modeler.core.parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<java.version>17</java.version>
+		<tycho.version>2.7.5</tycho.version>
+		<resources.version>3.3.1</resources.version>
+		<antrun.version>3.1.0</antrun.version>
+		<tycho-ds-plugin.skip>true</tycho-ds-plugin.skip>
+		<dependency.version>3.6.0</dependency.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.deploy.skip>true</maven.deploy.skip>
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+		<!-- the value of nexusId is referenced in .mvn/settings.xml  -->
+		<!--<nexusId>org.xixum.modeler</nexusId>
+		<nexusBase>https://artifacts.xixum.org/repository</nexusBase>
+		<nexusPath>${project.version}/latest</nexusPath>-->
+
+		<tca-build-id>${build-id}</tca-build-id>
+		<tca-timestamp>${time-stamp}</tca-timestamp>
+		<tca-version>${tcaversion}</tca-version>
+		<svn-revision>${svnrev}</svn-revision>
+		<release-tests>${releasetests}</release-tests>
+		<test-result>${testresult}</test-result>
+		<word>${wordpath}</word>
+
+
+		<nexusPolicy>snapshots</nexusPolicy>
+		<nexusRepoId>cqc-tca-${nexusPolicy}</nexusRepoId>
+		<!-- nexusUpload is usually passed from jenkins as system property -->
+		<nexusUpload>${nexusBase}/${nexusRepoId}/${nexusPath}</nexusUpload>
+
+	</properties>
+
+	<repositories>
+	</repositories>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>${nexusId}</id>
+			<url>${nexusUpload}</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>${antrun.version}</version>
+					<executions>
+						<execution>
+							<id>clean-settings</id>
+							<phase>none</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<delete dir="${project.basedir}/.settings"/>
+								</target>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${dependency.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>3.1.1</version>
+					    <configuration>
+							<release>17</release>
+						</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${resources.version}</version>
+					<executions>
+						<execution>
+							<id>copy-settings</id>
+							<phase>none</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+						  <configuration>
+							<outputDirectory>${project.basedir}/.settings</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/../../.settings</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						  </configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-maven-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<extensions>true</extensions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-ds-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<skip>${tycho-ds-plugin.skip}</skip>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<executionEnvironment>org.eclipse.justj.openjdk.hotspot.jre.full-${java.version}</executionEnvironment>
+						<target>
+							<artifact>
+								<groupId>org.xixum.modeler.core</groupId>
+								<artifactId>org.xixum.modeler.core.target</artifactId>
+								<version>${project.parent.version}</version>
+							</artifact>
+						</target>
+						<environments>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>arm64</arch>
+							</environment>
+							<environment>
+								<os>macosx</os>
+								<ws>cocoa</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>macosx</os>
+								<ws>cocoa</ws>
+								<arch>arm64</arch>
+							</environment>
+						</environments>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-packaging-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<archive>
+							<manifestEntries>
+								<Implementation-Version>${git.branch}|${git.commit.id.describe}</Implementation-Version>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>io.github.git-commit-id</groupId>
+					<artifactId>git-commit-id-maven-plugin</artifactId>
+					<version>5.0.0</version>
+					<executions>
+						<execution>
+							<id>git-information</id>
+							<goals>
+								<goal>revision</goal>
+							</goals>
+							<phase>validate</phase>
+						</execution>
+					</executions>
+					<configuration>
+						<dotGitDirectory>.git</dotGitDirectory>
+						<failOnNoGitDirectory>true</failOnNoGitDirectory>
+						<injectAllReactorProjects>true</injectAllReactorProjects>
+						<gitDescribe>
+							<skip>false</skip>
+							<always>false</always>
+							<dirty> * </dirty>
+						</gitDescribe>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>io.github.git-commit-id</groupId>
+				<artifactId>git-commit-id-maven-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  <extension point="org.eclipse.ui.intro" id="org.xixum.modeler.core.application.intro" name="Modeler Community">
+    <introProductBinding introId="org.xixum.modeler.core.application.intro" productId="org.xixum.modeler.core.application.product" />
+    <intro class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+    	   icon="icons/png/xixum_favicon_16px_32bit.png"
+           id="org.xixum.modeler.core.application.intro">
+    </intro>
+  </extension>
+  <extension point="org.eclipse.ui.intro.config">
+    <config content="introContent.xml"
+            id="org.xixum.modeler.core.application.introConfig"
+            introId="org.xixum.modeler.core.application.intro">
+      <presentation home-page-id="root">
+        <implementation kind="html" />
+      </presentation>
+    </config>
+  </extension>
+  <extension point="org.eclipse.ui.intro.configExtension">
+    <configExtension
+        configId="org.eclipse.ui.intro.universalConfig"
+        content="intro/overviewExtensionContent.xml">
+    </configExtension>
+  </extension>
+  
+  <extension point="org.eclipse.help.toc">
+    <toc file="help/toc.xml" primary="true" />
+  </extension>
+
+  <extension point= "org.eclipse.ui.activities" >
+    <activity id= "visible.activity"
+              description= "Modeler Activities"
+              name= "Moderel Activities"
+              />
+    <activity id= "hidden.activity"
+              description= "Hidden Activities"
+              name= "Hidden"
+              />
+    <!-- other activity requires activity -->
+    <activityRequirementBinding activityId= "hidden.activity"
+                                requiredActivityId= "visible.activity"
+                                />
+    <category id= "org.xixum.modeler.core.application.Category"
+              description= "Modeler Activities"
+              name= "Modeler Analyzer"
+              />
+    <!-- put the activity in the category -->
+    <categoryActivityBinding activityId= "visible.activity"
+                             categoryId= "org.xixum.modeler.core.application.Category"
+                             />
+    <!-- visible contributions-->
+
+    <activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.sirius\..*/.*"/>
+    <activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.jdt\..*/.*"/>
+    <activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.pde\..*/.*"/>
+    <activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.gmf\..*/.*"/>
+    <activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.emf\..*/.*&amp;&amp;[^(org\.eclipse\.emf\.cdo\.ui/org\.eclipse\.emf\.cdo\.ui\.(RemoveResource|RenameResource|ExportResource))]"/>
+    <activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.jet\..*/.*"/>
+    <activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.ant\..*/.*"/>
+    <activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\..*/.*ant\..*/.*"/>
+    <activityPatternBinding activityId="visible.activity"  pattern="org\.eclipse\.team\.ui/org.*"/>
+    <activityPatternBinding activityId="visible.activity" pattern="org\.eclipse\.jdt\.debug/debugModel"/>
+    <activityPatternBinding activityId="visible.activity"  pattern="org\.xixum\.modeler\.core\.application\..*/.*"/>
+
+    <!-- hidden contributions-->
+    <activityPatternBinding activityId="hidden.activity" pattern="org\.xixum\.modler\.core\.editor\.wizards\.SiriusModelWizardID"/>
+    <activityPatternBinding activityId="hidden.activity"  pattern="org\.eclipse\.userstorage\..*/.*"/>
+
+    <!-- our activity should be enabled by default -->
+    <defaultEnablement id="visible.activity"/>
+
+  </extension>
+  
+  <!--<extension point="org.eclipse.ui.editors"> 
+      <editor 
+         id="org.xixum.modeler.core.image.viewer" 
+         name="Web and Image Viewer" 
+         extensions="png, gif, jpeg, jpg, bmp" 
+         class="com.xyz.XMLEditor" 
+         default="true"> 
+      </editor> 
+   </extension> -->
+
+  <extension point="org.eclipse.core.runtime.products" id="org.xixum.modeler.core.application.product">
+    <product name="XIXUM Modeler" application="org.eclipse.ui.ide.workbench">
+      <property name="windowImages" value="icons/png/xixum_favicon_16px_8bit.png,icons/png/xixum_favicon_16px_32bit.png,icons/png/xixum_favicon_32px_8bit.png,icons/png/xixum_favicon_32px_32bit.png,icons/png/xixum_favicon_48px_8bit.png,icons/png/xixum_favicon_48px_32bit.png,icons/png/xixum_favicon_64px_32bit.png,icons/png/xixum_favicon_128px_32bit.png,icons/png/xixum_favicon_256px_32bit.png"/>
+      <property name="appName" value="XIXUM Modeler"/>
+      <property name="aboutImage" value="icons/gif/about.gif"/>
+      <property name="aboutText" value="Modeler&#x0A;&#x0A;Version 2.0.1&#x0A;&#x0A;&#x0A;Copyright XIXUM.ORG, Eclipse contributors and others 2000, 2025.  All rights reserved.&#x0A;XIXUM.ORG, Modeler, the XIXUM logo, the Modoer logo and splashscreen are trademarks of XIXUM.ORG. The XIXUM logo and Modeler logo and splashscreen cannot be altered without XIXUM's permission. XIXUM and Modeler logos are provided for use under the XIXUM logo and trademark guidelines.&#x0A;Eclipse and the Eclipse logo are trademarks of the Eclipse Foundation, Inc., https://www.eclipse.org/. The Eclipse logo cannot be altered without Eclipse's permission. Eclipse logos are provided for use under the Eclipse logo and trademark guidelines, https://www.eclipse.org/logotm/. Oracle and Java are trademarks or registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.&#x0A;&#x0A;Visit https://www.xixum.org/"/>
+      <property name="startupForegroundColor" value="000000"/>
+      <property name="startupMessageRect" value="7,308,458,18"/>
+      <property name="startupProgressRect" value="0,328,458,18"/>
+      <property name="preferenceCustomization" value="plugin_customization.ini"/>
+    </product>
+  </extension>
+
+  <!-- Extensions for the "Sirius" perspective -->
+  <extension point="org.eclipse.ui.perspectiveExtensions">
+    <perspectiveExtension targetID="org.eclipse.sirius.ui.tools.perspective.design">
+      <actionSet id="org.eclipse.debug.ui.launchActionSet" />
+      <perspectiveShortcut id="org.eclipse.sirius.ui.tools.perspective.modeling" />
+      <viewShortcut id="org.eclipse.acceleo.ui.interpreter.view"/>
+    </perspectiveExtension>
+   
+    <!-- Extensions for the "Modeling" perspective -->
+    <perspectiveExtension targetID="org.eclipse.sirius.ui.tools.perspective.modeling">
+       <actionSet id="org.eclipse.debug.ui.launchActionSet"/>
+       <perspectiveShortcut id="org.eclipse.sirius.ui.tools.perspective.design"/>
+       <viewShortcut id="org.eclipse.acceleo.ui.interpreter.view"/>
+    </perspectiveExtension>
+
+    <perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+       <newWizardShortcut id="org.eclipse.sirius.ui.modelingproject.wizard" />
+       <newWizardShortcut id="org.eclipse.sirius.ui.session.creation" />
+       <perspectiveShortcut id="org.eclipse.sirius.ui.tools.perspective.modeling"/>
+       <perspectiveShortcut id="org.eclipse.sirius.ui.tools.perspective.design"/>
+       <viewShortcut id="org.eclipse.sirius.ui.tools.views.model.explorer"/>
+    </perspectiveExtension>
+  </extension>
+  
+    <extension
+        point="org.eclipse.ui.navigator.navigatorContent">
+     <commonWizard
+           menuGroupId="org.eclipse.sirius.category"
+           type="new"
+           wizardId="org.eclipse.acceleo.ide.ui.wizards.newproject.AcceleoNewProjectWizard">
+        <enablement>
+           <with variable="activeWorkbenchWindow.activePerspective">
+                 <equals value="org.eclipse.sirius.ui.tools.perspective.design" />
+           </with>
+        </enablement>
+     </commonWizard>
+  </extension>
+    <extension
+          id="product"
+          point="org.eclipse.core.runtime.products">
+       <product
+             application="org.eclipse.ui.ide.workbench"
+             name="XIXUM Modeler">
+          <property
+                name="windowImages"
+                value="icons/png/xixum_favicon_16px_8bit.png,icons/png/xixum_favicon_32px_32bit.png,icons/png/xixum_favicon_48px_8bit.png,icons/png/xixum_favicon_64px_32bit.png,icons/png/xixum_favicon_128px_32bit.png,icons/png/xixum_favicon_256px_32bit.png">
+          </property>
+          <property
+                name="aboutText"
+                value="Modeler&#x0A;&#x0A;Version 2.0.1&#x0A;&#x0A;&#x0A;Copyright XIXUM.ORG, Eclipse contributors and others 2000, 2021.  All rights reserved.&#x0A;XIXUM.ORG, Modeler, the XIXUM logo, the Modeler logo and splashscreen are trademarks of XIXUM.ORG. The XIXUM logo and Modeler logo and splashscreen cannot be altered without XIXUM&apos;s permission. XIXUM and Modeler logos are provided for use under the XIXUM logo and trademark guidelines.&#x0A;Eclipse and the Eclipse logo are trademarks of the Eclipse Foundation, Inc., https://www.eclipse.org/. The Eclipse logo cannot be altered without Eclipse&apos;s permission. Eclipse logos are provided for use under the Eclipse logo and trademark guidelines, https://www.eclipse.org/logotm/. Oracle and Java are trademarks or registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.&#x0A;&#x0A;Visit https://www.xixum.org/">
+          </property>
+          <property
+                name="aboutImage"
+                value="icons/gif/about.gif">
+          </property>
+          <property
+                name="startupForegroundColor"
+                value="000000">
+          </property>
+          <property
+                name="startupProgressRect"
+                value="0,328,458,18">
+          </property>
+          <property
+                name="startupMessageRect"
+                value="7,308,458,18">
+          </property>
+          <property
+                name="appName"
+                value="XIXUM Modeler">
+          </property>
+          <property
+                name="preferenceCustomization"
+                value="plugin_customization.ini">
+          </property>
+       </product>
+    </extension>
+    <extension
+          id="pathcont"
+          point="org.python.pydev.pydev_pythonpath_contrib">
+       <path_contributor
+             class="org.xixum.modeler.core.application.PythonPathContributor1">
+       </path_contributor>
+    </extension>
+    <extension
+          id="interprovider"
+          point="org.python.pydev.pydev_interpreter_provider">
+       <interpreter_provider_participant
+             class="org.xixum.modeler.core.application.InterpreterProviderParticipant1">
+       </interpreter_provider_participant>
+    </extension>
+    <extension
+          point="org.python.pydev.pydev_interpreter_new_custom_entries">
+       <interpreter_new_custom_entries_participant
+             class="org.xixum.modeler.core.application.InterpreterNewCustomEntries1">
+       </interpreter_new_custom_entries_participant>
+    </extension>
+</plugin>

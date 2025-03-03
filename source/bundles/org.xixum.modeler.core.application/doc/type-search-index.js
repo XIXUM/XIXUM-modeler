@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.xixum.modeler.core.internal","l":"NewSampleWizard"},{"p":"org.xixum.modeler.core.application","l":"PluginAccess"},{"p":"org.xixum.modeler.core.application","l":"PythonPathContributor1"}];updateSearchResults();

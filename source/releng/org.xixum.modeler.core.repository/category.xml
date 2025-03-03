@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.xixum.modeler.core.preferences.ui.feature_1.0.0.qualifier.jar" id="org.xixum.modeler.core.preferences.ui.feature" version="1.0.0.qualifier">
+      <category name="org.xixum.modeler.core.category"/>
+   </feature>
+   <feature id="org.xixum.modeler.core.feature">
+      <category name="org.xixum.modeler.core.category"/>
+   </feature>
+   <category-def name="org.xixum.modeler.core.category" label="Core">
+      <description>
+         Modeler Core
+      </description>
+   </category-def>
+   <category-def name="org.xixum.modeler.core.category" label="Modeler Executable Artifacts"/>
+</site>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) XIXUM.ORG 2024-2025.
+
+    XIXUM.ORG AND ITS AFFILIATES MAKE NO WARRANTY OF ANY KIND 
+    WITH REGARD TO THIS MATERIAL INCLUDING, BUT NOT LIMITED TO, 
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. 
+    THIS EXCLUSION OF LIABILITY BUT WILL NOT APPLY TO CLAIMS, 
+    LOSSES, DAMAGES, COSTS (INCLUDING LEGAL COSTS), EXPENSES AND LIABILITIES 
+    CAUSED BY GROSS NEGLIGENCE ("GROBE FAHRLÄSSIGKEIT") OF THE MANAGERIAL 
+    AND SENIOR SUPERVISORY PERSONNEL OF XIXUM.ORG AND ITS AFFILIATES, 
+    OR THE WILLFUL MISCONDUCT ("VORSATZ") OF XIXUM.ORG AND ITS AFFILIATES. 
+    IT IS ALSO NOT APPLICABLE IN CASE THE GERMAN PRODUCT LIABILITY ACT IS APPLICABLE 
+    OR IN CASE OF INJURY OR DEATH TO PERSONS. 
+    XIXUM.ORG AND ITS AFFILIATES SHALL NOT BE LIABLE FOR ANY INCIDENTAL, 
+    INDIRECT, SPECIAL, OR CONSEQUENTIAL DAMAGES WHATSOEVER 
+    (INCLUDING BUT NOT LIMITED TO LOST PROFITS) ARISING OUT OF 
+    OR RELATED TO THIS PUBLICATION OR THE INFORMATION CONTAINED IN IT, 
+    EVEN IF XIXUM.ORG AND ITS AFFILIATES HAVE BEEN ADVISED 
+    OF THE POSSIBILITY OF SUCH DAMAGES. 
+
+-->
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>org.xixum.modeler.core.composite</artifactId>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.xixum.modeler.core</groupId>
+		<artifactId>org.xixum.modeler.core.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../../releng/org.xixum.modeler.core.parent</relativePath>
+	</parent>
+	<properties>
+		<maven.deploy.skip>true</maven.deploy.skip>
+		<nexusPath>composite</nexusPath>
+		<subdir>site</subdir>
+		<fromDir>${project.basedir}/${subdir}</fromDir>
+	</properties>
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>wagon-maven-plugin</artifactId>
+				<version>2.0.0</version>
+				<executions>
+					<execution>
+						<id>deploy-site</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>upload</goal>
+						</goals>
+						<configuration>
+							<serverId>${nexusId}</serverId>
+							<url>${nexusUpload}</url>
+							<fromDir>${fromDir}</fromDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc label="XIXUM Modeler" topic="help/home.html">
+  <topic href=""http://www.xixum.org/en/tools/" label="Features">
+  </topic>
+  <topic href="https://www.xixum.org/en/product/change-log" label="Change Log" />
+  <topic href="help/compatibility.html" label="Compatibility" />
+  <anchor id="moreDesignerDoc"/>
+  <topic href="help/UserGuide/UserManual.html" label="User Manual">
+  </topic>
+</toc>

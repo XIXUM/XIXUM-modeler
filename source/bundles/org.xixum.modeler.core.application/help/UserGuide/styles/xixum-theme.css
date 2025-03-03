@@ -1,0 +1,145 @@
+/* XIXUM.ORG stylesheet */
+
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+@import "asciidoctor-default.css"; 
+
+.white {
+	color: white;
+}
+
+.charMath {
+	font-family: "Cambria Math";
+}
+
+/* Inline type style, list paragraphs disabled */
+.defaultTypeFont /*, .defaultTypeFont > ul > li > p  */ {
+	font-family: "Courier New";
+}
+
+/* Inline function style, list paragraphs disabled */
+.functionFont /*, .functionFont > ul > li > p*/ {
+	font-family: "Courier New";
+	font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6, #toctitle, #toc ul {
+	color: #475365; /* Dark blue */
+	font-family: inherit;
+}
+
+h1 > a.link, h2 > a.link, h3 > a.link, h4 > a.link, h5 > a.link, h6 > a.link {
+	color: #475365; /* Dark blue */
+	font-family: inherit;
+}
+
+h1 > a:hover.link, h2 > a:hover.link, h3 > a:hover.link, h4 > a:hover.link, h5 > a:hover.link, h6 > a:hover.link {
+	color: #475365; /* Dark blue */
+	font-family: inherit;
+}
+
+a {
+	color: #64748B; /* Blue */
+}
+
+a:hover a:focus {
+	color: #8CA9C4; /* Light blue */
+}
+
+div.paragraph p {
+	text-align: justify;
+}
+
+/* front matter */
+div.text-center p {
+	text-align: center;
+}
+
+span.titleLead {
+	text-align: center;
+	font-size: 2em;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+h1.titleLead {
+	color: black;
+	font-size: 2em;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: 400;
+}
+
+span.titleTCA {
+	text-align: center;
+	font-size: 3em;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+/* figure caption styles */
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{
+	font-family:inherit;
+	font-style: normal;
+	text-align: center;
+	color: #707173; /* Dark gray */
+	caption-side: bottom;
+}
+
+/* Use this to get a bibliography without marker
+.bibliography ul {
+  margin-left: 0em;
+}
+
+.bibliography li {
+  list-style: none;
+  list-style-type: none;
+} */
+
+/* Use this to get a list with hyphens as marker */
+/*
+.hyphenList > ul > li::marker {
+  content: "-";
+}
+
+.hyphenList ul > li > p {
+  margin-left: 0.5em;
+}
+*/
+ 
+/* Use this to get a list with 1), 2), 3) counting elements */
+/*
+.customBracketDecimal ol > li > p {
+  margin-left: 0.5em;
+}
+
+.customBracketDecimal > ol > li {
+  counter-increment: ol-custom-counter;
+}
+
+.customBracketDecimal > ol > li::marker {
+  content: counter(ol-custom-counter) ")";
+}
+*/
+
+/* Fix: image falls out of table */
+td.tableblock > .content > .tableImageFix:last-child:last-child {
+	margin-bottom: 0em;
+}
+
+/* table style */
+table.TCATableStyle th {
+	border-color: #000000;
+	background: #000000;
+}
+
+table.TCATableStyle td {
+	border-color: #000000;
+}
+
+table.TCATableStyle {
+	border-color: #000000;
+}
+
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{
+	background:#C0C0C0;
+}
