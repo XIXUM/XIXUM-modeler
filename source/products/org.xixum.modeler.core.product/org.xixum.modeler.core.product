@@ -46,19 +46,19 @@ plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425
       location="org.xixum.modeler.core.application"
       startupProgressRect="0,328,458,18"
       startupMessageRect="7,308,458,18"
-      startupForegroundColor="000000" />
+      startupForegroundColor="FFFFFF" />
    <launcher name="XIXUM Modeler">
       <linux icon="/org.xixum.modeler.core.product/icons/xixum_favicon_256p.xpm"/>
       <macosx icon="/org.xixum.modeler.core.product/icons/xixum_favicon_256p.icns"/>
       <win useIco="false">
          <bmp
-            winSmallHigh="/org.xixum.modeler.core.product/icons/xixum_favicon_16px_32bit.bmp"
-            winSmallLow="/org.xixum.modeler.core.product/icons/xixum_favicon_16px_8bit.bmp"
-            winMediumHigh="/org.xixum.modeler.core.product/icons/xixum_favicon_32px_32bit.bmp"
-            winMediumLow="/org.xixum.modeler.core.product/icons/xixum_favicon_32px_8bit.bmp"
-            winLargeHigh="/org.xixum.modeler.core.product/icons/xixum_favicon_48px_32bit.bmp"
-            winLargeLow="/org.xixum.modeler.core.product/icons/xixum_favicon_48px_8bit.bmp"
-            winExtraLargeHigh="/org.xixum.modeler.core.product/icons/xixum_favicon_256px_32bit.bmp"/>
+            winSmallHigh="/org.xixum.modeler.core.product/icons/favicon_xixum_16_32bit.bmp"
+            winSmallLow="/org.xixum.modeler.core.product/icons/favicon_xixum_16_8bit.bmp"
+            winMediumHigh="/org.xixum.modeler.core.product/icons/favicon_xixum_32_32bit.bmp"
+            winMediumLow="/org.xixum.modeler.core.product/icons/favicon_xixum_32_8bit.bmp"
+            winLargeHigh="/org.xixum.modeler.core.product/icons/favicon_xixum_48_32bit.bmp"
+            winLargeLow="/org.xixum.modeler.core.product/icons/favicon_xixum_48_8bit.bmp"
+            winExtraLargeHigh="/org.xixum.modeler.core.product/icons/favicon_xixum_256_32bit.bmp"/>
       </win>
    </launcher>
 
@@ -67,6 +67,7 @@ plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425
    <vm>
       <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</windows>
    </vm>
+
 
    <plugins>
       <plugin id="bcpg"/>
@@ -86,66 +87,6 @@ plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425
       <plugin id="com.sun.istack.commons-runtime"/>
       <plugin id="com.sun.jna"/>
       <plugin id="com.sun.jna.platform"/>
-      <plugin id="org.xixum.modeler.core.documentation"/>
-      <plugin id="org.xixum.modeler.core.editor"/>
-      <plugin id="org.xixum.modeler.core.info"/>
-      <plugin id="org.xixum.modeler.core.application"/>
-      <plugin id="org.xixum.modeler.core.preferences.ui"/>
-      <plugin id="org.xixum.modeler.core"/>
-      <plugin id="org.xixum.modeler.core.crg.defaults"/>
-      <plugin id="org.xixum.modeler.core.docgen"/>
-      <plugin id="org.xixum.modeler.core.docgen.asciidoc.sfm.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.asciidoc.tcer.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.asciidoc.tqp.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.asciidoc.tqr.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.crg"/>
-      <plugin id="org.xixum.modeler.core.docgen.excel.protrac"/>
-      <plugin id="org.xixum.modeler.core.docgen.excel.protrac.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.tcr"/>
-      <plugin id="org.xixum.modeler.core.docgen.tcr.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.tqp"/>
-      <plugin id="org.xixum.modeler.core.docgen.tqp.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.tqr"/>
-      <plugin id="org.xixum.modeler.core.docgen.tqr.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.tsm"/>
-      <plugin id="org.xixum.modeler.core.docgen.tsm.core.launch"/>
-      <plugin id="org.xixum.modeler.core.docgen.tsm.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.tsm.ui.launch"/>
-      <plugin id="org.xixum.modeler.core.docgen.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.word"/>
-      <plugin id="org.xixum.modeler.core.docgen.word.crg.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.word.resources"/>
-      <plugin id="org.xixum.modeler.core.docgen.word.sfm"/>
-      <plugin id="org.xixum.modeler.core.docgen.word.sfm.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.word.tcer"/>
-      <plugin id="org.xixum.modeler.core.docgen.word.tcer.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.word.tqp"/>
-      <plugin id="org.xixum.modeler.core.docgen.word.tqp.ui"/>
-      <plugin id="org.xixum.modeler.core.docgen.word.tqr"/>
-      <plugin id="org.xixum.modeler.core.docgen.word.tqr.ui"/>
-      <plugin id="org.xixum.modeler.core.mmanip"/>
-      <plugin id="org.xixum.modeler.core.mmanip.ui"/>
-      <plugin id="org.xixum.modeler.core.model"/>
-      <plugin id="org.xixum.modeler.core.model.design"/>
-      <plugin id="org.xixum.modeler.core.model.edit"/>
-      <plugin id="org.xixum.modeler.core.model.roles"/>
-      <plugin id="org.xixum.modeler.core.model.roles.edit"/>
-      <plugin id="org.xixum.modeler.core.model.roles.editor"/>
-      <plugin id="org.xixum.modeler.core.model.roles.generator"/>
-      <plugin id="org.xixum.modeler.core.model.roles.help"/>
-      <plugin id="org.xixum.modeler.core.preferences"/>
-      <plugin id="org.xixum.modeler.core.python"/>
-      <plugin id="org.xixum.modeler.core.spelling.dsl"/>
-      <plugin id="org.xixum.modeler.core.spelling.dsl.edit"/>
-      <plugin id="org.xixum.modeler.core.spelling.dsl.ide"/>
-      <plugin id="org.xixum.modeler.core.spelling.dsl.ui"/>
-      <plugin id="org.xixum.modeler.core.ui"/>
-      <plugin id="org.xixum.modeler.core.ui.qp"/>
-      <plugin id="org.xixum.modeler.core.vnv.core"/>
-      <plugin id="org.xixum.modeler.core.vnv.defaults"/>
-      <plugin id="org.xixum.modeler.core.vnv.ui"/>
-      <plugin id="org.xixum.modeler.core.workspace.core"/>
-      <plugin id="org.xixum.modeler.core.workspace.ui"/>
       <plugin id="jakarta.activation-api"/>
       <plugin id="jakarta.xml.bind-api"/>
       <plugin id="javax.inject"/>
@@ -535,17 +476,77 @@ plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425
       <plugin id="org.w3c.dom.events"/>
       <plugin id="org.w3c.dom.smil"/>
       <plugin id="org.w3c.dom.svg"/>
+      <plugin id="org.xixum.modeler.core"/>
+      <plugin id="org.xixum.modeler.core.application"/>
+      <plugin id="org.xixum.modeler.core.crg.defaults"/>
+      <plugin id="org.xixum.modeler.core.docgen"/>
+      <plugin id="org.xixum.modeler.core.docgen.asciidoc.sfm.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.asciidoc.tcer.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.asciidoc.tqp.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.asciidoc.tqr.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.crg"/>
+      <plugin id="org.xixum.modeler.core.docgen.excel.protrac"/>
+      <plugin id="org.xixum.modeler.core.docgen.excel.protrac.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.tcr"/>
+      <plugin id="org.xixum.modeler.core.docgen.tcr.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.tqp"/>
+      <plugin id="org.xixum.modeler.core.docgen.tqp.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.tqr"/>
+      <plugin id="org.xixum.modeler.core.docgen.tqr.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.tsm"/>
+      <plugin id="org.xixum.modeler.core.docgen.tsm.core.launch"/>
+      <plugin id="org.xixum.modeler.core.docgen.tsm.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.tsm.ui.launch"/>
+      <plugin id="org.xixum.modeler.core.docgen.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.word"/>
+      <plugin id="org.xixum.modeler.core.docgen.word.crg.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.word.resources"/>
+      <plugin id="org.xixum.modeler.core.docgen.word.sfm"/>
+      <plugin id="org.xixum.modeler.core.docgen.word.sfm.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.word.tcer"/>
+      <plugin id="org.xixum.modeler.core.docgen.word.tcer.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.word.tqp"/>
+      <plugin id="org.xixum.modeler.core.docgen.word.tqp.ui"/>
+      <plugin id="org.xixum.modeler.core.docgen.word.tqr"/>
+      <plugin id="org.xixum.modeler.core.docgen.word.tqr.ui"/>
+      <plugin id="org.xixum.modeler.core.documentation"/>
+      <plugin id="org.xixum.modeler.core.editor"/>
+      <plugin id="org.xixum.modeler.core.info"/>
+      <plugin id="org.xixum.modeler.core.mmanip"/>
+      <plugin id="org.xixum.modeler.core.mmanip.ui"/>
+      <plugin id="org.xixum.modeler.core.model"/>
+      <plugin id="org.xixum.modeler.core.model.design"/>
+      <plugin id="org.xixum.modeler.core.model.edit"/>
+      <plugin id="org.xixum.modeler.core.model.roles"/>
+      <plugin id="org.xixum.modeler.core.model.roles.edit"/>
+      <plugin id="org.xixum.modeler.core.model.roles.editor"/>
+      <plugin id="org.xixum.modeler.core.model.roles.generator"/>
+      <plugin id="org.xixum.modeler.core.model.roles.help"/>
+      <plugin id="org.xixum.modeler.core.preferences"/>
+      <plugin id="org.xixum.modeler.core.preferences.ui"/>
+      <plugin id="org.xixum.modeler.core.python"/>
+      <plugin id="org.xixum.modeler.core.spelling.dsl"/>
+      <plugin id="org.xixum.modeler.core.spelling.dsl.edit"/>
+      <plugin id="org.xixum.modeler.core.spelling.dsl.ide"/>
+      <plugin id="org.xixum.modeler.core.spelling.dsl.ui"/>
+      <plugin id="org.xixum.modeler.core.ui"/>
+      <plugin id="org.xixum.modeler.core.ui.qp"/>
+      <plugin id="org.xixum.modeler.core.vnv.core"/>
+      <plugin id="org.xixum.modeler.core.vnv.defaults"/>
+      <plugin id="org.xixum.modeler.core.vnv.ui"/>
+      <plugin id="org.xixum.modeler.core.workspace.core"/>
+      <plugin id="org.xixum.modeler.core.workspace.ui"/>
       <plugin id="slf4j.api"/>
    </plugins>
 
    <configurations>
-      <plugin id="org.xixum.modeler.core.application" autoStart="true" startLevel="1" />
       <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.osgi" autoStart="true" startLevel="1" />
+      <plugin id="org.xixum.modeler.core.application" autoStart="true" startLevel="1" />
    </configurations>
 
    <preferencesInfo>
