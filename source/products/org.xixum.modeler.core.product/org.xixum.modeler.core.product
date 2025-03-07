@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="XIXUM Modeler" uid="org.xixum.modeler.core" id="org.xixum.modeler.core.application.product" application="org.eclipse.ui.ide.workbench" version="2.0.0.qualifier" type="bundles" includeLaunchers="true" autoIncludeRequirements="true">
+<product name="XIXUM Modeler" uid="org.xixum.modeler.core" id="org.xixum.modeler.core.application.product" application="org.eclipse.ui.ide.workbench" version="0.0.1.qualifier" type="bundles" includeLaunchers="true" includeJRE="true" autoIncludeRequirements="true">
 
    <aboutInfo>
       <image path="/org.xixum.modeler.core.application/icons/about.gif"/>
