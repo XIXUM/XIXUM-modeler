@@ -84,11 +84,11 @@
 
   <extension point="org.eclipse.core.runtime.products" id="org.xixum.modeler.core.application.product">
     <product name="XIXUM Modeler" application="org.eclipse.ui.ide.workbench">
-      <property name="windowImages" value="icons/png/xixum_favicon_16px_8bit.png,icons/png/xixum_favicon_16px_32bit.png,icons/png/xixum_favicon_32px_8bit.png,icons/png/xixum_favicon_32px_32bit.png,icons/png/xixum_favicon_48px_8bit.png,icons/png/xixum_favicon_48px_32bit.png,icons/png/xixum_favicon_64px_32bit.png,icons/png/xixum_favicon_128px_32bit.png,icons/png/xixum_favicon_256px_32bit.png"/>
+      <property name="windowImages" value="icons/logo_16.png,icons/logo_32.png,icons/logo_48.png,icons/logo_64.png,icons/logo_128.png,icons/logo_256.png"/>
       <property name="appName" value="XIXUM Modeler"/>
-      <property name="aboutImage" value="icons/gif/about.gif"/>
-      <property name="aboutText" value="Modeler&#x0A;&#x0A;Version 2.0.1&#x0A;&#x0A;&#x0A;Copyright XIXUM.ORG, Eclipse contributors and others 2000, 2025.  All rights reserved.&#x0A;XIXUM.ORG, Modeler, the XIXUM logo, the Modoer logo and splashscreen are trademarks of XIXUM.ORG. The XIXUM logo and Modeler logo and splashscreen cannot be altered without XIXUM's permission. XIXUM and Modeler logos are provided for use under the XIXUM logo and trademark guidelines.&#x0A;Eclipse and the Eclipse logo are trademarks of the Eclipse Foundation, Inc., https://www.eclipse.org/. The Eclipse logo cannot be altered without Eclipse's permission. Eclipse logos are provided for use under the Eclipse logo and trademark guidelines, https://www.eclipse.org/logotm/. Oracle and Java are trademarks or registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.&#x0A;&#x0A;Visit https://www.xixum.org/"/>
-      <property name="startupForegroundColor" value="000000"/>
+      <property name="aboutImage" value="icons/about.gif"/>
+      <property name="aboutText" value="Modeler&#x0A;&#x0A;Version 0.0.1&#x0A;&#x0A;&#x0A;Copyright XIXUM.ORG, Eclipse contributors and others 2000, 2025.  All rights reserved.&#x0A;XIXUM.ORG, Modeler, the XIXUM logo, the Modoer logo and splashscreen are trademarks of XIXUM.ORG. The XIXUM logo and Modeler logo and splashscreen cannot be altered without XIXUM's permission. XIXUM and Modeler logos are provided for use under the XIXUM logo and trademark guidelines.&#x0A;Eclipse and the Eclipse logo are trademarks of the Eclipse Foundation, Inc., https://www.eclipse.org/. The Eclipse logo cannot be altered without Eclipse's permission. Eclipse logos are provided for use under the Eclipse logo and trademark guidelines, https://www.eclipse.org/logotm/. Oracle and Java are trademarks or registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of their respective owners.&#x0A;&#x0A;Visit https://www.xixum.org/"/>
+      <property name="startupForegroundColor" value="FFFFFF"/>
       <property name="startupMessageRect" value="7,308,458,18"/>
       <property name="startupProgressRect" value="0,328,458,18"/>
       <property name="preferenceCustomization" value="plugin_customization.ini"/>
