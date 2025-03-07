@@ -4,7 +4,7 @@
   <extension point="org.eclipse.ui.intro" id="org.xixum.modeler.core.application.intro" name="Modeler Community">
     <introProductBinding introId="org.xixum.modeler.core.application.intro" productId="org.xixum.modeler.core.application.product" />
     <intro class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-    	   icon="icons/png/xixum_favicon_16px_32bit.png"
+    	   icon="icons/logo_16.png"
            id="org.xixum.modeler.core.application.intro">
     </intro>
   </extension>
