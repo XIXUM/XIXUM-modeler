@@ -2,6 +2,7 @@ module org.xixum.latex.GenerateTexDsl
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
+import org.apache.commons.logging.LogFactory
 
 var rootPath = ".."
 

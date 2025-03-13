@@ -7,6 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
+		<lifecycle-mapping-artifactId>lifecycle-mapping</lifecycle-mapping-artifactId>
 		<xtextVersion>2.36.0</xtextVersion>
 		<mwe2Version>2.19.0</mwe2Version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

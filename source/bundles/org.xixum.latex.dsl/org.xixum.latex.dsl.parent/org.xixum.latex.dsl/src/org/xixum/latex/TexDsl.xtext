@@ -6,26 +6,26 @@ Model:
 	document+=Document;
 
 Document: 
-	elements += (Token | Command );	
+	elements += (Token | Command )+ | {Document} END;	
 
 Token:
-	token += ALPHA_NUMERIC
+	token = ALPHA_NUMERIC
 ;
 
 ID_Token:
-	token += ALPHA_NUMERIC+ (SYMBOLS+ ALPHA_NUMERIC+)*
+	ID | ALPHA_NUMERIC
 ;
 
 CommandName hidden():
-	leading=BS cName+=ALPHA+
+	leading=BS cName+=ALPHA_NUMERIC
 ;
 
 Command:
-	command=CommandName (SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)? (CUBO type=Token CUBC)
+	command=CommandName (SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)? (CUBO types+=ID_Token+ CUBC)?
 ;
 
 Attributes:
-	key=Token ( EQ (value=ID_Token | (CUBO multiValue+=ID_Token+ CUBC)))
+	key=Token ( EQ (value=ID_Token | (CUBO multiValue+=ID_Token+ CUBC)))?
 ;
 
 	
@@ -38,9 +38,18 @@ terminal BS:
 	'\\'
 ;
 
+terminal SYMBOLS:
+	SYMBOL+
+;
 
 terminal ALPHA_NUMERIC:
-	ALPHA ( ALPHA | NUMERIC )*
+	ALPHA+ ( NUMERIC+ ALPHA+ )* NUMERIC*
+;
+
+@Override 
+terminal ID:
+	//ALPHA_NUMERIC ( SYMBOLS ALPHA_NUMERIC )* SYMBOLS?
+	(ALPHA | SYMBOL) (ALPHA |SYMBOL | NUMERIC)*
 ;
 
 terminal ALPHA:
@@ -90,9 +99,11 @@ terminal EQ:
 	'='
 ;
 
-terminal SYMBOLS:
-	'-' | '_' 
+terminal SYMBOL:
+	'-' | '_' | '+' | '#' | '~'
 ;
 
+terminal END:
+	EOF;
 
 	
