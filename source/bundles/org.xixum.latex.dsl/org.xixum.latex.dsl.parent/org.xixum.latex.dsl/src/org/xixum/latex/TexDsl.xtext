@@ -17,7 +17,7 @@ ID_Token:
 ;
 
 CommandName hidden():
-	leading=BS cName+=ALPHA_NUMERIC
+	leading=BS cName=ALPHA_NUMERIC
 ;
 
 Command:

@@ -4,8 +4,22 @@
 package org.xixum.latex.ui.labeling;
 
 import com.google.inject.Inject;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.swt.custom.StyledText;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.xixum.latex.texDsl.Attributes;
+import org.xixum.latex.texDsl.Command;
+import org.xixum.latex.texDsl.CommandName;
+import org.xixum.latex.texDsl.Token;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.xixum.latex.ui.constants.StylingConstants.*;
 
 /**
  * Provides labels for EObjects.
@@ -18,14 +32,181 @@ public class TexDslLabelProvider extends DefaultEObjectLabelProvider {
 	public TexDslLabelProvider(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
-
-	// Labels and icons can be computed like this:
 	
-//	String text(Greeting ele) {
-//		return "A greeting to " + ele.getName();
-//	}
-//
-//	String image(Greeting ele) {
-//		return "Greeting.gif";
-//	}
+	@Override
+	public Object doGetText(Object element) {
+		return text(element);
+	}
+
+	@Override
+	public Object text(Object element) {
+		if (!(element instanceof EObject)) {
+			return null;
+		}
+		var styledText = new StyledString(((EObject)element).eClass().getName());
+		styledText.append(": ");
+		// Java21 switch statement
+		switch (element) {
+			case Command c -> {
+				var commandName = c.getCommand();
+				styledText.append(commandName.getLeading());
+				styledText.append(new StyledString(commandName.getCName().get(0), BOLD_LIGHT_RED));
+				
+				if (!c.getAttributes().isEmpty()) {
+					var content = new StyledString(String.join(", ", styleAttributes(c.getAttributes())), ITALIC_BLACK);
+					styledText.append("[");
+					styledText.append(content);
+					styledText.append("]");
+				}
+				
+				if (!c.getTypes().isEmpty()) {
+					styledText.append(" {");
+					styledText.append(new StyledString(String.join(", ", c.getTypes()), ITALIC_BLACK));
+					styledText.append("}");
+				}
+				
+            }
+			default -> {
+				styledText.append(((EObject)element).eClass().getName());
+			}
+		
+		}
+		
+		return styledText;
+		
+//		((Command) element).getAttributes().forEach(attr -> {
+//      styledText.append(" ");
+//      styledText.append(attr.getLeading());
+//      styledText.append(new StyledString(param.getCName().get(0), BOLD_LIGHT_BLUE));
+//  });
+		
+//			IgnoredText | UrlAdress | MailAdress : {
+//				var labelFeature = getLabelFeature(element.eClass());
+//				if (labelFeature != null) {
+//					
+//					return styledText.append(convertToStyledString(element.eGet(labelFeature))?:convertToStyledString(""));
+//				}
+//			}
+//			Word:{
+//				
+//				var String word = IterableExtensions.join(element.word, "");
+//				return styledText.append(word);
+//			}
+//			ItWord : {
+//				var String word = IterableExtensions.join(element.word, "");
+//				return styledText.append(word);
+//			}
+//			Symbols: {
+//			 	styledText.append(element.symbol)
+//			}
+//			EString: {
+//				styledText.append(IterableExtensions.join(element.word, ""))
+//			}
+//			Unit: {	
+//				var String value = IterableExtensions.join(element.value, "");
+//				styledText.append(value);
+//				if (!element.unit?.empty)
+//					styledText.append(" | ")
+//					styledText.append(element.unit ?: String.join(" ", element.value))
+//			}
+////			ShortCut: {
+////				element.shortcut
+////			}
+//			Elements: {
+//				var labelFeature = getLabelFeature(element.eClass());
+//				if (labelFeature !== null) {
+//					var styledS = convertToStyledString(element.eGet(labelFeature))
+//					return styledText.append(if (styledS !== null) styledS.toString else "");
+//				}
+//			}
+//			default: element.eClass.name
+//		}
+	}
+	
+	@Override
+	public org.eclipse.jface.viewers.StyledString getStyledText(Object element) {
+		return (org.eclipse.jface.viewers.StyledString) new org.eclipse.jface.viewers.StyledString(unast(element));
+	}
+
+	//TODO: redundant to text method except style
+	private String unast(Object element) {
+		if (!(element instanceof EObject)) {
+			return null;
+		}
+		var sb = new StringBuilder(((EObject)element).eClass().getName());
+		sb.append(": ");
+		// Java21 switch statement
+		switch (element) {
+			case Command c -> {
+				var commandName = c.getCommand();
+				sb.append(commandName.getLeading());
+				sb.append(commandName.getCName().get(0));
+				
+				if (!c.getAttributes().isEmpty()) {
+					var content = String.join(", ", styleAttributes(c.getAttributes()));
+					sb.append("[");
+					sb.append(content);
+					sb.append("]");
+				}
+				
+				if (!c.getTypes().isEmpty()) {
+					sb.append(" {");
+					sb.append(String.join(", ", c.getTypes()));
+					sb.append("}");
+				}
+				
+            }
+			case CommandName c -> {
+				sb.append(c.getLeading());
+				sb.append(c.getCName().get(0));
+			}
+			case Attributes a -> {
+				sb.append(a.getKey().getToken());
+				boolean hasValue = a.getValue() != null;
+				boolean hasMultiValue = !a.getMultiValue().isEmpty();
+				if (hasValue || hasMultiValue) {
+					sb.append("=");
+					if (hasMultiValue) {
+						sb.append(styleMultiValue(a.getMultiValue()));
+					} else {
+						sb.append(a.getValue());
+					}
+				}
+			}
+			case Token t -> {
+				sb.append(t.getToken());
+			}
+			
+			default -> {
+				sb.append(((EObject)element).eClass().getName());
+			}
+		
+		}
+		
+		return sb.toString();
+	}
+
+	private List<String> styleAttributes(EList<Attributes> attributes) {
+		var result = new ArrayList<String>();
+		
+		attributes.forEach(element -> {
+			var value = 
+					element.getValue()!=null && element.getMultiValue().isEmpty() 
+						? element.getValue() 
+						: styleMultiValue(element.getMultiValue());
+			if (value.isEmpty()) {
+				result.add(element.getKey().getToken());
+            } else 
+            	result.add(String.join("=", element.getKey().getToken(), value));
+		});
+		return result;
+	}
+
+	private String styleMultiValue(EList<String> multiValue) {
+		var elements = String.join(", ", multiValue);		
+		if (elements.isEmpty()) {
+			return "";
+		}
+	    return "{" + elements + "}";
+	}
 }
