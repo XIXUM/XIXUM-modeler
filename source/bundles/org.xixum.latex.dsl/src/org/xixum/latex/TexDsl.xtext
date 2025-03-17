@@ -1,0 +1,118 @@
+grammar org.xixum.latex.TexDsl with org.eclipse.xtext.common.Terminals
+
+generate texDsl "http://www.xixum.org/latex/TexDsl"
+
+Model:
+	document+=Document;
+
+Document: 
+	elements += (Token | Command )+ | {Document} END;	
+
+Token:
+	token = ALPHA_NUMERIC
+;
+
+ID_Token:
+	ID | ALPHA_NUMERIC
+;
+
+CommandName hidden():
+	leading=BS cName=ALPHA_NUMERIC
+;
+
+Command:
+	command=CommandName (SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)? (CUBO types+=ID_Token+ CUBC)?
+;
+
+Attributes:
+	key=ID_Token ( EQ (value=ID_Token | (CUBO multiValue+=ID_Token+ CUBC)))?
+;
+
+	
+@Override 
+terminal ML_COMMENT : '/*' -> '*/';
+@Override 
+terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
+
+terminal BS:
+	'\\'
+;
+
+terminal SYMBOLS:
+	SYMBOL+
+;
+
+terminal ALPHA_NUMERIC:
+	ALPHA+ ( NUMERIC+ ALPHA+ )* NUMERIC*
+;
+
+@Override 
+terminal ID:
+	//ALPHA_NUMERIC ( SYMBOLS ALPHA_NUMERIC )* SYMBOLS?
+	(ALPHA | SYMBOL ) (ALPHA |SYMBOL | NUMERIC | DOT | AND)*
+;
+
+terminal ALPHA:
+	ALPHAC | ALPHAS
+;
+
+terminal ALPHAC:
+	'A'..'Z'| 'Ä'..'Ü' | 'À'..'Ù' | 'Á'..'Ú'
+;
+
+terminal ALPHAS:
+	'a'..'z' | 'ä'..'ü' | 'ß' | 'à'..'ù' | 'á'..'ú';
+
+terminal NUMERIC:
+	'0'..'9'
+;
+
+terminal SQBO:
+	'['
+;
+
+terminal SQBC:
+	']'
+;
+
+terminal BO:
+	'('
+;
+
+terminal BC:
+	')'
+;
+
+terminal CUBO:
+	'{'
+;
+
+terminal CUBC:
+	'}'
+;
+
+terminal KOMMA:
+	','
+;
+
+terminal EQ:
+	'='
+;
+
+terminal DOT:
+	'.'
+;
+
+terminal AND:
+	'&'
+;
+
+
+terminal SYMBOL:
+	'-' | '_' | '+' | '#' | '~'
+;
+
+terminal END:
+	EOF;
+
+	
