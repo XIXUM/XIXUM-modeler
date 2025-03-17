@@ -4,3 +4,6 @@
 target/
 workspace/
 runtime-org.xixum.modeler.core.product/
+*.class
+bin/
+*._trace
