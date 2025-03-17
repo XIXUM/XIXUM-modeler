@@ -1,4 +1,4 @@
-grammar org.xixum.latex.TexDsl  hidden(WS, ML_COMMENT, SL_COMMENT)
+grammar org.xixum.latex.TexDsl  hidden(WS, SL_COMMENT)
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
@@ -18,28 +18,44 @@ ID_Token:
 	ID | ALPHA_NUMERIC
 ;
 
-ID_WS:
-	BS? (ID | ALPHA_NUMERIC | BO | BC ) (SPACE (ID | ALPHA_NUMERIC | BO | BC ))*	
-;
+//ID_WS:
+//	BS? (ID | ALPHA_NUMERIC | BO | BC ) (SPACE (ID | ALPHA_NUMERIC | BO | BC ))*	
+//;
 
 SubCommName:
-	id=ID_WS subCommand=SubCommand?
+	command=ID_Token subParams=SubParams?
 ;
 
-CommandName hidden():
-	leading=BS cName=ALPHA_NUMERIC
+SubParams:
+	(CUBO params+=Compound (KOMMA params+=Compound)* CUBC)
 ;
 
-SubCommand hidden():
-	(CUBO types+=SubCommName (PIPE types+=SubCommName)* CUBC)
+//CommandName hidden():
+//	leading=BS cName=ALPHA_NUMERIC
+//;
+
+Multi:
+	Compound | SubCommName
 ;
+
+SubCommand:
+	(CUBO types+=Multi (PIPE types+=Multi)* CUBC)
+;
+
+Compound:
+	tokens+=Token+ 
+;
+
+//MultiName:
+//	tokens+=ID_Token+	
+//;
 
 CommandParameters:
-	(SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)
+	(SQBO compounds+=Attributes (KOMMA? compounds+=Attributes)* SQBC)
 ;
 
 Command:
-	command=CommandName parameters=CommandParameters? subCommand=SubCommand?
+	command=ID parameters=CommandParameters? subCommand=SubCommand?
 ;
 
 Attributes:
@@ -47,8 +63,8 @@ Attributes:
 ;
 
 	
-//@Override 
-terminal ML_COMMENT : '/*' -> '*/';
+////@Override 
+//terminal ML_COMMENT : '/*' -> '*/';
 //@Override 
 terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
 
@@ -67,11 +83,11 @@ terminal ALPHA_NUMERIC:
 //@Override 
 terminal ID:
 	//ALPHA_NUMERIC ( SYMBOLS ALPHA_NUMERIC )* SYMBOLS?
-	(ALPHA | SYMBOL ) (ALPHA |SYMBOL | NUMERIC | DOT | AND)*
+	BS? (ALPHA | SYMBOL ) (ALPHA |SYMBOL | NUMERIC | DOT | AND)*
 ;
 
 terminal ALPHA:
-	ALPHAC | ALPHAS
+	ALPHAC | ALPHAS | D_QUOTE | S_QUOTE
 ;
 
 terminal ALPHAC:
@@ -135,6 +151,14 @@ terminal SPACE:
 
 terminal SYMBOL:
 	'-' | '_' | '+' | '#' | '~'
+;
+
+terminal D_QUOTE:
+	'"'
+;
+
+terminal S_QUOTE:
+	"'"
 ;
 
 terminal END:
