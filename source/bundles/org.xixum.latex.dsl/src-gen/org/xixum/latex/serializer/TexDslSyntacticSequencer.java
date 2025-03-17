@@ -10,6 +10,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xixum.latex.services.TexDslGrammarAccess;
@@ -18,10 +21,12 @@ import org.xixum.latex.services.TexDslGrammarAccess;
 public class TexDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected TexDslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Command_EXCLTerminalRuleCall_2_2_0_1_or_PIPETerminalRuleCall_2_2_0_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (TexDslGrammarAccess) access;
+		match_Command_EXCLTerminalRuleCall_2_2_0_1_or_PIPETerminalRuleCall_2_2_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getCommandAccess().getEXCLTerminalRuleCall_2_2_0_1()), new TokenAlias(false, false, grammarAccess.getCommandAccess().getPIPETerminalRuleCall_2_2_0_0()));
 	}
 	
 	@Override
@@ -34,6 +39,8 @@ public class TexDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getENDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getEQRule())
 			return getEQToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getEXCLRule())
+			return getEXCLToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getKOMMARule())
 			return getKOMMAToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getPIPERule())
@@ -89,6 +96,17 @@ public class TexDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * terminal EXCL:
+	 * 	'!'
+	 * ;
+	 */
+	protected String getEXCLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "!";
+	}
+	
+	/**
 	 * terminal KOMMA:
 	 * 	','
 	 * ;
@@ -138,8 +156,24 @@ public class TexDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_Command_EXCLTerminalRuleCall_2_2_0_1_or_PIPETerminalRuleCall_2_2_0_0.equals(syntax))
+				emit_Command_EXCLTerminalRuleCall_2_2_0_1_or_PIPETerminalRuleCall_2_2_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     PIPE | EXCL
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     tokens+=Compound (ambiguity) tokens+=Compound
+	 
+	 * </pre>
+	 */
+	protected void emit_Command_EXCLTerminalRuleCall_2_2_0_1_or_PIPETerminalRuleCall_2_2_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

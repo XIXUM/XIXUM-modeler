@@ -9,35 +9,30 @@
     <genClasses ecoreClass="TexDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Model/document"/>
     </genClasses>
-    <genClasses ecoreClass="TexDsl.ecore#//Document">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Document/elements"/>
-    </genClasses>
-    <genClasses ecoreClass="TexDsl.ecore#//Token">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Token/token"/>
-    </genClasses>
-    <genClasses ecoreClass="TexDsl.ecore#//SubCommName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//SubCommName/id"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//SubCommName/subCommand"/>
-    </genClasses>
-    <genClasses ecoreClass="TexDsl.ecore#//CommandName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//CommandName/leading"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//CommandName/cName"/>
-    </genClasses>
-    <genClasses ecoreClass="TexDsl.ecore#//SubCommand">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//SubCommand/types"/>
-    </genClasses>
-    <genClasses ecoreClass="TexDsl.ecore#//CommandParameters">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//CommandParameters/attributes"/>
+    <genClasses ecoreClass="TexDsl.ecore#//Document"/>
+    <genClasses ecoreClass="TexDsl.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Text/token"/>
     </genClasses>
     <genClasses ecoreClass="TexDsl.ecore#//Command">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/command"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/parameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/subCommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Command/command"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/attrs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/tokens"/>
+    </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//Multi">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Multi/tokens"/>
+    </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//CommandExt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//CommandExt/command"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//CommandExt/tokens"/>
+    </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//Compound"/>
+    <genClasses ecoreClass="TexDsl.ecore#//Extras">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Extras/tokens"/>
     </genClasses>
     <genClasses ecoreClass="TexDsl.ecore#//Attributes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Attributes/key"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Attributes/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Attributes/multiValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Attributes/multi"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Attributes/single"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

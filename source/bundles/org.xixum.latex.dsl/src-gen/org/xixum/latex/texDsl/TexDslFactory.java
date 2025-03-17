@@ -42,49 +42,13 @@ public interface TexDslFactory extends EFactory
   Document createDocument();
 
   /**
-   * Returns a new object of class '<em>Token</em>'.
+   * Returns a new object of class '<em>Text</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Token</em>'.
+   * @return a new object of class '<em>Text</em>'.
    * @generated
    */
-  Token createToken();
-
-  /**
-   * Returns a new object of class '<em>Sub Comm Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sub Comm Name</em>'.
-   * @generated
-   */
-  SubCommName createSubCommName();
-
-  /**
-   * Returns a new object of class '<em>Command Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Command Name</em>'.
-   * @generated
-   */
-  CommandName createCommandName();
-
-  /**
-   * Returns a new object of class '<em>Sub Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sub Command</em>'.
-   * @generated
-   */
-  SubCommand createSubCommand();
-
-  /**
-   * Returns a new object of class '<em>Command Parameters</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Command Parameters</em>'.
-   * @generated
-   */
-  CommandParameters createCommandParameters();
+  Text createText();
 
   /**
    * Returns a new object of class '<em>Command</em>'.
@@ -94,6 +58,42 @@ public interface TexDslFactory extends EFactory
    * @generated
    */
   Command createCommand();
+
+  /**
+   * Returns a new object of class '<em>Multi</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multi</em>'.
+   * @generated
+   */
+  Multi createMulti();
+
+  /**
+   * Returns a new object of class '<em>Command Ext</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Command Ext</em>'.
+   * @generated
+   */
+  CommandExt createCommandExt();
+
+  /**
+   * Returns a new object of class '<em>Compound</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Compound</em>'.
+   * @generated
+   */
+  Compound createCompound();
+
+  /**
+   * Returns a new object of class '<em>Extras</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Extras</em>'.
+   * @generated
+   */
+  Extras createExtras();
 
   /**
    * Returns a new object of class '<em>Attributes</em>'.

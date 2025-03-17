@@ -12,15 +12,15 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xixum.latex.texDsl.Attributes;
 import org.xixum.latex.texDsl.Command;
-import org.xixum.latex.texDsl.CommandName;
-import org.xixum.latex.texDsl.CommandParameters;
+import org.xixum.latex.texDsl.CommandExt;
+import org.xixum.latex.texDsl.Compound;
 import org.xixum.latex.texDsl.Document;
+import org.xixum.latex.texDsl.Extras;
 import org.xixum.latex.texDsl.Model;
-import org.xixum.latex.texDsl.SubCommName;
-import org.xixum.latex.texDsl.SubCommand;
+import org.xixum.latex.texDsl.Multi;
 import org.xixum.latex.texDsl.TexDslFactory;
 import org.xixum.latex.texDsl.TexDslPackage;
-import org.xixum.latex.texDsl.Token;
+import org.xixum.latex.texDsl.Text;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,35 +49,7 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass tokenEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass subCommNameEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass commandNameEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass subCommandEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass commandParametersEClass = null;
+  private EClass textEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,6 +57,34 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   private EClass commandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass multiEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass commandExtEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass compoundEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass extrasEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -194,9 +194,9 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EReference getDocument_Elements()
+  public EClass getText()
   {
-    return (EReference)documentEClass.getEStructuralFeatures().get(0);
+    return textEClass;
   }
 
   /**
@@ -205,130 +205,9 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EClass getToken()
+  public EAttribute getText_Token()
   {
-    return tokenEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getToken_Token()
-  {
-    return (EAttribute)tokenEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getSubCommName()
-  {
-    return subCommNameEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSubCommName_Id()
-  {
-    return (EAttribute)subCommNameEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getSubCommName_SubCommand()
-  {
-    return (EReference)subCommNameEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getCommandName()
-  {
-    return commandNameEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getCommandName_Leading()
-  {
-    return (EAttribute)commandNameEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getCommandName_CName()
-  {
-    return (EAttribute)commandNameEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getSubCommand()
-  {
-    return subCommandEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getSubCommand_Types()
-  {
-    return (EReference)subCommandEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getCommandParameters()
-  {
-    return commandParametersEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getCommandParameters_Attributes()
-  {
-    return (EReference)commandParametersEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)textEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -348,9 +227,9 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EReference getCommand_Command()
+  public EAttribute getCommand_Command()
   {
-    return (EReference)commandEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)commandEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -359,7 +238,7 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EReference getCommand_Parameters()
+  public EReference getCommand_Attrs()
   {
     return (EReference)commandEClass.getEStructuralFeatures().get(1);
   }
@@ -370,9 +249,97 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EReference getCommand_SubCommand()
+  public EReference getCommand_Tokens()
   {
     return (EReference)commandEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMulti()
+  {
+    return multiEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMulti_Tokens()
+  {
+    return (EAttribute)multiEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCommandExt()
+  {
+    return commandExtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCommandExt_Command()
+  {
+    return (EAttribute)commandExtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCommandExt_Tokens()
+  {
+    return (EReference)commandExtEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCompound()
+  {
+    return compoundEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExtras()
+  {
+    return extrasEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExtras_Tokens()
+  {
+    return (EAttribute)extrasEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -403,9 +370,9 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EAttribute getAttributes_Value()
+  public EReference getAttributes_Multi()
   {
-    return (EAttribute)attributesEClass.getEStructuralFeatures().get(1);
+    return (EReference)attributesEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -414,7 +381,7 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EAttribute getAttributes_MultiValue()
+  public EAttribute getAttributes_Single()
   {
     return (EAttribute)attributesEClass.getEStructuralFeatures().get(2);
   }
@@ -454,34 +421,31 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     createEReference(modelEClass, MODEL__DOCUMENT);
 
     documentEClass = createEClass(DOCUMENT);
-    createEReference(documentEClass, DOCUMENT__ELEMENTS);
 
-    tokenEClass = createEClass(TOKEN);
-    createEAttribute(tokenEClass, TOKEN__TOKEN);
-
-    subCommNameEClass = createEClass(SUB_COMM_NAME);
-    createEAttribute(subCommNameEClass, SUB_COMM_NAME__ID);
-    createEReference(subCommNameEClass, SUB_COMM_NAME__SUB_COMMAND);
-
-    commandNameEClass = createEClass(COMMAND_NAME);
-    createEAttribute(commandNameEClass, COMMAND_NAME__LEADING);
-    createEAttribute(commandNameEClass, COMMAND_NAME__CNAME);
-
-    subCommandEClass = createEClass(SUB_COMMAND);
-    createEReference(subCommandEClass, SUB_COMMAND__TYPES);
-
-    commandParametersEClass = createEClass(COMMAND_PARAMETERS);
-    createEReference(commandParametersEClass, COMMAND_PARAMETERS__ATTRIBUTES);
+    textEClass = createEClass(TEXT);
+    createEAttribute(textEClass, TEXT__TOKEN);
 
     commandEClass = createEClass(COMMAND);
-    createEReference(commandEClass, COMMAND__COMMAND);
-    createEReference(commandEClass, COMMAND__PARAMETERS);
-    createEReference(commandEClass, COMMAND__SUB_COMMAND);
+    createEAttribute(commandEClass, COMMAND__COMMAND);
+    createEReference(commandEClass, COMMAND__ATTRS);
+    createEReference(commandEClass, COMMAND__TOKENS);
+
+    multiEClass = createEClass(MULTI);
+    createEAttribute(multiEClass, MULTI__TOKENS);
+
+    commandExtEClass = createEClass(COMMAND_EXT);
+    createEAttribute(commandExtEClass, COMMAND_EXT__COMMAND);
+    createEReference(commandExtEClass, COMMAND_EXT__TOKENS);
+
+    compoundEClass = createEClass(COMPOUND);
+
+    extrasEClass = createEClass(EXTRAS);
+    createEAttribute(extrasEClass, EXTRAS__TOKENS);
 
     attributesEClass = createEClass(ATTRIBUTES);
     createEAttribute(attributesEClass, ATTRIBUTES__KEY);
-    createEAttribute(attributesEClass, ATTRIBUTES__VALUE);
-    createEAttribute(attributesEClass, ATTRIBUTES__MULTI_VALUE);
+    createEReference(attributesEClass, ATTRIBUTES__MULTI);
+    createEAttribute(attributesEClass, ATTRIBUTES__SINGLE);
   }
 
   /**
@@ -513,40 +477,42 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    textEClass.getESuperTypes().add(this.getDocument());
+    commandEClass.getESuperTypes().add(this.getDocument());
+    multiEClass.getESuperTypes().add(this.getCompound());
+    commandExtEClass.getESuperTypes().add(this.getCompound());
+    extrasEClass.getESuperTypes().add(this.getCompound());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Document(), this.getDocument(), null, "document", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDocument_Elements(), ecorePackage.getEObject(), null, "elements", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(tokenEClass, Token.class, "Token", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getToken_Token(), ecorePackage.getEString(), "token", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(subCommNameEClass, SubCommName.class, "SubCommName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSubCommName_Id(), ecorePackage.getEString(), "id", null, 0, 1, SubCommName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSubCommName_SubCommand(), this.getSubCommand(), null, "subCommand", null, 0, 1, SubCommName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(commandNameEClass, CommandName.class, "CommandName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCommandName_Leading(), ecorePackage.getEString(), "leading", null, 0, 1, CommandName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCommandName_CName(), ecorePackage.getEString(), "cName", null, 0, 1, CommandName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(subCommandEClass, SubCommand.class, "SubCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSubCommand_Types(), this.getSubCommName(), null, "types", null, 0, -1, SubCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(commandParametersEClass, CommandParameters.class, "CommandParameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCommandParameters_Attributes(), this.getAttributes(), null, "attributes", null, 0, -1, CommandParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getText_Token(), ecorePackage.getEString(), "token", null, 0, -1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCommand_Command(), this.getCommandName(), null, "command", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommand_Parameters(), this.getCommandParameters(), null, "parameters", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommand_SubCommand(), this.getSubCommand(), null, "subCommand", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCommand_Command(), ecorePackage.getEString(), "command", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommand_Attrs(), this.getAttributes(), null, "attrs", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommand_Tokens(), this.getCompound(), null, "tokens", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(multiEClass, Multi.class, "Multi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMulti_Tokens(), ecorePackage.getEString(), "tokens", null, 0, -1, Multi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(commandExtEClass, CommandExt.class, "CommandExt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCommandExt_Command(), ecorePackage.getEString(), "command", null, 0, 1, CommandExt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommandExt_Tokens(), this.getCompound(), null, "tokens", null, 0, -1, CommandExt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(compoundEClass, Compound.class, "Compound", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(extrasEClass, Extras.class, "Extras", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExtras_Tokens(), ecorePackage.getEString(), "tokens", null, 0, -1, Extras.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributesEClass, Attributes.class, "Attributes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttributes_Key(), ecorePackage.getEString(), "key", null, 0, 1, Attributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttributes_Value(), ecorePackage.getEString(), "value", null, 0, 1, Attributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttributes_MultiValue(), ecorePackage.getEString(), "multiValue", null, 0, -1, Attributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAttributes_Multi(), this.getMulti(), null, "multi", null, 0, -1, Attributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttributes_Single(), ecorePackage.getEString(), "single", null, 0, 1, Attributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

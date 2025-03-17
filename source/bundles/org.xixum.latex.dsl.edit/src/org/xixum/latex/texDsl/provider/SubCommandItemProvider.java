@@ -152,7 +152,7 @@ public class SubCommandItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TexDslPackage.Literals.SUB_COMMAND__TYPES,
-				 TexDslFactory.eINSTANCE.createSubCommName()));
+				 TexDslFactory.eINSTANCE.createCompound()));
 	}
 
 	/**

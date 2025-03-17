@@ -7,24 +7,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xixum.latex.texDsl.Document;
+import org.xixum.latex.texDsl.Compound;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Document</b></em>'.
+ * An implementation of the model object '<em><b>Compound</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class DocumentImpl extends MinimalEObjectImpl.Container implements Document
+public class CompoundImpl extends MinimalEObjectImpl.Container implements Compound
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DocumentImpl()
+  protected CompoundImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
   @Override
   protected EClass eStaticClass()
   {
-    return TexDslPackage.Literals.DOCUMENT;
+    return TexDslPackage.Literals.COMPOUND;
   }
 
-} //DocumentImpl
+} //CompoundImpl

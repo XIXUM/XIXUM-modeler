@@ -6,17 +6,21 @@ package org.xixum.latex.texDsl.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xixum.latex.texDsl.Attributes;
+import org.xixum.latex.texDsl.Multi;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
@@ -28,8 +32,8 @@ import org.xixum.latex.texDsl.TexDslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xixum.latex.texDsl.impl.AttributesImpl#getKey <em>Key</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.impl.AttributesImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.impl.AttributesImpl#getMultiValue <em>Multi Value</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.AttributesImpl#getMulti <em>Multi</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.AttributesImpl#getSingle <em>Single</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,34 +61,34 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   protected String key = KEY_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getMulti() <em>Multi</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getMulti()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
+  protected EList<Multi> multi;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The default value of the '{@link #getSingle() <em>Single</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getSingle()
    * @generated
    * @ordered
    */
-  protected String value = VALUE_EDEFAULT;
+  protected static final String SINGLE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getMultiValue() <em>Multi Value</em>}' attribute list.
+   * The cached value of the '{@link #getSingle() <em>Single</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMultiValue()
+   * @see #getSingle()
    * @generated
    * @ordered
    */
-  protected EList<String> multiValue;
+  protected String single = SINGLE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -138,38 +142,54 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
    * @generated
    */
   @Override
-  public String getValue()
+  public EList<Multi> getMulti()
   {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.ATTRIBUTES__VALUE, oldValue, value));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<String> getMultiValue()
-  {
-    if (multiValue == null)
+    if (multi == null)
     {
-      multiValue = new EDataTypeEList<String>(String.class, this, TexDslPackage.ATTRIBUTES__MULTI_VALUE);
+      multi = new EObjectContainmentEList<Multi>(Multi.class, this, TexDslPackage.ATTRIBUTES__MULTI);
     }
-    return multiValue;
+    return multi;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getSingle()
+  {
+    return single;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSingle(String newSingle)
+  {
+    String oldSingle = single;
+    single = newSingle;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.ATTRIBUTES__SINGLE, oldSingle, single));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case TexDslPackage.ATTRIBUTES__MULTI:
+        return ((InternalEList<?>)getMulti()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -184,10 +204,10 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
     {
       case TexDslPackage.ATTRIBUTES__KEY:
         return getKey();
-      case TexDslPackage.ATTRIBUTES__VALUE:
-        return getValue();
-      case TexDslPackage.ATTRIBUTES__MULTI_VALUE:
-        return getMultiValue();
+      case TexDslPackage.ATTRIBUTES__MULTI:
+        return getMulti();
+      case TexDslPackage.ATTRIBUTES__SINGLE:
+        return getSingle();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -206,12 +226,12 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
       case TexDslPackage.ATTRIBUTES__KEY:
         setKey((String)newValue);
         return;
-      case TexDslPackage.ATTRIBUTES__VALUE:
-        setValue((String)newValue);
+      case TexDslPackage.ATTRIBUTES__MULTI:
+        getMulti().clear();
+        getMulti().addAll((Collection<? extends Multi>)newValue);
         return;
-      case TexDslPackage.ATTRIBUTES__MULTI_VALUE:
-        getMultiValue().clear();
-        getMultiValue().addAll((Collection<? extends String>)newValue);
+      case TexDslPackage.ATTRIBUTES__SINGLE:
+        setSingle((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -230,11 +250,11 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
       case TexDslPackage.ATTRIBUTES__KEY:
         setKey(KEY_EDEFAULT);
         return;
-      case TexDslPackage.ATTRIBUTES__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case TexDslPackage.ATTRIBUTES__MULTI:
+        getMulti().clear();
         return;
-      case TexDslPackage.ATTRIBUTES__MULTI_VALUE:
-        getMultiValue().clear();
+      case TexDslPackage.ATTRIBUTES__SINGLE:
+        setSingle(SINGLE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -252,10 +272,10 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
     {
       case TexDslPackage.ATTRIBUTES__KEY:
         return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-      case TexDslPackage.ATTRIBUTES__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-      case TexDslPackage.ATTRIBUTES__MULTI_VALUE:
-        return multiValue != null && !multiValue.isEmpty();
+      case TexDslPackage.ATTRIBUTES__MULTI:
+        return multi != null && !multi.isEmpty();
+      case TexDslPackage.ATTRIBUTES__SINGLE:
+        return SINGLE_EDEFAULT == null ? single != null : !SINGLE_EDEFAULT.equals(single);
     }
     return super.eIsSet(featureID);
   }
@@ -273,10 +293,8 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (key: ");
     result.append(key);
-    result.append(", value: ");
-    result.append(value);
-    result.append(", multiValue: ");
-    result.append(multiValue);
+    result.append(", single: ");
+    result.append(single);
     result.append(')');
     return result.toString();
   }

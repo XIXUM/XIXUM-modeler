@@ -87,38 +87,11 @@ public class TexDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case TexDslPackage.TOKEN:
+      case TexDslPackage.TEXT:
       {
-        Token token = (Token)theEObject;
-        T result = caseToken(token);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case TexDslPackage.SUB_COMM_NAME:
-      {
-        SubCommName subCommName = (SubCommName)theEObject;
-        T result = caseSubCommName(subCommName);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case TexDslPackage.COMMAND_NAME:
-      {
-        CommandName commandName = (CommandName)theEObject;
-        T result = caseCommandName(commandName);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case TexDslPackage.SUB_COMMAND:
-      {
-        SubCommand subCommand = (SubCommand)theEObject;
-        T result = caseSubCommand(subCommand);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case TexDslPackage.COMMAND_PARAMETERS:
-      {
-        CommandParameters commandParameters = (CommandParameters)theEObject;
-        T result = caseCommandParameters(commandParameters);
+        Text text = (Text)theEObject;
+        T result = caseText(text);
+        if (result == null) result = caseDocument(text);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -126,6 +99,38 @@ public class TexDslSwitch<T> extends Switch<T>
       {
         Command command = (Command)theEObject;
         T result = caseCommand(command);
+        if (result == null) result = caseDocument(command);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.MULTI:
+      {
+        Multi multi = (Multi)theEObject;
+        T result = caseMulti(multi);
+        if (result == null) result = caseCompound(multi);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.COMMAND_EXT:
+      {
+        CommandExt commandExt = (CommandExt)theEObject;
+        T result = caseCommandExt(commandExt);
+        if (result == null) result = caseCompound(commandExt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.COMPOUND:
+      {
+        Compound compound = (Compound)theEObject;
+        T result = caseCompound(compound);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.EXTRAS:
+      {
+        Extras extras = (Extras)theEObject;
+        T result = caseExtras(extras);
+        if (result == null) result = caseCompound(extras);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -173,81 +178,17 @@ public class TexDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Token</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Token</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Text</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseToken(Token object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Sub Comm Name</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sub Comm Name</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSubCommName(SubCommName object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Command Name</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Command Name</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCommandName(CommandName object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Sub Command</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sub Command</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSubCommand(SubCommand object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Command Parameters</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Command Parameters</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCommandParameters(CommandParameters object)
+  public T caseText(Text object)
   {
     return null;
   }
@@ -264,6 +205,70 @@ public class TexDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCommand(Command object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Multi</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Multi</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMulti(Multi object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Command Ext</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Command Ext</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommandExt(CommandExt object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Compound</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Compound</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCompound(Compound object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Extras</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Extras</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExtras(Extras object)
   {
     return null;
   }

@@ -23,17 +23,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.latex.texDsl.Document;
+import org.xixum.latex.texDsl.Compound;
 import org.xixum.latex.texDsl.TexDslFactory;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
- * This is the item provider adapter for a {@link org.xixum.latex.texDsl.Document} object.
+ * This is the item provider adapter for a {@link org.xixum.latex.texDsl.Compound} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocumentItemProvider 
+public class CompoundItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +47,7 @@ public class DocumentItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentItemProvider(AdapterFactory adapterFactory) {
+	public CompoundItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -78,7 +78,7 @@ public class DocumentItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TexDslPackage.Literals.DOCUMENT__ELEMENTS);
+			childrenFeatures.add(TexDslPackage.Literals.COMPOUND__TOKENS);
 		}
 		return childrenFeatures;
 	}
@@ -97,14 +97,14 @@ public class DocumentItemProvider
 	}
 
 	/**
-	 * This returns Document.gif.
+	 * This returns Compound.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Document"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Compound"));
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class DocumentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Document_type");
+		return getString("_UI_Compound_type");
 	}
 
 
@@ -130,8 +130,8 @@ public class DocumentItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Document.class)) {
-			case TexDslPackage.DOCUMENT__ELEMENTS:
+		switch (notification.getFeatureID(Compound.class)) {
+			case TexDslPackage.COMPOUND__TOKENS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -151,53 +151,8 @@ public class DocumentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
-				 TexDslFactory.eINSTANCE.createModel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
-				 TexDslFactory.eINSTANCE.createDocument()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
-				 TexDslFactory.eINSTANCE.createToken()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
+				(TexDslPackage.Literals.COMPOUND__TOKENS,
 				 TexDslFactory.eINSTANCE.createSubCommName()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
-				 TexDslFactory.eINSTANCE.createSubParams()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
-				 TexDslFactory.eINSTANCE.createSubCommand()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
-				 TexDslFactory.eINSTANCE.createCompound()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
-				 TexDslFactory.eINSTANCE.createCommandParameters()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
-				 TexDslFactory.eINSTANCE.createCommand()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
-				 TexDslFactory.eINSTANCE.createAttributes()));
 	}
 
 	/**

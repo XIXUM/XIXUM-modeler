@@ -17,39 +17,41 @@ import org.antlr.runtime.*;
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
-
+import java.util.Map;
+import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalTexDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_END", "RULE_ALPHA_NUMERIC", "RULE_ID", "RULE_BS", "RULE_BO", "RULE_BC", "RULE_SPACE", "RULE_CUBO", "RULE_PIPE", "RULE_CUBC", "RULE_SQBO", "RULE_KOMMA", "RULE_SQBC", "RULE_EQ", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_SYMBOL", "RULE_SYMBOLS", "RULE_ALPHA", "RULE_NUMERIC", "RULE_DOT", "RULE_AND", "RULE_ALPHAC", "RULE_ALPHAS", "RULE_WS", "RULE_ANY_OTHER"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_END", "RULE_ID", "RULE_ANY_OTHER", "RULE_KOMMA", "RULE_PIPE", "RULE_EXCL", "RULE_SYMBOL", "RULE_DOT", "RULE_ID_COMM", "RULE_SQBO", "RULE_SQBC", "RULE_CUBO", "RULE_CUBC", "RULE_BO", "RULE_BC", "RULE_EQ", "RULE_SL_COMMENT", "RULE_ALPHA", "RULE_NUMERIC", "RULE_AND", "RULE_BS", "RULE_ALPHAC", "RULE_ALPHAS", "RULE_D_QUOTE", "RULE_S_QUOTE", "RULE_SPACE", "RULE_WS"
     };
-    public static final int RULE_ALPHA=22;
+    public static final int RULE_ALPHA=21;
     public static final int RULE_END=4;
-    public static final int RULE_CUBO=11;
-    public static final int RULE_AND=25;
-    public static final int RULE_SL_COMMENT=19;
-    public static final int RULE_EQ=17;
-    public static final int RULE_SPACE=10;
-    public static final int RULE_DOT=24;
+    public static final int RULE_CUBO=15;
+    public static final int RULE_AND=23;
+    public static final int RULE_SL_COMMENT=20;
+    public static final int RULE_EQ=19;
+    public static final int RULE_D_QUOTE=27;
+    public static final int RULE_SPACE=29;
+    public static final int RULE_DOT=11;
     public static final int EOF=-1;
-    public static final int RULE_NUMERIC=23;
-    public static final int RULE_ID=6;
-    public static final int RULE_WS=28;
-    public static final int RULE_SQBO=14;
-    public static final int RULE_ALPHA_NUMERIC=5;
-    public static final int RULE_BO=8;
-    public static final int RULE_SQBC=16;
-    public static final int RULE_ANY_OTHER=29;
-    public static final int RULE_ALPHAS=27;
-    public static final int RULE_BS=7;
-    public static final int RULE_KOMMA=15;
-    public static final int RULE_PIPE=12;
-    public static final int RULE_CUBC=13;
-    public static final int RULE_ML_COMMENT=18;
-    public static final int RULE_SYMBOL=20;
-    public static final int RULE_ALPHAC=26;
-    public static final int RULE_BC=9;
-    public static final int RULE_SYMBOLS=21;
+    public static final int RULE_EXCL=9;
+    public static final int RULE_ID_COMM=12;
+    public static final int RULE_NUMERIC=22;
+    public static final int RULE_ID=5;
+    public static final int RULE_WS=30;
+    public static final int RULE_SQBO=13;
+    public static final int RULE_S_QUOTE=28;
+    public static final int RULE_BO=17;
+    public static final int RULE_ANY_OTHER=6;
+    public static final int RULE_SQBC=14;
+    public static final int RULE_ALPHAS=26;
+    public static final int RULE_BS=24;
+    public static final int RULE_KOMMA=7;
+    public static final int RULE_PIPE=8;
+    public static final int RULE_CUBC=16;
+    public static final int RULE_SYMBOL=10;
+    public static final int RULE_ALPHAC=25;
+    public static final int RULE_BC=18;
 
     // delegates
     // delegators
@@ -102,14 +104,18 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
             // InternalTexDsl.g:64:46: (iv_ruleModel= ruleModel EOF )
             // InternalTexDsl.g:65:2: iv_ruleModel= ruleModel EOF
             {
-             newCompositeNode(grammarAccess.getModelRule()); 
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getModelRule()); 
+            }
             pushFollow(FOLLOW_1);
             iv_ruleModel=ruleModel();
 
             state._fsp--;
-
-             current =iv_ruleModel; 
-            match(input,EOF,FOLLOW_2); 
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleModel; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
             }
 
@@ -127,7 +133,7 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModel"
-    // InternalTexDsl.g:71:1: ruleModel returns [EObject current=null] : ( (lv_document_0_0= ruleDocument ) ) ;
+    // InternalTexDsl.g:71:1: ruleModel returns [EObject current=null] : ( (lv_document_0_0= ruleDocument ) )+ ;
     public final EObject ruleModel() throws RecognitionException {
         EObject current = null;
 
@@ -138,46 +144,76 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalTexDsl.g:77:2: ( ( (lv_document_0_0= ruleDocument ) ) )
-            // InternalTexDsl.g:78:2: ( (lv_document_0_0= ruleDocument ) )
+            // InternalTexDsl.g:77:2: ( ( (lv_document_0_0= ruleDocument ) )+ )
+            // InternalTexDsl.g:78:2: ( (lv_document_0_0= ruleDocument ) )+
             {
-            // InternalTexDsl.g:78:2: ( (lv_document_0_0= ruleDocument ) )
-            // InternalTexDsl.g:79:3: (lv_document_0_0= ruleDocument )
-            {
-            // InternalTexDsl.g:79:3: (lv_document_0_0= ruleDocument )
-            // InternalTexDsl.g:80:4: lv_document_0_0= ruleDocument
-            {
+            // InternalTexDsl.g:78:2: ( (lv_document_0_0= ruleDocument ) )+
+            int cnt1=0;
+            loop1:
+            do {
+                int alt1=2;
+                int LA1_0 = input.LA(1);
 
-            				newCompositeNode(grammarAccess.getModelAccess().getDocumentDocumentParserRuleCall_0());
-            			
-            pushFollow(FOLLOW_2);
-            lv_document_0_0=ruleDocument();
-
-            state._fsp--;
+                if ( ((LA1_0>=RULE_END && LA1_0<=RULE_ID_COMM)) ) {
+                    alt1=1;
+                }
 
 
-            				if (current==null) {
-            					current = createModelElementForParent(grammarAccess.getModelRule());
-            				}
-            				add(
-            					current,
-            					"document",
-            					lv_document_0_0,
-            					"org.xixum.latex.TexDsl.Document");
-            				afterParserOrEnumRuleCall();
-            			
+                switch (alt1) {
+            	case 1 :
+            	    // InternalTexDsl.g:79:3: (lv_document_0_0= ruleDocument )
+            	    {
+            	    // InternalTexDsl.g:79:3: (lv_document_0_0= ruleDocument )
+            	    // InternalTexDsl.g:80:4: lv_document_0_0= ruleDocument
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getModelAccess().getDocumentDocumentParserRuleCall_0());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_3);
+            	    lv_document_0_0=ruleDocument();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				if (current==null) {
+            	      					current = createModelElementForParent(grammarAccess.getModelRule());
+            	      				}
+            	      				add(
+            	      					current,
+            	      					"document",
+            	      					lv_document_0_0,
+            	      					"org.xixum.latex.TexDsl.Document");
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt1 >= 1 ) break loop1;
+            	    if (state.backtracking>0) {state.failed=true; return current;}
+                        EarlyExitException eee =
+                            new EarlyExitException(1, input);
+                        throw eee;
+                }
+                cnt1++;
+            } while (true);
+
 
             }
 
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
 
             }
-
-
-            }
-
-
-            	leaveRule();
-
         }
 
             catch (RecognitionException re) {
@@ -203,14 +239,18 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
             // InternalTexDsl.g:100:49: (iv_ruleDocument= ruleDocument EOF )
             // InternalTexDsl.g:101:2: iv_ruleDocument= ruleDocument EOF
             {
-             newCompositeNode(grammarAccess.getDocumentRule()); 
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getDocumentRule()); 
+            }
             pushFollow(FOLLOW_1);
             iv_ruleDocument=ruleDocument();
 
             state._fsp--;
-
-             current =iv_ruleDocument; 
-            match(input,EOF,FOLLOW_2); 
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleDocument; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
             }
 
@@ -228,172 +268,125 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDocument"
-    // InternalTexDsl.g:107:1: ruleDocument returns [EObject current=null] : ( ( ( (lv_elements_0_1= ruleToken | lv_elements_0_2= ruleCommand ) ) )+ | ( () this_END_2= RULE_END ) ) ;
+    // InternalTexDsl.g:107:1: ruleDocument returns [EObject current=null] : (this_Command_0= ruleCommand | this_Text_1= ruleText | ( () this_END_3= RULE_END ) ) ;
     public final EObject ruleDocument() throws RecognitionException {
         EObject current = null;
 
-        Token this_END_2=null;
-        EObject lv_elements_0_1 = null;
+        Token this_END_3=null;
+        EObject this_Command_0 = null;
 
-        EObject lv_elements_0_2 = null;
+        EObject this_Text_1 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalTexDsl.g:113:2: ( ( ( ( (lv_elements_0_1= ruleToken | lv_elements_0_2= ruleCommand ) ) )+ | ( () this_END_2= RULE_END ) ) )
-            // InternalTexDsl.g:114:2: ( ( ( (lv_elements_0_1= ruleToken | lv_elements_0_2= ruleCommand ) ) )+ | ( () this_END_2= RULE_END ) )
+            // InternalTexDsl.g:113:2: ( (this_Command_0= ruleCommand | this_Text_1= ruleText | ( () this_END_3= RULE_END ) ) )
+            // InternalTexDsl.g:114:2: (this_Command_0= ruleCommand | this_Text_1= ruleText | ( () this_END_3= RULE_END ) )
             {
-            // InternalTexDsl.g:114:2: ( ( ( (lv_elements_0_1= ruleToken | lv_elements_0_2= ruleCommand ) ) )+ | ( () this_END_2= RULE_END ) )
-            int alt3=2;
-            int LA3_0 = input.LA(1);
-
-            if ( (LA3_0==RULE_ALPHA_NUMERIC||LA3_0==RULE_BS) ) {
-                alt3=1;
-            }
-            else if ( (LA3_0==RULE_END) ) {
-                alt3=2;
-            }
-            else {
+            // InternalTexDsl.g:114:2: (this_Command_0= ruleCommand | this_Text_1= ruleText | ( () this_END_3= RULE_END ) )
+            int alt2=3;
+            switch ( input.LA(1) ) {
+            case RULE_ID_COMM:
+                {
+                alt2=1;
+                }
+                break;
+            case RULE_ID:
+            case RULE_ANY_OTHER:
+            case RULE_KOMMA:
+            case RULE_PIPE:
+            case RULE_EXCL:
+            case RULE_SYMBOL:
+            case RULE_DOT:
+                {
+                alt2=2;
+                }
+                break;
+            case RULE_END:
+                {
+                alt2=3;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
+                    new NoViableAltException("", 2, 0, input);
 
                 throw nvae;
             }
-            switch (alt3) {
+
+            switch (alt2) {
                 case 1 :
-                    // InternalTexDsl.g:115:3: ( ( (lv_elements_0_1= ruleToken | lv_elements_0_2= ruleCommand ) ) )+
+                    // InternalTexDsl.g:115:3: this_Command_0= ruleCommand
                     {
-                    // InternalTexDsl.g:115:3: ( ( (lv_elements_0_1= ruleToken | lv_elements_0_2= ruleCommand ) ) )+
-                    int cnt2=0;
-                    loop2:
-                    do {
-                        int alt2=2;
-                        int LA2_0 = input.LA(1);
+                    if ( state.backtracking==0 ) {
 
-                        if ( (LA2_0==RULE_ALPHA_NUMERIC||LA2_0==RULE_BS) ) {
-                            alt2=1;
-                        }
+                      			newCompositeNode(grammarAccess.getDocumentAccess().getCommandParserRuleCall_0());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_Command_0=ruleCommand();
 
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-                        switch (alt2) {
-                    	case 1 :
-                    	    // InternalTexDsl.g:116:4: ( (lv_elements_0_1= ruleToken | lv_elements_0_2= ruleCommand ) )
-                    	    {
-                    	    // InternalTexDsl.g:116:4: ( (lv_elements_0_1= ruleToken | lv_elements_0_2= ruleCommand ) )
-                    	    // InternalTexDsl.g:117:5: (lv_elements_0_1= ruleToken | lv_elements_0_2= ruleCommand )
-                    	    {
-                    	    // InternalTexDsl.g:117:5: (lv_elements_0_1= ruleToken | lv_elements_0_2= ruleCommand )
-                    	    int alt1=2;
-                    	    int LA1_0 = input.LA(1);
-
-                    	    if ( (LA1_0==RULE_ALPHA_NUMERIC) ) {
-                    	        alt1=1;
-                    	    }
-                    	    else if ( (LA1_0==RULE_BS) ) {
-                    	        alt1=2;
-                    	    }
-                    	    else {
-                    	        NoViableAltException nvae =
-                    	            new NoViableAltException("", 1, 0, input);
-
-                    	        throw nvae;
-                    	    }
-                    	    switch (alt1) {
-                    	        case 1 :
-                    	            // InternalTexDsl.g:118:6: lv_elements_0_1= ruleToken
-                    	            {
-
-                    	            						newCompositeNode(grammarAccess.getDocumentAccess().getElementsTokenParserRuleCall_0_0_0());
-                    	            					
-                    	            pushFollow(FOLLOW_3);
-                    	            lv_elements_0_1=ruleToken();
-
-                    	            state._fsp--;
-
-
-                    	            						if (current==null) {
-                    	            							current = createModelElementForParent(grammarAccess.getDocumentRule());
-                    	            						}
-                    	            						add(
-                    	            							current,
-                    	            							"elements",
-                    	            							lv_elements_0_1,
-                    	            							"org.xixum.latex.TexDsl.Token");
-                    	            						afterParserOrEnumRuleCall();
-                    	            					
-
-                    	            }
-                    	            break;
-                    	        case 2 :
-                    	            // InternalTexDsl.g:134:6: lv_elements_0_2= ruleCommand
-                    	            {
-
-                    	            						newCompositeNode(grammarAccess.getDocumentAccess().getElementsCommandParserRuleCall_0_0_1());
-                    	            					
-                    	            pushFollow(FOLLOW_3);
-                    	            lv_elements_0_2=ruleCommand();
-
-                    	            state._fsp--;
-
-
-                    	            						if (current==null) {
-                    	            							current = createModelElementForParent(grammarAccess.getDocumentRule());
-                    	            						}
-                    	            						add(
-                    	            							current,
-                    	            							"elements",
-                    	            							lv_elements_0_2,
-                    	            							"org.xixum.latex.TexDsl.Command");
-                    	            						afterParserOrEnumRuleCall();
-                    	            					
-
-                    	            }
-                    	            break;
-
-                    	    }
-
-
-                    	    }
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt2 >= 1 ) break loop2;
-                                EarlyExitException eee =
-                                    new EarlyExitException(2, input);
-                                throw eee;
-                        }
-                        cnt2++;
-                    } while (true);
-
+                      			current = this_Command_0;
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
 
                     }
                     break;
                 case 2 :
-                    // InternalTexDsl.g:153:3: ( () this_END_2= RULE_END )
+                    // InternalTexDsl.g:124:3: this_Text_1= ruleText
                     {
-                    // InternalTexDsl.g:153:3: ( () this_END_2= RULE_END )
-                    // InternalTexDsl.g:154:4: () this_END_2= RULE_END
-                    {
-                    // InternalTexDsl.g:154:4: ()
-                    // InternalTexDsl.g:155:5: 
-                    {
+                    if ( state.backtracking==0 ) {
 
-                    					current = forceCreateModelElement(
-                    						grammarAccess.getDocumentAccess().getDocumentAction_1_0(),
-                    						current);
-                    				
+                      			newCompositeNode(grammarAccess.getDocumentAccess().getTextParserRuleCall_1());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_Text_1=ruleText();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current = this_Text_1;
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+                case 3 :
+                    // InternalTexDsl.g:133:3: ( () this_END_3= RULE_END )
+                    {
+                    // InternalTexDsl.g:133:3: ( () this_END_3= RULE_END )
+                    // InternalTexDsl.g:134:4: () this_END_3= RULE_END
+                    {
+                    // InternalTexDsl.g:134:4: ()
+                    // InternalTexDsl.g:135:5: 
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					current = forceCreateModelElement(
+                      						grammarAccess.getDocumentAccess().getDocumentAction_2_0(),
+                      						current);
+                      				
+                    }
 
                     }
 
-                    this_END_2=(Token)match(input,RULE_END,FOLLOW_2); 
+                    this_END_3=(Token)match(input,RULE_END,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-                    				newLeafNode(this_END_2, grammarAccess.getDocumentAccess().getENDTerminalRuleCall_1_1());
-                    			
+                      				newLeafNode(this_END_3, grammarAccess.getDocumentAccess().getENDTerminalRuleCall_2_1());
+                      			
+                    }
 
                     }
 
@@ -406,9 +399,11 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
             }
 
+            if ( state.backtracking==0 ) {
 
-            	leaveRule();
+              	leaveRule();
 
+            }
         }
 
             catch (RecognitionException re) {
@@ -422,26 +417,30 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDocument"
 
 
-    // $ANTLR start "entryRuleToken"
-    // InternalTexDsl.g:170:1: entryRuleToken returns [EObject current=null] : iv_ruleToken= ruleToken EOF ;
-    public final EObject entryRuleToken() throws RecognitionException {
+    // $ANTLR start "entryRuleText"
+    // InternalTexDsl.g:150:1: entryRuleText returns [EObject current=null] : iv_ruleText= ruleText EOF ;
+    public final EObject entryRuleText() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleToken = null;
+        EObject iv_ruleText = null;
 
 
         try {
-            // InternalTexDsl.g:170:46: (iv_ruleToken= ruleToken EOF )
-            // InternalTexDsl.g:171:2: iv_ruleToken= ruleToken EOF
+            // InternalTexDsl.g:150:45: (iv_ruleText= ruleText EOF )
+            // InternalTexDsl.g:151:2: iv_ruleText= ruleText EOF
             {
-             newCompositeNode(grammarAccess.getTokenRule()); 
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getTextRule()); 
+            }
             pushFollow(FOLLOW_1);
-            iv_ruleToken=ruleToken();
+            iv_ruleText=ruleText();
 
             state._fsp--;
-
-             current =iv_ruleToken; 
-            match(input,EOF,FOLLOW_2); 
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleText; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
             }
 
@@ -455,43 +454,53 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleToken"
+    // $ANTLR end "entryRuleText"
 
 
-    // $ANTLR start "ruleToken"
-    // InternalTexDsl.g:177:1: ruleToken returns [EObject current=null] : ( (lv_token_0_0= RULE_ALPHA_NUMERIC ) ) ;
-    public final EObject ruleToken() throws RecognitionException {
+    // $ANTLR start "ruleText"
+    // InternalTexDsl.g:157:1: ruleText returns [EObject current=null] : ( (lv_token_0_0= ruleAnyText ) ) ;
+    public final EObject ruleText() throws RecognitionException {
         EObject current = null;
 
-        Token lv_token_0_0=null;
+        AntlrDatatypeRuleToken lv_token_0_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalTexDsl.g:183:2: ( ( (lv_token_0_0= RULE_ALPHA_NUMERIC ) ) )
-            // InternalTexDsl.g:184:2: ( (lv_token_0_0= RULE_ALPHA_NUMERIC ) )
+            // InternalTexDsl.g:163:2: ( ( (lv_token_0_0= ruleAnyText ) ) )
+            // InternalTexDsl.g:164:2: ( (lv_token_0_0= ruleAnyText ) )
             {
-            // InternalTexDsl.g:184:2: ( (lv_token_0_0= RULE_ALPHA_NUMERIC ) )
-            // InternalTexDsl.g:185:3: (lv_token_0_0= RULE_ALPHA_NUMERIC )
+            // InternalTexDsl.g:164:2: ( (lv_token_0_0= ruleAnyText ) )
+            // InternalTexDsl.g:165:3: (lv_token_0_0= ruleAnyText )
             {
-            // InternalTexDsl.g:185:3: (lv_token_0_0= RULE_ALPHA_NUMERIC )
-            // InternalTexDsl.g:186:4: lv_token_0_0= RULE_ALPHA_NUMERIC
+            // InternalTexDsl.g:165:3: (lv_token_0_0= ruleAnyText )
+            // InternalTexDsl.g:166:4: lv_token_0_0= ruleAnyText
             {
-            lv_token_0_0=(Token)match(input,RULE_ALPHA_NUMERIC,FOLLOW_2); 
+            if ( state.backtracking==0 ) {
 
-            				newLeafNode(lv_token_0_0, grammarAccess.getTokenAccess().getTokenALPHA_NUMERICTerminalRuleCall_0());
-            			
+              				newCompositeNode(grammarAccess.getTextAccess().getTokenAnyTextParserRuleCall_0());
+              			
+            }
+            pushFollow(FOLLOW_2);
+            lv_token_0_0=ruleAnyText();
 
-            				if (current==null) {
-            					current = createModelElement(grammarAccess.getTokenRule());
-            				}
-            				setWithLastConsumed(
-            					current,
-            					"token",
-            					lv_token_0_0,
-            					"org.xixum.latex.TexDsl.ALPHA_NUMERIC");
-            			
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              				if (current==null) {
+              					current = createModelElementForParent(grammarAccess.getTextRule());
+              				}
+              				add(
+              					current,
+              					"token",
+              					lv_token_0_0,
+              					"org.xixum.latex.TexDsl.AnyText");
+              				afterParserOrEnumRuleCall();
+              			
+            }
 
             }
 
@@ -501,9 +510,11 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
             }
 
+            if ( state.backtracking==0 ) {
 
-            	leaveRule();
+              	leaveRule();
 
+            }
         }
 
             catch (RecognitionException re) {
@@ -514,29 +525,33 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleToken"
+    // $ANTLR end "ruleText"
 
 
-    // $ANTLR start "entryRuleID_Token"
-    // InternalTexDsl.g:205:1: entryRuleID_Token returns [String current=null] : iv_ruleID_Token= ruleID_Token EOF ;
-    public final String entryRuleID_Token() throws RecognitionException {
+    // $ANTLR start "entryRuleAnyText"
+    // InternalTexDsl.g:186:1: entryRuleAnyText returns [String current=null] : iv_ruleAnyText= ruleAnyText EOF ;
+    public final String entryRuleAnyText() throws RecognitionException {
         String current = null;
 
-        AntlrDatatypeRuleToken iv_ruleID_Token = null;
+        AntlrDatatypeRuleToken iv_ruleAnyText = null;
 
 
         try {
-            // InternalTexDsl.g:205:48: (iv_ruleID_Token= ruleID_Token EOF )
-            // InternalTexDsl.g:206:2: iv_ruleID_Token= ruleID_Token EOF
+            // InternalTexDsl.g:186:47: (iv_ruleAnyText= ruleAnyText EOF )
+            // InternalTexDsl.g:187:2: iv_ruleAnyText= ruleAnyText EOF
             {
-             newCompositeNode(grammarAccess.getID_TokenRule()); 
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getAnyTextRule()); 
+            }
             pushFollow(FOLLOW_1);
-            iv_ruleID_Token=ruleID_Token();
+            iv_ruleAnyText=ruleAnyText();
 
             state._fsp--;
-
-             current =iv_ruleID_Token.getText(); 
-            match(input,EOF,FOLLOW_2); 
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleAnyText.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
             }
 
@@ -550,523 +565,192 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleID_Token"
+    // $ANTLR end "entryRuleAnyText"
 
 
-    // $ANTLR start "ruleID_Token"
-    // InternalTexDsl.g:212:1: ruleID_Token returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_ALPHA_NUMERIC_1= RULE_ALPHA_NUMERIC ) ;
-    public final AntlrDatatypeRuleToken ruleID_Token() throws RecognitionException {
+    // $ANTLR start "ruleAnyText"
+    // InternalTexDsl.g:193:1: ruleAnyText returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_ANY_OTHER_1= RULE_ANY_OTHER | this_KOMMA_2= RULE_KOMMA | this_PIPE_3= RULE_PIPE | this_EXCL_4= RULE_EXCL | this_SYMBOL_5= RULE_SYMBOL | this_DOT_6= RULE_DOT ) ;
+    public final AntlrDatatypeRuleToken ruleAnyText() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
         Token this_ID_0=null;
-        Token this_ALPHA_NUMERIC_1=null;
+        Token this_ANY_OTHER_1=null;
+        Token this_KOMMA_2=null;
+        Token this_PIPE_3=null;
+        Token this_EXCL_4=null;
+        Token this_SYMBOL_5=null;
+        Token this_DOT_6=null;
 
 
         	enterRule();
 
         try {
-            // InternalTexDsl.g:218:2: ( (this_ID_0= RULE_ID | this_ALPHA_NUMERIC_1= RULE_ALPHA_NUMERIC ) )
-            // InternalTexDsl.g:219:2: (this_ID_0= RULE_ID | this_ALPHA_NUMERIC_1= RULE_ALPHA_NUMERIC )
+            // InternalTexDsl.g:199:2: ( (this_ID_0= RULE_ID | this_ANY_OTHER_1= RULE_ANY_OTHER | this_KOMMA_2= RULE_KOMMA | this_PIPE_3= RULE_PIPE | this_EXCL_4= RULE_EXCL | this_SYMBOL_5= RULE_SYMBOL | this_DOT_6= RULE_DOT ) )
+            // InternalTexDsl.g:200:2: (this_ID_0= RULE_ID | this_ANY_OTHER_1= RULE_ANY_OTHER | this_KOMMA_2= RULE_KOMMA | this_PIPE_3= RULE_PIPE | this_EXCL_4= RULE_EXCL | this_SYMBOL_5= RULE_SYMBOL | this_DOT_6= RULE_DOT )
             {
-            // InternalTexDsl.g:219:2: (this_ID_0= RULE_ID | this_ALPHA_NUMERIC_1= RULE_ALPHA_NUMERIC )
-            int alt4=2;
-            int LA4_0 = input.LA(1);
-
-            if ( (LA4_0==RULE_ID) ) {
-                alt4=1;
-            }
-            else if ( (LA4_0==RULE_ALPHA_NUMERIC) ) {
-                alt4=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
-
-                throw nvae;
-            }
-            switch (alt4) {
-                case 1 :
-                    // InternalTexDsl.g:220:3: this_ID_0= RULE_ID
-                    {
-                    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_2); 
-
-                    			current.merge(this_ID_0);
-                    		
-
-                    			newLeafNode(this_ID_0, grammarAccess.getID_TokenAccess().getIDTerminalRuleCall_0());
-                    		
-
-                    }
-                    break;
-                case 2 :
-                    // InternalTexDsl.g:228:3: this_ALPHA_NUMERIC_1= RULE_ALPHA_NUMERIC
-                    {
-                    this_ALPHA_NUMERIC_1=(Token)match(input,RULE_ALPHA_NUMERIC,FOLLOW_2); 
-
-                    			current.merge(this_ALPHA_NUMERIC_1);
-                    		
-
-                    			newLeafNode(this_ALPHA_NUMERIC_1, grammarAccess.getID_TokenAccess().getALPHA_NUMERICTerminalRuleCall_1());
-                    		
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleID_Token"
-
-
-    // $ANTLR start "entryRuleID_WS"
-    // InternalTexDsl.g:239:1: entryRuleID_WS returns [String current=null] : iv_ruleID_WS= ruleID_WS EOF ;
-    public final String entryRuleID_WS() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleID_WS = null;
-
-
-        try {
-            // InternalTexDsl.g:239:45: (iv_ruleID_WS= ruleID_WS EOF )
-            // InternalTexDsl.g:240:2: iv_ruleID_WS= ruleID_WS EOF
-            {
-             newCompositeNode(grammarAccess.getID_WSRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleID_WS=ruleID_WS();
-
-            state._fsp--;
-
-             current =iv_ruleID_WS.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleID_WS"
-
-
-    // $ANTLR start "ruleID_WS"
-    // InternalTexDsl.g:246:1: ruleID_WS returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_BS_0= RULE_BS )? (this_ID_1= RULE_ID | this_ALPHA_NUMERIC_2= RULE_ALPHA_NUMERIC | this_BO_3= RULE_BO | this_BC_4= RULE_BC ) (this_SPACE_5= RULE_SPACE (this_ID_6= RULE_ID | this_ALPHA_NUMERIC_7= RULE_ALPHA_NUMERIC | this_BO_8= RULE_BO | this_BC_9= RULE_BC ) )* ) ;
-    public final AntlrDatatypeRuleToken ruleID_WS() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token this_BS_0=null;
-        Token this_ID_1=null;
-        Token this_ALPHA_NUMERIC_2=null;
-        Token this_BO_3=null;
-        Token this_BC_4=null;
-        Token this_SPACE_5=null;
-        Token this_ID_6=null;
-        Token this_ALPHA_NUMERIC_7=null;
-        Token this_BO_8=null;
-        Token this_BC_9=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalTexDsl.g:252:2: ( ( (this_BS_0= RULE_BS )? (this_ID_1= RULE_ID | this_ALPHA_NUMERIC_2= RULE_ALPHA_NUMERIC | this_BO_3= RULE_BO | this_BC_4= RULE_BC ) (this_SPACE_5= RULE_SPACE (this_ID_6= RULE_ID | this_ALPHA_NUMERIC_7= RULE_ALPHA_NUMERIC | this_BO_8= RULE_BO | this_BC_9= RULE_BC ) )* ) )
-            // InternalTexDsl.g:253:2: ( (this_BS_0= RULE_BS )? (this_ID_1= RULE_ID | this_ALPHA_NUMERIC_2= RULE_ALPHA_NUMERIC | this_BO_3= RULE_BO | this_BC_4= RULE_BC ) (this_SPACE_5= RULE_SPACE (this_ID_6= RULE_ID | this_ALPHA_NUMERIC_7= RULE_ALPHA_NUMERIC | this_BO_8= RULE_BO | this_BC_9= RULE_BC ) )* )
-            {
-            // InternalTexDsl.g:253:2: ( (this_BS_0= RULE_BS )? (this_ID_1= RULE_ID | this_ALPHA_NUMERIC_2= RULE_ALPHA_NUMERIC | this_BO_3= RULE_BO | this_BC_4= RULE_BC ) (this_SPACE_5= RULE_SPACE (this_ID_6= RULE_ID | this_ALPHA_NUMERIC_7= RULE_ALPHA_NUMERIC | this_BO_8= RULE_BO | this_BC_9= RULE_BC ) )* )
-            // InternalTexDsl.g:254:3: (this_BS_0= RULE_BS )? (this_ID_1= RULE_ID | this_ALPHA_NUMERIC_2= RULE_ALPHA_NUMERIC | this_BO_3= RULE_BO | this_BC_4= RULE_BC ) (this_SPACE_5= RULE_SPACE (this_ID_6= RULE_ID | this_ALPHA_NUMERIC_7= RULE_ALPHA_NUMERIC | this_BO_8= RULE_BO | this_BC_9= RULE_BC ) )*
-            {
-            // InternalTexDsl.g:254:3: (this_BS_0= RULE_BS )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
-
-            if ( (LA5_0==RULE_BS) ) {
-                alt5=1;
-            }
-            switch (alt5) {
-                case 1 :
-                    // InternalTexDsl.g:255:4: this_BS_0= RULE_BS
-                    {
-                    this_BS_0=(Token)match(input,RULE_BS,FOLLOW_4); 
-
-                    				current.merge(this_BS_0);
-                    			
-
-                    				newLeafNode(this_BS_0, grammarAccess.getID_WSAccess().getBSTerminalRuleCall_0());
-                    			
-
-                    }
-                    break;
-
-            }
-
-            // InternalTexDsl.g:263:3: (this_ID_1= RULE_ID | this_ALPHA_NUMERIC_2= RULE_ALPHA_NUMERIC | this_BO_3= RULE_BO | this_BC_4= RULE_BC )
-            int alt6=4;
+            // InternalTexDsl.g:200:2: (this_ID_0= RULE_ID | this_ANY_OTHER_1= RULE_ANY_OTHER | this_KOMMA_2= RULE_KOMMA | this_PIPE_3= RULE_PIPE | this_EXCL_4= RULE_EXCL | this_SYMBOL_5= RULE_SYMBOL | this_DOT_6= RULE_DOT )
+            int alt3=7;
             switch ( input.LA(1) ) {
             case RULE_ID:
                 {
-                alt6=1;
+                alt3=1;
                 }
                 break;
-            case RULE_ALPHA_NUMERIC:
+            case RULE_ANY_OTHER:
                 {
-                alt6=2;
+                alt3=2;
                 }
                 break;
-            case RULE_BO:
+            case RULE_KOMMA:
                 {
-                alt6=3;
+                alt3=3;
                 }
                 break;
-            case RULE_BC:
+            case RULE_PIPE:
                 {
-                alt6=4;
+                alt3=4;
+                }
+                break;
+            case RULE_EXCL:
+                {
+                alt3=5;
+                }
+                break;
+            case RULE_SYMBOL:
+                {
+                alt3=6;
+                }
+                break;
+            case RULE_DOT:
+                {
+                alt3=7;
                 }
                 break;
             default:
+                if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 3, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt6) {
+            switch (alt3) {
                 case 1 :
-                    // InternalTexDsl.g:264:4: this_ID_1= RULE_ID
+                    // InternalTexDsl.g:201:3: this_ID_0= RULE_ID
                     {
-                    this_ID_1=(Token)match(input,RULE_ID,FOLLOW_5); 
+                    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-                    				current.merge(this_ID_1);
-                    			
+                      			current.merge(this_ID_0);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
 
-                    				newLeafNode(this_ID_1, grammarAccess.getID_WSAccess().getIDTerminalRuleCall_1_0());
-                    			
+                      			newLeafNode(this_ID_0, grammarAccess.getAnyTextAccess().getIDTerminalRuleCall_0());
+                      		
+                    }
 
                     }
                     break;
                 case 2 :
-                    // InternalTexDsl.g:272:4: this_ALPHA_NUMERIC_2= RULE_ALPHA_NUMERIC
+                    // InternalTexDsl.g:209:3: this_ANY_OTHER_1= RULE_ANY_OTHER
                     {
-                    this_ALPHA_NUMERIC_2=(Token)match(input,RULE_ALPHA_NUMERIC,FOLLOW_5); 
+                    this_ANY_OTHER_1=(Token)match(input,RULE_ANY_OTHER,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-                    				current.merge(this_ALPHA_NUMERIC_2);
-                    			
+                      			current.merge(this_ANY_OTHER_1);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
 
-                    				newLeafNode(this_ALPHA_NUMERIC_2, grammarAccess.getID_WSAccess().getALPHA_NUMERICTerminalRuleCall_1_1());
-                    			
+                      			newLeafNode(this_ANY_OTHER_1, grammarAccess.getAnyTextAccess().getANY_OTHERTerminalRuleCall_1());
+                      		
+                    }
 
                     }
                     break;
                 case 3 :
-                    // InternalTexDsl.g:280:4: this_BO_3= RULE_BO
+                    // InternalTexDsl.g:217:3: this_KOMMA_2= RULE_KOMMA
                     {
-                    this_BO_3=(Token)match(input,RULE_BO,FOLLOW_5); 
+                    this_KOMMA_2=(Token)match(input,RULE_KOMMA,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-                    				current.merge(this_BO_3);
-                    			
+                      			current.merge(this_KOMMA_2);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
 
-                    				newLeafNode(this_BO_3, grammarAccess.getID_WSAccess().getBOTerminalRuleCall_1_2());
-                    			
+                      			newLeafNode(this_KOMMA_2, grammarAccess.getAnyTextAccess().getKOMMATerminalRuleCall_2());
+                      		
+                    }
 
                     }
                     break;
                 case 4 :
-                    // InternalTexDsl.g:288:4: this_BC_4= RULE_BC
+                    // InternalTexDsl.g:225:3: this_PIPE_3= RULE_PIPE
                     {
-                    this_BC_4=(Token)match(input,RULE_BC,FOLLOW_5); 
+                    this_PIPE_3=(Token)match(input,RULE_PIPE,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-                    				current.merge(this_BC_4);
-                    			
+                      			current.merge(this_PIPE_3);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
 
-                    				newLeafNode(this_BC_4, grammarAccess.getID_WSAccess().getBCTerminalRuleCall_1_3());
-                    			
+                      			newLeafNode(this_PIPE_3, grammarAccess.getAnyTextAccess().getPIPETerminalRuleCall_3());
+                      		
+                    }
 
                     }
                     break;
-
-            }
-
-            // InternalTexDsl.g:296:3: (this_SPACE_5= RULE_SPACE (this_ID_6= RULE_ID | this_ALPHA_NUMERIC_7= RULE_ALPHA_NUMERIC | this_BO_8= RULE_BO | this_BC_9= RULE_BC ) )*
-            loop8:
-            do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
-
-                if ( (LA8_0==RULE_SPACE) ) {
-                    alt8=1;
-                }
-
-
-                switch (alt8) {
-            	case 1 :
-            	    // InternalTexDsl.g:297:4: this_SPACE_5= RULE_SPACE (this_ID_6= RULE_ID | this_ALPHA_NUMERIC_7= RULE_ALPHA_NUMERIC | this_BO_8= RULE_BO | this_BC_9= RULE_BC )
-            	    {
-            	    this_SPACE_5=(Token)match(input,RULE_SPACE,FOLLOW_4); 
-
-            	    				current.merge(this_SPACE_5);
-            	    			
-
-            	    				newLeafNode(this_SPACE_5, grammarAccess.getID_WSAccess().getSPACETerminalRuleCall_2_0());
-            	    			
-            	    // InternalTexDsl.g:304:4: (this_ID_6= RULE_ID | this_ALPHA_NUMERIC_7= RULE_ALPHA_NUMERIC | this_BO_8= RULE_BO | this_BC_9= RULE_BC )
-            	    int alt7=4;
-            	    switch ( input.LA(1) ) {
-            	    case RULE_ID:
-            	        {
-            	        alt7=1;
-            	        }
-            	        break;
-            	    case RULE_ALPHA_NUMERIC:
-            	        {
-            	        alt7=2;
-            	        }
-            	        break;
-            	    case RULE_BO:
-            	        {
-            	        alt7=3;
-            	        }
-            	        break;
-            	    case RULE_BC:
-            	        {
-            	        alt7=4;
-            	        }
-            	        break;
-            	    default:
-            	        NoViableAltException nvae =
-            	            new NoViableAltException("", 7, 0, input);
-
-            	        throw nvae;
-            	    }
-
-            	    switch (alt7) {
-            	        case 1 :
-            	            // InternalTexDsl.g:305:5: this_ID_6= RULE_ID
-            	            {
-            	            this_ID_6=(Token)match(input,RULE_ID,FOLLOW_5); 
-
-            	            					current.merge(this_ID_6);
-            	            				
-
-            	            					newLeafNode(this_ID_6, grammarAccess.getID_WSAccess().getIDTerminalRuleCall_2_1_0());
-            	            				
-
-            	            }
-            	            break;
-            	        case 2 :
-            	            // InternalTexDsl.g:313:5: this_ALPHA_NUMERIC_7= RULE_ALPHA_NUMERIC
-            	            {
-            	            this_ALPHA_NUMERIC_7=(Token)match(input,RULE_ALPHA_NUMERIC,FOLLOW_5); 
-
-            	            					current.merge(this_ALPHA_NUMERIC_7);
-            	            				
-
-            	            					newLeafNode(this_ALPHA_NUMERIC_7, grammarAccess.getID_WSAccess().getALPHA_NUMERICTerminalRuleCall_2_1_1());
-            	            				
-
-            	            }
-            	            break;
-            	        case 3 :
-            	            // InternalTexDsl.g:321:5: this_BO_8= RULE_BO
-            	            {
-            	            this_BO_8=(Token)match(input,RULE_BO,FOLLOW_5); 
-
-            	            					current.merge(this_BO_8);
-            	            				
-
-            	            					newLeafNode(this_BO_8, grammarAccess.getID_WSAccess().getBOTerminalRuleCall_2_1_2());
-            	            				
-
-            	            }
-            	            break;
-            	        case 4 :
-            	            // InternalTexDsl.g:329:5: this_BC_9= RULE_BC
-            	            {
-            	            this_BC_9=(Token)match(input,RULE_BC,FOLLOW_5); 
-
-            	            					current.merge(this_BC_9);
-            	            				
-
-            	            					newLeafNode(this_BC_9, grammarAccess.getID_WSAccess().getBCTerminalRuleCall_2_1_3());
-            	            				
-
-            	            }
-            	            break;
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop8;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleID_WS"
-
-
-    // $ANTLR start "entryRuleSubCommName"
-    // InternalTexDsl.g:342:1: entryRuleSubCommName returns [EObject current=null] : iv_ruleSubCommName= ruleSubCommName EOF ;
-    public final EObject entryRuleSubCommName() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleSubCommName = null;
-
-
-        try {
-            // InternalTexDsl.g:342:52: (iv_ruleSubCommName= ruleSubCommName EOF )
-            // InternalTexDsl.g:343:2: iv_ruleSubCommName= ruleSubCommName EOF
-            {
-             newCompositeNode(grammarAccess.getSubCommNameRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleSubCommName=ruleSubCommName();
-
-            state._fsp--;
-
-             current =iv_ruleSubCommName; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleSubCommName"
-
-
-    // $ANTLR start "ruleSubCommName"
-    // InternalTexDsl.g:349:1: ruleSubCommName returns [EObject current=null] : ( ( (lv_id_0_0= ruleID_WS ) ) ( (lv_subCommand_1_0= ruleSubCommand ) )? ) ;
-    public final EObject ruleSubCommName() throws RecognitionException {
-        EObject current = null;
-
-        AntlrDatatypeRuleToken lv_id_0_0 = null;
-
-        EObject lv_subCommand_1_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalTexDsl.g:355:2: ( ( ( (lv_id_0_0= ruleID_WS ) ) ( (lv_subCommand_1_0= ruleSubCommand ) )? ) )
-            // InternalTexDsl.g:356:2: ( ( (lv_id_0_0= ruleID_WS ) ) ( (lv_subCommand_1_0= ruleSubCommand ) )? )
-            {
-            // InternalTexDsl.g:356:2: ( ( (lv_id_0_0= ruleID_WS ) ) ( (lv_subCommand_1_0= ruleSubCommand ) )? )
-            // InternalTexDsl.g:357:3: ( (lv_id_0_0= ruleID_WS ) ) ( (lv_subCommand_1_0= ruleSubCommand ) )?
-            {
-            // InternalTexDsl.g:357:3: ( (lv_id_0_0= ruleID_WS ) )
-            // InternalTexDsl.g:358:4: (lv_id_0_0= ruleID_WS )
-            {
-            // InternalTexDsl.g:358:4: (lv_id_0_0= ruleID_WS )
-            // InternalTexDsl.g:359:5: lv_id_0_0= ruleID_WS
-            {
-
-            					newCompositeNode(grammarAccess.getSubCommNameAccess().getIdID_WSParserRuleCall_0_0());
-            				
-            pushFollow(FOLLOW_6);
-            lv_id_0_0=ruleID_WS();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getSubCommNameRule());
-            					}
-            					set(
-            						current,
-            						"id",
-            						lv_id_0_0,
-            						"org.xixum.latex.TexDsl.ID_WS");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            // InternalTexDsl.g:376:3: ( (lv_subCommand_1_0= ruleSubCommand ) )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
-
-            if ( (LA9_0==RULE_CUBO) ) {
-                alt9=1;
-            }
-            switch (alt9) {
-                case 1 :
-                    // InternalTexDsl.g:377:4: (lv_subCommand_1_0= ruleSubCommand )
+                case 5 :
+                    // InternalTexDsl.g:233:3: this_EXCL_4= RULE_EXCL
                     {
-                    // InternalTexDsl.g:377:4: (lv_subCommand_1_0= ruleSubCommand )
-                    // InternalTexDsl.g:378:5: lv_subCommand_1_0= ruleSubCommand
-                    {
+                    this_EXCL_4=(Token)match(input,RULE_EXCL,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-                    					newCompositeNode(grammarAccess.getSubCommNameAccess().getSubCommandSubCommandParserRuleCall_1_0());
-                    				
-                    pushFollow(FOLLOW_2);
-                    lv_subCommand_1_0=ruleSubCommand();
+                      			current.merge(this_EXCL_4);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
 
-                    state._fsp--;
-
-
-                    					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getSubCommNameRule());
-                    					}
-                    					set(
-                    						current,
-                    						"subCommand",
-                    						lv_subCommand_1_0,
-                    						"org.xixum.latex.TexDsl.SubCommand");
-                    					afterParserOrEnumRuleCall();
-                    				
-
+                      			newLeafNode(this_EXCL_4, grammarAccess.getAnyTextAccess().getEXCLTerminalRuleCall_4());
+                      		
                     }
 
+                    }
+                    break;
+                case 6 :
+                    // InternalTexDsl.g:241:3: this_SYMBOL_5= RULE_SYMBOL
+                    {
+                    this_SYMBOL_5=(Token)match(input,RULE_SYMBOL,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_SYMBOL_5);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			newLeafNode(this_SYMBOL_5, grammarAccess.getAnyTextAccess().getSYMBOLTerminalRuleCall_5());
+                      		
+                    }
+
+                    }
+                    break;
+                case 7 :
+                    // InternalTexDsl.g:249:3: this_DOT_6= RULE_DOT
+                    {
+                    this_DOT_6=(Token)match(input,RULE_DOT,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_DOT_6);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			newLeafNode(this_DOT_6, grammarAccess.getAnyTextAccess().getDOTTerminalRuleCall_6());
+                      		
+                    }
 
                     }
                     break;
@@ -1076,12 +760,11 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
             }
 
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
 
             }
-
-
-            	leaveRule();
-
         }
 
             catch (RecognitionException re) {
@@ -1092,517 +775,11 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSubCommName"
-
-
-    // $ANTLR start "entryRuleCommandName"
-    // InternalTexDsl.g:399:1: entryRuleCommandName returns [EObject current=null] : iv_ruleCommandName= ruleCommandName EOF ;
-    public final EObject entryRuleCommandName() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleCommandName = null;
-
-
-
-        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-
-        try {
-            // InternalTexDsl.g:401:2: (iv_ruleCommandName= ruleCommandName EOF )
-            // InternalTexDsl.g:402:2: iv_ruleCommandName= ruleCommandName EOF
-            {
-             newCompositeNode(grammarAccess.getCommandNameRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleCommandName=ruleCommandName();
-
-            state._fsp--;
-
-             current =iv_ruleCommandName; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-
-            	myHiddenTokenState.restore();
-
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleCommandName"
-
-
-    // $ANTLR start "ruleCommandName"
-    // InternalTexDsl.g:411:1: ruleCommandName returns [EObject current=null] : ( ( (lv_leading_0_0= RULE_BS ) ) ( (lv_cName_1_0= RULE_ALPHA_NUMERIC ) ) ) ;
-    public final EObject ruleCommandName() throws RecognitionException {
-        EObject current = null;
-
-        Token lv_leading_0_0=null;
-        Token lv_cName_1_0=null;
-
-
-        	enterRule();
-        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-
-        try {
-            // InternalTexDsl.g:418:2: ( ( ( (lv_leading_0_0= RULE_BS ) ) ( (lv_cName_1_0= RULE_ALPHA_NUMERIC ) ) ) )
-            // InternalTexDsl.g:419:2: ( ( (lv_leading_0_0= RULE_BS ) ) ( (lv_cName_1_0= RULE_ALPHA_NUMERIC ) ) )
-            {
-            // InternalTexDsl.g:419:2: ( ( (lv_leading_0_0= RULE_BS ) ) ( (lv_cName_1_0= RULE_ALPHA_NUMERIC ) ) )
-            // InternalTexDsl.g:420:3: ( (lv_leading_0_0= RULE_BS ) ) ( (lv_cName_1_0= RULE_ALPHA_NUMERIC ) )
-            {
-            // InternalTexDsl.g:420:3: ( (lv_leading_0_0= RULE_BS ) )
-            // InternalTexDsl.g:421:4: (lv_leading_0_0= RULE_BS )
-            {
-            // InternalTexDsl.g:421:4: (lv_leading_0_0= RULE_BS )
-            // InternalTexDsl.g:422:5: lv_leading_0_0= RULE_BS
-            {
-            lv_leading_0_0=(Token)match(input,RULE_BS,FOLLOW_7); 
-
-            					newLeafNode(lv_leading_0_0, grammarAccess.getCommandNameAccess().getLeadingBSTerminalRuleCall_0_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getCommandNameRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"leading",
-            						lv_leading_0_0,
-            						"org.xixum.latex.TexDsl.BS");
-            				
-
-            }
-
-
-            }
-
-            // InternalTexDsl.g:438:3: ( (lv_cName_1_0= RULE_ALPHA_NUMERIC ) )
-            // InternalTexDsl.g:439:4: (lv_cName_1_0= RULE_ALPHA_NUMERIC )
-            {
-            // InternalTexDsl.g:439:4: (lv_cName_1_0= RULE_ALPHA_NUMERIC )
-            // InternalTexDsl.g:440:5: lv_cName_1_0= RULE_ALPHA_NUMERIC
-            {
-            lv_cName_1_0=(Token)match(input,RULE_ALPHA_NUMERIC,FOLLOW_2); 
-
-            					newLeafNode(lv_cName_1_0, grammarAccess.getCommandNameAccess().getCNameALPHA_NUMERICTerminalRuleCall_1_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getCommandNameRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"cName",
-            						lv_cName_1_0,
-            						"org.xixum.latex.TexDsl.ALPHA_NUMERIC");
-            				
-
-            }
-
-
-            }
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-
-            	myHiddenTokenState.restore();
-
-        }
-        return current;
-    }
-    // $ANTLR end "ruleCommandName"
-
-
-    // $ANTLR start "entryRuleSubCommand"
-    // InternalTexDsl.g:463:1: entryRuleSubCommand returns [EObject current=null] : iv_ruleSubCommand= ruleSubCommand EOF ;
-    public final EObject entryRuleSubCommand() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleSubCommand = null;
-
-
-
-        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-
-        try {
-            // InternalTexDsl.g:465:2: (iv_ruleSubCommand= ruleSubCommand EOF )
-            // InternalTexDsl.g:466:2: iv_ruleSubCommand= ruleSubCommand EOF
-            {
-             newCompositeNode(grammarAccess.getSubCommandRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleSubCommand=ruleSubCommand();
-
-            state._fsp--;
-
-             current =iv_ruleSubCommand; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-
-            	myHiddenTokenState.restore();
-
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleSubCommand"
-
-
-    // $ANTLR start "ruleSubCommand"
-    // InternalTexDsl.g:475:1: ruleSubCommand returns [EObject current=null] : (this_CUBO_0= RULE_CUBO ( (lv_types_1_0= ruleSubCommName ) ) (this_PIPE_2= RULE_PIPE ( (lv_types_3_0= ruleSubCommName ) ) )* this_CUBC_4= RULE_CUBC ) ;
-    public final EObject ruleSubCommand() throws RecognitionException {
-        EObject current = null;
-
-        Token this_CUBO_0=null;
-        Token this_PIPE_2=null;
-        Token this_CUBC_4=null;
-        EObject lv_types_1_0 = null;
-
-        EObject lv_types_3_0 = null;
-
-
-
-        	enterRule();
-        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-
-        try {
-            // InternalTexDsl.g:482:2: ( (this_CUBO_0= RULE_CUBO ( (lv_types_1_0= ruleSubCommName ) ) (this_PIPE_2= RULE_PIPE ( (lv_types_3_0= ruleSubCommName ) ) )* this_CUBC_4= RULE_CUBC ) )
-            // InternalTexDsl.g:483:2: (this_CUBO_0= RULE_CUBO ( (lv_types_1_0= ruleSubCommName ) ) (this_PIPE_2= RULE_PIPE ( (lv_types_3_0= ruleSubCommName ) ) )* this_CUBC_4= RULE_CUBC )
-            {
-            // InternalTexDsl.g:483:2: (this_CUBO_0= RULE_CUBO ( (lv_types_1_0= ruleSubCommName ) ) (this_PIPE_2= RULE_PIPE ( (lv_types_3_0= ruleSubCommName ) ) )* this_CUBC_4= RULE_CUBC )
-            // InternalTexDsl.g:484:3: this_CUBO_0= RULE_CUBO ( (lv_types_1_0= ruleSubCommName ) ) (this_PIPE_2= RULE_PIPE ( (lv_types_3_0= ruleSubCommName ) ) )* this_CUBC_4= RULE_CUBC
-            {
-            this_CUBO_0=(Token)match(input,RULE_CUBO,FOLLOW_8); 
-
-            			newLeafNode(this_CUBO_0, grammarAccess.getSubCommandAccess().getCUBOTerminalRuleCall_0());
-            		
-            // InternalTexDsl.g:488:3: ( (lv_types_1_0= ruleSubCommName ) )
-            // InternalTexDsl.g:489:4: (lv_types_1_0= ruleSubCommName )
-            {
-            // InternalTexDsl.g:489:4: (lv_types_1_0= ruleSubCommName )
-            // InternalTexDsl.g:490:5: lv_types_1_0= ruleSubCommName
-            {
-
-            					newCompositeNode(grammarAccess.getSubCommandAccess().getTypesSubCommNameParserRuleCall_1_0());
-            				
-            pushFollow(FOLLOW_9);
-            lv_types_1_0=ruleSubCommName();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getSubCommandRule());
-            					}
-            					add(
-            						current,
-            						"types",
-            						lv_types_1_0,
-            						"org.xixum.latex.TexDsl.SubCommName");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            // InternalTexDsl.g:507:3: (this_PIPE_2= RULE_PIPE ( (lv_types_3_0= ruleSubCommName ) ) )*
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
-
-                if ( (LA10_0==RULE_PIPE) ) {
-                    alt10=1;
-                }
-
-
-                switch (alt10) {
-            	case 1 :
-            	    // InternalTexDsl.g:508:4: this_PIPE_2= RULE_PIPE ( (lv_types_3_0= ruleSubCommName ) )
-            	    {
-            	    this_PIPE_2=(Token)match(input,RULE_PIPE,FOLLOW_8); 
-
-            	    				newLeafNode(this_PIPE_2, grammarAccess.getSubCommandAccess().getPIPETerminalRuleCall_2_0());
-            	    			
-            	    // InternalTexDsl.g:512:4: ( (lv_types_3_0= ruleSubCommName ) )
-            	    // InternalTexDsl.g:513:5: (lv_types_3_0= ruleSubCommName )
-            	    {
-            	    // InternalTexDsl.g:513:5: (lv_types_3_0= ruleSubCommName )
-            	    // InternalTexDsl.g:514:6: lv_types_3_0= ruleSubCommName
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getSubCommandAccess().getTypesSubCommNameParserRuleCall_2_1_0());
-            	    					
-            	    pushFollow(FOLLOW_9);
-            	    lv_types_3_0=ruleSubCommName();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getSubCommandRule());
-            	    						}
-            	    						add(
-            	    							current,
-            	    							"types",
-            	    							lv_types_3_0,
-            	    							"org.xixum.latex.TexDsl.SubCommName");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop10;
-                }
-            } while (true);
-
-            this_CUBC_4=(Token)match(input,RULE_CUBC,FOLLOW_2); 
-
-            			newLeafNode(this_CUBC_4, grammarAccess.getSubCommandAccess().getCUBCTerminalRuleCall_3());
-            		
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-
-            	myHiddenTokenState.restore();
-
-        }
-        return current;
-    }
-    // $ANTLR end "ruleSubCommand"
-
-
-    // $ANTLR start "entryRuleCommandParameters"
-    // InternalTexDsl.g:543:1: entryRuleCommandParameters returns [EObject current=null] : iv_ruleCommandParameters= ruleCommandParameters EOF ;
-    public final EObject entryRuleCommandParameters() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleCommandParameters = null;
-
-
-        try {
-            // InternalTexDsl.g:543:58: (iv_ruleCommandParameters= ruleCommandParameters EOF )
-            // InternalTexDsl.g:544:2: iv_ruleCommandParameters= ruleCommandParameters EOF
-            {
-             newCompositeNode(grammarAccess.getCommandParametersRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleCommandParameters=ruleCommandParameters();
-
-            state._fsp--;
-
-             current =iv_ruleCommandParameters; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleCommandParameters"
-
-
-    // $ANTLR start "ruleCommandParameters"
-    // InternalTexDsl.g:550:1: ruleCommandParameters returns [EObject current=null] : (this_SQBO_0= RULE_SQBO ( (lv_attributes_1_0= ruleAttributes ) ) (this_KOMMA_2= RULE_KOMMA ( (lv_attributes_3_0= ruleAttributes ) ) )* this_SQBC_4= RULE_SQBC ) ;
-    public final EObject ruleCommandParameters() throws RecognitionException {
-        EObject current = null;
-
-        Token this_SQBO_0=null;
-        Token this_KOMMA_2=null;
-        Token this_SQBC_4=null;
-        EObject lv_attributes_1_0 = null;
-
-        EObject lv_attributes_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalTexDsl.g:556:2: ( (this_SQBO_0= RULE_SQBO ( (lv_attributes_1_0= ruleAttributes ) ) (this_KOMMA_2= RULE_KOMMA ( (lv_attributes_3_0= ruleAttributes ) ) )* this_SQBC_4= RULE_SQBC ) )
-            // InternalTexDsl.g:557:2: (this_SQBO_0= RULE_SQBO ( (lv_attributes_1_0= ruleAttributes ) ) (this_KOMMA_2= RULE_KOMMA ( (lv_attributes_3_0= ruleAttributes ) ) )* this_SQBC_4= RULE_SQBC )
-            {
-            // InternalTexDsl.g:557:2: (this_SQBO_0= RULE_SQBO ( (lv_attributes_1_0= ruleAttributes ) ) (this_KOMMA_2= RULE_KOMMA ( (lv_attributes_3_0= ruleAttributes ) ) )* this_SQBC_4= RULE_SQBC )
-            // InternalTexDsl.g:558:3: this_SQBO_0= RULE_SQBO ( (lv_attributes_1_0= ruleAttributes ) ) (this_KOMMA_2= RULE_KOMMA ( (lv_attributes_3_0= ruleAttributes ) ) )* this_SQBC_4= RULE_SQBC
-            {
-            this_SQBO_0=(Token)match(input,RULE_SQBO,FOLLOW_10); 
-
-            			newLeafNode(this_SQBO_0, grammarAccess.getCommandParametersAccess().getSQBOTerminalRuleCall_0());
-            		
-            // InternalTexDsl.g:562:3: ( (lv_attributes_1_0= ruleAttributes ) )
-            // InternalTexDsl.g:563:4: (lv_attributes_1_0= ruleAttributes )
-            {
-            // InternalTexDsl.g:563:4: (lv_attributes_1_0= ruleAttributes )
-            // InternalTexDsl.g:564:5: lv_attributes_1_0= ruleAttributes
-            {
-
-            					newCompositeNode(grammarAccess.getCommandParametersAccess().getAttributesAttributesParserRuleCall_1_0());
-            				
-            pushFollow(FOLLOW_11);
-            lv_attributes_1_0=ruleAttributes();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getCommandParametersRule());
-            					}
-            					add(
-            						current,
-            						"attributes",
-            						lv_attributes_1_0,
-            						"org.xixum.latex.TexDsl.Attributes");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            // InternalTexDsl.g:581:3: (this_KOMMA_2= RULE_KOMMA ( (lv_attributes_3_0= ruleAttributes ) ) )*
-            loop11:
-            do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
-
-                if ( (LA11_0==RULE_KOMMA) ) {
-                    alt11=1;
-                }
-
-
-                switch (alt11) {
-            	case 1 :
-            	    // InternalTexDsl.g:582:4: this_KOMMA_2= RULE_KOMMA ( (lv_attributes_3_0= ruleAttributes ) )
-            	    {
-            	    this_KOMMA_2=(Token)match(input,RULE_KOMMA,FOLLOW_10); 
-
-            	    				newLeafNode(this_KOMMA_2, grammarAccess.getCommandParametersAccess().getKOMMATerminalRuleCall_2_0());
-            	    			
-            	    // InternalTexDsl.g:586:4: ( (lv_attributes_3_0= ruleAttributes ) )
-            	    // InternalTexDsl.g:587:5: (lv_attributes_3_0= ruleAttributes )
-            	    {
-            	    // InternalTexDsl.g:587:5: (lv_attributes_3_0= ruleAttributes )
-            	    // InternalTexDsl.g:588:6: lv_attributes_3_0= ruleAttributes
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getCommandParametersAccess().getAttributesAttributesParserRuleCall_2_1_0());
-            	    					
-            	    pushFollow(FOLLOW_11);
-            	    lv_attributes_3_0=ruleAttributes();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getCommandParametersRule());
-            	    						}
-            	    						add(
-            	    							current,
-            	    							"attributes",
-            	    							lv_attributes_3_0,
-            	    							"org.xixum.latex.TexDsl.Attributes");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop11;
-                }
-            } while (true);
-
-            this_SQBC_4=(Token)match(input,RULE_SQBC,FOLLOW_2); 
-
-            			newLeafNode(this_SQBC_4, grammarAccess.getCommandParametersAccess().getSQBCTerminalRuleCall_3());
-            		
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleCommandParameters"
+    // $ANTLR end "ruleAnyText"
 
 
     // $ANTLR start "entryRuleCommand"
-    // InternalTexDsl.g:614:1: entryRuleCommand returns [EObject current=null] : iv_ruleCommand= ruleCommand EOF ;
+    // InternalTexDsl.g:260:1: entryRuleCommand returns [EObject current=null] : iv_ruleCommand= ruleCommand EOF ;
     public final EObject entryRuleCommand() throws RecognitionException {
         EObject current = null;
 
@@ -1610,17 +787,21 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalTexDsl.g:614:48: (iv_ruleCommand= ruleCommand EOF )
-            // InternalTexDsl.g:615:2: iv_ruleCommand= ruleCommand EOF
+            // InternalTexDsl.g:260:48: (iv_ruleCommand= ruleCommand EOF )
+            // InternalTexDsl.g:261:2: iv_ruleCommand= ruleCommand EOF
             {
-             newCompositeNode(grammarAccess.getCommandRule()); 
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getCommandRule()); 
+            }
             pushFollow(FOLLOW_1);
             iv_ruleCommand=ruleCommand();
 
             state._fsp--;
-
-             current =iv_ruleCommand; 
-            match(input,EOF,FOLLOW_2); 
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleCommand; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
             }
 
@@ -1638,136 +819,358 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCommand"
-    // InternalTexDsl.g:621:1: ruleCommand returns [EObject current=null] : ( ( (lv_command_0_0= ruleCommandName ) ) ( (lv_parameters_1_0= ruleCommandParameters ) )? ( (lv_subCommand_2_0= ruleSubCommand ) )? ) ;
+    // InternalTexDsl.g:267:1: ruleCommand returns [EObject current=null] : ( ( (lv_command_0_0= RULE_ID_COMM ) ) (this_SQBO_1= RULE_SQBO ( (lv_attrs_2_0= ruleAttributes ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_attrs_4_0= ruleAttributes ) ) )* this_SQBC_5= RULE_SQBC )? (this_CUBO_6= RULE_CUBO ( (lv_tokens_7_0= ruleCompound ) ) ( (this_PIPE_8= RULE_PIPE | this_EXCL_9= RULE_EXCL ) ( (lv_tokens_10_0= ruleCompound ) ) )* this_CUBC_11= RULE_CUBC )? ) ;
     public final EObject ruleCommand() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_command_0_0 = null;
+        Token lv_command_0_0=null;
+        Token this_SQBO_1=null;
+        Token this_KOMMA_3=null;
+        Token this_SQBC_5=null;
+        Token this_CUBO_6=null;
+        Token this_PIPE_8=null;
+        Token this_EXCL_9=null;
+        Token this_CUBC_11=null;
+        EObject lv_attrs_2_0 = null;
 
-        EObject lv_parameters_1_0 = null;
+        EObject lv_attrs_4_0 = null;
 
-        EObject lv_subCommand_2_0 = null;
+        EObject lv_tokens_7_0 = null;
+
+        EObject lv_tokens_10_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalTexDsl.g:627:2: ( ( ( (lv_command_0_0= ruleCommandName ) ) ( (lv_parameters_1_0= ruleCommandParameters ) )? ( (lv_subCommand_2_0= ruleSubCommand ) )? ) )
-            // InternalTexDsl.g:628:2: ( ( (lv_command_0_0= ruleCommandName ) ) ( (lv_parameters_1_0= ruleCommandParameters ) )? ( (lv_subCommand_2_0= ruleSubCommand ) )? )
+            // InternalTexDsl.g:273:2: ( ( ( (lv_command_0_0= RULE_ID_COMM ) ) (this_SQBO_1= RULE_SQBO ( (lv_attrs_2_0= ruleAttributes ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_attrs_4_0= ruleAttributes ) ) )* this_SQBC_5= RULE_SQBC )? (this_CUBO_6= RULE_CUBO ( (lv_tokens_7_0= ruleCompound ) ) ( (this_PIPE_8= RULE_PIPE | this_EXCL_9= RULE_EXCL ) ( (lv_tokens_10_0= ruleCompound ) ) )* this_CUBC_11= RULE_CUBC )? ) )
+            // InternalTexDsl.g:274:2: ( ( (lv_command_0_0= RULE_ID_COMM ) ) (this_SQBO_1= RULE_SQBO ( (lv_attrs_2_0= ruleAttributes ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_attrs_4_0= ruleAttributes ) ) )* this_SQBC_5= RULE_SQBC )? (this_CUBO_6= RULE_CUBO ( (lv_tokens_7_0= ruleCompound ) ) ( (this_PIPE_8= RULE_PIPE | this_EXCL_9= RULE_EXCL ) ( (lv_tokens_10_0= ruleCompound ) ) )* this_CUBC_11= RULE_CUBC )? )
             {
-            // InternalTexDsl.g:628:2: ( ( (lv_command_0_0= ruleCommandName ) ) ( (lv_parameters_1_0= ruleCommandParameters ) )? ( (lv_subCommand_2_0= ruleSubCommand ) )? )
-            // InternalTexDsl.g:629:3: ( (lv_command_0_0= ruleCommandName ) ) ( (lv_parameters_1_0= ruleCommandParameters ) )? ( (lv_subCommand_2_0= ruleSubCommand ) )?
+            // InternalTexDsl.g:274:2: ( ( (lv_command_0_0= RULE_ID_COMM ) ) (this_SQBO_1= RULE_SQBO ( (lv_attrs_2_0= ruleAttributes ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_attrs_4_0= ruleAttributes ) ) )* this_SQBC_5= RULE_SQBC )? (this_CUBO_6= RULE_CUBO ( (lv_tokens_7_0= ruleCompound ) ) ( (this_PIPE_8= RULE_PIPE | this_EXCL_9= RULE_EXCL ) ( (lv_tokens_10_0= ruleCompound ) ) )* this_CUBC_11= RULE_CUBC )? )
+            // InternalTexDsl.g:275:3: ( (lv_command_0_0= RULE_ID_COMM ) ) (this_SQBO_1= RULE_SQBO ( (lv_attrs_2_0= ruleAttributes ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_attrs_4_0= ruleAttributes ) ) )* this_SQBC_5= RULE_SQBC )? (this_CUBO_6= RULE_CUBO ( (lv_tokens_7_0= ruleCompound ) ) ( (this_PIPE_8= RULE_PIPE | this_EXCL_9= RULE_EXCL ) ( (lv_tokens_10_0= ruleCompound ) ) )* this_CUBC_11= RULE_CUBC )?
             {
-            // InternalTexDsl.g:629:3: ( (lv_command_0_0= ruleCommandName ) )
-            // InternalTexDsl.g:630:4: (lv_command_0_0= ruleCommandName )
+            // InternalTexDsl.g:275:3: ( (lv_command_0_0= RULE_ID_COMM ) )
+            // InternalTexDsl.g:276:4: (lv_command_0_0= RULE_ID_COMM )
             {
-            // InternalTexDsl.g:630:4: (lv_command_0_0= ruleCommandName )
-            // InternalTexDsl.g:631:5: lv_command_0_0= ruleCommandName
+            // InternalTexDsl.g:276:4: (lv_command_0_0= RULE_ID_COMM )
+            // InternalTexDsl.g:277:5: lv_command_0_0= RULE_ID_COMM
             {
+            lv_command_0_0=(Token)match(input,RULE_ID_COMM,FOLLOW_4); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
 
-            					newCompositeNode(grammarAccess.getCommandAccess().getCommandCommandNameParserRuleCall_0_0());
-            				
-            pushFollow(FOLLOW_12);
-            lv_command_0_0=ruleCommandName();
+              					newLeafNode(lv_command_0_0, grammarAccess.getCommandAccess().getCommandID_COMMTerminalRuleCall_0_0());
+              				
+            }
+            if ( state.backtracking==0 ) {
 
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getCommandRule());
-            					}
-            					set(
-            						current,
-            						"command",
-            						lv_command_0_0,
-            						"org.xixum.latex.TexDsl.CommandName");
-            					afterParserOrEnumRuleCall();
-            				
+              					if (current==null) {
+              						current = createModelElement(grammarAccess.getCommandRule());
+              					}
+              					setWithLastConsumed(
+              						current,
+              						"command",
+              						lv_command_0_0,
+              						"org.xixum.latex.TexDsl.ID_COMM");
+              				
+            }
 
             }
 
 
             }
 
-            // InternalTexDsl.g:648:3: ( (lv_parameters_1_0= ruleCommandParameters ) )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // InternalTexDsl.g:293:3: (this_SQBO_1= RULE_SQBO ( (lv_attrs_2_0= ruleAttributes ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_attrs_4_0= ruleAttributes ) ) )* this_SQBC_5= RULE_SQBC )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_SQBO) ) {
-                alt12=1;
+            if ( (LA5_0==RULE_SQBO) ) {
+                alt5=1;
             }
-            switch (alt12) {
+            switch (alt5) {
                 case 1 :
-                    // InternalTexDsl.g:649:4: (lv_parameters_1_0= ruleCommandParameters )
+                    // InternalTexDsl.g:294:4: this_SQBO_1= RULE_SQBO ( (lv_attrs_2_0= ruleAttributes ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_attrs_4_0= ruleAttributes ) ) )* this_SQBC_5= RULE_SQBC
                     {
-                    // InternalTexDsl.g:649:4: (lv_parameters_1_0= ruleCommandParameters )
-                    // InternalTexDsl.g:650:5: lv_parameters_1_0= ruleCommandParameters
-                    {
+                    this_SQBO_1=(Token)match(input,RULE_SQBO,FOLLOW_5); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-                    					newCompositeNode(grammarAccess.getCommandAccess().getParametersCommandParametersParserRuleCall_1_0());
-                    				
+                      				newLeafNode(this_SQBO_1, grammarAccess.getCommandAccess().getSQBOTerminalRuleCall_1_0());
+                      			
+                    }
+                    // InternalTexDsl.g:298:4: ( (lv_attrs_2_0= ruleAttributes ) )
+                    // InternalTexDsl.g:299:5: (lv_attrs_2_0= ruleAttributes )
+                    {
+                    // InternalTexDsl.g:299:5: (lv_attrs_2_0= ruleAttributes )
+                    // InternalTexDsl.g:300:6: lv_attrs_2_0= ruleAttributes
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getCommandAccess().getAttrsAttributesParserRuleCall_1_1_0());
+                      					
+                    }
                     pushFollow(FOLLOW_6);
-                    lv_parameters_1_0=ruleCommandParameters();
+                    lv_attrs_2_0=ruleAttributes();
 
                     state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-
-                    					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getCommandRule());
-                    					}
-                    					set(
-                    						current,
-                    						"parameters",
-                    						lv_parameters_1_0,
-                    						"org.xixum.latex.TexDsl.CommandParameters");
-                    					afterParserOrEnumRuleCall();
-                    				
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getCommandRule());
+                      						}
+                      						add(
+                      							current,
+                      							"attrs",
+                      							lv_attrs_2_0,
+                      							"org.xixum.latex.TexDsl.Attributes");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
 
                     }
 
+
+                    }
+
+                    // InternalTexDsl.g:317:4: (this_KOMMA_3= RULE_KOMMA ( (lv_attrs_4_0= ruleAttributes ) ) )*
+                    loop4:
+                    do {
+                        int alt4=2;
+                        int LA4_0 = input.LA(1);
+
+                        if ( (LA4_0==RULE_KOMMA) ) {
+                            alt4=1;
+                        }
+
+
+                        switch (alt4) {
+                    	case 1 :
+                    	    // InternalTexDsl.g:318:5: this_KOMMA_3= RULE_KOMMA ( (lv_attrs_4_0= ruleAttributes ) )
+                    	    {
+                    	    this_KOMMA_3=(Token)match(input,RULE_KOMMA,FOLLOW_5); if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	      					newLeafNode(this_KOMMA_3, grammarAccess.getCommandAccess().getKOMMATerminalRuleCall_1_2_0());
+                    	      				
+                    	    }
+                    	    // InternalTexDsl.g:322:5: ( (lv_attrs_4_0= ruleAttributes ) )
+                    	    // InternalTexDsl.g:323:6: (lv_attrs_4_0= ruleAttributes )
+                    	    {
+                    	    // InternalTexDsl.g:323:6: (lv_attrs_4_0= ruleAttributes )
+                    	    // InternalTexDsl.g:324:7: lv_attrs_4_0= ruleAttributes
+                    	    {
+                    	    if ( state.backtracking==0 ) {
+
+                    	      							newCompositeNode(grammarAccess.getCommandAccess().getAttrsAttributesParserRuleCall_1_2_1_0());
+                    	      						
+                    	    }
+                    	    pushFollow(FOLLOW_6);
+                    	    lv_attrs_4_0=ruleAttributes();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	      							if (current==null) {
+                    	      								current = createModelElementForParent(grammarAccess.getCommandRule());
+                    	      							}
+                    	      							add(
+                    	      								current,
+                    	      								"attrs",
+                    	      								lv_attrs_4_0,
+                    	      								"org.xixum.latex.TexDsl.Attributes");
+                    	      							afterParserOrEnumRuleCall();
+                    	      						
+                    	    }
+
+                    	    }
+
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop4;
+                        }
+                    } while (true);
+
+                    this_SQBC_5=(Token)match(input,RULE_SQBC,FOLLOW_7); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				newLeafNode(this_SQBC_5, grammarAccess.getCommandAccess().getSQBCTerminalRuleCall_1_3());
+                      			
+                    }
 
                     }
                     break;
 
             }
 
-            // InternalTexDsl.g:667:3: ( (lv_subCommand_2_0= ruleSubCommand ) )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalTexDsl.g:347:3: (this_CUBO_6= RULE_CUBO ( (lv_tokens_7_0= ruleCompound ) ) ( (this_PIPE_8= RULE_PIPE | this_EXCL_9= RULE_EXCL ) ( (lv_tokens_10_0= ruleCompound ) ) )* this_CUBC_11= RULE_CUBC )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA13_0==RULE_CUBO) ) {
-                alt13=1;
+            if ( (LA8_0==RULE_CUBO) ) {
+                alt8=1;
             }
-            switch (alt13) {
+            switch (alt8) {
                 case 1 :
-                    // InternalTexDsl.g:668:4: (lv_subCommand_2_0= ruleSubCommand )
+                    // InternalTexDsl.g:348:4: this_CUBO_6= RULE_CUBO ( (lv_tokens_7_0= ruleCompound ) ) ( (this_PIPE_8= RULE_PIPE | this_EXCL_9= RULE_EXCL ) ( (lv_tokens_10_0= ruleCompound ) ) )* this_CUBC_11= RULE_CUBC
                     {
-                    // InternalTexDsl.g:668:4: (lv_subCommand_2_0= ruleSubCommand )
-                    // InternalTexDsl.g:669:5: lv_subCommand_2_0= ruleSubCommand
-                    {
+                    this_CUBO_6=(Token)match(input,RULE_CUBO,FOLLOW_8); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-                    					newCompositeNode(grammarAccess.getCommandAccess().getSubCommandSubCommandParserRuleCall_2_0());
-                    				
-                    pushFollow(FOLLOW_2);
-                    lv_subCommand_2_0=ruleSubCommand();
+                      				newLeafNode(this_CUBO_6, grammarAccess.getCommandAccess().getCUBOTerminalRuleCall_2_0());
+                      			
+                    }
+                    // InternalTexDsl.g:352:4: ( (lv_tokens_7_0= ruleCompound ) )
+                    // InternalTexDsl.g:353:5: (lv_tokens_7_0= ruleCompound )
+                    {
+                    // InternalTexDsl.g:353:5: (lv_tokens_7_0= ruleCompound )
+                    // InternalTexDsl.g:354:6: lv_tokens_7_0= ruleCompound
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getCommandAccess().getTokensCompoundParserRuleCall_2_1_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_9);
+                    lv_tokens_7_0=ruleCompound();
 
                     state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-
-                    					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getCommandRule());
-                    					}
-                    					set(
-                    						current,
-                    						"subCommand",
-                    						lv_subCommand_2_0,
-                    						"org.xixum.latex.TexDsl.SubCommand");
-                    					afterParserOrEnumRuleCall();
-                    				
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getCommandRule());
+                      						}
+                      						add(
+                      							current,
+                      							"tokens",
+                      							lv_tokens_7_0,
+                      							"org.xixum.latex.TexDsl.Compound");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
 
                     }
 
+
+                    }
+
+                    // InternalTexDsl.g:371:4: ( (this_PIPE_8= RULE_PIPE | this_EXCL_9= RULE_EXCL ) ( (lv_tokens_10_0= ruleCompound ) ) )*
+                    loop7:
+                    do {
+                        int alt7=2;
+                        int LA7_0 = input.LA(1);
+
+                        if ( ((LA7_0>=RULE_PIPE && LA7_0<=RULE_EXCL)) ) {
+                            alt7=1;
+                        }
+
+
+                        switch (alt7) {
+                    	case 1 :
+                    	    // InternalTexDsl.g:372:5: (this_PIPE_8= RULE_PIPE | this_EXCL_9= RULE_EXCL ) ( (lv_tokens_10_0= ruleCompound ) )
+                    	    {
+                    	    // InternalTexDsl.g:372:5: (this_PIPE_8= RULE_PIPE | this_EXCL_9= RULE_EXCL )
+                    	    int alt6=2;
+                    	    int LA6_0 = input.LA(1);
+
+                    	    if ( (LA6_0==RULE_PIPE) ) {
+                    	        alt6=1;
+                    	    }
+                    	    else if ( (LA6_0==RULE_EXCL) ) {
+                    	        alt6=2;
+                    	    }
+                    	    else {
+                    	        if (state.backtracking>0) {state.failed=true; return current;}
+                    	        NoViableAltException nvae =
+                    	            new NoViableAltException("", 6, 0, input);
+
+                    	        throw nvae;
+                    	    }
+                    	    switch (alt6) {
+                    	        case 1 :
+                    	            // InternalTexDsl.g:373:6: this_PIPE_8= RULE_PIPE
+                    	            {
+                    	            this_PIPE_8=(Token)match(input,RULE_PIPE,FOLLOW_8); if (state.failed) return current;
+                    	            if ( state.backtracking==0 ) {
+
+                    	              						newLeafNode(this_PIPE_8, grammarAccess.getCommandAccess().getPIPETerminalRuleCall_2_2_0_0());
+                    	              					
+                    	            }
+
+                    	            }
+                    	            break;
+                    	        case 2 :
+                    	            // InternalTexDsl.g:378:6: this_EXCL_9= RULE_EXCL
+                    	            {
+                    	            this_EXCL_9=(Token)match(input,RULE_EXCL,FOLLOW_8); if (state.failed) return current;
+                    	            if ( state.backtracking==0 ) {
+
+                    	              						newLeafNode(this_EXCL_9, grammarAccess.getCommandAccess().getEXCLTerminalRuleCall_2_2_0_1());
+                    	              					
+                    	            }
+
+                    	            }
+                    	            break;
+
+                    	    }
+
+                    	    // InternalTexDsl.g:383:5: ( (lv_tokens_10_0= ruleCompound ) )
+                    	    // InternalTexDsl.g:384:6: (lv_tokens_10_0= ruleCompound )
+                    	    {
+                    	    // InternalTexDsl.g:384:6: (lv_tokens_10_0= ruleCompound )
+                    	    // InternalTexDsl.g:385:7: lv_tokens_10_0= ruleCompound
+                    	    {
+                    	    if ( state.backtracking==0 ) {
+
+                    	      							newCompositeNode(grammarAccess.getCommandAccess().getTokensCompoundParserRuleCall_2_2_1_0());
+                    	      						
+                    	    }
+                    	    pushFollow(FOLLOW_9);
+                    	    lv_tokens_10_0=ruleCompound();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	      							if (current==null) {
+                    	      								current = createModelElementForParent(grammarAccess.getCommandRule());
+                    	      							}
+                    	      							add(
+                    	      								current,
+                    	      								"tokens",
+                    	      								lv_tokens_10_0,
+                    	      								"org.xixum.latex.TexDsl.Compound");
+                    	      							afterParserOrEnumRuleCall();
+                    	      						
+                    	    }
+
+                    	    }
+
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop7;
+                        }
+                    } while (true);
+
+                    this_CUBC_11=(Token)match(input,RULE_CUBC,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				newLeafNode(this_CUBC_11, grammarAccess.getCommandAccess().getCUBCTerminalRuleCall_2_3());
+                      			
+                    }
 
                     }
                     break;
@@ -1780,9 +1183,11 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
             }
 
+            if ( state.backtracking==0 ) {
 
-            	leaveRule();
+              	leaveRule();
 
+            }
         }
 
             catch (RecognitionException re) {
@@ -1796,8 +1201,796 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleCommand"
 
 
+    // $ANTLR start "entryRuleMulti"
+    // InternalTexDsl.g:412:1: entryRuleMulti returns [EObject current=null] : iv_ruleMulti= ruleMulti EOF ;
+    public final EObject entryRuleMulti() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleMulti = null;
+
+
+        try {
+            // InternalTexDsl.g:412:46: (iv_ruleMulti= ruleMulti EOF )
+            // InternalTexDsl.g:413:2: iv_ruleMulti= ruleMulti EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getMultiRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleMulti=ruleMulti();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleMulti; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleMulti"
+
+
+    // $ANTLR start "ruleMulti"
+    // InternalTexDsl.g:419:1: ruleMulti returns [EObject current=null] : ( (lv_tokens_0_0= RULE_ID ) )+ ;
+    public final EObject ruleMulti() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_tokens_0_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalTexDsl.g:425:2: ( ( (lv_tokens_0_0= RULE_ID ) )+ )
+            // InternalTexDsl.g:426:2: ( (lv_tokens_0_0= RULE_ID ) )+
+            {
+            // InternalTexDsl.g:426:2: ( (lv_tokens_0_0= RULE_ID ) )+
+            int cnt9=0;
+            loop9:
+            do {
+                int alt9=2;
+                int LA9_0 = input.LA(1);
+
+                if ( (LA9_0==RULE_ID) ) {
+                    alt9=1;
+                }
+
+
+                switch (alt9) {
+            	case 1 :
+            	    // InternalTexDsl.g:427:3: (lv_tokens_0_0= RULE_ID )
+            	    {
+            	    // InternalTexDsl.g:427:3: (lv_tokens_0_0= RULE_ID )
+            	    // InternalTexDsl.g:428:4: lv_tokens_0_0= RULE_ID
+            	    {
+            	    lv_tokens_0_0=(Token)match(input,RULE_ID,FOLLOW_10); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				newLeafNode(lv_tokens_0_0, grammarAccess.getMultiAccess().getTokensIDTerminalRuleCall_0());
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				if (current==null) {
+            	      					current = createModelElement(grammarAccess.getMultiRule());
+            	      				}
+            	      				addWithLastConsumed(
+            	      					current,
+            	      					"tokens",
+            	      					lv_tokens_0_0,
+            	      					"org.xixum.latex.TexDsl.ID");
+            	      			
+            	    }
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt9 >= 1 ) break loop9;
+            	    if (state.backtracking>0) {state.failed=true; return current;}
+                        EarlyExitException eee =
+                            new EarlyExitException(9, input);
+                        throw eee;
+                }
+                cnt9++;
+            } while (true);
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleMulti"
+
+
+    // $ANTLR start "entryRuleCommandExt"
+    // InternalTexDsl.g:447:1: entryRuleCommandExt returns [EObject current=null] : iv_ruleCommandExt= ruleCommandExt EOF ;
+    public final EObject entryRuleCommandExt() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleCommandExt = null;
+
+
+        try {
+            // InternalTexDsl.g:447:51: (iv_ruleCommandExt= ruleCommandExt EOF )
+            // InternalTexDsl.g:448:2: iv_ruleCommandExt= ruleCommandExt EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getCommandExtRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleCommandExt=ruleCommandExt();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleCommandExt; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleCommandExt"
+
+
+    // $ANTLR start "ruleCommandExt"
+    // InternalTexDsl.g:454:1: ruleCommandExt returns [EObject current=null] : ( ( ( (lv_command_0_1= RULE_ID | lv_command_0_2= RULE_ID_COMM ) ) ) (this_CUBO_1= RULE_CUBO ( (lv_tokens_2_0= ruleCompound ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_tokens_4_0= ruleCompound ) ) )* this_CUBC_5= RULE_CUBC ) ) ;
+    public final EObject ruleCommandExt() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_command_0_1=null;
+        Token lv_command_0_2=null;
+        Token this_CUBO_1=null;
+        Token this_KOMMA_3=null;
+        Token this_CUBC_5=null;
+        EObject lv_tokens_2_0 = null;
+
+        EObject lv_tokens_4_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalTexDsl.g:460:2: ( ( ( ( (lv_command_0_1= RULE_ID | lv_command_0_2= RULE_ID_COMM ) ) ) (this_CUBO_1= RULE_CUBO ( (lv_tokens_2_0= ruleCompound ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_tokens_4_0= ruleCompound ) ) )* this_CUBC_5= RULE_CUBC ) ) )
+            // InternalTexDsl.g:461:2: ( ( ( (lv_command_0_1= RULE_ID | lv_command_0_2= RULE_ID_COMM ) ) ) (this_CUBO_1= RULE_CUBO ( (lv_tokens_2_0= ruleCompound ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_tokens_4_0= ruleCompound ) ) )* this_CUBC_5= RULE_CUBC ) )
+            {
+            // InternalTexDsl.g:461:2: ( ( ( (lv_command_0_1= RULE_ID | lv_command_0_2= RULE_ID_COMM ) ) ) (this_CUBO_1= RULE_CUBO ( (lv_tokens_2_0= ruleCompound ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_tokens_4_0= ruleCompound ) ) )* this_CUBC_5= RULE_CUBC ) )
+            // InternalTexDsl.g:462:3: ( ( (lv_command_0_1= RULE_ID | lv_command_0_2= RULE_ID_COMM ) ) ) (this_CUBO_1= RULE_CUBO ( (lv_tokens_2_0= ruleCompound ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_tokens_4_0= ruleCompound ) ) )* this_CUBC_5= RULE_CUBC )
+            {
+            // InternalTexDsl.g:462:3: ( ( (lv_command_0_1= RULE_ID | lv_command_0_2= RULE_ID_COMM ) ) )
+            // InternalTexDsl.g:463:4: ( (lv_command_0_1= RULE_ID | lv_command_0_2= RULE_ID_COMM ) )
+            {
+            // InternalTexDsl.g:463:4: ( (lv_command_0_1= RULE_ID | lv_command_0_2= RULE_ID_COMM ) )
+            // InternalTexDsl.g:464:5: (lv_command_0_1= RULE_ID | lv_command_0_2= RULE_ID_COMM )
+            {
+            // InternalTexDsl.g:464:5: (lv_command_0_1= RULE_ID | lv_command_0_2= RULE_ID_COMM )
+            int alt10=2;
+            int LA10_0 = input.LA(1);
+
+            if ( (LA10_0==RULE_ID) ) {
+                alt10=1;
+            }
+            else if ( (LA10_0==RULE_ID_COMM) ) {
+                alt10=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 10, 0, input);
+
+                throw nvae;
+            }
+            switch (alt10) {
+                case 1 :
+                    // InternalTexDsl.g:465:6: lv_command_0_1= RULE_ID
+                    {
+                    lv_command_0_1=(Token)match(input,RULE_ID,FOLLOW_11); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						newLeafNode(lv_command_0_1, grammarAccess.getCommandExtAccess().getCommandIDTerminalRuleCall_0_0_0());
+                      					
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElement(grammarAccess.getCommandExtRule());
+                      						}
+                      						setWithLastConsumed(
+                      							current,
+                      							"command",
+                      							lv_command_0_1,
+                      							"org.xixum.latex.TexDsl.ID");
+                      					
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // InternalTexDsl.g:480:6: lv_command_0_2= RULE_ID_COMM
+                    {
+                    lv_command_0_2=(Token)match(input,RULE_ID_COMM,FOLLOW_11); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						newLeafNode(lv_command_0_2, grammarAccess.getCommandExtAccess().getCommandID_COMMTerminalRuleCall_0_0_1());
+                      					
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElement(grammarAccess.getCommandExtRule());
+                      						}
+                      						setWithLastConsumed(
+                      							current,
+                      							"command",
+                      							lv_command_0_2,
+                      							"org.xixum.latex.TexDsl.ID_COMM");
+                      					
+                    }
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+            // InternalTexDsl.g:497:3: (this_CUBO_1= RULE_CUBO ( (lv_tokens_2_0= ruleCompound ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_tokens_4_0= ruleCompound ) ) )* this_CUBC_5= RULE_CUBC )
+            // InternalTexDsl.g:498:4: this_CUBO_1= RULE_CUBO ( (lv_tokens_2_0= ruleCompound ) ) (this_KOMMA_3= RULE_KOMMA ( (lv_tokens_4_0= ruleCompound ) ) )* this_CUBC_5= RULE_CUBC
+            {
+            this_CUBO_1=(Token)match(input,RULE_CUBO,FOLLOW_8); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              				newLeafNode(this_CUBO_1, grammarAccess.getCommandExtAccess().getCUBOTerminalRuleCall_1_0());
+              			
+            }
+            // InternalTexDsl.g:502:4: ( (lv_tokens_2_0= ruleCompound ) )
+            // InternalTexDsl.g:503:5: (lv_tokens_2_0= ruleCompound )
+            {
+            // InternalTexDsl.g:503:5: (lv_tokens_2_0= ruleCompound )
+            // InternalTexDsl.g:504:6: lv_tokens_2_0= ruleCompound
+            {
+            if ( state.backtracking==0 ) {
+
+              						newCompositeNode(grammarAccess.getCommandExtAccess().getTokensCompoundParserRuleCall_1_1_0());
+              					
+            }
+            pushFollow(FOLLOW_12);
+            lv_tokens_2_0=ruleCompound();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              						if (current==null) {
+              							current = createModelElementForParent(grammarAccess.getCommandExtRule());
+              						}
+              						add(
+              							current,
+              							"tokens",
+              							lv_tokens_2_0,
+              							"org.xixum.latex.TexDsl.Compound");
+              						afterParserOrEnumRuleCall();
+              					
+            }
+
+            }
+
+
+            }
+
+            // InternalTexDsl.g:521:4: (this_KOMMA_3= RULE_KOMMA ( (lv_tokens_4_0= ruleCompound ) ) )*
+            loop11:
+            do {
+                int alt11=2;
+                int LA11_0 = input.LA(1);
+
+                if ( (LA11_0==RULE_KOMMA) ) {
+                    alt11=1;
+                }
+
+
+                switch (alt11) {
+            	case 1 :
+            	    // InternalTexDsl.g:522:5: this_KOMMA_3= RULE_KOMMA ( (lv_tokens_4_0= ruleCompound ) )
+            	    {
+            	    this_KOMMA_3=(Token)match(input,RULE_KOMMA,FOLLOW_8); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      					newLeafNode(this_KOMMA_3, grammarAccess.getCommandExtAccess().getKOMMATerminalRuleCall_1_2_0());
+            	      				
+            	    }
+            	    // InternalTexDsl.g:526:5: ( (lv_tokens_4_0= ruleCompound ) )
+            	    // InternalTexDsl.g:527:6: (lv_tokens_4_0= ruleCompound )
+            	    {
+            	    // InternalTexDsl.g:527:6: (lv_tokens_4_0= ruleCompound )
+            	    // InternalTexDsl.g:528:7: lv_tokens_4_0= ruleCompound
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      							newCompositeNode(grammarAccess.getCommandExtAccess().getTokensCompoundParserRuleCall_1_2_1_0());
+            	      						
+            	    }
+            	    pushFollow(FOLLOW_12);
+            	    lv_tokens_4_0=ruleCompound();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      							if (current==null) {
+            	      								current = createModelElementForParent(grammarAccess.getCommandExtRule());
+            	      							}
+            	      							add(
+            	      								current,
+            	      								"tokens",
+            	      								lv_tokens_4_0,
+            	      								"org.xixum.latex.TexDsl.Compound");
+            	      							afterParserOrEnumRuleCall();
+            	      						
+            	    }
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop11;
+                }
+            } while (true);
+
+            this_CUBC_5=(Token)match(input,RULE_CUBC,FOLLOW_2); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              				newLeafNode(this_CUBC_5, grammarAccess.getCommandExtAccess().getCUBCTerminalRuleCall_1_3());
+              			
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleCommandExt"
+
+
+    // $ANTLR start "entryRuleCompound"
+    // InternalTexDsl.g:555:1: entryRuleCompound returns [EObject current=null] : iv_ruleCompound= ruleCompound EOF ;
+    public final EObject entryRuleCompound() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleCompound = null;
+
+
+        try {
+            // InternalTexDsl.g:555:49: (iv_ruleCompound= ruleCompound EOF )
+            // InternalTexDsl.g:556:2: iv_ruleCompound= ruleCompound EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getCompoundRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleCompound=ruleCompound();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleCompound; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleCompound"
+
+
+    // $ANTLR start "ruleCompound"
+    // InternalTexDsl.g:562:1: ruleCompound returns [EObject current=null] : (this_Multi_0= ruleMulti | this_Extras_1= ruleExtras | ( ( ruleCommandExt )=>this_CommandExt_2= ruleCommandExt ) ) ;
+    public final EObject ruleCompound() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_Multi_0 = null;
+
+        EObject this_Extras_1 = null;
+
+        EObject this_CommandExt_2 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalTexDsl.g:568:2: ( (this_Multi_0= ruleMulti | this_Extras_1= ruleExtras | ( ( ruleCommandExt )=>this_CommandExt_2= ruleCommandExt ) ) )
+            // InternalTexDsl.g:569:2: (this_Multi_0= ruleMulti | this_Extras_1= ruleExtras | ( ( ruleCommandExt )=>this_CommandExt_2= ruleCommandExt ) )
+            {
+            // InternalTexDsl.g:569:2: (this_Multi_0= ruleMulti | this_Extras_1= ruleExtras | ( ( ruleCommandExt )=>this_CommandExt_2= ruleCommandExt ) )
+            int alt12=3;
+            int LA12_0 = input.LA(1);
+
+            if ( (LA12_0==RULE_ID) ) {
+                int LA12_1 = input.LA(2);
+
+                if ( (LA12_1==EOF||LA12_1==RULE_ID||(LA12_1>=RULE_KOMMA && LA12_1<=RULE_EXCL)||LA12_1==RULE_CUBC) ) {
+                    alt12=1;
+                }
+                else if ( (LA12_1==RULE_CUBO) && (synpred1_InternalTexDsl())) {
+                    alt12=3;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return current;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 12, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else if ( ((LA12_0>=RULE_BO && LA12_0<=RULE_BC)) ) {
+                alt12=2;
+            }
+            else if ( (LA12_0==RULE_ID_COMM) && (synpred1_InternalTexDsl())) {
+                alt12=3;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 12, 0, input);
+
+                throw nvae;
+            }
+            switch (alt12) {
+                case 1 :
+                    // InternalTexDsl.g:570:3: this_Multi_0= ruleMulti
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getCompoundAccess().getMultiParserRuleCall_0());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_Multi_0=ruleMulti();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current = this_Multi_0;
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // InternalTexDsl.g:579:3: this_Extras_1= ruleExtras
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getCompoundAccess().getExtrasParserRuleCall_1());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_Extras_1=ruleExtras();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current = this_Extras_1;
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+                case 3 :
+                    // InternalTexDsl.g:588:3: ( ( ruleCommandExt )=>this_CommandExt_2= ruleCommandExt )
+                    {
+                    // InternalTexDsl.g:588:3: ( ( ruleCommandExt )=>this_CommandExt_2= ruleCommandExt )
+                    // InternalTexDsl.g:589:4: ( ruleCommandExt )=>this_CommandExt_2= ruleCommandExt
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getCompoundAccess().getCommandExtParserRuleCall_2());
+                      			
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_CommandExt_2=ruleCommandExt();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = this_CommandExt_2;
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleCompound"
+
+
+    // $ANTLR start "entryRuleExtras"
+    // InternalTexDsl.g:603:1: entryRuleExtras returns [EObject current=null] : iv_ruleExtras= ruleExtras EOF ;
+    public final EObject entryRuleExtras() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExtras = null;
+
+
+        try {
+            // InternalTexDsl.g:603:47: (iv_ruleExtras= ruleExtras EOF )
+            // InternalTexDsl.g:604:2: iv_ruleExtras= ruleExtras EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getExtrasRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleExtras=ruleExtras();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleExtras; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExtras"
+
+
+    // $ANTLR start "ruleExtras"
+    // InternalTexDsl.g:610:1: ruleExtras returns [EObject current=null] : ( ( (lv_tokens_0_1= RULE_BO | lv_tokens_0_2= RULE_BC ) ) )+ ;
+    public final EObject ruleExtras() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_tokens_0_1=null;
+        Token lv_tokens_0_2=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalTexDsl.g:616:2: ( ( ( (lv_tokens_0_1= RULE_BO | lv_tokens_0_2= RULE_BC ) ) )+ )
+            // InternalTexDsl.g:617:2: ( ( (lv_tokens_0_1= RULE_BO | lv_tokens_0_2= RULE_BC ) ) )+
+            {
+            // InternalTexDsl.g:617:2: ( ( (lv_tokens_0_1= RULE_BO | lv_tokens_0_2= RULE_BC ) ) )+
+            int cnt14=0;
+            loop14:
+            do {
+                int alt14=2;
+                int LA14_0 = input.LA(1);
+
+                if ( ((LA14_0>=RULE_BO && LA14_0<=RULE_BC)) ) {
+                    alt14=1;
+                }
+
+
+                switch (alt14) {
+            	case 1 :
+            	    // InternalTexDsl.g:618:3: ( (lv_tokens_0_1= RULE_BO | lv_tokens_0_2= RULE_BC ) )
+            	    {
+            	    // InternalTexDsl.g:618:3: ( (lv_tokens_0_1= RULE_BO | lv_tokens_0_2= RULE_BC ) )
+            	    // InternalTexDsl.g:619:4: (lv_tokens_0_1= RULE_BO | lv_tokens_0_2= RULE_BC )
+            	    {
+            	    // InternalTexDsl.g:619:4: (lv_tokens_0_1= RULE_BO | lv_tokens_0_2= RULE_BC )
+            	    int alt13=2;
+            	    int LA13_0 = input.LA(1);
+
+            	    if ( (LA13_0==RULE_BO) ) {
+            	        alt13=1;
+            	    }
+            	    else if ( (LA13_0==RULE_BC) ) {
+            	        alt13=2;
+            	    }
+            	    else {
+            	        if (state.backtracking>0) {state.failed=true; return current;}
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 13, 0, input);
+
+            	        throw nvae;
+            	    }
+            	    switch (alt13) {
+            	        case 1 :
+            	            // InternalTexDsl.g:620:5: lv_tokens_0_1= RULE_BO
+            	            {
+            	            lv_tokens_0_1=(Token)match(input,RULE_BO,FOLLOW_13); if (state.failed) return current;
+            	            if ( state.backtracking==0 ) {
+
+            	              					newLeafNode(lv_tokens_0_1, grammarAccess.getExtrasAccess().getTokensBOTerminalRuleCall_0_0());
+            	              				
+            	            }
+            	            if ( state.backtracking==0 ) {
+
+            	              					if (current==null) {
+            	              						current = createModelElement(grammarAccess.getExtrasRule());
+            	              					}
+            	              					addWithLastConsumed(
+            	              						current,
+            	              						"tokens",
+            	              						lv_tokens_0_1,
+            	              						"org.xixum.latex.TexDsl.BO");
+            	              				
+            	            }
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // InternalTexDsl.g:635:5: lv_tokens_0_2= RULE_BC
+            	            {
+            	            lv_tokens_0_2=(Token)match(input,RULE_BC,FOLLOW_13); if (state.failed) return current;
+            	            if ( state.backtracking==0 ) {
+
+            	              					newLeafNode(lv_tokens_0_2, grammarAccess.getExtrasAccess().getTokensBCTerminalRuleCall_0_1());
+            	              				
+            	            }
+            	            if ( state.backtracking==0 ) {
+
+            	              					if (current==null) {
+            	              						current = createModelElement(grammarAccess.getExtrasRule());
+            	              					}
+            	              					addWithLastConsumed(
+            	              						current,
+            	              						"tokens",
+            	              						lv_tokens_0_2,
+            	              						"org.xixum.latex.TexDsl.BC");
+            	              				
+            	            }
+
+            	            }
+            	            break;
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt14 >= 1 ) break loop14;
+            	    if (state.backtracking>0) {state.failed=true; return current;}
+                        EarlyExitException eee =
+                            new EarlyExitException(14, input);
+                        throw eee;
+                }
+                cnt14++;
+            } while (true);
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExtras"
+
+
     // $ANTLR start "entryRuleAttributes"
-    // InternalTexDsl.g:690:1: entryRuleAttributes returns [EObject current=null] : iv_ruleAttributes= ruleAttributes EOF ;
+    // InternalTexDsl.g:655:1: entryRuleAttributes returns [EObject current=null] : iv_ruleAttributes= ruleAttributes EOF ;
     public final EObject entryRuleAttributes() throws RecognitionException {
         EObject current = null;
 
@@ -1805,17 +1998,21 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalTexDsl.g:690:51: (iv_ruleAttributes= ruleAttributes EOF )
-            // InternalTexDsl.g:691:2: iv_ruleAttributes= ruleAttributes EOF
+            // InternalTexDsl.g:655:51: (iv_ruleAttributes= ruleAttributes EOF )
+            // InternalTexDsl.g:656:2: iv_ruleAttributes= ruleAttributes EOF
             {
-             newCompositeNode(grammarAccess.getAttributesRule()); 
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getAttributesRule()); 
+            }
             pushFollow(FOLLOW_1);
             iv_ruleAttributes=ruleAttributes();
 
             state._fsp--;
-
-             current =iv_ruleAttributes; 
-            match(input,EOF,FOLLOW_2); 
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleAttributes; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
             }
 
@@ -1833,178 +2030,147 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttributes"
-    // InternalTexDsl.g:697:1: ruleAttributes returns [EObject current=null] : ( ( (lv_key_0_0= ruleID_Token ) ) (this_EQ_1= RULE_EQ ( ( (lv_value_2_0= ruleID_Token ) ) | (this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC ) ) )? ) ;
+    // InternalTexDsl.g:662:1: ruleAttributes returns [EObject current=null] : ( ( (lv_key_0_0= RULE_ID ) ) (this_EQ_1= RULE_EQ ( (this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC ) | ( (lv_single_5_0= RULE_ID ) ) ) )? ) ;
     public final EObject ruleAttributes() throws RecognitionException {
         EObject current = null;
 
+        Token lv_key_0_0=null;
         Token this_EQ_1=null;
-        Token this_CUBO_3=null;
-        Token this_CUBC_5=null;
-        AntlrDatatypeRuleToken lv_key_0_0 = null;
-
-        AntlrDatatypeRuleToken lv_value_2_0 = null;
-
-        AntlrDatatypeRuleToken lv_multiValue_4_0 = null;
+        Token this_CUBO_2=null;
+        Token this_CUBC_4=null;
+        Token lv_single_5_0=null;
+        EObject lv_multi_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalTexDsl.g:703:2: ( ( ( (lv_key_0_0= ruleID_Token ) ) (this_EQ_1= RULE_EQ ( ( (lv_value_2_0= ruleID_Token ) ) | (this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC ) ) )? ) )
-            // InternalTexDsl.g:704:2: ( ( (lv_key_0_0= ruleID_Token ) ) (this_EQ_1= RULE_EQ ( ( (lv_value_2_0= ruleID_Token ) ) | (this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC ) ) )? )
+            // InternalTexDsl.g:668:2: ( ( ( (lv_key_0_0= RULE_ID ) ) (this_EQ_1= RULE_EQ ( (this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC ) | ( (lv_single_5_0= RULE_ID ) ) ) )? ) )
+            // InternalTexDsl.g:669:2: ( ( (lv_key_0_0= RULE_ID ) ) (this_EQ_1= RULE_EQ ( (this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC ) | ( (lv_single_5_0= RULE_ID ) ) ) )? )
             {
-            // InternalTexDsl.g:704:2: ( ( (lv_key_0_0= ruleID_Token ) ) (this_EQ_1= RULE_EQ ( ( (lv_value_2_0= ruleID_Token ) ) | (this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC ) ) )? )
-            // InternalTexDsl.g:705:3: ( (lv_key_0_0= ruleID_Token ) ) (this_EQ_1= RULE_EQ ( ( (lv_value_2_0= ruleID_Token ) ) | (this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC ) ) )?
+            // InternalTexDsl.g:669:2: ( ( (lv_key_0_0= RULE_ID ) ) (this_EQ_1= RULE_EQ ( (this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC ) | ( (lv_single_5_0= RULE_ID ) ) ) )? )
+            // InternalTexDsl.g:670:3: ( (lv_key_0_0= RULE_ID ) ) (this_EQ_1= RULE_EQ ( (this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC ) | ( (lv_single_5_0= RULE_ID ) ) ) )?
             {
-            // InternalTexDsl.g:705:3: ( (lv_key_0_0= ruleID_Token ) )
-            // InternalTexDsl.g:706:4: (lv_key_0_0= ruleID_Token )
+            // InternalTexDsl.g:670:3: ( (lv_key_0_0= RULE_ID ) )
+            // InternalTexDsl.g:671:4: (lv_key_0_0= RULE_ID )
             {
-            // InternalTexDsl.g:706:4: (lv_key_0_0= ruleID_Token )
-            // InternalTexDsl.g:707:5: lv_key_0_0= ruleID_Token
+            // InternalTexDsl.g:671:4: (lv_key_0_0= RULE_ID )
+            // InternalTexDsl.g:672:5: lv_key_0_0= RULE_ID
             {
+            lv_key_0_0=(Token)match(input,RULE_ID,FOLLOW_14); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
 
-            					newCompositeNode(grammarAccess.getAttributesAccess().getKeyID_TokenParserRuleCall_0_0());
-            				
-            pushFollow(FOLLOW_13);
-            lv_key_0_0=ruleID_Token();
+              					newLeafNode(lv_key_0_0, grammarAccess.getAttributesAccess().getKeyIDTerminalRuleCall_0_0());
+              				
+            }
+            if ( state.backtracking==0 ) {
 
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getAttributesRule());
-            					}
-            					set(
-            						current,
-            						"key",
-            						lv_key_0_0,
-            						"org.xixum.latex.TexDsl.ID_Token");
-            					afterParserOrEnumRuleCall();
-            				
+              					if (current==null) {
+              						current = createModelElement(grammarAccess.getAttributesRule());
+              					}
+              					setWithLastConsumed(
+              						current,
+              						"key",
+              						lv_key_0_0,
+              						"org.xixum.latex.TexDsl.ID");
+              				
+            }
 
             }
 
 
             }
 
-            // InternalTexDsl.g:724:3: (this_EQ_1= RULE_EQ ( ( (lv_value_2_0= ruleID_Token ) ) | (this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC ) ) )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalTexDsl.g:688:3: (this_EQ_1= RULE_EQ ( (this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC ) | ( (lv_single_5_0= RULE_ID ) ) ) )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA16_0==RULE_EQ) ) {
-                alt16=1;
+            if ( (LA17_0==RULE_EQ) ) {
+                alt17=1;
             }
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
-                    // InternalTexDsl.g:725:4: this_EQ_1= RULE_EQ ( ( (lv_value_2_0= ruleID_Token ) ) | (this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC ) )
+                    // InternalTexDsl.g:689:4: this_EQ_1= RULE_EQ ( (this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC ) | ( (lv_single_5_0= RULE_ID ) ) )
                     {
-                    this_EQ_1=(Token)match(input,RULE_EQ,FOLLOW_14); 
+                    this_EQ_1=(Token)match(input,RULE_EQ,FOLLOW_15); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
 
-                    				newLeafNode(this_EQ_1, grammarAccess.getAttributesAccess().getEQTerminalRuleCall_1_0());
-                    			
-                    // InternalTexDsl.g:729:4: ( ( (lv_value_2_0= ruleID_Token ) ) | (this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC ) )
-                    int alt15=2;
-                    int LA15_0 = input.LA(1);
-
-                    if ( ((LA15_0>=RULE_ALPHA_NUMERIC && LA15_0<=RULE_ID)) ) {
-                        alt15=1;
+                      				newLeafNode(this_EQ_1, grammarAccess.getAttributesAccess().getEQTerminalRuleCall_1_0());
+                      			
                     }
-                    else if ( (LA15_0==RULE_CUBO) ) {
-                        alt15=2;
+                    // InternalTexDsl.g:693:4: ( (this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC ) | ( (lv_single_5_0= RULE_ID ) ) )
+                    int alt16=2;
+                    int LA16_0 = input.LA(1);
+
+                    if ( (LA16_0==RULE_CUBO) ) {
+                        alt16=1;
+                    }
+                    else if ( (LA16_0==RULE_ID) ) {
+                        alt16=2;
                     }
                     else {
+                        if (state.backtracking>0) {state.failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 15, 0, input);
+                            new NoViableAltException("", 16, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt15) {
+                    switch (alt16) {
                         case 1 :
-                            // InternalTexDsl.g:730:5: ( (lv_value_2_0= ruleID_Token ) )
+                            // InternalTexDsl.g:694:5: (this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC )
                             {
-                            // InternalTexDsl.g:730:5: ( (lv_value_2_0= ruleID_Token ) )
-                            // InternalTexDsl.g:731:6: (lv_value_2_0= ruleID_Token )
+                            // InternalTexDsl.g:694:5: (this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC )
+                            // InternalTexDsl.g:695:6: this_CUBO_2= RULE_CUBO ( (lv_multi_3_0= ruleMulti ) )+ this_CUBC_4= RULE_CUBC
                             {
-                            // InternalTexDsl.g:731:6: (lv_value_2_0= ruleID_Token )
-                            // InternalTexDsl.g:732:7: lv_value_2_0= ruleID_Token
-                            {
+                            this_CUBO_2=(Token)match(input,RULE_CUBO,FOLLOW_5); if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
 
-                            							newCompositeNode(grammarAccess.getAttributesAccess().getValueID_TokenParserRuleCall_1_1_0_0());
-                            						
-                            pushFollow(FOLLOW_2);
-                            lv_value_2_0=ruleID_Token();
-
-                            state._fsp--;
-
-
-                            							if (current==null) {
-                            								current = createModelElementForParent(grammarAccess.getAttributesRule());
-                            							}
-                            							set(
-                            								current,
-                            								"value",
-                            								lv_value_2_0,
-                            								"org.xixum.latex.TexDsl.ID_Token");
-                            							afterParserOrEnumRuleCall();
-                            						
-
+                              						newLeafNode(this_CUBO_2, grammarAccess.getAttributesAccess().getCUBOTerminalRuleCall_1_1_0_0());
+                              					
                             }
-
-
-                            }
-
-
-                            }
-                            break;
-                        case 2 :
-                            // InternalTexDsl.g:750:5: (this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC )
-                            {
-                            // InternalTexDsl.g:750:5: (this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC )
-                            // InternalTexDsl.g:751:6: this_CUBO_3= RULE_CUBO ( (lv_multiValue_4_0= ruleID_Token ) )+ this_CUBC_5= RULE_CUBC
-                            {
-                            this_CUBO_3=(Token)match(input,RULE_CUBO,FOLLOW_10); 
-
-                            						newLeafNode(this_CUBO_3, grammarAccess.getAttributesAccess().getCUBOTerminalRuleCall_1_1_1_0());
-                            					
-                            // InternalTexDsl.g:755:6: ( (lv_multiValue_4_0= ruleID_Token ) )+
-                            int cnt14=0;
-                            loop14:
+                            // InternalTexDsl.g:699:6: ( (lv_multi_3_0= ruleMulti ) )+
+                            int cnt15=0;
+                            loop15:
                             do {
-                                int alt14=2;
-                                int LA14_0 = input.LA(1);
+                                int alt15=2;
+                                int LA15_0 = input.LA(1);
 
-                                if ( ((LA14_0>=RULE_ALPHA_NUMERIC && LA14_0<=RULE_ID)) ) {
-                                    alt14=1;
+                                if ( (LA15_0==RULE_ID) ) {
+                                    alt15=1;
                                 }
 
 
-                                switch (alt14) {
+                                switch (alt15) {
                             	case 1 :
-                            	    // InternalTexDsl.g:756:7: (lv_multiValue_4_0= ruleID_Token )
+                            	    // InternalTexDsl.g:700:7: (lv_multi_3_0= ruleMulti )
                             	    {
-                            	    // InternalTexDsl.g:756:7: (lv_multiValue_4_0= ruleID_Token )
-                            	    // InternalTexDsl.g:757:8: lv_multiValue_4_0= ruleID_Token
+                            	    // InternalTexDsl.g:700:7: (lv_multi_3_0= ruleMulti )
+                            	    // InternalTexDsl.g:701:8: lv_multi_3_0= ruleMulti
                             	    {
+                            	    if ( state.backtracking==0 ) {
 
-                            	    								newCompositeNode(grammarAccess.getAttributesAccess().getMultiValueID_TokenParserRuleCall_1_1_1_1_0());
-                            	    							
-                            	    pushFollow(FOLLOW_15);
-                            	    lv_multiValue_4_0=ruleID_Token();
+                            	      								newCompositeNode(grammarAccess.getAttributesAccess().getMultiMultiParserRuleCall_1_1_0_1_0());
+                            	      							
+                            	    }
+                            	    pushFollow(FOLLOW_16);
+                            	    lv_multi_3_0=ruleMulti();
 
                             	    state._fsp--;
+                            	    if (state.failed) return current;
+                            	    if ( state.backtracking==0 ) {
 
-
-                            	    								if (current==null) {
-                            	    									current = createModelElementForParent(grammarAccess.getAttributesRule());
-                            	    								}
-                            	    								add(
-                            	    									current,
-                            	    									"multiValue",
-                            	    									lv_multiValue_4_0,
-                            	    									"org.xixum.latex.TexDsl.ID_Token");
-                            	    								afterParserOrEnumRuleCall();
-                            	    							
+                            	      								if (current==null) {
+                            	      									current = createModelElementForParent(grammarAccess.getAttributesRule());
+                            	      								}
+                            	      								add(
+                            	      									current,
+                            	      									"multi",
+                            	      									lv_multi_3_0,
+                            	      									"org.xixum.latex.TexDsl.Multi");
+                            	      								afterParserOrEnumRuleCall();
+                            	      							
+                            	    }
 
                             	    }
 
@@ -2013,18 +2179,57 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
                             	    break;
 
                             	default :
-                            	    if ( cnt14 >= 1 ) break loop14;
+                            	    if ( cnt15 >= 1 ) break loop15;
+                            	    if (state.backtracking>0) {state.failed=true; return current;}
                                         EarlyExitException eee =
-                                            new EarlyExitException(14, input);
+                                            new EarlyExitException(15, input);
                                         throw eee;
                                 }
-                                cnt14++;
+                                cnt15++;
                             } while (true);
 
-                            this_CUBC_5=(Token)match(input,RULE_CUBC,FOLLOW_2); 
+                            this_CUBC_4=(Token)match(input,RULE_CUBC,FOLLOW_2); if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
 
-                            						newLeafNode(this_CUBC_5, grammarAccess.getAttributesAccess().getCUBCTerminalRuleCall_1_1_1_2());
-                            					
+                              						newLeafNode(this_CUBC_4, grammarAccess.getAttributesAccess().getCUBCTerminalRuleCall_1_1_0_2());
+                              					
+                            }
+
+                            }
+
+
+                            }
+                            break;
+                        case 2 :
+                            // InternalTexDsl.g:724:5: ( (lv_single_5_0= RULE_ID ) )
+                            {
+                            // InternalTexDsl.g:724:5: ( (lv_single_5_0= RULE_ID ) )
+                            // InternalTexDsl.g:725:6: (lv_single_5_0= RULE_ID )
+                            {
+                            // InternalTexDsl.g:725:6: (lv_single_5_0= RULE_ID )
+                            // InternalTexDsl.g:726:7: lv_single_5_0= RULE_ID
+                            {
+                            lv_single_5_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
+
+                              							newLeafNode(lv_single_5_0, grammarAccess.getAttributesAccess().getSingleIDTerminalRuleCall_1_1_1_0());
+                              						
+                            }
+                            if ( state.backtracking==0 ) {
+
+                              							if (current==null) {
+                              								current = createModelElement(grammarAccess.getAttributesRule());
+                              							}
+                              							setWithLastConsumed(
+                              								current,
+                              								"single",
+                              								lv_single_5_0,
+                              								"org.xixum.latex.TexDsl.ID");
+                              						
+                            }
+
+                            }
+
 
                             }
 
@@ -2046,9 +2251,11 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
 
             }
 
+            if ( state.backtracking==0 ) {
 
-            	leaveRule();
+              	leaveRule();
 
+            }
         }
 
             catch (RecognitionException re) {
@@ -2061,25 +2268,56 @@ public class InternalTexDslParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleAttributes"
 
+    // $ANTLR start synpred1_InternalTexDsl
+    public final void synpred1_InternalTexDsl_fragment() throws RecognitionException {   
+        // InternalTexDsl.g:589:4: ( ruleCommandExt )
+        // InternalTexDsl.g:589:5: ruleCommandExt
+        {
+        pushFollow(FOLLOW_2);
+        ruleCommandExt();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred1_InternalTexDsl
+
     // Delegated rules
+
+    public final boolean synpred1_InternalTexDsl() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred1_InternalTexDsl_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
 
 
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00000000000000A2L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000360L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000000003E0L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000003000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000060L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000018000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000004802L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000020002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000860L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000002060L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000001FF2L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000000000A002L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004080L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000061020L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010300L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000010080L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000060002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000008020L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000010020L});
 
 }

@@ -5,85 +5,65 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 generate texDsl "http://www.xixum.org/latex/TexDsl"
 
 Model:
-	document+=Document;
+	document+=Document+
+;
 
 Document: 
-	elements += (Token | Command )+ | {Document} END;	
-
-Token:
-	token = ALPHA_NUMERIC
+	Command | Text | {Document} END
 ;
 
-ID_Token:
-	ID | ALPHA_NUMERIC
+Text:
+	token += AnyText 
 ;
 
-//ID_WS:
-//	BS? (ID | ALPHA_NUMERIC | BO | BC ) (SPACE (ID | ALPHA_NUMERIC | BO | BC ))*	
-//;
-
-SubCommName:
-	command=ID_Token subParams=SubParams?
-;
-
-SubParams:
-	(CUBO params+=Compound (KOMMA params+=Compound)* CUBC)
-;
-
-//CommandName hidden():
-//	leading=BS cName=ALPHA_NUMERIC
-//;
-
-Multi:
-	Compound | SubCommName
-;
-
-SubCommand:
-	(CUBO types+=Multi (PIPE types+=Multi)* CUBC)
-;
-
-Compound:
-	tokens+=Token+ 
-;
-
-//MultiName:
-//	tokens+=ID_Token+	
-//;
-
-CommandParameters:
-	(SQBO compounds+=Attributes (KOMMA? compounds+=Attributes)* SQBC)
+AnyText: 
+	ID | ANY_OTHER | KOMMA | PIPE | EXCL | SYMBOL | DOT
 ;
 
 Command:
-	command=ID parameters=CommandParameters? subCommand=SubCommand?
+	command=ID_COMM (SQBO attrs+=Attributes (KOMMA attrs+=Attributes)* SQBC)? (CUBO tokens+=Compound ((PIPE | EXCL) tokens+=Compound)* CUBC)? 
+;
+
+Multi:
+	tokens+=ID+
+;
+
+CommandExt:
+	command= (ID| ID_COMM) (CUBO tokens+=Compound (KOMMA tokens+=Compound)* CUBC)
+;
+
+Compound:
+	Multi | Extras | =>CommandExt
+;
+
+Extras:
+	tokens+= (BO | BC)+ 
 ;
 
 Attributes:
-	key=ID_Token ( EQ (value=ID_Token | (CUBO multiValue+=ID_Token+ CUBC)))?
+	key=ID (EQ (CUBO multi+=Multi+ CUBC | single=ID))?
 ;
-
 	
-////@Override 
-//terminal ML_COMMENT : '/*' -> '*/';
-//@Override 
 terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
+
+terminal ID:
+	(ALPHA | SYMBOL ) (ALPHA | SYMBOL | NUMERIC | DOT | AND)*
+;
 
 terminal BS:
 	'\\'
 ;
 
-terminal SYMBOLS:
-	SYMBOL+
-;
+//terminal SYMBOLS:
+//	SYMBOL+
+//;
 
-terminal ALPHA_NUMERIC:
-	ALPHA+ ( NUMERIC+ ALPHA+ )* NUMERIC*
-;
+//terminal ALPHA_NUMERIC:
+//	ALPHA+ ( NUMERIC+ ALPHA+ )* NUMERIC*
+//;
 
-//@Override 
-terminal ID:
-	//ALPHA_NUMERIC ( SYMBOLS ALPHA_NUMERIC )* SYMBOLS?
-	BS? (ALPHA | SYMBOL ) (ALPHA |SYMBOL | NUMERIC | DOT | AND)*
+terminal ID_COMM:
+	BS ID
 ;
 
 terminal ALPHA:
@@ -145,6 +125,10 @@ terminal PIPE:
 	'|'
 ;
 
+terminal EXCL:
+	'!'
+;
+
 terminal SPACE:
 	' '
 ;
@@ -164,7 +148,7 @@ terminal S_QUOTE:
 terminal END:
 	EOF;
 	
-terminal WS         : (' '|'\t'|'\r'|'\n')+;
+terminal WS: (SPACE|'\t'|'\r'|'\n')+;
 
 terminal ANY_OTHER: .;
 

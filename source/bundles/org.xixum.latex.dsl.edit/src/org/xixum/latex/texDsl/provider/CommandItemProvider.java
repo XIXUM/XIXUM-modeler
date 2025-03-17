@@ -64,8 +64,31 @@ public class CommandItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addCommandPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Command feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCommandPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Command_command_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Command_command_feature", "_UI_Command_type"),
+				 TexDslPackage.Literals.COMMAND__COMMAND,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -80,7 +103,6 @@ public class CommandItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TexDslPackage.Literals.COMMAND__COMMAND);
 			childrenFeatures.add(TexDslPackage.Literals.COMMAND__PARAMETERS);
 			childrenFeatures.add(TexDslPackage.Literals.COMMAND__SUB_COMMAND);
 		}
@@ -119,7 +141,10 @@ public class CommandItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Command_type");
+		String label = ((Command)object).getCommand();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Command_type") :
+			getString("_UI_Command_type") + " " + label;
 	}
 
 
@@ -136,6 +161,8 @@ public class CommandItemProvider
 
 		switch (notification.getFeatureID(Command.class)) {
 			case TexDslPackage.COMMAND__COMMAND:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case TexDslPackage.COMMAND__PARAMETERS:
 			case TexDslPackage.COMMAND__SUB_COMMAND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -154,11 +181,6 @@ public class CommandItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TexDslPackage.Literals.COMMAND__COMMAND,
-				 TexDslFactory.eINSTANCE.createCommandName()));
 
 		newChildDescriptors.add
 			(createChildParameter

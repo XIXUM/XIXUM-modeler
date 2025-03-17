@@ -165,26 +165,26 @@ public class TexDslItemProviderAdapterFactory extends TexDslAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.xixum.latex.texDsl.CommandName} instances.
+	 * This keeps track of the one adapter used for all {@link org.xixum.latex.texDsl.SubParams} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CommandNameItemProvider commandNameItemProvider;
+	protected SubParamsItemProvider subParamsItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.xixum.latex.texDsl.CommandName}.
+	 * This creates an adapter for a {@link org.xixum.latex.texDsl.SubParams}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCommandNameAdapter() {
-		if (commandNameItemProvider == null) {
-			commandNameItemProvider = new CommandNameItemProvider(this);
+	public Adapter createSubParamsAdapter() {
+		if (subParamsItemProvider == null) {
+			subParamsItemProvider = new SubParamsItemProvider(this);
 		}
 
-		return commandNameItemProvider;
+		return subParamsItemProvider;
 	}
 
 	/**
@@ -208,6 +208,29 @@ public class TexDslItemProviderAdapterFactory extends TexDslAdapterFactory imple
 		}
 
 		return subCommandItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.xixum.latex.texDsl.Compound} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompoundItemProvider compoundItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.xixum.latex.texDsl.Compound}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompoundAdapter() {
+		if (compoundItemProvider == null) {
+			compoundItemProvider = new CompoundItemProvider(this);
+		}
+
+		return compoundItemProvider;
 	}
 
 	/**
@@ -388,8 +411,9 @@ public class TexDslItemProviderAdapterFactory extends TexDslAdapterFactory imple
 		if (documentItemProvider != null) documentItemProvider.dispose();
 		if (tokenItemProvider != null) tokenItemProvider.dispose();
 		if (subCommNameItemProvider != null) subCommNameItemProvider.dispose();
-		if (commandNameItemProvider != null) commandNameItemProvider.dispose();
+		if (subParamsItemProvider != null) subParamsItemProvider.dispose();
 		if (subCommandItemProvider != null) subCommandItemProvider.dispose();
+		if (compoundItemProvider != null) compoundItemProvider.dispose();
 		if (commandParametersItemProvider != null) commandParametersItemProvider.dispose();
 		if (commandItemProvider != null) commandItemProvider.dispose();
 		if (attributesItemProvider != null) attributesItemProvider.dispose();

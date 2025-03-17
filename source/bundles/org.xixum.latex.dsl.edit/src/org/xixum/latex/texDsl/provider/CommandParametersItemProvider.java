@@ -78,7 +78,7 @@ public class CommandParametersItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TexDslPackage.Literals.COMMAND_PARAMETERS__ATTRIBUTES);
+			childrenFeatures.add(TexDslPackage.Literals.COMMAND_PARAMETERS__COMPOUNDS);
 		}
 		return childrenFeatures;
 	}
@@ -131,7 +131,7 @@ public class CommandParametersItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CommandParameters.class)) {
-			case TexDslPackage.COMMAND_PARAMETERS__ATTRIBUTES:
+			case TexDslPackage.COMMAND_PARAMETERS__COMPOUNDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -151,7 +151,7 @@ public class CommandParametersItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TexDslPackage.Literals.COMMAND_PARAMETERS__ATTRIBUTES,
+				(TexDslPackage.Literals.COMMAND_PARAMETERS__COMPOUNDS,
 				 TexDslFactory.eINSTANCE.createAttributes()));
 	}
 

@@ -11,20 +11,17 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xixum.latex.services.TexDslGrammarAccess;
 import org.xixum.latex.texDsl.Attributes;
 import org.xixum.latex.texDsl.Command;
-import org.xixum.latex.texDsl.CommandName;
-import org.xixum.latex.texDsl.CommandParameters;
+import org.xixum.latex.texDsl.CommandExt;
 import org.xixum.latex.texDsl.Document;
+import org.xixum.latex.texDsl.Extras;
 import org.xixum.latex.texDsl.Model;
-import org.xixum.latex.texDsl.SubCommName;
-import org.xixum.latex.texDsl.SubCommand;
+import org.xixum.latex.texDsl.Multi;
 import org.xixum.latex.texDsl.TexDslPackage;
-import org.xixum.latex.texDsl.Token;
+import org.xixum.latex.texDsl.Text;
 
 @SuppressWarnings("all")
 public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -46,26 +43,23 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case TexDslPackage.COMMAND:
 				sequence_Command(context, (Command) semanticObject); 
 				return; 
-			case TexDslPackage.COMMAND_NAME:
-				sequence_CommandName(context, (CommandName) semanticObject); 
-				return; 
-			case TexDslPackage.COMMAND_PARAMETERS:
-				sequence_CommandParameters(context, (CommandParameters) semanticObject); 
+			case TexDslPackage.COMMAND_EXT:
+				sequence_CommandExt(context, (CommandExt) semanticObject); 
 				return; 
 			case TexDslPackage.DOCUMENT:
 				sequence_Document(context, (Document) semanticObject); 
 				return; 
+			case TexDslPackage.EXTRAS:
+				sequence_Extras(context, (Extras) semanticObject); 
+				return; 
 			case TexDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case TexDslPackage.SUB_COMM_NAME:
-				sequence_SubCommName(context, (SubCommName) semanticObject); 
+			case TexDslPackage.MULTI:
+				sequence_Multi(context, (Multi) semanticObject); 
 				return; 
-			case TexDslPackage.SUB_COMMAND:
-				sequence_SubCommand(context, (SubCommand) semanticObject); 
-				return; 
-			case TexDslPackage.TOKEN:
-				sequence_Token(context, (Token) semanticObject); 
+			case TexDslPackage.TEXT:
+				sequence_Text(context, (Text) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -78,7 +72,7 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Attributes returns Attributes
 	 *
 	 * Constraint:
-	 *     (key=ID_Token (value=ID_Token | multiValue+=ID_Token+)?)
+	 *     (key=ID (multi+=Multi+ | single=ID)?)
 	 * </pre>
 	 */
 	protected void sequence_Attributes(ISerializationContext context, Attributes semanticObject) {
@@ -89,36 +83,14 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     CommandName returns CommandName
+	 *     CommandExt returns CommandExt
+	 *     Compound returns CommandExt
 	 *
 	 * Constraint:
-	 *     (leading=BS cName=ALPHA_NUMERIC)
+	 *     ((command=ID | command=ID_COMM) tokens+=Compound tokens+=Compound*)
 	 * </pre>
 	 */
-	protected void sequence_CommandName(ISerializationContext context, CommandName semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TexDslPackage.Literals.COMMAND_NAME__LEADING) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TexDslPackage.Literals.COMMAND_NAME__LEADING));
-			if (transientValues.isValueTransient(semanticObject, TexDslPackage.Literals.COMMAND_NAME__CNAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TexDslPackage.Literals.COMMAND_NAME__CNAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCommandNameAccess().getLeadingBSTerminalRuleCall_0_0(), semanticObject.getLeading());
-		feeder.accept(grammarAccess.getCommandNameAccess().getCNameALPHA_NUMERICTerminalRuleCall_1_0(), semanticObject.getCName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     CommandParameters returns CommandParameters
-	 *
-	 * Constraint:
-	 *     (attributes+=Attributes attributes+=Attributes*)
-	 * </pre>
-	 */
-	protected void sequence_CommandParameters(ISerializationContext context, CommandParameters semanticObject) {
+	protected void sequence_CommandExt(ISerializationContext context, CommandExt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -126,10 +98,11 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Document returns Command
 	 *     Command returns Command
 	 *
 	 * Constraint:
-	 *     (command=CommandName parameters=CommandParameters? subCommand=SubCommand?)
+	 *     (command=ID_COMM (attrs+=Attributes attrs+=Attributes*)? (tokens+=Compound tokens+=Compound*)?)
 	 * </pre>
 	 */
 	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
@@ -143,7 +116,7 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Document returns Document
 	 *
 	 * Constraint:
-	 *     (elements+=Token | elements+=Command)*
+	 *     {Document}
 	 * </pre>
 	 */
 	protected void sequence_Document(ISerializationContext context, Document semanticObject) {
@@ -154,10 +127,25 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Compound returns Extras
+	 *     Extras returns Extras
+	 *
+	 * Constraint:
+	 *     (tokens+=BO | tokens+=BC)+
+	 * </pre>
+	 */
+	protected void sequence_Extras(ISerializationContext context, Extras semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     document+=Document
+	 *     document+=Document+
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
@@ -168,13 +156,14 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     SubCommName returns SubCommName
+	 *     Multi returns Multi
+	 *     Compound returns Multi
 	 *
 	 * Constraint:
-	 *     (id=ID_WS subCommand=SubCommand?)
+	 *     tokens+=ID+
 	 * </pre>
 	 */
-	protected void sequence_SubCommName(ISerializationContext context, SubCommName semanticObject) {
+	protected void sequence_Multi(ISerializationContext context, Multi semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -182,34 +171,15 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     SubCommand returns SubCommand
+	 *     Document returns Text
+	 *     Text returns Text
 	 *
 	 * Constraint:
-	 *     (types+=SubCommName types+=SubCommName*)
+	 *     token+=AnyText
 	 * </pre>
 	 */
-	protected void sequence_SubCommand(ISerializationContext context, SubCommand semanticObject) {
+	protected void sequence_Text(ISerializationContext context, Text semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Token returns Token
-	 *
-	 * Constraint:
-	 *     token=ALPHA_NUMERIC
-	 * </pre>
-	 */
-	protected void sequence_Token(ISerializationContext context, Token semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TexDslPackage.Literals.TOKEN__TOKEN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TexDslPackage.Literals.TOKEN__TOKEN));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTokenAccess().getTokenALPHA_NUMERICTerminalRuleCall_0(), semanticObject.getToken());
-		feeder.finish();
 	}
 	
 	

@@ -64,25 +64,25 @@ public class SubCommNameItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
+			addCommandPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
+	 * This adds a property descriptor for the Command feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdPropertyDescriptor(Object object) {
+	protected void addCommandPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SubCommName_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SubCommName_id_feature", "_UI_SubCommName_type"),
-				 TexDslPackage.Literals.SUB_COMM_NAME__ID,
+				 getString("_UI_SubCommName_command_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SubCommName_command_feature", "_UI_SubCommName_type"),
+				 TexDslPackage.Literals.SUB_COMM_NAME__COMMAND,
 				 true,
 				 false,
 				 false,
@@ -103,7 +103,7 @@ public class SubCommNameItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TexDslPackage.Literals.SUB_COMM_NAME__SUB_COMMAND);
+			childrenFeatures.add(TexDslPackage.Literals.SUB_COMM_NAME__SUB_PARAMS);
 		}
 		return childrenFeatures;
 	}
@@ -140,7 +140,7 @@ public class SubCommNameItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SubCommName)object).getId();
+		String label = ((SubCommName)object).getCommand();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SubCommName_type") :
 			getString("_UI_SubCommName_type") + " " + label;
@@ -159,10 +159,10 @@ public class SubCommNameItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SubCommName.class)) {
-			case TexDslPackage.SUB_COMM_NAME__ID:
+			case TexDslPackage.SUB_COMM_NAME__COMMAND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case TexDslPackage.SUB_COMM_NAME__SUB_COMMAND:
+			case TexDslPackage.SUB_COMM_NAME__SUB_PARAMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -182,8 +182,8 @@ public class SubCommNameItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TexDslPackage.Literals.SUB_COMM_NAME__SUB_COMMAND,
-				 TexDslFactory.eINSTANCE.createSubCommand()));
+				(TexDslPackage.Literals.SUB_COMM_NAME__SUB_PARAMS,
+				 TexDslFactory.eINSTANCE.createSubParams()));
 	}
 
 	/**

@@ -96,180 +96,41 @@ public interface TexDslPackage extends EPackage
   int DOCUMENT = 1;
 
   /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOCUMENT__ELEMENTS = 0;
-
-  /**
    * The number of structural features of the '<em>Document</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOCUMENT_FEATURE_COUNT = 1;
+  int DOCUMENT_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.TokenImpl <em>Token</em>}' class.
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.TextImpl <em>Text</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xixum.latex.texDsl.impl.TokenImpl
-   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getToken()
+   * @see org.xixum.latex.texDsl.impl.TextImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getText()
    * @generated
    */
-  int TOKEN = 2;
+  int TEXT = 2;
 
   /**
-   * The feature id for the '<em><b>Token</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TOKEN__TOKEN = 0;
-
-  /**
-   * The number of structural features of the '<em>Token</em>' class.
+   * The feature id for the '<em><b>Token</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TOKEN_FEATURE_COUNT = 1;
+  int TEXT__TOKEN = DOCUMENT_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.SubCommNameImpl <em>Sub Comm Name</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xixum.latex.texDsl.impl.SubCommNameImpl
-   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getSubCommName()
-   * @generated
-   */
-  int SUB_COMM_NAME = 3;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The number of structural features of the '<em>Text</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUB_COMM_NAME__ID = 0;
-
-  /**
-   * The feature id for the '<em><b>Sub Command</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SUB_COMM_NAME__SUB_COMMAND = 1;
-
-  /**
-   * The number of structural features of the '<em>Sub Comm Name</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SUB_COMM_NAME_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.CommandNameImpl <em>Command Name</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xixum.latex.texDsl.impl.CommandNameImpl
-   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCommandName()
-   * @generated
-   */
-  int COMMAND_NAME = 4;
-
-  /**
-   * The feature id for the '<em><b>Leading</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND_NAME__LEADING = 0;
-
-  /**
-   * The feature id for the '<em><b>CName</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND_NAME__CNAME = 1;
-
-  /**
-   * The number of structural features of the '<em>Command Name</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND_NAME_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.SubCommandImpl <em>Sub Command</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xixum.latex.texDsl.impl.SubCommandImpl
-   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getSubCommand()
-   * @generated
-   */
-  int SUB_COMMAND = 5;
-
-  /**
-   * The feature id for the '<em><b>Types</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SUB_COMMAND__TYPES = 0;
-
-  /**
-   * The number of structural features of the '<em>Sub Command</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SUB_COMMAND_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.CommandParametersImpl <em>Command Parameters</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xixum.latex.texDsl.impl.CommandParametersImpl
-   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCommandParameters()
-   * @generated
-   */
-  int COMMAND_PARAMETERS = 6;
-
-  /**
-   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND_PARAMETERS__ATTRIBUTES = 0;
-
-  /**
-   * The number of structural features of the '<em>Command Parameters</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND_PARAMETERS_FEATURE_COUNT = 1;
+  int TEXT_FEATURE_COUNT = DOCUMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xixum.latex.texDsl.impl.CommandImpl <em>Command</em>}' class.
@@ -279,34 +140,34 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 7;
+  int COMMAND = 3;
 
   /**
-   * The feature id for the '<em><b>Command</b></em>' containment reference.
+   * The feature id for the '<em><b>Command</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__COMMAND = 0;
+  int COMMAND__COMMAND = DOCUMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+   * The feature id for the '<em><b>Attrs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__PARAMETERS = 1;
+  int COMMAND__ATTRS = DOCUMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Sub Command</b></em>' containment reference.
+   * The feature id for the '<em><b>Tokens</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__SUB_COMMAND = 2;
+  int COMMAND__TOKENS = DOCUMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Command</em>' class.
@@ -315,7 +176,119 @@ public interface TexDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND_FEATURE_COUNT = 3;
+  int COMMAND_FEATURE_COUNT = DOCUMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.CompoundImpl <em>Compound</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.CompoundImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCompound()
+   * @generated
+   */
+  int COMPOUND = 6;
+
+  /**
+   * The number of structural features of the '<em>Compound</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOUND_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.MultiImpl <em>Multi</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.MultiImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getMulti()
+   * @generated
+   */
+  int MULTI = 4;
+
+  /**
+   * The feature id for the '<em><b>Tokens</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTI__TOKENS = COMPOUND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Multi</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTI_FEATURE_COUNT = COMPOUND_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.CommandExtImpl <em>Command Ext</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.CommandExtImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCommandExt()
+   * @generated
+   */
+  int COMMAND_EXT = 5;
+
+  /**
+   * The feature id for the '<em><b>Command</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMAND_EXT__COMMAND = COMPOUND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Tokens</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMAND_EXT__TOKENS = COMPOUND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Command Ext</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMAND_EXT_FEATURE_COUNT = COMPOUND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.ExtrasImpl <em>Extras</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.ExtrasImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getExtras()
+   * @generated
+   */
+  int EXTRAS = 7;
+
+  /**
+   * The feature id for the '<em><b>Tokens</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTRAS__TOKENS = COMPOUND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Extras</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTRAS_FEATURE_COUNT = COMPOUND_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xixum.latex.texDsl.impl.AttributesImpl <em>Attributes</em>}' class.
@@ -337,22 +310,22 @@ public interface TexDslPackage extends EPackage
   int ATTRIBUTES__KEY = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Multi</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTES__VALUE = 1;
+  int ATTRIBUTES__MULTI = 1;
 
   /**
-   * The feature id for the '<em><b>Multi Value</b></em>' attribute list.
+   * The feature id for the '<em><b>Single</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTES__MULTI_VALUE = 2;
+  int ATTRIBUTES__SINGLE = 2;
 
   /**
    * The number of structural features of the '<em>Attributes</em>' class.
@@ -396,142 +369,25 @@ public interface TexDslPackage extends EPackage
   EClass getDocument();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xixum.latex.texDsl.Document#getElements <em>Elements</em>}'.
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.Text <em>Text</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see org.xixum.latex.texDsl.Document#getElements()
-   * @see #getDocument()
+   * @return the meta object for class '<em>Text</em>'.
+   * @see org.xixum.latex.texDsl.Text
    * @generated
    */
-  EReference getDocument_Elements();
+  EClass getText();
 
   /**
-   * Returns the meta object for class '{@link org.xixum.latex.texDsl.Token <em>Token</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xixum.latex.texDsl.Text#getToken <em>Token</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Token</em>'.
-   * @see org.xixum.latex.texDsl.Token
+   * @return the meta object for the attribute list '<em>Token</em>'.
+   * @see org.xixum.latex.texDsl.Text#getToken()
+   * @see #getText()
    * @generated
    */
-  EClass getToken();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.Token#getToken <em>Token</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Token</em>'.
-   * @see org.xixum.latex.texDsl.Token#getToken()
-   * @see #getToken()
-   * @generated
-   */
-  EAttribute getToken_Token();
-
-  /**
-   * Returns the meta object for class '{@link org.xixum.latex.texDsl.SubCommName <em>Sub Comm Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Sub Comm Name</em>'.
-   * @see org.xixum.latex.texDsl.SubCommName
-   * @generated
-   */
-  EClass getSubCommName();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.SubCommName#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see org.xixum.latex.texDsl.SubCommName#getId()
-   * @see #getSubCommName()
-   * @generated
-   */
-  EAttribute getSubCommName_Id();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xixum.latex.texDsl.SubCommName#getSubCommand <em>Sub Command</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Sub Command</em>'.
-   * @see org.xixum.latex.texDsl.SubCommName#getSubCommand()
-   * @see #getSubCommName()
-   * @generated
-   */
-  EReference getSubCommName_SubCommand();
-
-  /**
-   * Returns the meta object for class '{@link org.xixum.latex.texDsl.CommandName <em>Command Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Command Name</em>'.
-   * @see org.xixum.latex.texDsl.CommandName
-   * @generated
-   */
-  EClass getCommandName();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.CommandName#getLeading <em>Leading</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Leading</em>'.
-   * @see org.xixum.latex.texDsl.CommandName#getLeading()
-   * @see #getCommandName()
-   * @generated
-   */
-  EAttribute getCommandName_Leading();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.CommandName#getCName <em>CName</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>CName</em>'.
-   * @see org.xixum.latex.texDsl.CommandName#getCName()
-   * @see #getCommandName()
-   * @generated
-   */
-  EAttribute getCommandName_CName();
-
-  /**
-   * Returns the meta object for class '{@link org.xixum.latex.texDsl.SubCommand <em>Sub Command</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Sub Command</em>'.
-   * @see org.xixum.latex.texDsl.SubCommand
-   * @generated
-   */
-  EClass getSubCommand();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xixum.latex.texDsl.SubCommand#getTypes <em>Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Types</em>'.
-   * @see org.xixum.latex.texDsl.SubCommand#getTypes()
-   * @see #getSubCommand()
-   * @generated
-   */
-  EReference getSubCommand_Types();
-
-  /**
-   * Returns the meta object for class '{@link org.xixum.latex.texDsl.CommandParameters <em>Command Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Command Parameters</em>'.
-   * @see org.xixum.latex.texDsl.CommandParameters
-   * @generated
-   */
-  EClass getCommandParameters();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xixum.latex.texDsl.CommandParameters#getAttributes <em>Attributes</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Attributes</em>'.
-   * @see org.xixum.latex.texDsl.CommandParameters#getAttributes()
-   * @see #getCommandParameters()
-   * @generated
-   */
-  EReference getCommandParameters_Attributes();
+  EAttribute getText_Token();
 
   /**
    * Returns the meta object for class '{@link org.xixum.latex.texDsl.Command <em>Command</em>}'.
@@ -544,37 +400,121 @@ public interface TexDslPackage extends EPackage
   EClass getCommand();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xixum.latex.texDsl.Command#getCommand <em>Command</em>}'.
+   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.Command#getCommand <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Command</em>'.
+   * @return the meta object for the attribute '<em>Command</em>'.
    * @see org.xixum.latex.texDsl.Command#getCommand()
    * @see #getCommand()
    * @generated
    */
-  EReference getCommand_Command();
+  EAttribute getCommand_Command();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xixum.latex.texDsl.Command#getParameters <em>Parameters</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xixum.latex.texDsl.Command#getAttrs <em>Attrs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameters</em>'.
-   * @see org.xixum.latex.texDsl.Command#getParameters()
+   * @return the meta object for the containment reference list '<em>Attrs</em>'.
+   * @see org.xixum.latex.texDsl.Command#getAttrs()
    * @see #getCommand()
    * @generated
    */
-  EReference getCommand_Parameters();
+  EReference getCommand_Attrs();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xixum.latex.texDsl.Command#getSubCommand <em>Sub Command</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xixum.latex.texDsl.Command#getTokens <em>Tokens</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Sub Command</em>'.
-   * @see org.xixum.latex.texDsl.Command#getSubCommand()
+   * @return the meta object for the containment reference list '<em>Tokens</em>'.
+   * @see org.xixum.latex.texDsl.Command#getTokens()
    * @see #getCommand()
    * @generated
    */
-  EReference getCommand_SubCommand();
+  EReference getCommand_Tokens();
+
+  /**
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.Multi <em>Multi</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Multi</em>'.
+   * @see org.xixum.latex.texDsl.Multi
+   * @generated
+   */
+  EClass getMulti();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xixum.latex.texDsl.Multi#getTokens <em>Tokens</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Tokens</em>'.
+   * @see org.xixum.latex.texDsl.Multi#getTokens()
+   * @see #getMulti()
+   * @generated
+   */
+  EAttribute getMulti_Tokens();
+
+  /**
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.CommandExt <em>Command Ext</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Command Ext</em>'.
+   * @see org.xixum.latex.texDsl.CommandExt
+   * @generated
+   */
+  EClass getCommandExt();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.CommandExt#getCommand <em>Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Command</em>'.
+   * @see org.xixum.latex.texDsl.CommandExt#getCommand()
+   * @see #getCommandExt()
+   * @generated
+   */
+  EAttribute getCommandExt_Command();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xixum.latex.texDsl.CommandExt#getTokens <em>Tokens</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Tokens</em>'.
+   * @see org.xixum.latex.texDsl.CommandExt#getTokens()
+   * @see #getCommandExt()
+   * @generated
+   */
+  EReference getCommandExt_Tokens();
+
+  /**
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.Compound <em>Compound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Compound</em>'.
+   * @see org.xixum.latex.texDsl.Compound
+   * @generated
+   */
+  EClass getCompound();
+
+  /**
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.Extras <em>Extras</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Extras</em>'.
+   * @see org.xixum.latex.texDsl.Extras
+   * @generated
+   */
+  EClass getExtras();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xixum.latex.texDsl.Extras#getTokens <em>Tokens</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Tokens</em>'.
+   * @see org.xixum.latex.texDsl.Extras#getTokens()
+   * @see #getExtras()
+   * @generated
+   */
+  EAttribute getExtras_Tokens();
 
   /**
    * Returns the meta object for class '{@link org.xixum.latex.texDsl.Attributes <em>Attributes</em>}'.
@@ -598,26 +538,26 @@ public interface TexDslPackage extends EPackage
   EAttribute getAttributes_Key();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.Attributes#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xixum.latex.texDsl.Attributes#getMulti <em>Multi</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.xixum.latex.texDsl.Attributes#getValue()
+   * @return the meta object for the containment reference list '<em>Multi</em>'.
+   * @see org.xixum.latex.texDsl.Attributes#getMulti()
    * @see #getAttributes()
    * @generated
    */
-  EAttribute getAttributes_Value();
+  EReference getAttributes_Multi();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xixum.latex.texDsl.Attributes#getMultiValue <em>Multi Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.Attributes#getSingle <em>Single</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Multi Value</em>'.
-   * @see org.xixum.latex.texDsl.Attributes#getMultiValue()
+   * @return the meta object for the attribute '<em>Single</em>'.
+   * @see org.xixum.latex.texDsl.Attributes#getSingle()
    * @see #getAttributes()
    * @generated
    */
-  EAttribute getAttributes_MultiValue();
+  EAttribute getAttributes_Single();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -671,118 +611,22 @@ public interface TexDslPackage extends EPackage
     EClass DOCUMENT = eINSTANCE.getDocument();
 
     /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.TextImpl <em>Text</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.TextImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getText()
      * @generated
      */
-    EReference DOCUMENT__ELEMENTS = eINSTANCE.getDocument_Elements();
+    EClass TEXT = eINSTANCE.getText();
 
     /**
-     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.TokenImpl <em>Token</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xixum.latex.texDsl.impl.TokenImpl
-     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getToken()
-     * @generated
-     */
-    EClass TOKEN = eINSTANCE.getToken();
-
-    /**
-     * The meta object literal for the '<em><b>Token</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Token</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TOKEN__TOKEN = eINSTANCE.getToken_Token();
-
-    /**
-     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.SubCommNameImpl <em>Sub Comm Name</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xixum.latex.texDsl.impl.SubCommNameImpl
-     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getSubCommName()
-     * @generated
-     */
-    EClass SUB_COMM_NAME = eINSTANCE.getSubCommName();
-
-    /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SUB_COMM_NAME__ID = eINSTANCE.getSubCommName_Id();
-
-    /**
-     * The meta object literal for the '<em><b>Sub Command</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SUB_COMM_NAME__SUB_COMMAND = eINSTANCE.getSubCommName_SubCommand();
-
-    /**
-     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.CommandNameImpl <em>Command Name</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xixum.latex.texDsl.impl.CommandNameImpl
-     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCommandName()
-     * @generated
-     */
-    EClass COMMAND_NAME = eINSTANCE.getCommandName();
-
-    /**
-     * The meta object literal for the '<em><b>Leading</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMMAND_NAME__LEADING = eINSTANCE.getCommandName_Leading();
-
-    /**
-     * The meta object literal for the '<em><b>CName</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMMAND_NAME__CNAME = eINSTANCE.getCommandName_CName();
-
-    /**
-     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.SubCommandImpl <em>Sub Command</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xixum.latex.texDsl.impl.SubCommandImpl
-     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getSubCommand()
-     * @generated
-     */
-    EClass SUB_COMMAND = eINSTANCE.getSubCommand();
-
-    /**
-     * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SUB_COMMAND__TYPES = eINSTANCE.getSubCommand_Types();
-
-    /**
-     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.CommandParametersImpl <em>Command Parameters</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xixum.latex.texDsl.impl.CommandParametersImpl
-     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCommandParameters()
-     * @generated
-     */
-    EClass COMMAND_PARAMETERS = eINSTANCE.getCommandParameters();
-
-    /**
-     * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMMAND_PARAMETERS__ATTRIBUTES = eINSTANCE.getCommandParameters_Attributes();
+    EAttribute TEXT__TOKEN = eINSTANCE.getText_Token();
 
     /**
      * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.CommandImpl <em>Command</em>}' class.
@@ -795,28 +639,100 @@ public interface TexDslPackage extends EPackage
     EClass COMMAND = eINSTANCE.getCommand();
 
     /**
-     * The meta object literal for the '<em><b>Command</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Command</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMMAND__COMMAND = eINSTANCE.getCommand_Command();
+    EAttribute COMMAND__COMMAND = eINSTANCE.getCommand_Command();
 
     /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Attrs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMMAND__PARAMETERS = eINSTANCE.getCommand_Parameters();
+    EReference COMMAND__ATTRS = eINSTANCE.getCommand_Attrs();
 
     /**
-     * The meta object literal for the '<em><b>Sub Command</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Tokens</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMMAND__SUB_COMMAND = eINSTANCE.getCommand_SubCommand();
+    EReference COMMAND__TOKENS = eINSTANCE.getCommand_Tokens();
+
+    /**
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.MultiImpl <em>Multi</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.MultiImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getMulti()
+     * @generated
+     */
+    EClass MULTI = eINSTANCE.getMulti();
+
+    /**
+     * The meta object literal for the '<em><b>Tokens</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MULTI__TOKENS = eINSTANCE.getMulti_Tokens();
+
+    /**
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.CommandExtImpl <em>Command Ext</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.CommandExtImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCommandExt()
+     * @generated
+     */
+    EClass COMMAND_EXT = eINSTANCE.getCommandExt();
+
+    /**
+     * The meta object literal for the '<em><b>Command</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMMAND_EXT__COMMAND = eINSTANCE.getCommandExt_Command();
+
+    /**
+     * The meta object literal for the '<em><b>Tokens</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMMAND_EXT__TOKENS = eINSTANCE.getCommandExt_Tokens();
+
+    /**
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.CompoundImpl <em>Compound</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.CompoundImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCompound()
+     * @generated
+     */
+    EClass COMPOUND = eINSTANCE.getCompound();
+
+    /**
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.ExtrasImpl <em>Extras</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.ExtrasImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getExtras()
+     * @generated
+     */
+    EClass EXTRAS = eINSTANCE.getExtras();
+
+    /**
+     * The meta object literal for the '<em><b>Tokens</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXTRAS__TOKENS = eINSTANCE.getExtras_Tokens();
 
     /**
      * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.AttributesImpl <em>Attributes</em>}' class.
@@ -837,20 +753,20 @@ public interface TexDslPackage extends EPackage
     EAttribute ATTRIBUTES__KEY = eINSTANCE.getAttributes_Key();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Multi</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTES__VALUE = eINSTANCE.getAttributes_Value();
+    EReference ATTRIBUTES__MULTI = eINSTANCE.getAttributes_Multi();
 
     /**
-     * The meta object literal for the '<em><b>Multi Value</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Single</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTES__MULTI_VALUE = eINSTANCE.getAttributes_MultiValue();
+    EAttribute ATTRIBUTES__SINGLE = eINSTANCE.getAttributes_Single();
 
   }
 

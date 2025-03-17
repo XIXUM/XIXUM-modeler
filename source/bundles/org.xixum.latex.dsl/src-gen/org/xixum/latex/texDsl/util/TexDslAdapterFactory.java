@@ -86,34 +86,34 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
         return createDocumentAdapter();
       }
       @Override
-      public Adapter caseToken(Token object)
+      public Adapter caseText(Text object)
       {
-        return createTokenAdapter();
-      }
-      @Override
-      public Adapter caseSubCommName(SubCommName object)
-      {
-        return createSubCommNameAdapter();
-      }
-      @Override
-      public Adapter caseCommandName(CommandName object)
-      {
-        return createCommandNameAdapter();
-      }
-      @Override
-      public Adapter caseSubCommand(SubCommand object)
-      {
-        return createSubCommandAdapter();
-      }
-      @Override
-      public Adapter caseCommandParameters(CommandParameters object)
-      {
-        return createCommandParametersAdapter();
+        return createTextAdapter();
       }
       @Override
       public Adapter caseCommand(Command object)
       {
         return createCommandAdapter();
+      }
+      @Override
+      public Adapter caseMulti(Multi object)
+      {
+        return createMultiAdapter();
+      }
+      @Override
+      public Adapter caseCommandExt(CommandExt object)
+      {
+        return createCommandExtAdapter();
+      }
+      @Override
+      public Adapter caseCompound(Compound object)
+      {
+        return createCompoundAdapter();
+      }
+      @Override
+      public Adapter caseExtras(Extras object)
+      {
+        return createExtrasAdapter();
       }
       @Override
       public Adapter caseAttributes(Attributes object)
@@ -173,76 +173,16 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Token <em>Token</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Text <em>Text</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xixum.latex.texDsl.Token
+   * @see org.xixum.latex.texDsl.Text
    * @generated
    */
-  public Adapter createTokenAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.SubCommName <em>Sub Comm Name</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xixum.latex.texDsl.SubCommName
-   * @generated
-   */
-  public Adapter createSubCommNameAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.CommandName <em>Command Name</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xixum.latex.texDsl.CommandName
-   * @generated
-   */
-  public Adapter createCommandNameAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.SubCommand <em>Sub Command</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xixum.latex.texDsl.SubCommand
-   * @generated
-   */
-  public Adapter createSubCommandAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.CommandParameters <em>Command Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xixum.latex.texDsl.CommandParameters
-   * @generated
-   */
-  public Adapter createCommandParametersAdapter()
+  public Adapter createTextAdapter()
   {
     return null;
   }
@@ -258,6 +198,66 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Multi <em>Multi</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.Multi
+   * @generated
+   */
+  public Adapter createMultiAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.CommandExt <em>Command Ext</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.CommandExt
+   * @generated
+   */
+  public Adapter createCommandExtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Compound <em>Compound</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.Compound
+   * @generated
+   */
+  public Adapter createCompoundAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Extras <em>Extras</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.Extras
+   * @generated
+   */
+  public Adapter createExtrasAdapter()
   {
     return null;
   }

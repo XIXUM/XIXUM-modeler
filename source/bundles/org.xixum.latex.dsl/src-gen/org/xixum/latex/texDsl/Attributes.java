@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xixum.latex.texDsl.Attributes#getKey <em>Key</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.Attributes#getValue <em>Value</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.Attributes#getMultiValue <em>Multi Value</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.Attributes#getMulti <em>Multi</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.Attributes#getSingle <em>Single</em>}</li>
  * </ul>
  *
  * @see org.xixum.latex.texDsl.TexDslPackage#getAttributes()
@@ -50,37 +50,37 @@ public interface Attributes extends EObject
   void setKey(String value);
 
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Multi</b></em>' containment reference list.
+   * The list contents are of type {@link org.xixum.latex.texDsl.Multi}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
-   * @see org.xixum.latex.texDsl.TexDslPackage#getAttributes_Value()
+   * @return the value of the '<em>Multi</em>' containment reference list.
+   * @see org.xixum.latex.texDsl.TexDslPackage#getAttributes_Multi()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Multi> getMulti();
+
+  /**
+   * Returns the value of the '<em><b>Single</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Single</em>' attribute.
+   * @see #setSingle(String)
+   * @see org.xixum.latex.texDsl.TexDslPackage#getAttributes_Single()
    * @model
    * @generated
    */
-  String getValue();
+  String getSingle();
 
   /**
-   * Sets the value of the '{@link org.xixum.latex.texDsl.Attributes#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.xixum.latex.texDsl.Attributes#getSingle <em>Single</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see #getValue()
+   * @param value the new value of the '<em>Single</em>' attribute.
+   * @see #getSingle()
    * @generated
    */
-  void setValue(String value);
-
-  /**
-   * Returns the value of the '<em><b>Multi Value</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Multi Value</em>' attribute list.
-   * @see org.xixum.latex.texDsl.TexDslPackage#getAttributes_MultiValue()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getMultiValue();
+  void setSingle(String value);
 
 } // Attributes

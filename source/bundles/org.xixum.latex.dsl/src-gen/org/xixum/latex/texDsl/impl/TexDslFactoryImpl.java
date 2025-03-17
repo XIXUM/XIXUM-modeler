@@ -67,12 +67,12 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
     {
       case TexDslPackage.MODEL: return createModel();
       case TexDslPackage.DOCUMENT: return createDocument();
-      case TexDslPackage.TOKEN: return createToken();
-      case TexDslPackage.SUB_COMM_NAME: return createSubCommName();
-      case TexDslPackage.COMMAND_NAME: return createCommandName();
-      case TexDslPackage.SUB_COMMAND: return createSubCommand();
-      case TexDslPackage.COMMAND_PARAMETERS: return createCommandParameters();
+      case TexDslPackage.TEXT: return createText();
       case TexDslPackage.COMMAND: return createCommand();
+      case TexDslPackage.MULTI: return createMulti();
+      case TexDslPackage.COMMAND_EXT: return createCommandExt();
+      case TexDslPackage.COMPOUND: return createCompound();
+      case TexDslPackage.EXTRAS: return createExtras();
       case TexDslPackage.ATTRIBUTES: return createAttributes();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -109,58 +109,10 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
    * @generated
    */
   @Override
-  public Token createToken()
+  public Text createText()
   {
-    TokenImpl token = new TokenImpl();
-    return token;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SubCommName createSubCommName()
-  {
-    SubCommNameImpl subCommName = new SubCommNameImpl();
-    return subCommName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public CommandName createCommandName()
-  {
-    CommandNameImpl commandName = new CommandNameImpl();
-    return commandName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SubCommand createSubCommand()
-  {
-    SubCommandImpl subCommand = new SubCommandImpl();
-    return subCommand;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public CommandParameters createCommandParameters()
-  {
-    CommandParametersImpl commandParameters = new CommandParametersImpl();
-    return commandParameters;
+    TextImpl text = new TextImpl();
+    return text;
   }
 
   /**
@@ -173,6 +125,54 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
   {
     CommandImpl command = new CommandImpl();
     return command;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Multi createMulti()
+  {
+    MultiImpl multi = new MultiImpl();
+    return multi;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CommandExt createCommandExt()
+  {
+    CommandExtImpl commandExt = new CommandExtImpl();
+    return commandExt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Compound createCompound()
+  {
+    CompoundImpl compound = new CompoundImpl();
+    return compound;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Extras createExtras()
+  {
+    ExtrasImpl extras = new ExtrasImpl();
+    return extras;
   }
 
   /**

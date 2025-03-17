@@ -7,23 +7,22 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Command</b></em>'.
+ * A representation of the model object '<em><b>Command Ext</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.Command#getCommand <em>Command</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.Command#getAttrs <em>Attrs</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.Command#getTokens <em>Tokens</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.CommandExt#getCommand <em>Command</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.CommandExt#getTokens <em>Tokens</em>}</li>
  * </ul>
  *
- * @see org.xixum.latex.texDsl.TexDslPackage#getCommand()
+ * @see org.xixum.latex.texDsl.TexDslPackage#getCommandExt()
  * @model
  * @generated
  */
-public interface Command extends Document
+public interface CommandExt extends Compound
 {
   /**
    * Returns the value of the '<em><b>Command</b></em>' attribute.
@@ -31,14 +30,14 @@ public interface Command extends Document
    * <!-- end-user-doc -->
    * @return the value of the '<em>Command</em>' attribute.
    * @see #setCommand(String)
-   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Command()
+   * @see org.xixum.latex.texDsl.TexDslPackage#getCommandExt_Command()
    * @model
    * @generated
    */
   String getCommand();
 
   /**
-   * Sets the value of the '{@link org.xixum.latex.texDsl.Command#getCommand <em>Command</em>}' attribute.
+   * Sets the value of the '{@link org.xixum.latex.texDsl.CommandExt#getCommand <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Command</em>' attribute.
@@ -48,27 +47,15 @@ public interface Command extends Document
   void setCommand(String value);
 
   /**
-   * Returns the value of the '<em><b>Attrs</b></em>' containment reference list.
-   * The list contents are of type {@link org.xixum.latex.texDsl.Attributes}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Attrs</em>' containment reference list.
-   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Attrs()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Attributes> getAttrs();
-
-  /**
    * Returns the value of the '<em><b>Tokens</b></em>' containment reference list.
    * The list contents are of type {@link org.xixum.latex.texDsl.Compound}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Tokens</em>' containment reference list.
-   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Tokens()
+   * @see org.xixum.latex.texDsl.TexDslPackage#getCommandExt_Tokens()
    * @model containment="true"
    * @generated
    */
   EList<Compound> getTokens();
 
-} // Command
+} // CommandExt

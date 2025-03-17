@@ -3,57 +3,48 @@
  */
 package org.xixum.latex.texDsl.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
+import org.xixum.latex.texDsl.Multi;
 import org.xixum.latex.texDsl.TexDslPackage;
-import org.xixum.latex.texDsl.Token;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Token</b></em>'.
+ * An implementation of the model object '<em><b>Multi</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.impl.TokenImpl#getToken <em>Token</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.MultiImpl#getTokens <em>Tokens</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TokenImpl extends MinimalEObjectImpl.Container implements Token
+public class MultiImpl extends CompoundImpl implements Multi
 {
   /**
-   * The default value of the '{@link #getToken() <em>Token</em>}' attribute.
+   * The cached value of the '{@link #getTokens() <em>Tokens</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getToken()
+   * @see #getTokens()
    * @generated
    * @ordered
    */
-  protected static final String TOKEN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getToken() <em>Token</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getToken()
-   * @generated
-   * @ordered
-   */
-  protected String token = TOKEN_EDEFAULT;
+  protected EList<String> tokens;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TokenImpl()
+  protected MultiImpl()
   {
     super();
   }
@@ -66,7 +57,7 @@ public class TokenImpl extends MinimalEObjectImpl.Container implements Token
   @Override
   protected EClass eStaticClass()
   {
-    return TexDslPackage.Literals.TOKEN;
+    return TexDslPackage.Literals.MULTI;
   }
 
   /**
@@ -75,23 +66,13 @@ public class TokenImpl extends MinimalEObjectImpl.Container implements Token
    * @generated
    */
   @Override
-  public String getToken()
+  public EList<String> getTokens()
   {
-    return token;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setToken(String newToken)
-  {
-    String oldToken = token;
-    token = newToken;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.TOKEN__TOKEN, oldToken, token));
+    if (tokens == null)
+    {
+      tokens = new EDataTypeEList<String>(String.class, this, TexDslPackage.MULTI__TOKENS);
+    }
+    return tokens;
   }
 
   /**
@@ -104,8 +85,8 @@ public class TokenImpl extends MinimalEObjectImpl.Container implements Token
   {
     switch (featureID)
     {
-      case TexDslPackage.TOKEN__TOKEN:
-        return getToken();
+      case TexDslPackage.MULTI__TOKENS:
+        return getTokens();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -115,13 +96,15 @@ public class TokenImpl extends MinimalEObjectImpl.Container implements Token
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case TexDslPackage.TOKEN__TOKEN:
-        setToken((String)newValue);
+      case TexDslPackage.MULTI__TOKENS:
+        getTokens().clear();
+        getTokens().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +120,8 @@ public class TokenImpl extends MinimalEObjectImpl.Container implements Token
   {
     switch (featureID)
     {
-      case TexDslPackage.TOKEN__TOKEN:
-        setToken(TOKEN_EDEFAULT);
+      case TexDslPackage.MULTI__TOKENS:
+        getTokens().clear();
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +137,8 @@ public class TokenImpl extends MinimalEObjectImpl.Container implements Token
   {
     switch (featureID)
     {
-      case TexDslPackage.TOKEN__TOKEN:
-        return TOKEN_EDEFAULT == null ? token != null : !TOKEN_EDEFAULT.equals(token);
+      case TexDslPackage.MULTI__TOKENS:
+        return tokens != null && !tokens.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -171,10 +154,10 @@ public class TokenImpl extends MinimalEObjectImpl.Container implements Token
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (token: ");
-    result.append(token);
+    result.append(" (tokens: ");
+    result.append(tokens);
     result.append(')');
     return result.toString();
   }
 
-} //TokenImpl
+} //MultiImpl
