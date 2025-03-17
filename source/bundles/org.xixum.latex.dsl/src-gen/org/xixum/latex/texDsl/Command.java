@@ -3,8 +3,6 @@
  */
 package org.xixum.latex.texDsl;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xixum.latex.texDsl.Command#getCommand <em>Command</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.Command#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.Command#getTypes <em>Types</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.Command#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.Command#getSubCommand <em>Sub Command</em>}</li>
  * </ul>
  *
  * @see org.xixum.latex.texDsl.TexDslPackage#getCommand()
@@ -50,27 +48,47 @@ public interface Command extends EObject
   void setCommand(CommandName value);
 
   /**
-   * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-   * The list contents are of type {@link org.xixum.latex.texDsl.Attributes}.
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attributes</em>' containment reference list.
-   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Attributes()
+   * @return the value of the '<em>Parameters</em>' containment reference.
+   * @see #setParameters(CommandParameters)
+   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Parameters()
    * @model containment="true"
    * @generated
    */
-  EList<Attributes> getAttributes();
+  CommandParameters getParameters();
 
   /**
-   * Returns the value of the '<em><b>Types</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Sets the value of the '{@link org.xixum.latex.texDsl.Command#getParameters <em>Parameters</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Types</em>' attribute list.
-   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Types()
-   * @model unique="false"
+   * @param value the new value of the '<em>Parameters</em>' containment reference.
+   * @see #getParameters()
    * @generated
    */
-  EList<String> getTypes();
+  void setParameters(CommandParameters value);
+
+  /**
+   * Returns the value of the '<em><b>Sub Command</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sub Command</em>' containment reference.
+   * @see #setSubCommand(SubCommand)
+   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_SubCommand()
+   * @model containment="true"
+   * @generated
+   */
+  SubCommand getSubCommand();
+
+  /**
+   * Sets the value of the '{@link org.xixum.latex.texDsl.Command#getSubCommand <em>Sub Command</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Sub Command</em>' containment reference.
+   * @see #getSubCommand()
+   * @generated
+   */
+  void setSubCommand(SubCommand value);
 
 } // Command

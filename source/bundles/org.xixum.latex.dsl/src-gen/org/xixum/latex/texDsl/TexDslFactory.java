@@ -51,6 +51,15 @@ public interface TexDslFactory extends EFactory
   Token createToken();
 
   /**
+   * Returns a new object of class '<em>Sub Comm Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sub Comm Name</em>'.
+   * @generated
+   */
+  SubCommName createSubCommName();
+
+  /**
    * Returns a new object of class '<em>Command Name</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,6 +67,24 @@ public interface TexDslFactory extends EFactory
    * @generated
    */
   CommandName createCommandName();
+
+  /**
+   * Returns a new object of class '<em>Sub Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sub Command</em>'.
+   * @generated
+   */
+  SubCommand createSubCommand();
+
+  /**
+   * Returns a new object of class '<em>Command Parameters</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Command Parameters</em>'.
+   * @generated
+   */
+  CommandParameters createCommandParameters();
 
   /**
    * Returns a new object of class '<em>Command</em>'.

@@ -15,14 +15,24 @@
     <genClasses ecoreClass="TexDsl.ecore#//Token">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Token/token"/>
     </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//SubCommName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//SubCommName/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//SubCommName/subCommand"/>
+    </genClasses>
     <genClasses ecoreClass="TexDsl.ecore#//CommandName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//CommandName/leading"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//CommandName/cName"/>
     </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//SubCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//SubCommand/types"/>
+    </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//CommandParameters">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//CommandParameters/attributes"/>
+    </genClasses>
     <genClasses ecoreClass="TexDsl.ecore#//Command">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/command"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/attributes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Command/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/subCommand"/>
     </genClasses>
     <genClasses ecoreClass="TexDsl.ecore#//Attributes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Attributes/key"/>

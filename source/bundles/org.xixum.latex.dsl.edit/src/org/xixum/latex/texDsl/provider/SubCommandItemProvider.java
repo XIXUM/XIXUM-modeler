@@ -12,27 +12,28 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.latex.texDsl.CommandName;
+import org.xixum.latex.texDsl.SubCommand;
+import org.xixum.latex.texDsl.TexDslFactory;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
- * This is the item provider adapter for a {@link org.xixum.latex.texDsl.CommandName} object.
+ * This is the item provider adapter for a {@link org.xixum.latex.texDsl.SubCommand} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CommandNameItemProvider 
+public class SubCommandItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +47,7 @@ public class CommandNameItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CommandNameItemProvider(AdapterFactory adapterFactory) {
+	public SubCommandItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,65 +62,49 @@ public class CommandNameItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLeadingPropertyDescriptor(object);
-			addCNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Leading feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLeadingPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CommandName_leading_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CommandName_leading_feature", "_UI_CommandName_type"),
-				 TexDslPackage.Literals.COMMAND_NAME__LEADING,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(TexDslPackage.Literals.SUB_COMMAND__TYPES);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the CName feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CommandName_cName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CommandName_cName_feature", "_UI_CommandName_type"),
-				 TexDslPackage.Literals.COMMAND_NAME__CNAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
-	 * This returns CommandName.gif.
+	 * This returns SubCommand.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CommandName"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SubCommand"));
 	}
 
 	/**
@@ -130,10 +115,7 @@ public class CommandNameItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CommandName)object).getCName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CommandName_type") :
-			getString("_UI_CommandName_type") + " " + label;
+		return getString("_UI_SubCommand_type");
 	}
 
 
@@ -148,10 +130,9 @@ public class CommandNameItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CommandName.class)) {
-			case TexDslPackage.COMMAND_NAME__LEADING:
-			case TexDslPackage.COMMAND_NAME__CNAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		switch (notification.getFeatureID(SubCommand.class)) {
+			case TexDslPackage.SUB_COMMAND__TYPES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -167,6 +148,11 @@ public class CommandNameItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TexDslPackage.Literals.SUB_COMMAND__TYPES,
+				 TexDslFactory.eINSTANCE.createSubCommName()));
 	}
 
 	/**

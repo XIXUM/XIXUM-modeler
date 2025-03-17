@@ -68,7 +68,10 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
       case TexDslPackage.MODEL: return createModel();
       case TexDslPackage.DOCUMENT: return createDocument();
       case TexDslPackage.TOKEN: return createToken();
+      case TexDslPackage.SUB_COMM_NAME: return createSubCommName();
       case TexDslPackage.COMMAND_NAME: return createCommandName();
+      case TexDslPackage.SUB_COMMAND: return createSubCommand();
+      case TexDslPackage.COMMAND_PARAMETERS: return createCommandParameters();
       case TexDslPackage.COMMAND: return createCommand();
       case TexDslPackage.ATTRIBUTES: return createAttributes();
       default:
@@ -118,10 +121,46 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
    * @generated
    */
   @Override
+  public SubCommName createSubCommName()
+  {
+    SubCommNameImpl subCommName = new SubCommNameImpl();
+    return subCommName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public CommandName createCommandName()
   {
     CommandNameImpl commandName = new CommandNameImpl();
     return commandName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SubCommand createSubCommand()
+  {
+    SubCommandImpl subCommand = new SubCommandImpl();
+    return subCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CommandParameters createCommandParameters()
+  {
+    CommandParametersImpl commandParameters = new CommandParametersImpl();
+    return commandParameters;
   }
 
   /**

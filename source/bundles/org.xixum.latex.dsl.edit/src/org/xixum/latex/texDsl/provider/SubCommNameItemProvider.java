@@ -12,6 +12,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,16 +25,17 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.latex.texDsl.CommandName;
+import org.xixum.latex.texDsl.SubCommName;
+import org.xixum.latex.texDsl.TexDslFactory;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
- * This is the item provider adapter for a {@link org.xixum.latex.texDsl.CommandName} object.
+ * This is the item provider adapter for a {@link org.xixum.latex.texDsl.SubCommName} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CommandNameItemProvider 
+public class SubCommNameItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +49,7 @@ public class CommandNameItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CommandNameItemProvider(AdapterFactory adapterFactory) {
+	public SubCommNameItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,26 +64,25 @@ public class CommandNameItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLeadingPropertyDescriptor(object);
-			addCNamePropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Leading feature.
+	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLeadingPropertyDescriptor(Object object) {
+	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CommandName_leading_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CommandName_leading_feature", "_UI_CommandName_type"),
-				 TexDslPackage.Literals.COMMAND_NAME__LEADING,
+				 getString("_UI_SubCommName_id_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SubCommName_id_feature", "_UI_SubCommName_type"),
+				 TexDslPackage.Literals.SUB_COMM_NAME__ID,
 				 true,
 				 false,
 				 false,
@@ -90,36 +92,44 @@ public class CommandNameItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the CName feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CommandName_cName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CommandName_cName_feature", "_UI_CommandName_type"),
-				 TexDslPackage.Literals.COMMAND_NAME__CNAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(TexDslPackage.Literals.SUB_COMM_NAME__SUB_COMMAND);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This returns CommandName.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns SubCommName.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CommandName"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SubCommName"));
 	}
 
 	/**
@@ -130,10 +140,10 @@ public class CommandNameItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CommandName)object).getCName();
+		String label = ((SubCommName)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CommandName_type") :
-			getString("_UI_CommandName_type") + " " + label;
+			getString("_UI_SubCommName_type") :
+			getString("_UI_SubCommName_type") + " " + label;
 	}
 
 
@@ -148,10 +158,12 @@ public class CommandNameItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CommandName.class)) {
-			case TexDslPackage.COMMAND_NAME__LEADING:
-			case TexDslPackage.COMMAND_NAME__CNAME:
+		switch (notification.getFeatureID(SubCommName.class)) {
+			case TexDslPackage.SUB_COMM_NAME__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case TexDslPackage.SUB_COMM_NAME__SUB_COMMAND:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -167,6 +179,11 @@ public class CommandNameItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TexDslPackage.Literals.SUB_COMM_NAME__SUB_COMMAND,
+				 TexDslFactory.eINSTANCE.createSubCommand()));
 	}
 
 	/**

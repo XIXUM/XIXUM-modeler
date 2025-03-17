@@ -17,6 +17,8 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 import org.xixum.latex.texDsl.Attributes;
 import org.xixum.latex.texDsl.Command;
 import org.xixum.latex.texDsl.CommandName;
+import org.xixum.latex.texDsl.SubCommName;
+import org.xixum.latex.texDsl.SubCommand;
 import org.xixum.latex.texDsl.Token;
 
 import com.google.inject.Inject;
@@ -52,17 +54,12 @@ public class TexDslLabelProvider extends DefaultEObjectLabelProvider {
 				styledText.append(commandName.getLeading());
 				styledText.append(new StyledString(commandName.getCName(), BOLD_LIGHT_RED));
 				
-				if (!c.getAttributes().isEmpty()) {
-					var content = new StyledString(String.join(", ", styleAttributes(c.getAttributes())), ITALIC_BLACK);
-					styledText.append("[");
-					styledText.append(content);
-					styledText.append("]");
+				if (c.getParameters()!=null) {
+					resolveParametersStyled(styledText, c);
 				}
 				
-				if (!c.getTypes().isEmpty()) {
-					styledText.append(" {");
-					styledText.append(new StyledString(String.join(", ", c.getTypes()), ITALIC_BLACK));
-					styledText.append("}");
+				if (c.getSubCommand()!=null) {
+					resolveSubCommandStyled(styledText, c.getSubCommand());
 				}
 				
             }
@@ -74,55 +71,39 @@ public class TexDslLabelProvider extends DefaultEObjectLabelProvider {
 		
 		return styledText;
 		
-//		((Command) element).getAttributes().forEach(attr -> {
-//      styledText.append(" ");
-//      styledText.append(attr.getLeading());
-//      styledText.append(new StyledString(param.getCName().get(0), BOLD_LIGHT_BLUE));
-//  });
+	}
+
+	private void resolveParametersStyled(StyledString styledText, Command command) {
+		var c = command.getParameters();
+		var content = new StyledString(String.join(", ", styleAttributes(c.getAttributes())), ITALIC_BLACK);
+		styledText.append("[");
+		styledText.append(content);
+		styledText.append("]");
+	}
+
+	private void resolveSubCommandStyled(StyledString styledText, SubCommand subCommand) {
+		styledText.append(" {");
 		
-//			IgnoredText | UrlAdress | MailAdress : {
-//				var labelFeature = getLabelFeature(element.eClass());
-//				if (labelFeature != null) {
-//					
-//					return styledText.append(convertToStyledString(element.eGet(labelFeature))?:convertToStyledString(""));
-//				}
-//			}
-//			Word:{
-//				
-//				var String word = IterableExtensions.join(element.word, "");
-//				return styledText.append(word);
-//			}
-//			ItWord : {
-//				var String word = IterableExtensions.join(element.word, "");
-//				return styledText.append(word);
-//			}
-//			Symbols: {
-//			 	styledText.append(element.symbol)
-//			}
-//			EString: {
-//				styledText.append(IterableExtensions.join(element.word, ""))
-//			}
-//			Unit: {	
-//				var String value = IterableExtensions.join(element.value, "");
-//				styledText.append(value);
-//				if (!element.unit?.empty)
-//					styledText.append(" | ")
-//					styledText.append(element.unit ?: String.join(" ", element.value))
-//			}
-////			ShortCut: {
-////				element.shortcut
-////			}
-//			Elements: {
-//				var labelFeature = getLabelFeature(element.eClass());
-//				if (labelFeature !== null) {
-//					var styledS = convertToStyledString(element.eGet(labelFeature))
-//					return styledText.append(if (styledS !== null) styledS.toString else "");
-//				}
-//			}
-//			default: element.eClass.name
-//		}
+		resolveTypesStyled(styledText, subCommand.getTypes());
+		styledText.append("}");
 	}
 	
+	private void resolveTypesStyled(StyledString styledText, EList<SubCommName> types) {
+		var first = true;
+		for (var element : types) {
+			if (!first) {
+				styledText.append("|");
+			}
+			styledText.append(new StyledString(element.getId(), ITALIC_BLACK));
+			if (element.getSubCommand() != null) {
+				resolveSubCommandStyled(styledText, element.getSubCommand());
+			}
+			first = false;
+			//els.add(sb.toString());
+		}
+		//return els;
+	}
+
 	@Override
 	public org.eclipse.jface.viewers.StyledString getStyledText(Object element) {
 		return (org.eclipse.jface.viewers.StyledString) new org.eclipse.jface.viewers.StyledString(unast(element));
@@ -142,17 +123,12 @@ public class TexDslLabelProvider extends DefaultEObjectLabelProvider {
 				sb.append(commandName.getLeading());
 				sb.append(commandName.getCName());
 				
-				if (!c.getAttributes().isEmpty()) {
-					var content = String.join(", ", styleAttributes(c.getAttributes()));
-					sb.append("[");
-					sb.append(content);
-					sb.append("]");
+				if (c.getParameters()!=null) {
+					sb.append(resolveParameters(c));
 				}
 				
-				if (!c.getTypes().isEmpty()) {
-					sb.append(" {");
-					sb.append(String.join(", ", c.getTypes()));
-					sb.append("}");
+				if (c.getSubCommand()!=null) {
+					sb.append(resolveSubCommand(c.getSubCommand()));
 				}
 				
             }
@@ -184,6 +160,32 @@ public class TexDslLabelProvider extends DefaultEObjectLabelProvider {
 		}
 		
 		return sb.toString();
+	}
+
+	private String resolveSubCommand(SubCommand subCommand) {
+		var sb = new StringBuilder();
+		sb.append(" {");
+		sb.append(String.join(", ", resolveTypes(subCommand.getTypes())));
+		sb.append("}");
+		return null;
+	}
+
+	private List<String> resolveTypes(EList<SubCommName> types) {
+		List<String> els = new ArrayList<>();
+		for (var element : types) {
+			var sb = new StringBuilder();
+			sb.append(element.getId());
+			if (element.getSubCommand() != null) {
+				sb.append(resolveSubCommand(element.getSubCommand()));
+			}
+			els.add(sb.toString());
+		}
+		return els;
+	}
+
+	private String resolveParameters(Command c) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private List<String> styleAttributes(EList<Attributes> attributes) {

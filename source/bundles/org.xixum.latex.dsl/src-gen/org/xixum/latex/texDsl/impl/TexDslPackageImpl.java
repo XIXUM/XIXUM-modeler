@@ -13,8 +13,11 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.xixum.latex.texDsl.Attributes;
 import org.xixum.latex.texDsl.Command;
 import org.xixum.latex.texDsl.CommandName;
+import org.xixum.latex.texDsl.CommandParameters;
 import org.xixum.latex.texDsl.Document;
 import org.xixum.latex.texDsl.Model;
+import org.xixum.latex.texDsl.SubCommName;
+import org.xixum.latex.texDsl.SubCommand;
 import org.xixum.latex.texDsl.TexDslFactory;
 import org.xixum.latex.texDsl.TexDslPackage;
 import org.xixum.latex.texDsl.Token;
@@ -53,7 +56,28 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass subCommNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass commandNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass subCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass commandParametersEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -203,6 +227,39 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
+  public EClass getSubCommName()
+  {
+    return subCommNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSubCommName_Id()
+  {
+    return (EAttribute)subCommNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubCommName_SubCommand()
+  {
+    return (EReference)subCommNameEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getCommandName()
   {
     return commandNameEClass;
@@ -236,6 +293,50 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
+  public EClass getSubCommand()
+  {
+    return subCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSubCommand_Types()
+  {
+    return (EReference)subCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCommandParameters()
+  {
+    return commandParametersEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCommandParameters_Attributes()
+  {
+    return (EReference)commandParametersEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getCommand()
   {
     return commandEClass;
@@ -258,7 +359,7 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EReference getCommand_Attributes()
+  public EReference getCommand_Parameters()
   {
     return (EReference)commandEClass.getEStructuralFeatures().get(1);
   }
@@ -269,9 +370,9 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EAttribute getCommand_Types()
+  public EReference getCommand_SubCommand()
   {
-    return (EAttribute)commandEClass.getEStructuralFeatures().get(2);
+    return (EReference)commandEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -358,14 +459,24 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     tokenEClass = createEClass(TOKEN);
     createEAttribute(tokenEClass, TOKEN__TOKEN);
 
+    subCommNameEClass = createEClass(SUB_COMM_NAME);
+    createEAttribute(subCommNameEClass, SUB_COMM_NAME__ID);
+    createEReference(subCommNameEClass, SUB_COMM_NAME__SUB_COMMAND);
+
     commandNameEClass = createEClass(COMMAND_NAME);
     createEAttribute(commandNameEClass, COMMAND_NAME__LEADING);
     createEAttribute(commandNameEClass, COMMAND_NAME__CNAME);
 
+    subCommandEClass = createEClass(SUB_COMMAND);
+    createEReference(subCommandEClass, SUB_COMMAND__TYPES);
+
+    commandParametersEClass = createEClass(COMMAND_PARAMETERS);
+    createEReference(commandParametersEClass, COMMAND_PARAMETERS__ATTRIBUTES);
+
     commandEClass = createEClass(COMMAND);
     createEReference(commandEClass, COMMAND__COMMAND);
-    createEReference(commandEClass, COMMAND__ATTRIBUTES);
-    createEAttribute(commandEClass, COMMAND__TYPES);
+    createEReference(commandEClass, COMMAND__PARAMETERS);
+    createEReference(commandEClass, COMMAND__SUB_COMMAND);
 
     attributesEClass = createEClass(ATTRIBUTES);
     createEAttribute(attributesEClass, ATTRIBUTES__KEY);
@@ -413,14 +524,24 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     initEClass(tokenEClass, Token.class, "Token", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getToken_Token(), ecorePackage.getEString(), "token", null, 0, 1, Token.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(subCommNameEClass, SubCommName.class, "SubCommName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSubCommName_Id(), ecorePackage.getEString(), "id", null, 0, 1, SubCommName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubCommName_SubCommand(), this.getSubCommand(), null, "subCommand", null, 0, 1, SubCommName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(commandNameEClass, CommandName.class, "CommandName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCommandName_Leading(), ecorePackage.getEString(), "leading", null, 0, 1, CommandName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCommandName_CName(), ecorePackage.getEString(), "cName", null, 0, 1, CommandName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(subCommandEClass, SubCommand.class, "SubCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSubCommand_Types(), this.getSubCommName(), null, "types", null, 0, -1, SubCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(commandParametersEClass, CommandParameters.class, "CommandParameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCommandParameters_Attributes(), this.getAttributes(), null, "attributes", null, 0, -1, CommandParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCommand_Command(), this.getCommandName(), null, "command", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCommand_Attributes(), this.getAttributes(), null, "attributes", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCommand_Types(), ecorePackage.getEString(), "types", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommand_Parameters(), this.getCommandParameters(), null, "parameters", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommand_SubCommand(), this.getSubCommand(), null, "subCommand", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributesEClass, Attributes.class, "Attributes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttributes_Key(), ecorePackage.getEString(), "key", null, 0, 1, Attributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

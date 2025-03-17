@@ -142,6 +142,29 @@ public class TexDslItemProviderAdapterFactory extends TexDslAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.xixum.latex.texDsl.SubCommName} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubCommNameItemProvider subCommNameItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.xixum.latex.texDsl.SubCommName}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSubCommNameAdapter() {
+		if (subCommNameItemProvider == null) {
+			subCommNameItemProvider = new SubCommNameItemProvider(this);
+		}
+
+		return subCommNameItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.xixum.latex.texDsl.CommandName} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,6 +185,52 @@ public class TexDslItemProviderAdapterFactory extends TexDslAdapterFactory imple
 		}
 
 		return commandNameItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.xixum.latex.texDsl.SubCommand} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubCommandItemProvider subCommandItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.xixum.latex.texDsl.SubCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSubCommandAdapter() {
+		if (subCommandItemProvider == null) {
+			subCommandItemProvider = new SubCommandItemProvider(this);
+		}
+
+		return subCommandItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.xixum.latex.texDsl.CommandParameters} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommandParametersItemProvider commandParametersItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.xixum.latex.texDsl.CommandParameters}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCommandParametersAdapter() {
+		if (commandParametersItemProvider == null) {
+			commandParametersItemProvider = new CommandParametersItemProvider(this);
+		}
+
+		return commandParametersItemProvider;
 	}
 
 	/**
@@ -318,7 +387,10 @@ public class TexDslItemProviderAdapterFactory extends TexDslAdapterFactory imple
 		if (modelItemProvider != null) modelItemProvider.dispose();
 		if (documentItemProvider != null) documentItemProvider.dispose();
 		if (tokenItemProvider != null) tokenItemProvider.dispose();
+		if (subCommNameItemProvider != null) subCommNameItemProvider.dispose();
 		if (commandNameItemProvider != null) commandNameItemProvider.dispose();
+		if (subCommandItemProvider != null) subCommandItemProvider.dispose();
+		if (commandParametersItemProvider != null) commandParametersItemProvider.dispose();
 		if (commandItemProvider != null) commandItemProvider.dispose();
 		if (attributesItemProvider != null) attributesItemProvider.dispose();
 	}

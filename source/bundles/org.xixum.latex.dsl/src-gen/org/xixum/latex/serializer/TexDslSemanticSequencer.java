@@ -18,8 +18,11 @@ import org.xixum.latex.services.TexDslGrammarAccess;
 import org.xixum.latex.texDsl.Attributes;
 import org.xixum.latex.texDsl.Command;
 import org.xixum.latex.texDsl.CommandName;
+import org.xixum.latex.texDsl.CommandParameters;
 import org.xixum.latex.texDsl.Document;
 import org.xixum.latex.texDsl.Model;
+import org.xixum.latex.texDsl.SubCommName;
+import org.xixum.latex.texDsl.SubCommand;
 import org.xixum.latex.texDsl.TexDslPackage;
 import org.xixum.latex.texDsl.Token;
 
@@ -46,11 +49,20 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case TexDslPackage.COMMAND_NAME:
 				sequence_CommandName(context, (CommandName) semanticObject); 
 				return; 
+			case TexDslPackage.COMMAND_PARAMETERS:
+				sequence_CommandParameters(context, (CommandParameters) semanticObject); 
+				return; 
 			case TexDslPackage.DOCUMENT:
 				sequence_Document(context, (Document) semanticObject); 
 				return; 
 			case TexDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case TexDslPackage.SUB_COMM_NAME:
+				sequence_SubCommName(context, (SubCommName) semanticObject); 
+				return; 
+			case TexDslPackage.SUB_COMMAND:
+				sequence_SubCommand(context, (SubCommand) semanticObject); 
 				return; 
 			case TexDslPackage.TOKEN:
 				sequence_Token(context, (Token) semanticObject); 
@@ -100,10 +112,24 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     CommandParameters returns CommandParameters
+	 *
+	 * Constraint:
+	 *     (attributes+=Attributes attributes+=Attributes*)
+	 * </pre>
+	 */
+	protected void sequence_CommandParameters(ISerializationContext context, CommandParameters semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Command returns Command
 	 *
 	 * Constraint:
-	 *     (command=CommandName (attributes+=Attributes attributes+=Attributes*)? types+=ID_Token*)
+	 *     (command=CommandName parameters=CommandParameters? subCommand=SubCommand?)
 	 * </pre>
 	 */
 	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
@@ -135,6 +161,34 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SubCommName returns SubCommName
+	 *
+	 * Constraint:
+	 *     (id=ID_WS subCommand=SubCommand?)
+	 * </pre>
+	 */
+	protected void sequence_SubCommName(ISerializationContext context, SubCommName semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SubCommand returns SubCommand
+	 *
+	 * Constraint:
+	 *     (types+=SubCommName types+=SubCommName*)
+	 * </pre>
+	 */
+	protected void sequence_SubCommand(ISerializationContext context, SubCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

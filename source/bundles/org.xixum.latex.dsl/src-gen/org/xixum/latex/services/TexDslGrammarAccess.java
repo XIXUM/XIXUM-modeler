@@ -15,7 +15,6 @@ import org.eclipse.xtext.Group;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 import org.eclipse.xtext.service.AbstractElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -112,6 +111,98 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//ALPHA_NUMERIC
 		public RuleCall getALPHA_NUMERICTerminalRuleCall_1() { return cALPHA_NUMERICTerminalRuleCall_1; }
 	}
+	public class ID_WSElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ID_WS");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cBSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
+		private final RuleCall cALPHA_NUMERICTerminalRuleCall_1_1 = (RuleCall)cAlternatives_1.eContents().get(1);
+		private final RuleCall cBOTerminalRuleCall_1_2 = (RuleCall)cAlternatives_1.eContents().get(2);
+		private final RuleCall cBCTerminalRuleCall_1_3 = (RuleCall)cAlternatives_1.eContents().get(3);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cSPACETerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Alternatives cAlternatives_2_1 = (Alternatives)cGroup_2.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_2_1_0 = (RuleCall)cAlternatives_2_1.eContents().get(0);
+		private final RuleCall cALPHA_NUMERICTerminalRuleCall_2_1_1 = (RuleCall)cAlternatives_2_1.eContents().get(1);
+		private final RuleCall cBOTerminalRuleCall_2_1_2 = (RuleCall)cAlternatives_2_1.eContents().get(2);
+		private final RuleCall cBCTerminalRuleCall_2_1_3 = (RuleCall)cAlternatives_2_1.eContents().get(3);
+		
+		//ID_WS:
+		//    BS? (ID | ALPHA_NUMERIC | BO | BC ) (SPACE (ID | ALPHA_NUMERIC | BO | BC ))*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//BS? (ID | ALPHA_NUMERIC | BO | BC ) (SPACE (ID | ALPHA_NUMERIC | BO | BC ))*
+		public Group getGroup() { return cGroup; }
+		
+		//BS?
+		public RuleCall getBSTerminalRuleCall_0() { return cBSTerminalRuleCall_0; }
+		
+		//(ID | ALPHA_NUMERIC | BO | BC )
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_0() { return cIDTerminalRuleCall_1_0; }
+		
+		//ALPHA_NUMERIC
+		public RuleCall getALPHA_NUMERICTerminalRuleCall_1_1() { return cALPHA_NUMERICTerminalRuleCall_1_1; }
+		
+		//BO
+		public RuleCall getBOTerminalRuleCall_1_2() { return cBOTerminalRuleCall_1_2; }
+		
+		//BC
+		public RuleCall getBCTerminalRuleCall_1_3() { return cBCTerminalRuleCall_1_3; }
+		
+		//(SPACE (ID | ALPHA_NUMERIC | BO | BC ))*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//SPACE
+		public RuleCall getSPACETerminalRuleCall_2_0() { return cSPACETerminalRuleCall_2_0; }
+		
+		//(ID | ALPHA_NUMERIC | BO | BC )
+		public Alternatives getAlternatives_2_1() { return cAlternatives_2_1; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_2_1_0() { return cIDTerminalRuleCall_2_1_0; }
+		
+		//ALPHA_NUMERIC
+		public RuleCall getALPHA_NUMERICTerminalRuleCall_2_1_1() { return cALPHA_NUMERICTerminalRuleCall_2_1_1; }
+		
+		//BO
+		public RuleCall getBOTerminalRuleCall_2_1_2() { return cBOTerminalRuleCall_2_1_2; }
+		
+		//BC
+		public RuleCall getBCTerminalRuleCall_2_1_3() { return cBCTerminalRuleCall_2_1_3; }
+	}
+	public class SubCommNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SubCommName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cIdID_WSParserRuleCall_0_0 = (RuleCall)cIdAssignment_0.eContents().get(0);
+		private final Assignment cSubCommandAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSubCommandSubCommandParserRuleCall_1_0 = (RuleCall)cSubCommandAssignment_1.eContents().get(0);
+		
+		//SubCommName:
+		//    id=ID_WS subCommand=SubCommand?
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//id=ID_WS subCommand=SubCommand?
+		public Group getGroup() { return cGroup; }
+		
+		//id=ID_WS
+		public Assignment getIdAssignment_0() { return cIdAssignment_0; }
+		
+		//ID_WS
+		public RuleCall getIdID_WSParserRuleCall_0_0() { return cIdID_WSParserRuleCall_0_0; }
+		
+		//subCommand=SubCommand?
+		public Assignment getSubCommandAssignment_1() { return cSubCommandAssignment_1; }
+		
+		//SubCommand
+		public RuleCall getSubCommandSubCommandParserRuleCall_1_0() { return cSubCommandSubCommandParserRuleCall_1_0; }
+	}
 	public class CommandNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.CommandName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -140,32 +231,110 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//ALPHA_NUMERIC
 		public RuleCall getCNameALPHA_NUMERICTerminalRuleCall_1_0() { return cCNameALPHA_NUMERICTerminalRuleCall_1_0; }
 	}
+	public class SubCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SubCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cCUBOTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cTypesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypesSubCommNameParserRuleCall_1_0 = (RuleCall)cTypesAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cPIPETerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Assignment cTypesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cTypesSubCommNameParserRuleCall_2_1_0 = (RuleCall)cTypesAssignment_2_1.eContents().get(0);
+		private final RuleCall cCUBCTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		//SubCommand hidden():
+		//    (CUBO types+=SubCommName (PIPE types+=SubCommName)* CUBC)
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(CUBO types+=SubCommName (PIPE types+=SubCommName)* CUBC)
+		public Group getGroup() { return cGroup; }
+		
+		//CUBO
+		public RuleCall getCUBOTerminalRuleCall_0() { return cCUBOTerminalRuleCall_0; }
+		
+		//types+=SubCommName
+		public Assignment getTypesAssignment_1() { return cTypesAssignment_1; }
+		
+		//SubCommName
+		public RuleCall getTypesSubCommNameParserRuleCall_1_0() { return cTypesSubCommNameParserRuleCall_1_0; }
+		
+		//(PIPE types+=SubCommName)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//PIPE
+		public RuleCall getPIPETerminalRuleCall_2_0() { return cPIPETerminalRuleCall_2_0; }
+		
+		//types+=SubCommName
+		public Assignment getTypesAssignment_2_1() { return cTypesAssignment_2_1; }
+		
+		//SubCommName
+		public RuleCall getTypesSubCommNameParserRuleCall_2_1_0() { return cTypesSubCommNameParserRuleCall_2_1_0; }
+		
+		//CUBC
+		public RuleCall getCUBCTerminalRuleCall_3() { return cCUBCTerminalRuleCall_3; }
+	}
+	public class CommandParametersElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.CommandParameters");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cSQBOTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cAttributesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAttributesAttributesParserRuleCall_1_0 = (RuleCall)cAttributesAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cKOMMATerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Assignment cAttributesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cAttributesAttributesParserRuleCall_2_1_0 = (RuleCall)cAttributesAssignment_2_1.eContents().get(0);
+		private final RuleCall cSQBCTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		//CommandParameters:
+		//    (SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)
+		public Group getGroup() { return cGroup; }
+		
+		//SQBO
+		public RuleCall getSQBOTerminalRuleCall_0() { return cSQBOTerminalRuleCall_0; }
+		
+		//attributes+=Attributes
+		public Assignment getAttributesAssignment_1() { return cAttributesAssignment_1; }
+		
+		//Attributes
+		public RuleCall getAttributesAttributesParserRuleCall_1_0() { return cAttributesAttributesParserRuleCall_1_0; }
+		
+		//(KOMMA attributes+=Attributes)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//KOMMA
+		public RuleCall getKOMMATerminalRuleCall_2_0() { return cKOMMATerminalRuleCall_2_0; }
+		
+		//attributes+=Attributes
+		public Assignment getAttributesAssignment_2_1() { return cAttributesAssignment_2_1; }
+		
+		//Attributes
+		public RuleCall getAttributesAttributesParserRuleCall_2_1_0() { return cAttributesAttributesParserRuleCall_2_1_0; }
+		
+		//SQBC
+		public RuleCall getSQBCTerminalRuleCall_3() { return cSQBCTerminalRuleCall_3; }
+	}
 	public class CommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Command");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cCommandAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cCommandCommandNameParserRuleCall_0_0 = (RuleCall)cCommandAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final RuleCall cSQBOTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Assignment cAttributesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cAttributesAttributesParserRuleCall_1_1_0 = (RuleCall)cAttributesAssignment_1_1.eContents().get(0);
-		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
-		private final RuleCall cKOMMATerminalRuleCall_1_2_0 = (RuleCall)cGroup_1_2.eContents().get(0);
-		private final Assignment cAttributesAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cAttributesAttributesParserRuleCall_1_2_1_0 = (RuleCall)cAttributesAssignment_1_2_1.eContents().get(0);
-		private final RuleCall cSQBCTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final RuleCall cCUBOTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
-		private final Assignment cTypesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cTypesID_TokenParserRuleCall_2_1_0 = (RuleCall)cTypesAssignment_2_1.eContents().get(0);
-		private final RuleCall cCUBCTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
+		private final Assignment cParametersAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cParametersCommandParametersParserRuleCall_1_0 = (RuleCall)cParametersAssignment_1.eContents().get(0);
+		private final Assignment cSubCommandAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSubCommandSubCommandParserRuleCall_2_0 = (RuleCall)cSubCommandAssignment_2.eContents().get(0);
 		
 		//Command:
-		//    command=CommandName (SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)? (CUBO types+=ID_Token+ CUBC)?
+		//    command=CommandName parameters=CommandParameters? subCommand=SubCommand?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//command=CommandName (SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)? (CUBO types+=ID_Token+ CUBC)?
+		//command=CommandName parameters=CommandParameters? subCommand=SubCommand?
 		public Group getGroup() { return cGroup; }
 		
 		//command=CommandName
@@ -174,47 +343,17 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//CommandName
 		public RuleCall getCommandCommandNameParserRuleCall_0_0() { return cCommandCommandNameParserRuleCall_0_0; }
 		
-		//(SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)?
-		public Group getGroup_1() { return cGroup_1; }
+		//parameters=CommandParameters?
+		public Assignment getParametersAssignment_1() { return cParametersAssignment_1; }
 		
-		//SQBO
-		public RuleCall getSQBOTerminalRuleCall_1_0() { return cSQBOTerminalRuleCall_1_0; }
+		//CommandParameters
+		public RuleCall getParametersCommandParametersParserRuleCall_1_0() { return cParametersCommandParametersParserRuleCall_1_0; }
 		
-		//attributes+=Attributes
-		public Assignment getAttributesAssignment_1_1() { return cAttributesAssignment_1_1; }
+		//subCommand=SubCommand?
+		public Assignment getSubCommandAssignment_2() { return cSubCommandAssignment_2; }
 		
-		//Attributes
-		public RuleCall getAttributesAttributesParserRuleCall_1_1_0() { return cAttributesAttributesParserRuleCall_1_1_0; }
-		
-		//(KOMMA attributes+=Attributes)*
-		public Group getGroup_1_2() { return cGroup_1_2; }
-		
-		//KOMMA
-		public RuleCall getKOMMATerminalRuleCall_1_2_0() { return cKOMMATerminalRuleCall_1_2_0; }
-		
-		//attributes+=Attributes
-		public Assignment getAttributesAssignment_1_2_1() { return cAttributesAssignment_1_2_1; }
-		
-		//Attributes
-		public RuleCall getAttributesAttributesParserRuleCall_1_2_1_0() { return cAttributesAttributesParserRuleCall_1_2_1_0; }
-		
-		//SQBC
-		public RuleCall getSQBCTerminalRuleCall_1_3() { return cSQBCTerminalRuleCall_1_3; }
-		
-		//(CUBO types+=ID_Token+ CUBC)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//CUBO
-		public RuleCall getCUBOTerminalRuleCall_2_0() { return cCUBOTerminalRuleCall_2_0; }
-		
-		//types+=ID_Token+
-		public Assignment getTypesAssignment_2_1() { return cTypesAssignment_2_1; }
-		
-		//ID_Token
-		public RuleCall getTypesID_TokenParserRuleCall_2_1_0() { return cTypesID_TokenParserRuleCall_2_1_0; }
-		
-		//CUBC
-		public RuleCall getCUBCTerminalRuleCall_2_2() { return cCUBCTerminalRuleCall_2_2; }
+		//SubCommand
+		public RuleCall getSubCommandSubCommandParserRuleCall_2_0() { return cSubCommandSubCommandParserRuleCall_2_0; }
 	}
 	public class AttributesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Attributes");
@@ -282,7 +421,11 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	private final DocumentElements pDocument;
 	private final TokenElements pToken;
 	private final ID_TokenElements pID_Token;
+	private final ID_WSElements pID_WS;
+	private final SubCommNameElements pSubCommName;
 	private final CommandNameElements pCommandName;
+	private final SubCommandElements pSubCommand;
+	private final CommandParametersElements pCommandParameters;
 	private final CommandElements pCommand;
 	private final AttributesElements pAttributes;
 	private final TerminalRule tML_COMMENT;
@@ -305,23 +448,27 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	private final TerminalRule tEQ;
 	private final TerminalRule tDOT;
 	private final TerminalRule tAND;
+	private final TerminalRule tPIPE;
+	private final TerminalRule tSPACE;
 	private final TerminalRule tSYMBOL;
 	private final TerminalRule tEND;
+	private final TerminalRule tWS;
+	private final TerminalRule tANY_OTHER;
 	
 	private final Grammar grammar;
-	
-	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
-	public TexDslGrammarAccess(GrammarProvider grammarProvider,
-			TerminalsGrammarAccess gaTerminals) {
+	public TexDslGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
-		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pDocument = new DocumentElements();
 		this.pToken = new TokenElements();
 		this.pID_Token = new ID_TokenElements();
+		this.pID_WS = new ID_WSElements();
+		this.pSubCommName = new SubCommNameElements();
 		this.pCommandName = new CommandNameElements();
+		this.pSubCommand = new SubCommandElements();
+		this.pCommandParameters = new CommandParametersElements();
 		this.pCommand = new CommandElements();
 		this.pAttributes = new AttributesElements();
 		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ML_COMMENT");
@@ -344,8 +491,12 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		this.tEQ = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.EQ");
 		this.tDOT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.DOT");
 		this.tAND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.AND");
+		this.tPIPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.PIPE");
+		this.tSPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SPACE");
 		this.tSYMBOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SYMBOL");
 		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.END");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.WS");
+		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ANY_OTHER");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -369,10 +520,6 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return grammar;
 	}
 	
-	
-	public TerminalsGrammarAccess getTerminalsGrammarAccess() {
-		return gaTerminals;
-	}
 
 	
 	//Model:
@@ -417,6 +564,28 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getID_TokenAccess().getRule();
 	}
 	
+	//ID_WS:
+	//    BS? (ID | ALPHA_NUMERIC | BO | BC ) (SPACE (ID | ALPHA_NUMERIC | BO | BC ))*
+	//;
+	public ID_WSElements getID_WSAccess() {
+		return pID_WS;
+	}
+	
+	public ParserRule getID_WSRule() {
+		return getID_WSAccess().getRule();
+	}
+	
+	//SubCommName:
+	//    id=ID_WS subCommand=SubCommand?
+	//;
+	public SubCommNameElements getSubCommNameAccess() {
+		return pSubCommName;
+	}
+	
+	public ParserRule getSubCommNameRule() {
+		return getSubCommNameAccess().getRule();
+	}
+	
 	//CommandName hidden():
 	//    leading=BS cName=ALPHA_NUMERIC
 	//;
@@ -428,8 +597,30 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getCommandNameAccess().getRule();
 	}
 	
+	//SubCommand hidden():
+	//    (CUBO types+=SubCommName (PIPE types+=SubCommName)* CUBC)
+	//;
+	public SubCommandElements getSubCommandAccess() {
+		return pSubCommand;
+	}
+	
+	public ParserRule getSubCommandRule() {
+		return getSubCommandAccess().getRule();
+	}
+	
+	//CommandParameters:
+	//    (SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)
+	//;
+	public CommandParametersElements getCommandParametersAccess() {
+		return pCommandParameters;
+	}
+	
+	public ParserRule getCommandParametersRule() {
+		return getCommandParametersAccess().getRule();
+	}
+	
 	//Command:
-	//    command=CommandName (SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)? (CUBO types+=ID_Token+ CUBC)?
+	//    command=CommandName parameters=CommandParameters? subCommand=SubCommand?
 	//;
 	public CommandElements getCommandAccess() {
 		return pCommand;
@@ -450,13 +641,13 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getAttributesAccess().getRule();
 	}
 	
-	//@Override
+	////@Override
 	//terminal ML_COMMENT : '/*' -> '*/';
 	public TerminalRule getML_COMMENTRule() {
 		return tML_COMMENT;
 	}
 	
-	//@Override
+	////@Override
 	//terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
 		return tSL_COMMENT;
@@ -483,7 +674,7 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return tALPHA_NUMERIC;
 	}
 	
-	//@Override
+	////@Override
 	//terminal ID:
 	//    //ALPHA_NUMERIC ( SYMBOLS ALPHA_NUMERIC )* SYMBOLS?
 	//    (ALPHA | SYMBOL ) (ALPHA |SYMBOL | NUMERIC | DOT | AND)*
@@ -589,6 +780,20 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return tAND;
 	}
 	
+	//terminal PIPE:
+	//    '|'
+	//;
+	public TerminalRule getPIPERule() {
+		return tPIPE;
+	}
+	
+	//terminal SPACE:
+	//    ' '
+	//;
+	public TerminalRule getSPACERule() {
+		return tSPACE;
+	}
+	
 	//terminal SYMBOL:
 	//    '-' | '_' | '+' | '#' | '~'
 	//;
@@ -602,26 +807,13 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return tEND;
 	}
 	
-	//terminal INT returns ecore::EInt: ('0'..'9')+;
-	public TerminalRule getINTRule() {
-		return gaTerminals.getINTRule();
-	}
-	
-	//terminal STRING:
-	//            '"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
-	//            "'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
-	//        ;
-	public TerminalRule getSTRINGRule() {
-		return gaTerminals.getSTRINGRule();
-	}
-	
 	//terminal WS         : (' '|'\t'|'\r'|'\n')+;
 	public TerminalRule getWSRule() {
-		return gaTerminals.getWSRule();
+		return tWS;
 	}
 	
 	//terminal ANY_OTHER: .;
 	public TerminalRule getANY_OTHERRule() {
-		return gaTerminals.getANY_OTHERRule();
+		return tANY_OTHER;
 	}
 }

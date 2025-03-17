@@ -36,6 +36,8 @@ public class TexDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getEQToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getKOMMARule())
 			return getKOMMAToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getPIPERule())
+			return getPIPEToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSQBCRule())
 			return getSQBCToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSQBORule())
@@ -95,6 +97,17 @@ public class TexDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ",";
+	}
+	
+	/**
+	 * terminal PIPE:
+	 * 	'|'
+	 * ;
+	 */
+	protected String getPIPEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "|";
 	}
 	
 	/**

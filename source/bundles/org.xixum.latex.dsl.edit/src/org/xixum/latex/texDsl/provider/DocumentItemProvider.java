@@ -167,7 +167,22 @@ public class DocumentItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
+				 TexDslFactory.eINSTANCE.createSubCommName()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
 				 TexDslFactory.eINSTANCE.createCommandName()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
+				 TexDslFactory.eINSTANCE.createSubCommand()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TexDslPackage.Literals.DOCUMENT__ELEMENTS,
+				 TexDslFactory.eINSTANCE.createCommandParameters()));
 
 		newChildDescriptors.add
 			(createChildParameter

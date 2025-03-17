@@ -3,12 +3,8 @@
  */
 package org.xixum.latex.texDsl.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -16,13 +12,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.xixum.latex.texDsl.Attributes;
 import org.xixum.latex.texDsl.Command;
 import org.xixum.latex.texDsl.CommandName;
+import org.xixum.latex.texDsl.CommandParameters;
+import org.xixum.latex.texDsl.SubCommand;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
@@ -34,8 +27,8 @@ import org.xixum.latex.texDsl.TexDslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getCommand <em>Command</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getSubCommand <em>Sub Command</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,24 +46,24 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   protected CommandName command;
 
   /**
-   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttributes()
+   * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected EList<Attributes> attributes;
+  protected CommandParameters parameters;
 
   /**
-   * The cached value of the '{@link #getTypes() <em>Types</em>}' attribute list.
+   * The cached value of the '{@link #getSubCommand() <em>Sub Command</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypes()
+   * @see #getSubCommand()
    * @generated
    * @ordered
    */
-  protected EList<String> types;
+  protected SubCommand subCommand;
 
   /**
    * <!-- begin-user-doc -->
@@ -149,13 +142,26 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * @generated
    */
   @Override
-  public EList<Attributes> getAttributes()
+  public CommandParameters getParameters()
   {
-    if (attributes == null)
+    return parameters;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParameters(CommandParameters newParameters, NotificationChain msgs)
+  {
+    CommandParameters oldParameters = parameters;
+    parameters = newParameters;
+    if (eNotificationRequired())
     {
-      attributes = new EObjectContainmentEList<Attributes>(Attributes.class, this, TexDslPackage.COMMAND__ATTRIBUTES);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TexDslPackage.COMMAND__PARAMETERS, oldParameters, newParameters);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return attributes;
+    return msgs;
   }
 
   /**
@@ -164,13 +170,70 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * @generated
    */
   @Override
-  public EList<String> getTypes()
+  public void setParameters(CommandParameters newParameters)
   {
-    if (types == null)
+    if (newParameters != parameters)
     {
-      types = new EDataTypeEList<String>(String.class, this, TexDslPackage.COMMAND__TYPES);
+      NotificationChain msgs = null;
+      if (parameters != null)
+        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TexDslPackage.COMMAND__PARAMETERS, null, msgs);
+      if (newParameters != null)
+        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TexDslPackage.COMMAND__PARAMETERS, null, msgs);
+      msgs = basicSetParameters(newParameters, msgs);
+      if (msgs != null) msgs.dispatch();
     }
-    return types;
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.COMMAND__PARAMETERS, newParameters, newParameters));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SubCommand getSubCommand()
+  {
+    return subCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSubCommand(SubCommand newSubCommand, NotificationChain msgs)
+  {
+    SubCommand oldSubCommand = subCommand;
+    subCommand = newSubCommand;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TexDslPackage.COMMAND__SUB_COMMAND, oldSubCommand, newSubCommand);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSubCommand(SubCommand newSubCommand)
+  {
+    if (newSubCommand != subCommand)
+    {
+      NotificationChain msgs = null;
+      if (subCommand != null)
+        msgs = ((InternalEObject)subCommand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TexDslPackage.COMMAND__SUB_COMMAND, null, msgs);
+      if (newSubCommand != null)
+        msgs = ((InternalEObject)newSubCommand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TexDslPackage.COMMAND__SUB_COMMAND, null, msgs);
+      msgs = basicSetSubCommand(newSubCommand, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.COMMAND__SUB_COMMAND, newSubCommand, newSubCommand));
   }
 
   /**
@@ -185,8 +248,10 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     {
       case TexDslPackage.COMMAND__COMMAND:
         return basicSetCommand(null, msgs);
-      case TexDslPackage.COMMAND__ATTRIBUTES:
-        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+      case TexDslPackage.COMMAND__PARAMETERS:
+        return basicSetParameters(null, msgs);
+      case TexDslPackage.COMMAND__SUB_COMMAND:
+        return basicSetSubCommand(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -203,10 +268,10 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     {
       case TexDslPackage.COMMAND__COMMAND:
         return getCommand();
-      case TexDslPackage.COMMAND__ATTRIBUTES:
-        return getAttributes();
-      case TexDslPackage.COMMAND__TYPES:
-        return getTypes();
+      case TexDslPackage.COMMAND__PARAMETERS:
+        return getParameters();
+      case TexDslPackage.COMMAND__SUB_COMMAND:
+        return getSubCommand();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -216,7 +281,6 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -225,13 +289,11 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case TexDslPackage.COMMAND__COMMAND:
         setCommand((CommandName)newValue);
         return;
-      case TexDslPackage.COMMAND__ATTRIBUTES:
-        getAttributes().clear();
-        getAttributes().addAll((Collection<? extends Attributes>)newValue);
+      case TexDslPackage.COMMAND__PARAMETERS:
+        setParameters((CommandParameters)newValue);
         return;
-      case TexDslPackage.COMMAND__TYPES:
-        getTypes().clear();
-        getTypes().addAll((Collection<? extends String>)newValue);
+      case TexDslPackage.COMMAND__SUB_COMMAND:
+        setSubCommand((SubCommand)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -250,11 +312,11 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
       case TexDslPackage.COMMAND__COMMAND:
         setCommand((CommandName)null);
         return;
-      case TexDslPackage.COMMAND__ATTRIBUTES:
-        getAttributes().clear();
+      case TexDslPackage.COMMAND__PARAMETERS:
+        setParameters((CommandParameters)null);
         return;
-      case TexDslPackage.COMMAND__TYPES:
-        getTypes().clear();
+      case TexDslPackage.COMMAND__SUB_COMMAND:
+        setSubCommand((SubCommand)null);
         return;
     }
     super.eUnset(featureID);
@@ -272,29 +334,12 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
     {
       case TexDslPackage.COMMAND__COMMAND:
         return command != null;
-      case TexDslPackage.COMMAND__ATTRIBUTES:
-        return attributes != null && !attributes.isEmpty();
-      case TexDslPackage.COMMAND__TYPES:
-        return types != null && !types.isEmpty();
+      case TexDslPackage.COMMAND__PARAMETERS:
+        return parameters != null;
+      case TexDslPackage.COMMAND__SUB_COMMAND:
+        return subCommand != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (types: ");
-    result.append(types);
-    result.append(')');
-    return result.toString();
   }
 
 } //CommandImpl

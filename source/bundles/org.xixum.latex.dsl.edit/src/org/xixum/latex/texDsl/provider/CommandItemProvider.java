@@ -64,31 +64,8 @@ public class CommandItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Types feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Command_types_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Command_types_feature", "_UI_Command_type"),
-				 TexDslPackage.Literals.COMMAND__TYPES,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -104,7 +81,8 @@ public class CommandItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TexDslPackage.Literals.COMMAND__COMMAND);
-			childrenFeatures.add(TexDslPackage.Literals.COMMAND__ATTRIBUTES);
+			childrenFeatures.add(TexDslPackage.Literals.COMMAND__PARAMETERS);
+			childrenFeatures.add(TexDslPackage.Literals.COMMAND__SUB_COMMAND);
 		}
 		return childrenFeatures;
 	}
@@ -157,11 +135,9 @@ public class CommandItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Command.class)) {
-			case TexDslPackage.COMMAND__TYPES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case TexDslPackage.COMMAND__COMMAND:
-			case TexDslPackage.COMMAND__ATTRIBUTES:
+			case TexDslPackage.COMMAND__PARAMETERS:
+			case TexDslPackage.COMMAND__SUB_COMMAND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -186,8 +162,13 @@ public class CommandItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TexDslPackage.Literals.COMMAND__ATTRIBUTES,
-				 TexDslFactory.eINSTANCE.createAttributes()));
+				(TexDslPackage.Literals.COMMAND__PARAMETERS,
+				 TexDslFactory.eINSTANCE.createCommandParameters()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TexDslPackage.Literals.COMMAND__SUB_COMMAND,
+				 TexDslFactory.eINSTANCE.createSubCommand()));
 	}
 
 	/**

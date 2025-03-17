@@ -94,10 +94,31 @@ public class TexDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TexDslPackage.SUB_COMM_NAME:
+      {
+        SubCommName subCommName = (SubCommName)theEObject;
+        T result = caseSubCommName(subCommName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case TexDslPackage.COMMAND_NAME:
       {
         CommandName commandName = (CommandName)theEObject;
         T result = caseCommandName(commandName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.SUB_COMMAND:
+      {
+        SubCommand subCommand = (SubCommand)theEObject;
+        T result = caseSubCommand(subCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.COMMAND_PARAMETERS:
+      {
+        CommandParameters commandParameters = (CommandParameters)theEObject;
+        T result = caseCommandParameters(commandParameters);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -168,6 +189,22 @@ public class TexDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Sub Comm Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sub Comm Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubCommName(SubCommName object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Command Name</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -179,6 +216,38 @@ public class TexDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCommandName(CommandName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sub Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sub Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubCommand(SubCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Command Parameters</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Command Parameters</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommandParameters(CommandParameters object)
   {
     return null;
   }

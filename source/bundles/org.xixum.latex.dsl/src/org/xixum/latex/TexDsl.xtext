@@ -1,4 +1,6 @@
-grammar org.xixum.latex.TexDsl with org.eclipse.xtext.common.Terminals
+grammar org.xixum.latex.TexDsl  hidden(WS, ML_COMMENT, SL_COMMENT)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 generate texDsl "http://www.xixum.org/latex/TexDsl"
 
@@ -16,12 +18,28 @@ ID_Token:
 	ID | ALPHA_NUMERIC
 ;
 
+ID_WS:
+	BS? (ID | ALPHA_NUMERIC | BO | BC ) (SPACE (ID | ALPHA_NUMERIC | BO | BC ))*	
+;
+
+SubCommName:
+	id=ID_WS subCommand=SubCommand?
+;
+
 CommandName hidden():
 	leading=BS cName=ALPHA_NUMERIC
 ;
 
+SubCommand hidden():
+	(CUBO types+=SubCommName (PIPE types+=SubCommName)* CUBC)
+;
+
+CommandParameters:
+	(SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)
+;
+
 Command:
-	command=CommandName (SQBO attributes+=Attributes (KOMMA attributes+=Attributes)* SQBC)? (CUBO types+=ID_Token+ CUBC)?
+	command=CommandName parameters=CommandParameters? subCommand=SubCommand?
 ;
 
 Attributes:
@@ -29,9 +47,9 @@ Attributes:
 ;
 
 	
-@Override 
+//@Override 
 terminal ML_COMMENT : '/*' -> '*/';
-@Override 
+//@Override 
 terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
 
 terminal BS:
@@ -46,7 +64,7 @@ terminal ALPHA_NUMERIC:
 	ALPHA+ ( NUMERIC+ ALPHA+ )* NUMERIC*
 ;
 
-@Override 
+//@Override 
 terminal ID:
 	//ALPHA_NUMERIC ( SYMBOLS ALPHA_NUMERIC )* SYMBOLS?
 	(ALPHA | SYMBOL ) (ALPHA |SYMBOL | NUMERIC | DOT | AND)*
@@ -107,6 +125,13 @@ terminal AND:
 	'&'
 ;
 
+terminal PIPE:
+	'|'
+;
+
+terminal SPACE:
+	' '
+;
 
 terminal SYMBOL:
 	'-' | '_' | '+' | '#' | '~'
@@ -114,5 +139,9 @@ terminal SYMBOL:
 
 terminal END:
 	EOF;
+	
+terminal WS         : (' '|'\t'|'\r'|'\n')+;
+
+terminal ANY_OTHER: .;
 
 	
