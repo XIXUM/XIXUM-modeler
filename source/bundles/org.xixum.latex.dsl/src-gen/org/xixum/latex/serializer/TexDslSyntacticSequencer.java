@@ -26,9 +26,85 @@ public class TexDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getAnyTokenRule())
+			return getAnyTokenToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getBSRule())
+			return getBSToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getCUBCRule())
+			return getCUBCToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getCUBORule())
+			return getCUBOToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSQBCRule())
+			return getSQBCToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSQBORule())
+			return getSQBOToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * AnyToken:
+	 *     ID | TEXT | SYMBOL | NUMBER | SQBO | SQBC | CUBO | CUBC | BS+;
+	 */
+	protected String getAnyTokenToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "";
+	}
+	
+	/**
+	 * terminal BS:
+	 * 	'\\' 
+	 * ;
+	 */
+	protected String getBSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\\";
+	}
+	
+	/**
+	 * terminal CUBC:
+	 * 	'}'
+	 * ;
+	 */
+	protected String getCUBCToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "}";
+	}
+	
+	/**
+	 * terminal CUBO:
+	 * 	'{'
+	 * ;
+	 */
+	protected String getCUBOToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "{";
+	}
+	
+	/**
+	 * terminal SQBC:
+	 * 	']'
+	 * ;
+	 */
+	protected String getSQBCToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "]";
+	}
+	
+	/**
+	 * terminal SQBO:
+	 * 	'['
+	 * ;
+	 */
+	protected String getSQBOToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "[";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

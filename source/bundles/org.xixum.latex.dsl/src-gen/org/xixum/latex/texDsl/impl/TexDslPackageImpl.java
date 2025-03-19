@@ -11,6 +11,9 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xixum.latex.texDsl.ArgumentContent;
+import org.xixum.latex.texDsl.Codeblock;
+import org.xixum.latex.texDsl.CodeblockContent;
+import org.xixum.latex.texDsl.CodeblockElement;
 import org.xixum.latex.texDsl.Command;
 import org.xixum.latex.texDsl.DisplayMath;
 import org.xixum.latex.texDsl.Element;
@@ -70,6 +73,27 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   private EClass mandatoryArgumentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass codeblockEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass codeblockContentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass codeblockElementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -330,6 +354,61 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
+  public EClass getCodeblock()
+  {
+    return codeblockEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCodeblock_Content()
+  {
+    return (EReference)codeblockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCodeblockContent()
+  {
+    return codeblockContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCodeblockContent_Elements()
+  {
+    return (EReference)codeblockContentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCodeblockElement()
+  {
+    return codeblockElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getArgumentContent()
   {
     return argumentContentEClass;
@@ -536,6 +615,14 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     mandatoryArgumentEClass = createEClass(MANDATORY_ARGUMENT);
     createEReference(mandatoryArgumentEClass, MANDATORY_ARGUMENT__CONTENT);
 
+    codeblockEClass = createEClass(CODEBLOCK);
+    createEReference(codeblockEClass, CODEBLOCK__CONTENT);
+
+    codeblockContentEClass = createEClass(CODEBLOCK_CONTENT);
+    createEReference(codeblockContentEClass, CODEBLOCK_CONTENT__ELEMENTS);
+
+    codeblockElementEClass = createEClass(CODEBLOCK_ELEMENT);
+
     argumentContentEClass = createEClass(ARGUMENT_CONTENT);
 
     textContainerEClass = createEClass(TEXT_CONTAINER);
@@ -592,10 +679,12 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
 
     // Add supertypes to classes
     commandEClass.getESuperTypes().add(this.getElement());
+    commandEClass.getESuperTypes().add(this.getCodeblockElement());
     commandEClass.getESuperTypes().add(this.getArgumentContent());
     commandEClass.getESuperTypes().add(this.getMathContent());
     optionalArgumentEClass.getESuperTypes().add(this.getTextContent());
     mandatoryArgumentEClass.getESuperTypes().add(this.getTextContent());
+    codeblockEClass.getESuperTypes().add(this.getElement());
     textContainerEClass.getESuperTypes().add(this.getTextContent());
     textContentEClass.getESuperTypes().add(this.getElement());
     textContentEClass.getESuperTypes().add(this.getArgumentContent());
@@ -624,6 +713,14 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
 
     initEClass(mandatoryArgumentEClass, MandatoryArgument.class, "MandatoryArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMandatoryArgument_Content(), this.getArgumentContent(), null, "content", null, 0, -1, MandatoryArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(codeblockEClass, Codeblock.class, "Codeblock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCodeblock_Content(), this.getCodeblockContent(), null, "content", null, 0, 1, Codeblock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(codeblockContentEClass, CodeblockContent.class, "CodeblockContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCodeblockContent_Elements(), this.getCodeblockElement(), null, "elements", null, 0, -1, CodeblockContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(codeblockElementEClass, CodeblockElement.class, "CodeblockElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(argumentContentEClass, ArgumentContent.class, "ArgumentContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

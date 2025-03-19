@@ -70,6 +70,9 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
       case TexDslPackage.COMMAND: return createCommand();
       case TexDslPackage.OPTIONAL_ARGUMENT: return createOptionalArgument();
       case TexDslPackage.MANDATORY_ARGUMENT: return createMandatoryArgument();
+      case TexDslPackage.CODEBLOCK: return createCodeblock();
+      case TexDslPackage.CODEBLOCK_CONTENT: return createCodeblockContent();
+      case TexDslPackage.CODEBLOCK_ELEMENT: return createCodeblockElement();
       case TexDslPackage.ARGUMENT_CONTENT: return createArgumentContent();
       case TexDslPackage.TEXT_CONTAINER: return createTextContainer();
       case TexDslPackage.TEXT_CONTENT: return createTextContent();
@@ -143,6 +146,42 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
   {
     MandatoryArgumentImpl mandatoryArgument = new MandatoryArgumentImpl();
     return mandatoryArgument;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Codeblock createCodeblock()
+  {
+    CodeblockImpl codeblock = new CodeblockImpl();
+    return codeblock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CodeblockContent createCodeblockContent()
+  {
+    CodeblockContentImpl codeblockContent = new CodeblockContentImpl();
+    return codeblockContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CodeblockElement createCodeblockElement()
+  {
+    CodeblockElementImpl codeblockElement = new CodeblockElementImpl();
+    return codeblockElement;
   }
 
   /**

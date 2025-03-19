@@ -153,6 +153,18 @@ ruleElement returns [EObject current=null]
 			$current = $this_MathExpression_2.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getElementAccess().getCodeblockParserRuleCall_3());
+		}
+		this_Codeblock_3=ruleCodeblock
+		{
+			$current = $this_Codeblock_3.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -172,10 +184,13 @@ ruleCommand returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='\\'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getCommandAccess().getBackslashKeyword_0());
-		}
+		(
+			(RULE_BS)=>
+			this_BS_0=RULE_BS
+			{
+				newLeafNode(this_BS_0, grammarAccess.getCommandAccess().getBSTerminalRuleCall_0());
+			}
+		)
 		(
 			(
 				lv_command_1_0=RULE_ID
@@ -261,9 +276,9 @@ ruleOptionalArgument returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='['
+		this_SQBO_1=RULE_SQBO
 		{
-			newLeafNode(otherlv_1, grammarAccess.getOptionalArgumentAccess().getLeftSquareBracketKeyword_1());
+			newLeafNode(this_SQBO_1, grammarAccess.getOptionalArgumentAccess().getSQBOTerminalRuleCall_1());
 		}
 		(
 			(
@@ -284,9 +299,9 @@ ruleOptionalArgument returns [EObject current=null]
 				}
 			)
 		)*
-		otherlv_3=']'
+		this_SQBC_3=RULE_SQBC
 		{
-			newLeafNode(otherlv_3, grammarAccess.getOptionalArgumentAccess().getRightSquareBracketKeyword_3());
+			newLeafNode(this_SQBC_3, grammarAccess.getOptionalArgumentAccess().getSQBCTerminalRuleCall_3());
 		}
 	)
 ;
@@ -317,9 +332,9 @@ ruleMandatoryArgument returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='{'
+		this_CUBO_1=RULE_CUBO
 		{
-			newLeafNode(otherlv_1, grammarAccess.getMandatoryArgumentAccess().getLeftCurlyBracketKeyword_1());
+			newLeafNode(this_CUBO_1, grammarAccess.getMandatoryArgumentAccess().getCUBOTerminalRuleCall_1());
 		}
 		(
 			(
@@ -340,10 +355,263 @@ ruleMandatoryArgument returns [EObject current=null]
 				}
 			)
 		)*
-		otherlv_3='}'
+		this_CUBC_3=RULE_CUBC
 		{
-			newLeafNode(otherlv_3, grammarAccess.getMandatoryArgumentAccess().getRightCurlyBracketKeyword_3());
+			newLeafNode(this_CUBC_3, grammarAccess.getMandatoryArgumentAccess().getCUBCTerminalRuleCall_3());
 		}
+	)
+;
+
+// Entry rule entryRuleCodeblock
+entryRuleCodeblock returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCodeblockRule()); }
+	iv_ruleCodeblock=ruleCodeblock
+	{ $current=$iv_ruleCodeblock.current; }
+	EOF;
+
+// Rule Codeblock
+ruleCodeblock returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_BS_0=RULE_BS
+		{
+			newLeafNode(this_BS_0, grammarAccess.getCodeblockAccess().getBSTerminalRuleCall_0());
+		}
+		(
+			('begin{codeblock}')=>
+			otherlv_1='begin{codeblock}'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getCodeblockAccess().getBeginCodeblockKeyword_1());
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCodeblockAccess().getContentCodeblockContentParserRuleCall_2_0());
+				}
+				lv_content_2_0=ruleCodeblockContent
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCodeblockRule());
+					}
+					set(
+						$current,
+						"content",
+						lv_content_2_0,
+						"org.xixum.latex.TexDsl.CodeblockContent");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		this_BS_3=RULE_BS
+		{
+			newLeafNode(this_BS_3, grammarAccess.getCodeblockAccess().getBSTerminalRuleCall_3());
+		}
+		(
+			('end{codeblock}')=>
+			otherlv_4='end{codeblock}'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getCodeblockAccess().getEndCodeblockKeyword_4());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleCodeblockContent
+entryRuleCodeblockContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCodeblockContentRule()); }
+	iv_ruleCodeblockContent=ruleCodeblockContent
+	{ $current=$iv_ruleCodeblockContent.current; }
+	EOF;
+
+// Rule CodeblockContent
+ruleCodeblockContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				/* */
+			}
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getCodeblockContentAccess().getCodeblockContentAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCodeblockContentAccess().getElementsCodeblockElementParserRuleCall_1_0());
+				}
+				lv_elements_1_0=ruleCodeblockElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCodeblockContentRule());
+					}
+					add(
+						$current,
+						"elements",
+						lv_elements_1_0,
+						"org.xixum.latex.TexDsl.CodeblockElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleCodeblockElement
+entryRuleCodeblockElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCodeblockElementRule()); }
+	iv_ruleCodeblockElement=ruleCodeblockElement
+	{ $current=$iv_ruleCodeblockElement.current; }
+	EOF;
+
+// Rule CodeblockElement
+ruleCodeblockElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getCodeblockElementAccess().getCodeblockElementAction_0_0(),
+						$current);
+				}
+			)
+			{
+				/* */
+			}
+			{
+				newCompositeNode(grammarAccess.getCodeblockElementAccess().getAnyTokenParserRuleCall_0_1());
+			}
+			ruleAnyToken
+			{
+				afterParserOrEnumRuleCall();
+			}
+		)
+		    |
+		{
+			/* */
+		}
+		{
+			newCompositeNode(grammarAccess.getCodeblockElementAccess().getCommandParserRuleCall_1());
+		}
+		this_Command_2=ruleCommand
+		{
+			$current = $this_Command_2.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleAnyToken
+entryRuleAnyToken returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getAnyTokenRule()); }
+	iv_ruleAnyToken=ruleAnyToken
+	{ $current=$iv_ruleAnyToken.current.getText(); }
+	EOF;
+
+// Rule AnyToken
+ruleAnyToken returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getAnyTokenAccess().getIDTerminalRuleCall_0());
+		}
+		    |
+		this_TEXT_1=RULE_TEXT
+		{
+			$current.merge(this_TEXT_1);
+		}
+		{
+			newLeafNode(this_TEXT_1, grammarAccess.getAnyTokenAccess().getTEXTTerminalRuleCall_1());
+		}
+		    |
+		this_SYMBOL_2=RULE_SYMBOL
+		{
+			$current.merge(this_SYMBOL_2);
+		}
+		{
+			newLeafNode(this_SYMBOL_2, grammarAccess.getAnyTokenAccess().getSYMBOLTerminalRuleCall_2());
+		}
+		    |
+		this_NUMBER_3=RULE_NUMBER
+		{
+			$current.merge(this_NUMBER_3);
+		}
+		{
+			newLeafNode(this_NUMBER_3, grammarAccess.getAnyTokenAccess().getNUMBERTerminalRuleCall_3());
+		}
+		    |
+		this_SQBO_4=RULE_SQBO
+		{
+			$current.merge(this_SQBO_4);
+		}
+		{
+			newLeafNode(this_SQBO_4, grammarAccess.getAnyTokenAccess().getSQBOTerminalRuleCall_4());
+		}
+		    |
+		this_SQBC_5=RULE_SQBC
+		{
+			$current.merge(this_SQBC_5);
+		}
+		{
+			newLeafNode(this_SQBC_5, grammarAccess.getAnyTokenAccess().getSQBCTerminalRuleCall_5());
+		}
+		    |
+		this_CUBO_6=RULE_CUBO
+		{
+			$current.merge(this_CUBO_6);
+		}
+		{
+			newLeafNode(this_CUBO_6, grammarAccess.getAnyTokenAccess().getCUBOTerminalRuleCall_6());
+		}
+		    |
+		this_CUBC_7=RULE_CUBC
+		{
+			$current.merge(this_CUBC_7);
+		}
+		{
+			newLeafNode(this_CUBC_7, grammarAccess.getAnyTokenAccess().getCUBCTerminalRuleCall_7());
+		}
+		    |
+		(
+			this_BS_8=RULE_BS
+			{
+				$current.merge(this_BS_8);
+			}
+			{
+				newLeafNode(this_BS_8, grammarAccess.getAnyTokenAccess().getBSTerminalRuleCall_8());
+			}
+		)+
 	)
 ;
 
@@ -851,9 +1119,19 @@ ruleMathContent returns [EObject current=null]
 	)
 ;
 
+RULE_BS : '\\';
+
 RULE_SYMBOL : ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
 
 RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
+
+RULE_SQBO : '[';
+
+RULE_SQBC : ']';
+
+RULE_CUBO : '{';
+
+RULE_CUBC : '}';
 
 RULE_NUMBER : RULE_INT ('.' RULE_INT)?;
 

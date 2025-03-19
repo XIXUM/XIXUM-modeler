@@ -32,6 +32,8 @@ public class TexDslParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, TexDslGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
+			builder.put(grammarAccess.getCodeblockElementAccess().getAlternatives(), "rule__CodeblockElement__Alternatives");
+			builder.put(grammarAccess.getAnyTokenAccess().getAlternatives(), "rule__AnyToken__Alternatives");
 			builder.put(grammarAccess.getArgumentContentAccess().getAlternatives(), "rule__ArgumentContent__Alternatives");
 			builder.put(grammarAccess.getTextContentAccess().getAlternatives(), "rule__TextContent__Alternatives");
 			builder.put(grammarAccess.getMathExpressionAccess().getAlternatives(), "rule__MathExpression__Alternatives");
@@ -39,6 +41,9 @@ public class TexDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCommandAccess().getGroup(), "rule__Command__Group__0");
 			builder.put(grammarAccess.getOptionalArgumentAccess().getGroup(), "rule__OptionalArgument__Group__0");
 			builder.put(grammarAccess.getMandatoryArgumentAccess().getGroup(), "rule__MandatoryArgument__Group__0");
+			builder.put(grammarAccess.getCodeblockAccess().getGroup(), "rule__Codeblock__Group__0");
+			builder.put(grammarAccess.getCodeblockContentAccess().getGroup(), "rule__CodeblockContent__Group__0");
+			builder.put(grammarAccess.getCodeblockElementAccess().getGroup_0(), "rule__CodeblockElement__Group_0__0");
 			builder.put(grammarAccess.getInlineMathAccess().getGroup(), "rule__InlineMath__Group__0");
 			builder.put(grammarAccess.getDisplayMathAccess().getGroup(), "rule__DisplayMath__Group__0");
 			builder.put(grammarAccess.getModelAccess().getElementsAssignment(), "rule__Model__ElementsAssignment");
@@ -47,6 +52,8 @@ public class TexDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCommandAccess().getMandatoryArgsAssignment_3(), "rule__Command__MandatoryArgsAssignment_3");
 			builder.put(grammarAccess.getOptionalArgumentAccess().getContentAssignment_2(), "rule__OptionalArgument__ContentAssignment_2");
 			builder.put(grammarAccess.getMandatoryArgumentAccess().getContentAssignment_2(), "rule__MandatoryArgument__ContentAssignment_2");
+			builder.put(grammarAccess.getCodeblockAccess().getContentAssignment_2(), "rule__Codeblock__ContentAssignment_2");
+			builder.put(grammarAccess.getCodeblockContentAccess().getElementsAssignment_1(), "rule__CodeblockContent__ElementsAssignment_1");
 			builder.put(grammarAccess.getTextContainerAccess().getTextAssignment(), "rule__TextContainer__TextAssignment");
 			builder.put(grammarAccess.getIdentifiersAccess().getIdAssignment(), "rule__Identifiers__IdAssignment");
 			builder.put(grammarAccess.getNumbersAccess().getNumAssignment(), "rule__Numbers__NumAssignment");

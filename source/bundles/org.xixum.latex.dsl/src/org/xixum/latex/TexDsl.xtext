@@ -13,7 +13,7 @@ Element:
     Command | TextContent | MathExpression | Codeblock;
 
 Command:
-    BS command=ID 
+    BS =>command=ID 
     optionalArgs+=OptionalArgument*
     mandatoryArgs+=MandatoryArgument*
 ;
@@ -25,9 +25,9 @@ MandatoryArgument:
     {MandatoryArgument} CUBO content+=ArgumentContent* CUBC;
 
 Codeblock:
-    ->'\\begin' CUBO type='codeblock' CUBC
+    BS 'begin{codeblock}'
     content=CodeblockContent
-    '\\end' CUBO type='codeblock' CUBC;
+    BS 'end{codeblock}';
     
 CodeblockContent:
     {CodeblockContent} (elements+=CodeblockElement)*;
@@ -36,7 +36,7 @@ CodeblockElement:
     {CodeblockElement} AnyToken | Command;
 
 AnyToken:
-    ID | TEXT | SYMBOL | NUMBER | SQBO | SQBC | CUBO | CUBC;
+    ID | TEXT | SYMBOL | NUMBER | SQBO | SQBC | CUBO | CUBC | BS+;
 
 ArgumentContent:
     TextContent | Command | MathExpression;

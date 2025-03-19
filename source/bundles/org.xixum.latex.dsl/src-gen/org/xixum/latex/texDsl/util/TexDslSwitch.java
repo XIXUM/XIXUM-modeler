@@ -92,6 +92,7 @@ public class TexDslSwitch<T> extends Switch<T>
         Command command = (Command)theEObject;
         T result = caseCommand(command);
         if (result == null) result = caseElement(command);
+        if (result == null) result = caseCodeblockElement(command);
         if (result == null) result = caseArgumentContent(command);
         if (result == null) result = caseMathContent(command);
         if (result == null) result = defaultCase(theEObject);
@@ -116,6 +117,28 @@ public class TexDslSwitch<T> extends Switch<T>
         if (result == null) result = caseElement(mandatoryArgument);
         if (result == null) result = caseArgumentContent(mandatoryArgument);
         if (result == null) result = caseMathContent(mandatoryArgument);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.CODEBLOCK:
+      {
+        Codeblock codeblock = (Codeblock)theEObject;
+        T result = caseCodeblock(codeblock);
+        if (result == null) result = caseElement(codeblock);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.CODEBLOCK_CONTENT:
+      {
+        CodeblockContent codeblockContent = (CodeblockContent)theEObject;
+        T result = caseCodeblockContent(codeblockContent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.CODEBLOCK_ELEMENT:
+      {
+        CodeblockElement codeblockElement = (CodeblockElement)theEObject;
+        T result = caseCodeblockElement(codeblockElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -296,6 +319,54 @@ public class TexDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMandatoryArgument(MandatoryArgument object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Codeblock</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Codeblock</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCodeblock(Codeblock object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Codeblock Content</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Codeblock Content</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCodeblockContent(CodeblockContent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Codeblock Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Codeblock Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCodeblockElement(CodeblockElement object)
   {
     return null;
   }

@@ -101,6 +101,21 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
         return createMandatoryArgumentAdapter();
       }
       @Override
+      public Adapter caseCodeblock(Codeblock object)
+      {
+        return createCodeblockAdapter();
+      }
+      @Override
+      public Adapter caseCodeblockContent(CodeblockContent object)
+      {
+        return createCodeblockContentAdapter();
+      }
+      @Override
+      public Adapter caseCodeblockElement(CodeblockElement object)
+      {
+        return createCodeblockElementAdapter();
+      }
+      @Override
       public Adapter caseArgumentContent(ArgumentContent object)
       {
         return createArgumentContentAdapter();
@@ -243,6 +258,51 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMandatoryArgumentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Codeblock <em>Codeblock</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.Codeblock
+   * @generated
+   */
+  public Adapter createCodeblockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.CodeblockContent <em>Codeblock Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.CodeblockContent
+   * @generated
+   */
+  public Adapter createCodeblockContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.CodeblockElement <em>Codeblock Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.CodeblockElement
+   * @generated
+   */
+  public Adapter createCodeblockElementAdapter()
   {
     return null;
   }

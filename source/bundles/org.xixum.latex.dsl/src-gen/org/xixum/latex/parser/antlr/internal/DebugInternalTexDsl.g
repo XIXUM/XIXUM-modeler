@@ -17,12 +17,17 @@ ruleElement:
 		ruleTextContent
 		    |
 		ruleMathExpression
+		    |
+		ruleCodeblock
 	)
 ;
 
 // Rule Command
 ruleCommand:
-	'\\'
+	(
+		(RULE_BS)=>
+		RULE_BS
+	)
 	RULE_ID
 	ruleOptionalArgument
 	*
@@ -32,18 +37,71 @@ ruleCommand:
 
 // Rule OptionalArgument
 ruleOptionalArgument:
-	'['
+	RULE_SQBO
 	ruleArgumentContent
 	*
-	']'
+	RULE_SQBC
 ;
 
 // Rule MandatoryArgument
 ruleMandatoryArgument:
-	'{'
+	RULE_CUBO
 	ruleArgumentContent
 	*
-	'}'
+	RULE_CUBC
+;
+
+// Rule Codeblock
+ruleCodeblock:
+	RULE_BS
+	(
+		('begin{codeblock}')=>
+		'begin{codeblock}'
+	)
+	ruleCodeblockContent
+	RULE_BS
+	(
+		('end{codeblock}')=>
+		'end{codeblock}'
+	)
+;
+
+// Rule CodeblockContent
+ruleCodeblockContent:
+	ruleCodeblockElement
+	*
+;
+
+// Rule CodeblockElement
+ruleCodeblockElement:
+	(
+		ruleAnyToken
+		    |
+		ruleCommand
+	)
+;
+
+// Rule AnyToken
+ruleAnyToken:
+	(
+		RULE_ID
+		    |
+		RULE_TEXT
+		    |
+		RULE_SYMBOL
+		    |
+		RULE_NUMBER
+		    |
+		RULE_SQBO
+		    |
+		RULE_SQBC
+		    |
+		RULE_CUBO
+		    |
+		RULE_CUBC
+		    |
+		RULE_BS+
+	)
 ;
 
 // Rule ArgumentContent
@@ -134,9 +192,19 @@ ruleMathContent:
 	)
 ;
 
+RULE_BS : '\\';
+
 RULE_SYMBOL : ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
 
 RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')? {skip();};
+
+RULE_SQBO : '[';
+
+RULE_SQBC : ']';
+
+RULE_CUBO : '{';
+
+RULE_CUBC : '}';
 
 RULE_NUMBER : RULE_INT ('.' RULE_INT)?;
 

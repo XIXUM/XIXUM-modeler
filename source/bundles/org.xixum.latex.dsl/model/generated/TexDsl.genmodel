@@ -21,6 +21,13 @@
     <genClasses ecoreClass="TexDsl.ecore#//MandatoryArgument">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//MandatoryArgument/content"/>
     </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//Codeblock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Codeblock/content"/>
+    </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//CodeblockContent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//CodeblockContent/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//CodeblockElement"/>
     <genClasses ecoreClass="TexDsl.ecore#//ArgumentContent"/>
     <genClasses ecoreClass="TexDsl.ecore#//TextContainer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//TextContainer/text"/>

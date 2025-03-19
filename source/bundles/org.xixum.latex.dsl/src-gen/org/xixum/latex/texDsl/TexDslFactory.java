@@ -69,6 +69,33 @@ public interface TexDslFactory extends EFactory
   MandatoryArgument createMandatoryArgument();
 
   /**
+   * Returns a new object of class '<em>Codeblock</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Codeblock</em>'.
+   * @generated
+   */
+  Codeblock createCodeblock();
+
+  /**
+   * Returns a new object of class '<em>Codeblock Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Codeblock Content</em>'.
+   * @generated
+   */
+  CodeblockContent createCodeblockContent();
+
+  /**
+   * Returns a new object of class '<em>Codeblock Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Codeblock Element</em>'.
+   * @generated
+   */
+  CodeblockElement createCodeblockElement();
+
+  /**
    * Returns a new object of class '<em>Argument Content</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

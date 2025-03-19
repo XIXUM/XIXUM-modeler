@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Command extends Element, ArgumentContent, MathContent
+public interface Command extends Element, CodeblockElement, ArgumentContent, MathContent
 {
   /**
    * Returns the value of the '<em><b>Command</b></em>' attribute.

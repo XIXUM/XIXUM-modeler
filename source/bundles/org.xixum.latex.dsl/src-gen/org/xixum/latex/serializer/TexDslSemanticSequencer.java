@@ -15,6 +15,9 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xixum.latex.services.TexDslGrammarAccess;
+import org.xixum.latex.texDsl.Codeblock;
+import org.xixum.latex.texDsl.CodeblockContent;
+import org.xixum.latex.texDsl.CodeblockElement;
 import org.xixum.latex.texDsl.Command;
 import org.xixum.latex.texDsl.DisplayMath;
 import org.xixum.latex.texDsl.Identifiers;
@@ -41,6 +44,15 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == TexDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case TexDslPackage.CODEBLOCK:
+				sequence_Codeblock(context, (Codeblock) semanticObject); 
+				return; 
+			case TexDslPackage.CODEBLOCK_CONTENT:
+				sequence_CodeblockContent(context, (CodeblockContent) semanticObject); 
+				return; 
+			case TexDslPackage.CODEBLOCK_ELEMENT:
+				sequence_CodeblockElement(context, (CodeblockElement) semanticObject); 
+				return; 
 			case TexDslPackage.COMMAND:
 				sequence_Command(context, (Command) semanticObject); 
 				return; 
@@ -79,8 +91,58 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     CodeblockContent returns CodeblockContent
+	 *
+	 * Constraint:
+	 *     elements+=CodeblockElement*
+	 * </pre>
+	 */
+	protected void sequence_CodeblockContent(ISerializationContext context, CodeblockContent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     CodeblockElement returns CodeblockElement
+	 *
+	 * Constraint:
+	 *     {CodeblockElement}
+	 * </pre>
+	 */
+	protected void sequence_CodeblockElement(ISerializationContext context, CodeblockElement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Element returns Codeblock
+	 *     Codeblock returns Codeblock
+	 *
+	 * Constraint:
+	 *     content=CodeblockContent
+	 * </pre>
+	 */
+	protected void sequence_Codeblock(ISerializationContext context, Codeblock semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TexDslPackage.Literals.CODEBLOCK__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TexDslPackage.Literals.CODEBLOCK__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCodeblockAccess().getContentCodeblockContentParserRuleCall_2_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Element returns Command
 	 *     Command returns Command
+	 *     CodeblockElement returns Command
 	 *     ArgumentContent returns Command
 	 *     MathContent returns Command
 	 *

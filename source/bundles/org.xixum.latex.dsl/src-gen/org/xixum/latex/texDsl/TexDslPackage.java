@@ -158,7 +158,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getTextContent()
    * @generated
    */
-  int TEXT_CONTENT = 7;
+  int TEXT_CONTENT = 10;
 
   /**
    * The number of structural features of the '<em>Text Content</em>' class.
@@ -226,6 +226,81 @@ public interface TexDslPackage extends EPackage
   int MANDATORY_ARGUMENT_FEATURE_COUNT = TEXT_CONTENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.CodeblockImpl <em>Codeblock</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.CodeblockImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCodeblock()
+   * @generated
+   */
+  int CODEBLOCK = 5;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODEBLOCK__CONTENT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Codeblock</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODEBLOCK_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.CodeblockContentImpl <em>Codeblock Content</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.CodeblockContentImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCodeblockContent()
+   * @generated
+   */
+  int CODEBLOCK_CONTENT = 6;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODEBLOCK_CONTENT__ELEMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Codeblock Content</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODEBLOCK_CONTENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.CodeblockElementImpl <em>Codeblock Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.CodeblockElementImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCodeblockElement()
+   * @generated
+   */
+  int CODEBLOCK_ELEMENT = 7;
+
+  /**
+   * The number of structural features of the '<em>Codeblock Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODEBLOCK_ELEMENT_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.xixum.latex.texDsl.impl.ArgumentContentImpl <em>Argument Content</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -233,7 +308,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getArgumentContent()
    * @generated
    */
-  int ARGUMENT_CONTENT = 5;
+  int ARGUMENT_CONTENT = 8;
 
   /**
    * The number of structural features of the '<em>Argument Content</em>' class.
@@ -252,7 +327,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getTextContainer()
    * @generated
    */
-  int TEXT_CONTAINER = 6;
+  int TEXT_CONTAINER = 9;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute list.
@@ -280,7 +355,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getIdentifiers()
    * @generated
    */
-  int IDENTIFIERS = 8;
+  int IDENTIFIERS = 11;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -308,7 +383,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getNumbers()
    * @generated
    */
-  int NUMBERS = 9;
+  int NUMBERS = 12;
 
   /**
    * The feature id for the '<em><b>Num</b></em>' attribute.
@@ -336,7 +411,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getOperators()
    * @generated
    */
-  int OPERATORS = 10;
+  int OPERATORS = 13;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute list.
@@ -364,7 +439,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getMathExpression()
    * @generated
    */
-  int MATH_EXPRESSION = 11;
+  int MATH_EXPRESSION = 14;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -392,7 +467,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getInlineMath()
    * @generated
    */
-  int INLINE_MATH = 12;
+  int INLINE_MATH = 15;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -420,7 +495,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getDisplayMath()
    * @generated
    */
-  int DISPLAY_MATH = 13;
+  int DISPLAY_MATH = 16;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -448,7 +523,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getMathContent()
    * @generated
    */
-  int MATH_CONTENT = 14;
+  int MATH_CONTENT = 17;
 
   /**
    * The number of structural features of the '<em>Math Content</em>' class.
@@ -575,6 +650,58 @@ public interface TexDslPackage extends EPackage
    * @generated
    */
   EReference getMandatoryArgument_Content();
+
+  /**
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.Codeblock <em>Codeblock</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Codeblock</em>'.
+   * @see org.xixum.latex.texDsl.Codeblock
+   * @generated
+   */
+  EClass getCodeblock();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xixum.latex.texDsl.Codeblock#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Content</em>'.
+   * @see org.xixum.latex.texDsl.Codeblock#getContent()
+   * @see #getCodeblock()
+   * @generated
+   */
+  EReference getCodeblock_Content();
+
+  /**
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.CodeblockContent <em>Codeblock Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Codeblock Content</em>'.
+   * @see org.xixum.latex.texDsl.CodeblockContent
+   * @generated
+   */
+  EClass getCodeblockContent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xixum.latex.texDsl.CodeblockContent#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see org.xixum.latex.texDsl.CodeblockContent#getElements()
+   * @see #getCodeblockContent()
+   * @generated
+   */
+  EReference getCodeblockContent_Elements();
+
+  /**
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.CodeblockElement <em>Codeblock Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Codeblock Element</em>'.
+   * @see org.xixum.latex.texDsl.CodeblockElement
+   * @generated
+   */
+  EClass getCodeblockElement();
 
   /**
    * Returns the meta object for class '{@link org.xixum.latex.texDsl.ArgumentContent <em>Argument Content</em>}'.
@@ -851,6 +978,52 @@ public interface TexDslPackage extends EPackage
      * @generated
      */
     EReference MANDATORY_ARGUMENT__CONTENT = eINSTANCE.getMandatoryArgument_Content();
+
+    /**
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.CodeblockImpl <em>Codeblock</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.CodeblockImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCodeblock()
+     * @generated
+     */
+    EClass CODEBLOCK = eINSTANCE.getCodeblock();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CODEBLOCK__CONTENT = eINSTANCE.getCodeblock_Content();
+
+    /**
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.CodeblockContentImpl <em>Codeblock Content</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.CodeblockContentImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCodeblockContent()
+     * @generated
+     */
+    EClass CODEBLOCK_CONTENT = eINSTANCE.getCodeblockContent();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CODEBLOCK_CONTENT__ELEMENTS = eINSTANCE.getCodeblockContent_Elements();
+
+    /**
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.CodeblockElementImpl <em>Codeblock Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.CodeblockElementImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getCodeblockElement()
+     * @generated
+     */
+    EClass CODEBLOCK_ELEMENT = eINSTANCE.getCodeblockElement();
 
     /**
      * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.ArgumentContentImpl <em>Argument Content</em>}' class.
