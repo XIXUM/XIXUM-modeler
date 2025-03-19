@@ -10,7 +10,7 @@ Model:
     elements+=Element*;
 
 Element:
-    Command | TextContent | MathExpression | CodeblockContent;
+    Command | TextContent | MathExpression | Codeblock;
 
 Command:
     BS command=ID 
@@ -24,19 +24,19 @@ OptionalArgument:
 MandatoryArgument:
     {MandatoryArgument} CUBO content+=ArgumentContent* CUBC;
 
-//Codeblock:
-//    BEGIN CUBO type='codeblock' CUBC
-//    content= CodeblockContent
-//    END CUBO type='codeblock' CUBC;
+Codeblock:
+    ->'\\begin' CUBO type='codeblock' CUBC
+    content=CodeblockContent
+    '\\end' CUBO type='codeblock' CUBC;
     
 CodeblockContent:
-    block+=CODEBLOCK;
+    {CodeblockContent} (elements+=CodeblockElement)*;
 
-//CodeblockElement:
-//    AnyToken | Command;
-//
-//AnyToken:
-//    ID | TEXT | SYMBOL | NUMBER | SQBO | SQBC | CUBO | CUBC | BEGIN;
+CodeblockElement:
+    {CodeblockElement} AnyToken | Command;
+
+AnyToken:
+    ID | TEXT | SYMBOL | NUMBER | SQBO | SQBC | CUBO | CUBC;
 
 ArgumentContent:
     TextContent | Command | MathExpression;
@@ -71,16 +71,26 @@ DisplayMath:
 
 MathContent:
     Command | TextContent | Numbers | Operators;
-
-terminal CODEBLOCK:
-'\\begin{codeblock}'
-->
-'\\end{codeblock}'
-;
+      
+//terminal BEGIN_KW:
+//	'begin'
+//;
+//
+//terminal END_KW:
+//	'end'
+//;
 
 terminal BS:
-	'\\'
+	'\\' 
 ;
+
+//terminal BEGIN:
+//	BS BEGIN_KW
+//;
+//
+//terminal END:
+//	BS END_KW
+//;
 
 terminal SYMBOL:
     ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
