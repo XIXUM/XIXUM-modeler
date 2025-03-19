@@ -10,7 +10,7 @@ Model:
     elements+=Element*;
 
 Element:
-    Command | Environment | TextContent | MathExpression;
+    Command | TextContent ;
 
 Command:
     '\\' name=ID 
@@ -24,37 +24,39 @@ OptionalArgument:
 MandatoryArgument:
     '{' content+=ArgumentContent+ '}';
 
-Environment:
-    '\\begin{' type=ID '}'
-    content+=Element*
-    '\\end{' endType=ID '}';
+//Environment:
+//    '\\begin{' type=ID '}'
+//    content+=Element*
+//    '\\end{' endType=ID '}';
 
 ArgumentContent:
-    TextContent | Command | MathExpression | Environment;
+    TextContent | Command;
 
 TextContent:
-    {TextContent} text+=TEXT*;
+    {TextContent} text+=ANY_OTHER+;
 
-MathExpression:
-    InlineMath | DisplayMath;
+//MathExpression:
+//    InlineMath | DisplayMath;
 
-InlineMath:
-    {InlineMath} '$' content+=MathContent* '$';
+//InlineMath:
+//    {InlineMath} '$' content+=MathContent* '$';
+//
+//DisplayMath:
+//    {DisplayMath} '$$' content+=MathContent* '$$';
 
-DisplayMath:
-    {DisplayMath} '$$' content+=MathContent* '$$';
-
-MathContent:
-    Command | {MathContent} TEXT | {MathContent} NUMBER | {MathContent} SYMBOL;
+//MathContent:
+//    Command | {MathContent} TEXT | {MathContent} NUMBER | {MathContent} SYMBOL;
     
+//terminal TEXT:
+//    !('\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' '|'\t'|'\r'|'\n')+;
+//    
+
+
 terminal NUMBER returns ecore::EBigDecimal:
     INT ('.' INT)?;
 
 terminal SYMBOL:
     ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
-
-terminal TEXT:
-    !('\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' '|'\t'|'\r'|'\n')+;
     
 terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
 
@@ -67,3 +69,6 @@ terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 terminal END:
 	EOF
 ;
+
+terminal ANY_OTHER: .;
+
