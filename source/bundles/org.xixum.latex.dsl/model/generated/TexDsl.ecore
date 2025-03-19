@@ -7,29 +7,34 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element"/>
   <eClassifiers xsi:type="ecore:EClass" name="Command" eSuperTypes="#//Element #//ArgumentContent #//MathContent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="optionalArgs" upperBound="-1"
         eType="#//OptionalArgument" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mandatoryArgs" upperBound="-1"
         eType="#//MandatoryArgument" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OptionalArgument">
+  <eClassifiers xsi:type="ecore:EClass" name="OptionalArgument" eSuperTypes="#//TextContent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
         eType="#//ArgumentContent" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MandatoryArgument">
+  <eClassifiers xsi:type="ecore:EClass" name="MandatoryArgument" eSuperTypes="#//TextContent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
         eType="#//ArgumentContent" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Environment" eSuperTypes="#//Element #//ArgumentContent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
-        eType="#//Element" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArgumentContent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TextContent" eSuperTypes="#//Element #//ArgumentContent">
+  <eClassifiers xsi:type="ecore:EClass" name="TextContainer" eSuperTypes="#//TextContent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextContent" eSuperTypes="#//Element #//ArgumentContent #//MathContent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Identifiers" eSuperTypes="#//TextContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Numbers" eSuperTypes="#//TextContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="num" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operators" eSuperTypes="#//TextContent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MathExpression" eSuperTypes="#//Element #//ArgumentContent">

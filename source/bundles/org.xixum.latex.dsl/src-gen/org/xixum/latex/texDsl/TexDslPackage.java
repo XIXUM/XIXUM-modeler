@@ -115,13 +115,13 @@ public interface TexDslPackage extends EPackage
   int COMMAND = 2;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Command</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__NAME = ELEMENT_FEATURE_COUNT + 0;
+  int COMMAND__COMMAND = ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Optional Args</b></em>' containment reference list.
@@ -151,6 +151,25 @@ public interface TexDslPackage extends EPackage
   int COMMAND_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.TextContentImpl <em>Text Content</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.TextContentImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getTextContent()
+   * @generated
+   */
+  int TEXT_CONTENT = 7;
+
+  /**
+   * The number of structural features of the '<em>Text Content</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_CONTENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.xixum.latex.texDsl.impl.OptionalArgumentImpl <em>Optional Argument</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -167,7 +186,7 @@ public interface TexDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPTIONAL_ARGUMENT__CONTENT = 0;
+  int OPTIONAL_ARGUMENT__CONTENT = TEXT_CONTENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Optional Argument</em>' class.
@@ -176,7 +195,7 @@ public interface TexDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPTIONAL_ARGUMENT_FEATURE_COUNT = 1;
+  int OPTIONAL_ARGUMENT_FEATURE_COUNT = TEXT_CONTENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xixum.latex.texDsl.impl.MandatoryArgumentImpl <em>Mandatory Argument</em>}' class.
@@ -195,7 +214,7 @@ public interface TexDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MANDATORY_ARGUMENT__CONTENT = 0;
+  int MANDATORY_ARGUMENT__CONTENT = TEXT_CONTENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Mandatory Argument</em>' class.
@@ -204,53 +223,7 @@ public interface TexDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MANDATORY_ARGUMENT_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.EnvironmentImpl <em>Environment</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xixum.latex.texDsl.impl.EnvironmentImpl
-   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getEnvironment()
-   * @generated
-   */
-  int ENVIRONMENT = 5;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENVIRONMENT__TYPE = ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Content</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENVIRONMENT__CONTENT = ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>End Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENVIRONMENT__END_TYPE = ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Environment</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENVIRONMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+  int MANDATORY_ARGUMENT_FEATURE_COUNT = TEXT_CONTENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xixum.latex.texDsl.impl.ArgumentContentImpl <em>Argument Content</em>}' class.
@@ -260,7 +233,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getArgumentContent()
    * @generated
    */
-  int ARGUMENT_CONTENT = 6;
+  int ARGUMENT_CONTENT = 5;
 
   /**
    * The number of structural features of the '<em>Argument Content</em>' class.
@@ -272,14 +245,14 @@ public interface TexDslPackage extends EPackage
   int ARGUMENT_CONTENT_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.TextContentImpl <em>Text Content</em>}' class.
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.TextContainerImpl <em>Text Container</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xixum.latex.texDsl.impl.TextContentImpl
-   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getTextContent()
+   * @see org.xixum.latex.texDsl.impl.TextContainerImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getTextContainer()
    * @generated
    */
-  int TEXT_CONTENT = 7;
+  int TEXT_CONTAINER = 6;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute list.
@@ -288,16 +261,100 @@ public interface TexDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TEXT_CONTENT__TEXT = ELEMENT_FEATURE_COUNT + 0;
+  int TEXT_CONTAINER__TEXT = TEXT_CONTENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Text Content</em>' class.
+   * The number of structural features of the '<em>Text Container</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TEXT_CONTENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+  int TEXT_CONTAINER_FEATURE_COUNT = TEXT_CONTENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.IdentifiersImpl <em>Identifiers</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.IdentifiersImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getIdentifiers()
+   * @generated
+   */
+  int IDENTIFIERS = 8;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIERS__ID = TEXT_CONTENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Identifiers</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIERS_FEATURE_COUNT = TEXT_CONTENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.NumbersImpl <em>Numbers</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.NumbersImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getNumbers()
+   * @generated
+   */
+  int NUMBERS = 9;
+
+  /**
+   * The feature id for the '<em><b>Num</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBERS__NUM = TEXT_CONTENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Numbers</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBERS_FEATURE_COUNT = TEXT_CONTENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.OperatorsImpl <em>Operators</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xixum.latex.texDsl.impl.OperatorsImpl
+   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getOperators()
+   * @generated
+   */
+  int OPERATORS = 10;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATORS__OP = TEXT_CONTENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Operators</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATORS_FEATURE_COUNT = TEXT_CONTENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xixum.latex.texDsl.impl.MathExpressionImpl <em>Math Expression</em>}' class.
@@ -307,7 +364,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getMathExpression()
    * @generated
    */
-  int MATH_EXPRESSION = 8;
+  int MATH_EXPRESSION = 11;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -335,7 +392,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getInlineMath()
    * @generated
    */
-  int INLINE_MATH = 9;
+  int INLINE_MATH = 12;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -363,7 +420,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getDisplayMath()
    * @generated
    */
-  int DISPLAY_MATH = 10;
+  int DISPLAY_MATH = 13;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' containment reference list.
@@ -391,7 +448,7 @@ public interface TexDslPackage extends EPackage
    * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getMathContent()
    * @generated
    */
-  int MATH_CONTENT = 11;
+  int MATH_CONTENT = 14;
 
   /**
    * The number of structural features of the '<em>Math Content</em>' class.
@@ -445,15 +502,15 @@ public interface TexDslPackage extends EPackage
   EClass getCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.Command#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.Command#getCommand <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xixum.latex.texDsl.Command#getName()
+   * @return the meta object for the attribute '<em>Command</em>'.
+   * @see org.xixum.latex.texDsl.Command#getCommand()
    * @see #getCommand()
    * @generated
    */
-  EAttribute getCommand_Name();
+  EAttribute getCommand_Command();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xixum.latex.texDsl.Command#getOptionalArgs <em>Optional Args</em>}'.
@@ -520,49 +577,6 @@ public interface TexDslPackage extends EPackage
   EReference getMandatoryArgument_Content();
 
   /**
-   * Returns the meta object for class '{@link org.xixum.latex.texDsl.Environment <em>Environment</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Environment</em>'.
-   * @see org.xixum.latex.texDsl.Environment
-   * @generated
-   */
-  EClass getEnvironment();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.Environment#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see org.xixum.latex.texDsl.Environment#getType()
-   * @see #getEnvironment()
-   * @generated
-   */
-  EAttribute getEnvironment_Type();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xixum.latex.texDsl.Environment#getContent <em>Content</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Content</em>'.
-   * @see org.xixum.latex.texDsl.Environment#getContent()
-   * @see #getEnvironment()
-   * @generated
-   */
-  EReference getEnvironment_Content();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.Environment#getEndType <em>End Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>End Type</em>'.
-   * @see org.xixum.latex.texDsl.Environment#getEndType()
-   * @see #getEnvironment()
-   * @generated
-   */
-  EAttribute getEnvironment_EndType();
-
-  /**
    * Returns the meta object for class '{@link org.xixum.latex.texDsl.ArgumentContent <em>Argument Content</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -571,6 +585,27 @@ public interface TexDslPackage extends EPackage
    * @generated
    */
   EClass getArgumentContent();
+
+  /**
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.TextContainer <em>Text Container</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Text Container</em>'.
+   * @see org.xixum.latex.texDsl.TextContainer
+   * @generated
+   */
+  EClass getTextContainer();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xixum.latex.texDsl.TextContainer#getText <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Text</em>'.
+   * @see org.xixum.latex.texDsl.TextContainer#getText()
+   * @see #getTextContainer()
+   * @generated
+   */
+  EAttribute getTextContainer_Text();
 
   /**
    * Returns the meta object for class '{@link org.xixum.latex.texDsl.TextContent <em>Text Content</em>}'.
@@ -583,15 +618,67 @@ public interface TexDslPackage extends EPackage
   EClass getTextContent();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xixum.latex.texDsl.TextContent#getText <em>Text</em>}'.
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.Identifiers <em>Identifiers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Text</em>'.
-   * @see org.xixum.latex.texDsl.TextContent#getText()
-   * @see #getTextContent()
+   * @return the meta object for class '<em>Identifiers</em>'.
+   * @see org.xixum.latex.texDsl.Identifiers
    * @generated
    */
-  EAttribute getTextContent_Text();
+  EClass getIdentifiers();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.Identifiers#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xixum.latex.texDsl.Identifiers#getId()
+   * @see #getIdentifiers()
+   * @generated
+   */
+  EAttribute getIdentifiers_Id();
+
+  /**
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.Numbers <em>Numbers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Numbers</em>'.
+   * @see org.xixum.latex.texDsl.Numbers
+   * @generated
+   */
+  EClass getNumbers();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.Numbers#getNum <em>Num</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Num</em>'.
+   * @see org.xixum.latex.texDsl.Numbers#getNum()
+   * @see #getNumbers()
+   * @generated
+   */
+  EAttribute getNumbers_Num();
+
+  /**
+   * Returns the meta object for class '{@link org.xixum.latex.texDsl.Operators <em>Operators</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operators</em>'.
+   * @see org.xixum.latex.texDsl.Operators
+   * @generated
+   */
+  EClass getOperators();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xixum.latex.texDsl.Operators#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Op</em>'.
+   * @see org.xixum.latex.texDsl.Operators#getOp()
+   * @see #getOperators()
+   * @generated
+   */
+  EAttribute getOperators_Op();
 
   /**
    * Returns the meta object for class '{@link org.xixum.latex.texDsl.MathExpression <em>Math Expression</em>}'.
@@ -706,12 +793,12 @@ public interface TexDslPackage extends EPackage
     EClass COMMAND = eINSTANCE.getCommand();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Command</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute COMMAND__NAME = eINSTANCE.getCommand_Name();
+    EAttribute COMMAND__COMMAND = eINSTANCE.getCommand_Command();
 
     /**
      * The meta object literal for the '<em><b>Optional Args</b></em>' containment reference list feature.
@@ -766,40 +853,6 @@ public interface TexDslPackage extends EPackage
     EReference MANDATORY_ARGUMENT__CONTENT = eINSTANCE.getMandatoryArgument_Content();
 
     /**
-     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.EnvironmentImpl <em>Environment</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xixum.latex.texDsl.impl.EnvironmentImpl
-     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getEnvironment()
-     * @generated
-     */
-    EClass ENVIRONMENT = eINSTANCE.getEnvironment();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENVIRONMENT__TYPE = eINSTANCE.getEnvironment_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENVIRONMENT__CONTENT = eINSTANCE.getEnvironment_Content();
-
-    /**
-     * The meta object literal for the '<em><b>End Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENVIRONMENT__END_TYPE = eINSTANCE.getEnvironment_EndType();
-
-    /**
      * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.ArgumentContentImpl <em>Argument Content</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -808,6 +861,24 @@ public interface TexDslPackage extends EPackage
      * @generated
      */
     EClass ARGUMENT_CONTENT = eINSTANCE.getArgumentContent();
+
+    /**
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.TextContainerImpl <em>Text Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.TextContainerImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getTextContainer()
+     * @generated
+     */
+    EClass TEXT_CONTAINER = eINSTANCE.getTextContainer();
+
+    /**
+     * The meta object literal for the '<em><b>Text</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TEXT_CONTAINER__TEXT = eINSTANCE.getTextContainer_Text();
 
     /**
      * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.TextContentImpl <em>Text Content</em>}' class.
@@ -820,12 +891,58 @@ public interface TexDslPackage extends EPackage
     EClass TEXT_CONTENT = eINSTANCE.getTextContent();
 
     /**
-     * The meta object literal for the '<em><b>Text</b></em>' attribute list feature.
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.IdentifiersImpl <em>Identifiers</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.IdentifiersImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getIdentifiers()
+     * @generated
+     */
+    EClass IDENTIFIERS = eINSTANCE.getIdentifiers();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TEXT_CONTENT__TEXT = eINSTANCE.getTextContent_Text();
+    EAttribute IDENTIFIERS__ID = eINSTANCE.getIdentifiers_Id();
+
+    /**
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.NumbersImpl <em>Numbers</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.NumbersImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getNumbers()
+     * @generated
+     */
+    EClass NUMBERS = eINSTANCE.getNumbers();
+
+    /**
+     * The meta object literal for the '<em><b>Num</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMBERS__NUM = eINSTANCE.getNumbers_Num();
+
+    /**
+     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.OperatorsImpl <em>Operators</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xixum.latex.texDsl.impl.OperatorsImpl
+     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getOperators()
+     * @generated
+     */
+    EClass OPERATORS = eINSTANCE.getOperators();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATORS__OP = eINSTANCE.getOperators_Op();
 
     /**
      * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.MathExpressionImpl <em>Math Expression</em>}' class.

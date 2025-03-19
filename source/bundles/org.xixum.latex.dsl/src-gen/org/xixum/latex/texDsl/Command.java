@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.Command#getName <em>Name</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.Command#getCommand <em>Command</em>}</li>
  *   <li>{@link org.xixum.latex.texDsl.Command#getOptionalArgs <em>Optional Args</em>}</li>
  *   <li>{@link org.xixum.latex.texDsl.Command#getMandatoryArgs <em>Mandatory Args</em>}</li>
  * </ul>
@@ -26,26 +26,26 @@ import org.eclipse.emf.common.util.EList;
 public interface Command extends Element, ArgumentContent, MathContent
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Command</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Name()
+   * @return the value of the '<em>Command</em>' attribute.
+   * @see #setCommand(String)
+   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Command()
    * @model
    * @generated
    */
-  String getName();
+  String getCommand();
 
   /**
-   * Sets the value of the '{@link org.xixum.latex.texDsl.Command#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xixum.latex.texDsl.Command#getCommand <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Command</em>' attribute.
+   * @see #getCommand()
    * @generated
    */
-  void setName(String value);
+  void setCommand(String value);
 
   /**
    * Returns the value of the '<em><b>Optional Args</b></em>' containment reference list.

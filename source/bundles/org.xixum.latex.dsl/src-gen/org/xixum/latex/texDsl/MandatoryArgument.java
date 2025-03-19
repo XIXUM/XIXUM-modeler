@@ -5,8 +5,6 @@ package org.xixum.latex.texDsl;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Mandatory Argument</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface MandatoryArgument extends EObject
+public interface MandatoryArgument extends TextContent
 {
   /**
    * Returns the value of the '<em><b>Content</b></em>' containment reference list.

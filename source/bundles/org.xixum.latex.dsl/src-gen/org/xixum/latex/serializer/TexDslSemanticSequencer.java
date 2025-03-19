@@ -11,18 +11,21 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xixum.latex.services.TexDslGrammarAccess;
 import org.xixum.latex.texDsl.Command;
 import org.xixum.latex.texDsl.DisplayMath;
-import org.xixum.latex.texDsl.Environment;
+import org.xixum.latex.texDsl.Identifiers;
 import org.xixum.latex.texDsl.InlineMath;
 import org.xixum.latex.texDsl.MandatoryArgument;
-import org.xixum.latex.texDsl.MathContent;
 import org.xixum.latex.texDsl.Model;
+import org.xixum.latex.texDsl.Numbers;
+import org.xixum.latex.texDsl.Operators;
 import org.xixum.latex.texDsl.OptionalArgument;
 import org.xixum.latex.texDsl.TexDslPackage;
-import org.xixum.latex.texDsl.TextContent;
+import org.xixum.latex.texDsl.TextContainer;
 
 @SuppressWarnings("all")
 public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -44,8 +47,8 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case TexDslPackage.DISPLAY_MATH:
 				sequence_DisplayMath(context, (DisplayMath) semanticObject); 
 				return; 
-			case TexDslPackage.ENVIRONMENT:
-				sequence_Environment(context, (Environment) semanticObject); 
+			case TexDslPackage.IDENTIFIERS:
+				sequence_Identifiers(context, (Identifiers) semanticObject); 
 				return; 
 			case TexDslPackage.INLINE_MATH:
 				sequence_InlineMath(context, (InlineMath) semanticObject); 
@@ -53,17 +56,20 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case TexDslPackage.MANDATORY_ARGUMENT:
 				sequence_MandatoryArgument(context, (MandatoryArgument) semanticObject); 
 				return; 
-			case TexDslPackage.MATH_CONTENT:
-				sequence_MathContent(context, (MathContent) semanticObject); 
-				return; 
 			case TexDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case TexDslPackage.NUMBERS:
+				sequence_Numbers(context, (Numbers) semanticObject); 
+				return; 
+			case TexDslPackage.OPERATORS:
+				sequence_Operators(context, (Operators) semanticObject); 
 				return; 
 			case TexDslPackage.OPTIONAL_ARGUMENT:
 				sequence_OptionalArgument(context, (OptionalArgument) semanticObject); 
 				return; 
-			case TexDslPackage.TEXT_CONTENT:
-				sequence_TextContent(context, (TextContent) semanticObject); 
+			case TexDslPackage.TEXT_CONTAINER:
+				sequence_TextContainer(context, (TextContainer) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -79,7 +85,7 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     MathContent returns Command
 	 *
 	 * Constraint:
-	 *     (name=ID optionalArgs+=OptionalArgument* mandatoryArgs+=MandatoryArgument*)
+	 *     (command=ID optionalArgs+=OptionalArgument* mandatoryArgs+=MandatoryArgument*)
 	 * </pre>
 	 */
 	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
@@ -107,16 +113,24 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Element returns Environment
-	 *     Environment returns Environment
-	 *     ArgumentContent returns Environment
+	 *     Element returns Identifiers
+	 *     ArgumentContent returns Identifiers
+	 *     TextContent returns Identifiers
+	 *     Identifiers returns Identifiers
+	 *     MathContent returns Identifiers
 	 *
 	 * Constraint:
-	 *     (type=ID content+=Element* endType=ID)
+	 *     id=ID
 	 * </pre>
 	 */
-	protected void sequence_Environment(ISerializationContext context, Environment semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Identifiers(ISerializationContext context, Identifiers semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TexDslPackage.Literals.IDENTIFIERS__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TexDslPackage.Literals.IDENTIFIERS__ID));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIdentifiersAccess().getIdIDTerminalRuleCall_0(), semanticObject.getId());
+		feeder.finish();
 	}
 	
 	
@@ -140,27 +154,17 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Element returns MandatoryArgument
 	 *     MandatoryArgument returns MandatoryArgument
+	 *     ArgumentContent returns MandatoryArgument
+	 *     TextContent returns MandatoryArgument
+	 *     MathContent returns MandatoryArgument
 	 *
 	 * Constraint:
-	 *     content+=ArgumentContent+
+	 *     content+=ArgumentContent*
 	 * </pre>
 	 */
 	protected void sequence_MandatoryArgument(ISerializationContext context, MandatoryArgument semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     MathContent returns MathContent
-	 *
-	 * Constraint:
-	 *     {MathContent}
-	 * </pre>
-	 */
-	protected void sequence_MathContent(ISerializationContext context, MathContent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -182,10 +186,56 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OptionalArgument returns OptionalArgument
+	 *     Element returns Numbers
+	 *     ArgumentContent returns Numbers
+	 *     TextContent returns Numbers
+	 *     Numbers returns Numbers
+	 *     MathContent returns Numbers
 	 *
 	 * Constraint:
-	 *     content+=ArgumentContent+
+	 *     num=NUMBER
+	 * </pre>
+	 */
+	protected void sequence_Numbers(ISerializationContext context, Numbers semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TexDslPackage.Literals.NUMBERS__NUM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TexDslPackage.Literals.NUMBERS__NUM));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNumbersAccess().getNumNUMBERTerminalRuleCall_0(), semanticObject.getNum());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Element returns Operators
+	 *     ArgumentContent returns Operators
+	 *     TextContent returns Operators
+	 *     Operators returns Operators
+	 *     MathContent returns Operators
+	 *
+	 * Constraint:
+	 *     op+=SYMBOL+
+	 * </pre>
+	 */
+	protected void sequence_Operators(ISerializationContext context, Operators semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Element returns OptionalArgument
+	 *     OptionalArgument returns OptionalArgument
+	 *     ArgumentContent returns OptionalArgument
+	 *     TextContent returns OptionalArgument
+	 *     MathContent returns OptionalArgument
+	 *
+	 * Constraint:
+	 *     content+=ArgumentContent*
 	 * </pre>
 	 */
 	protected void sequence_OptionalArgument(ISerializationContext context, OptionalArgument semanticObject) {
@@ -196,15 +246,17 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Element returns TextContent
-	 *     ArgumentContent returns TextContent
-	 *     TextContent returns TextContent
+	 *     Element returns TextContainer
+	 *     ArgumentContent returns TextContainer
+	 *     TextContainer returns TextContainer
+	 *     TextContent returns TextContainer
+	 *     MathContent returns TextContainer
 	 *
 	 * Constraint:
-	 *     text+=TEXT*
+	 *     text+=TEXT+
 	 * </pre>
 	 */
-	protected void sequence_TextContent(ISerializationContext context, TextContent semanticObject) {
+	protected void sequence_TextContainer(ISerializationContext context, TextContainer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

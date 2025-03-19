@@ -70,9 +70,12 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
       case TexDslPackage.COMMAND: return createCommand();
       case TexDslPackage.OPTIONAL_ARGUMENT: return createOptionalArgument();
       case TexDslPackage.MANDATORY_ARGUMENT: return createMandatoryArgument();
-      case TexDslPackage.ENVIRONMENT: return createEnvironment();
       case TexDslPackage.ARGUMENT_CONTENT: return createArgumentContent();
+      case TexDslPackage.TEXT_CONTAINER: return createTextContainer();
       case TexDslPackage.TEXT_CONTENT: return createTextContent();
+      case TexDslPackage.IDENTIFIERS: return createIdentifiers();
+      case TexDslPackage.NUMBERS: return createNumbers();
+      case TexDslPackage.OPERATORS: return createOperators();
       case TexDslPackage.MATH_EXPRESSION: return createMathExpression();
       case TexDslPackage.INLINE_MATH: return createInlineMath();
       case TexDslPackage.DISPLAY_MATH: return createDisplayMath();
@@ -148,18 +151,6 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
    * @generated
    */
   @Override
-  public Environment createEnvironment()
-  {
-    EnvironmentImpl environment = new EnvironmentImpl();
-    return environment;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public ArgumentContent createArgumentContent()
   {
     ArgumentContentImpl argumentContent = new ArgumentContentImpl();
@@ -172,10 +163,58 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
    * @generated
    */
   @Override
+  public TextContainer createTextContainer()
+  {
+    TextContainerImpl textContainer = new TextContainerImpl();
+    return textContainer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public TextContent createTextContent()
   {
     TextContentImpl textContent = new TextContentImpl();
     return textContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Identifiers createIdentifiers()
+  {
+    IdentifiersImpl identifiers = new IdentifiersImpl();
+    return identifiers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Numbers createNumbers()
+  {
+    NumbersImpl numbers = new NumbersImpl();
+    return numbers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Operators createOperators()
+  {
+    OperatorsImpl operators = new OperatorsImpl();
+    return operators;
   }
 
   /**

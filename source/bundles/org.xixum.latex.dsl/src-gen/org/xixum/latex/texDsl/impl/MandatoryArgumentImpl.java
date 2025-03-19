@@ -12,8 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,7 +32,7 @@ import org.xixum.latex.texDsl.TexDslPackage;
  *
  * @generated
  */
-public class MandatoryArgumentImpl extends MinimalEObjectImpl.Container implements MandatoryArgument
+public class MandatoryArgumentImpl extends TextContentImpl implements MandatoryArgument
 {
   /**
    * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference list.

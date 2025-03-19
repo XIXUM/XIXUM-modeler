@@ -14,8 +14,6 @@ ruleElement:
 	(
 		ruleCommand
 		    |
-		ruleEnvironment
-		    |
 		ruleTextContent
 		    |
 		ruleMathExpression
@@ -36,7 +34,7 @@ ruleCommand:
 ruleOptionalArgument:
 	'['
 	ruleArgumentContent
-	+
+	*
 	']'
 ;
 
@@ -44,19 +42,7 @@ ruleOptionalArgument:
 ruleMandatoryArgument:
 	'{'
 	ruleArgumentContent
-	+
-	'}'
-;
-
-// Rule Environment
-ruleEnvironment:
-	'\\begin{'
-	RULE_ID
-	'}'
-	ruleElement
 	*
-	'\\end{'
-	RULE_ID
 	'}'
 ;
 
@@ -68,15 +54,46 @@ ruleArgumentContent:
 		ruleCommand
 		    |
 		ruleMathExpression
-		    |
-		ruleEnvironment
 	)
+;
+
+// Rule TextContainer
+ruleTextContainer:
+	RULE_TEXT
+	+
 ;
 
 // Rule TextContent
 ruleTextContent:
-	RULE_TEXT
-	*
+	(
+		ruleIdentifiers
+		    |
+		ruleTextContainer
+		    |
+		ruleOperators
+		    |
+		ruleNumbers
+		    |
+		ruleOptionalArgument
+		    |
+		ruleMandatoryArgument
+	)
+;
+
+// Rule Identifiers
+ruleIdentifiers:
+	RULE_ID
+;
+
+// Rule Numbers
+ruleNumbers:
+	RULE_NUMBER
+;
+
+// Rule Operators
+ruleOperators:
+	RULE_SYMBOL
+	+
 ;
 
 // Rule MathExpression
@@ -109,26 +126,24 @@ ruleMathContent:
 	(
 		ruleCommand
 		    |
-		RULE_TEXT
+		ruleTextContent
 		    |
-		RULE_NUMBER
+		ruleNumbers
 		    |
-		RULE_SYMBOL
+		ruleOperators
 	)
 ;
 
-RULE_NUMBER : RULE_INT ('.' RULE_INT)?;
-
 RULE_SYMBOL : ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
-
-RULE_TEXT : ~(('\\'|'$'|'{'|'}'|'['|']'|'^'|'_'|' '|'\t'|'\r'|'\n'))+;
 
 RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')? {skip();};
 
-RULE_WS : (' '|'\t'|'\r'|'\n')+ {skip();};
+RULE_NUMBER : RULE_INT ('.' RULE_INT)?;
 
 fragment RULE_INT : ('0'..'9')+;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-RULE_END : EOF;
+RULE_WS : (' '|'\t'|'\r'|'\n')+ {skip();};
+
+RULE_TEXT : ~(('\\'|'$'|'{'|'}'|'['|']'|'^'|'_'|' '|'\t'|'\r'|'\n'))+;

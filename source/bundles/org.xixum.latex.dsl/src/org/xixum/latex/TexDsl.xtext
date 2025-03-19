@@ -10,65 +10,81 @@ Model:
     elements+=Element*;
 
 Element:
-    Command | TextContent ;
+    Command | TextContent | MathExpression;
 
 Command:
-    '\\' name=ID 
+    '\\' command=ID 
     optionalArgs+=OptionalArgument*
     mandatoryArgs+=MandatoryArgument*
 ;
 
 OptionalArgument:
-    '[' content+=ArgumentContent+ ']';
+    {OptionalArgument} '[' content+=ArgumentContent* ']';
 
 MandatoryArgument:
-    '{' content+=ArgumentContent+ '}';
+    {MandatoryArgument} '{' content+=ArgumentContent* '}';
 
-//Environment:
-//    '\\begin{' type=ID '}'
-//    content+=Element*
-//    '\\end{' endType=ID '}';
+Environment:
+    '\\begin{' type=ID '}'
+    content+=Element*
+    '\\end{' endType=ID '}';
 
 ArgumentContent:
-    TextContent | Command;
+    TextContent | Command | MathExpression;
 
-TextContent:
-    {TextContent} text+=ANY_OTHER+;
-
-//MathExpression:
-//    InlineMath | DisplayMath;
-
-//InlineMath:
-//    {InlineMath} '$' content+=MathContent* '$';
-//
-//DisplayMath:
-//    {DisplayMath} '$$' content+=MathContent* '$$';
-
-//MathContent:
-//    Command | {MathContent} TEXT | {MathContent} NUMBER | {MathContent} SYMBOL;
+TextContainer:
+    text+=TEXT+;
     
-//terminal TEXT:
-//    !('\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' '|'\t'|'\r'|'\n')+;
-//    
+TextContent:
+	Identifiers | TextContainer | Operators | Numbers | OptionalArgument | MandatoryArgument
+;
+    
+Identifiers:
+	id=ID
+;
 
+Numbers:
+	num=NUMBER
+;
 
-terminal NUMBER returns ecore::EBigDecimal:
-    INT ('.' INT)?;
+Operators:
+	op+=SYMBOL+
+;
+
+MathExpression:
+    InlineMath | DisplayMath;
+
+InlineMath:
+    {InlineMath} '$' content+=MathContent* '$';
+
+DisplayMath:
+    {DisplayMath} '$$' content+=MathContent* '$$';
+
+MathContent:
+    Command | TextContent | Numbers | Operators;
+      
+
 
 terminal SYMBOL:
     ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
     
 terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
 
-terminal WS         : (' '|'\t'|'\r'|'\n')+;
+
+
+terminal NUMBER returns ecore::EBigDecimal:
+    INT ('.' INT)?;
 
 terminal INT returns ecore::EInt: ('0'..'9')+;
 
 terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-terminal END:
-	EOF
-;
+terminal WS         : (' '|'\t'|'\r'|'\n')+;
 
-terminal ANY_OTHER: .;
+//terminal END:
+//	EOF
+//;
+
+terminal TEXT:
+    !('\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' '|'\t'|'\r'|'\n')+;
 

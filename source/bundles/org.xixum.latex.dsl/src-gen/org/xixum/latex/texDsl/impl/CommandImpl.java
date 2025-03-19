@@ -31,7 +31,7 @@ import org.xixum.latex.texDsl.TexDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getCommand <em>Command</em>}</li>
  *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getOptionalArgs <em>Optional Args</em>}</li>
  *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getMandatoryArgs <em>Mandatory Args</em>}</li>
  * </ul>
@@ -41,24 +41,24 @@ import org.xixum.latex.texDsl.TexDslPackage;
 public class CommandImpl extends ElementImpl implements Command
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getCommand() <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getCommand()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String COMMAND_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getCommand() <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getCommand()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String command = COMMAND_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getOptionalArgs() <em>Optional Args</em>}' containment reference list.
@@ -107,9 +107,9 @@ public class CommandImpl extends ElementImpl implements Command
    * @generated
    */
   @Override
-  public String getName()
+  public String getCommand()
   {
-    return name;
+    return command;
   }
 
   /**
@@ -118,12 +118,12 @@ public class CommandImpl extends ElementImpl implements Command
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setCommand(String newCommand)
   {
-    String oldName = name;
-    name = newName;
+    String oldCommand = command;
+    command = newCommand;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.COMMAND__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.COMMAND__COMMAND, oldCommand, command));
   }
 
   /**
@@ -184,8 +184,8 @@ public class CommandImpl extends ElementImpl implements Command
   {
     switch (featureID)
     {
-      case TexDslPackage.COMMAND__NAME:
-        return getName();
+      case TexDslPackage.COMMAND__COMMAND:
+        return getCommand();
       case TexDslPackage.COMMAND__OPTIONAL_ARGS:
         return getOptionalArgs();
       case TexDslPackage.COMMAND__MANDATORY_ARGS:
@@ -205,8 +205,8 @@ public class CommandImpl extends ElementImpl implements Command
   {
     switch (featureID)
     {
-      case TexDslPackage.COMMAND__NAME:
-        setName((String)newValue);
+      case TexDslPackage.COMMAND__COMMAND:
+        setCommand((String)newValue);
         return;
       case TexDslPackage.COMMAND__OPTIONAL_ARGS:
         getOptionalArgs().clear();
@@ -230,8 +230,8 @@ public class CommandImpl extends ElementImpl implements Command
   {
     switch (featureID)
     {
-      case TexDslPackage.COMMAND__NAME:
-        setName(NAME_EDEFAULT);
+      case TexDslPackage.COMMAND__COMMAND:
+        setCommand(COMMAND_EDEFAULT);
         return;
       case TexDslPackage.COMMAND__OPTIONAL_ARGS:
         getOptionalArgs().clear();
@@ -253,8 +253,8 @@ public class CommandImpl extends ElementImpl implements Command
   {
     switch (featureID)
     {
-      case TexDslPackage.COMMAND__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case TexDslPackage.COMMAND__COMMAND:
+        return COMMAND_EDEFAULT == null ? command != null : !COMMAND_EDEFAULT.equals(command);
       case TexDslPackage.COMMAND__OPTIONAL_ARGS:
         return optionalArgs != null && !optionalArgs.isEmpty();
       case TexDslPackage.COMMAND__MANDATORY_ARGS:
@@ -274,8 +274,8 @@ public class CommandImpl extends ElementImpl implements Command
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (command: ");
+    result.append(command);
     result.append(')');
     return result.toString();
   }

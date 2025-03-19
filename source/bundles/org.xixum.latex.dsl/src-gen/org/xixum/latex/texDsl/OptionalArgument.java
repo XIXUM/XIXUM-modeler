@@ -5,8 +5,6 @@ package org.xixum.latex.texDsl;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Optional Argument</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface OptionalArgument extends EObject
+public interface OptionalArgument extends TextContent
 {
   /**
    * Returns the value of the '<em><b>Content</b></em>' containment reference list.

@@ -101,19 +101,34 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
         return createMandatoryArgumentAdapter();
       }
       @Override
-      public Adapter caseEnvironment(Environment object)
-      {
-        return createEnvironmentAdapter();
-      }
-      @Override
       public Adapter caseArgumentContent(ArgumentContent object)
       {
         return createArgumentContentAdapter();
       }
       @Override
+      public Adapter caseTextContainer(TextContainer object)
+      {
+        return createTextContainerAdapter();
+      }
+      @Override
       public Adapter caseTextContent(TextContent object)
       {
         return createTextContentAdapter();
+      }
+      @Override
+      public Adapter caseIdentifiers(Identifiers object)
+      {
+        return createIdentifiersAdapter();
+      }
+      @Override
+      public Adapter caseNumbers(Numbers object)
+      {
+        return createNumbersAdapter();
+      }
+      @Override
+      public Adapter caseOperators(Operators object)
+      {
+        return createOperatorsAdapter();
       }
       @Override
       public Adapter caseMathExpression(MathExpression object)
@@ -233,21 +248,6 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Environment <em>Environment</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xixum.latex.texDsl.Environment
-   * @generated
-   */
-  public Adapter createEnvironmentAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.ArgumentContent <em>Argument Content</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -263,6 +263,21 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.TextContainer <em>Text Container</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.TextContainer
+   * @generated
+   */
+  public Adapter createTextContainerAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.TextContent <em>Text Content</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -273,6 +288,51 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTextContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Identifiers <em>Identifiers</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.Identifiers
+   * @generated
+   */
+  public Adapter createIdentifiersAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Numbers <em>Numbers</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.Numbers
+   * @generated
+   */
+  public Adapter createNumbersAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Operators <em>Operators</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.Operators
+   * @generated
+   */
+  public Adapter createOperatorsAdapter()
   {
     return null;
   }

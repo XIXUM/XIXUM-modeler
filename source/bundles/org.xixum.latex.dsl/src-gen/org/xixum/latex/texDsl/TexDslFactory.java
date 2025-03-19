@@ -69,15 +69,6 @@ public interface TexDslFactory extends EFactory
   MandatoryArgument createMandatoryArgument();
 
   /**
-   * Returns a new object of class '<em>Environment</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Environment</em>'.
-   * @generated
-   */
-  Environment createEnvironment();
-
-  /**
    * Returns a new object of class '<em>Argument Content</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -87,6 +78,15 @@ public interface TexDslFactory extends EFactory
   ArgumentContent createArgumentContent();
 
   /**
+   * Returns a new object of class '<em>Text Container</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Text Container</em>'.
+   * @generated
+   */
+  TextContainer createTextContainer();
+
+  /**
    * Returns a new object of class '<em>Text Content</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,6 +94,33 @@ public interface TexDslFactory extends EFactory
    * @generated
    */
   TextContent createTextContent();
+
+  /**
+   * Returns a new object of class '<em>Identifiers</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Identifiers</em>'.
+   * @generated
+   */
+  Identifiers createIdentifiers();
+
+  /**
+   * Returns a new object of class '<em>Numbers</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Numbers</em>'.
+   * @generated
+   */
+  Numbers createNumbers();
+
+  /**
+   * Returns a new object of class '<em>Operators</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operators</em>'.
+   * @generated
+   */
+  Operators createOperators();
 
   /**
    * Returns a new object of class '<em>Math Expression</em>'.

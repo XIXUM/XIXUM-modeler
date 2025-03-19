@@ -11,7 +11,7 @@
     </genClasses>
     <genClasses ecoreClass="TexDsl.ecore#//Element"/>
     <genClasses ecoreClass="TexDsl.ecore#//Command">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Command/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Command/command"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/optionalArgs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Command/mandatoryArgs"/>
     </genClasses>
@@ -21,14 +21,19 @@
     <genClasses ecoreClass="TexDsl.ecore#//MandatoryArgument">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//MandatoryArgument/content"/>
     </genClasses>
-    <genClasses ecoreClass="TexDsl.ecore#//Environment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Environment/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//Environment/content"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Environment/endType"/>
-    </genClasses>
     <genClasses ecoreClass="TexDsl.ecore#//ArgumentContent"/>
-    <genClasses ecoreClass="TexDsl.ecore#//TextContent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//TextContent/text"/>
+    <genClasses ecoreClass="TexDsl.ecore#//TextContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//TextContainer/text"/>
+    </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//TextContent"/>
+    <genClasses ecoreClass="TexDsl.ecore#//Identifiers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Identifiers/id"/>
+    </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//Numbers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Numbers/num"/>
+    </genClasses>
+    <genClasses ecoreClass="TexDsl.ecore#//Operators">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//Operators/op"/>
     </genClasses>
     <genClasses ecoreClass="TexDsl.ecore#//MathExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TexDsl.ecore#//MathExpression/content"/>

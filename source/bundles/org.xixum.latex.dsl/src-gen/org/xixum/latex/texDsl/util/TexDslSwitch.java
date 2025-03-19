@@ -101,6 +101,10 @@ public class TexDslSwitch<T> extends Switch<T>
       {
         OptionalArgument optionalArgument = (OptionalArgument)theEObject;
         T result = caseOptionalArgument(optionalArgument);
+        if (result == null) result = caseTextContent(optionalArgument);
+        if (result == null) result = caseElement(optionalArgument);
+        if (result == null) result = caseArgumentContent(optionalArgument);
+        if (result == null) result = caseMathContent(optionalArgument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -108,15 +112,10 @@ public class TexDslSwitch<T> extends Switch<T>
       {
         MandatoryArgument mandatoryArgument = (MandatoryArgument)theEObject;
         T result = caseMandatoryArgument(mandatoryArgument);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case TexDslPackage.ENVIRONMENT:
-      {
-        Environment environment = (Environment)theEObject;
-        T result = caseEnvironment(environment);
-        if (result == null) result = caseElement(environment);
-        if (result == null) result = caseArgumentContent(environment);
+        if (result == null) result = caseTextContent(mandatoryArgument);
+        if (result == null) result = caseElement(mandatoryArgument);
+        if (result == null) result = caseArgumentContent(mandatoryArgument);
+        if (result == null) result = caseMathContent(mandatoryArgument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -127,12 +126,57 @@ public class TexDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TexDslPackage.TEXT_CONTAINER:
+      {
+        TextContainer textContainer = (TextContainer)theEObject;
+        T result = caseTextContainer(textContainer);
+        if (result == null) result = caseTextContent(textContainer);
+        if (result == null) result = caseElement(textContainer);
+        if (result == null) result = caseArgumentContent(textContainer);
+        if (result == null) result = caseMathContent(textContainer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case TexDslPackage.TEXT_CONTENT:
       {
         TextContent textContent = (TextContent)theEObject;
         T result = caseTextContent(textContent);
         if (result == null) result = caseElement(textContent);
         if (result == null) result = caseArgumentContent(textContent);
+        if (result == null) result = caseMathContent(textContent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.IDENTIFIERS:
+      {
+        Identifiers identifiers = (Identifiers)theEObject;
+        T result = caseIdentifiers(identifiers);
+        if (result == null) result = caseTextContent(identifiers);
+        if (result == null) result = caseElement(identifiers);
+        if (result == null) result = caseArgumentContent(identifiers);
+        if (result == null) result = caseMathContent(identifiers);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.NUMBERS:
+      {
+        Numbers numbers = (Numbers)theEObject;
+        T result = caseNumbers(numbers);
+        if (result == null) result = caseTextContent(numbers);
+        if (result == null) result = caseElement(numbers);
+        if (result == null) result = caseArgumentContent(numbers);
+        if (result == null) result = caseMathContent(numbers);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.OPERATORS:
+      {
+        Operators operators = (Operators)theEObject;
+        T result = caseOperators(operators);
+        if (result == null) result = caseTextContent(operators);
+        if (result == null) result = caseElement(operators);
+        if (result == null) result = caseArgumentContent(operators);
+        if (result == null) result = caseMathContent(operators);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -257,22 +301,6 @@ public class TexDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Environment</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Environment</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEnvironment(Environment object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Argument Content</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -289,6 +317,22 @@ public class TexDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Text Container</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Text Container</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTextContainer(TextContainer object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Text Content</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -300,6 +344,54 @@ public class TexDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTextContent(TextContent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Identifiers</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Identifiers</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIdentifiers(Identifiers object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Numbers</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Numbers</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNumbers(Numbers object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operators</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operators</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperators(Operators object)
   {
     return null;
   }

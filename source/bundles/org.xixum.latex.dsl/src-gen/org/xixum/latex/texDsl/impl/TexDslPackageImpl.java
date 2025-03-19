@@ -14,15 +14,18 @@ import org.xixum.latex.texDsl.ArgumentContent;
 import org.xixum.latex.texDsl.Command;
 import org.xixum.latex.texDsl.DisplayMath;
 import org.xixum.latex.texDsl.Element;
-import org.xixum.latex.texDsl.Environment;
+import org.xixum.latex.texDsl.Identifiers;
 import org.xixum.latex.texDsl.InlineMath;
 import org.xixum.latex.texDsl.MandatoryArgument;
 import org.xixum.latex.texDsl.MathContent;
 import org.xixum.latex.texDsl.MathExpression;
 import org.xixum.latex.texDsl.Model;
+import org.xixum.latex.texDsl.Numbers;
+import org.xixum.latex.texDsl.Operators;
 import org.xixum.latex.texDsl.OptionalArgument;
 import org.xixum.latex.texDsl.TexDslFactory;
 import org.xixum.latex.texDsl.TexDslPackage;
+import org.xixum.latex.texDsl.TextContainer;
 import org.xixum.latex.texDsl.TextContent;
 
 /**
@@ -73,13 +76,6 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass environmentEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass argumentContentEClass = null;
 
   /**
@@ -87,7 +83,35 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass textContainerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass textContentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass identifiersEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass numbersEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass operatorsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -229,7 +253,7 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EAttribute getCommand_Name()
+  public EAttribute getCommand_Command()
   {
     return (EAttribute)commandEClass.getEStructuralFeatures().get(0);
   }
@@ -306,53 +330,31 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EClass getEnvironment()
-  {
-    return environmentEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getEnvironment_Type()
-  {
-    return (EAttribute)environmentEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getEnvironment_Content()
-  {
-    return (EReference)environmentEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getEnvironment_EndType()
-  {
-    return (EAttribute)environmentEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getArgumentContent()
   {
     return argumentContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTextContainer()
+  {
+    return textContainerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTextContainer_Text()
+  {
+    return (EAttribute)textContainerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -372,9 +374,64 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EAttribute getTextContent_Text()
+  public EClass getIdentifiers()
   {
-    return (EAttribute)textContentEClass.getEStructuralFeatures().get(0);
+    return identifiersEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getIdentifiers_Id()
+  {
+    return (EAttribute)identifiersEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNumbers()
+  {
+    return numbersEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNumbers_Num()
+  {
+    return (EAttribute)numbersEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOperators()
+  {
+    return operatorsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOperators_Op()
+  {
+    return (EAttribute)operatorsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -469,7 +526,7 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     elementEClass = createEClass(ELEMENT);
 
     commandEClass = createEClass(COMMAND);
-    createEAttribute(commandEClass, COMMAND__NAME);
+    createEAttribute(commandEClass, COMMAND__COMMAND);
     createEReference(commandEClass, COMMAND__OPTIONAL_ARGS);
     createEReference(commandEClass, COMMAND__MANDATORY_ARGS);
 
@@ -479,15 +536,21 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     mandatoryArgumentEClass = createEClass(MANDATORY_ARGUMENT);
     createEReference(mandatoryArgumentEClass, MANDATORY_ARGUMENT__CONTENT);
 
-    environmentEClass = createEClass(ENVIRONMENT);
-    createEAttribute(environmentEClass, ENVIRONMENT__TYPE);
-    createEReference(environmentEClass, ENVIRONMENT__CONTENT);
-    createEAttribute(environmentEClass, ENVIRONMENT__END_TYPE);
-
     argumentContentEClass = createEClass(ARGUMENT_CONTENT);
 
+    textContainerEClass = createEClass(TEXT_CONTAINER);
+    createEAttribute(textContainerEClass, TEXT_CONTAINER__TEXT);
+
     textContentEClass = createEClass(TEXT_CONTENT);
-    createEAttribute(textContentEClass, TEXT_CONTENT__TEXT);
+
+    identifiersEClass = createEClass(IDENTIFIERS);
+    createEAttribute(identifiersEClass, IDENTIFIERS__ID);
+
+    numbersEClass = createEClass(NUMBERS);
+    createEAttribute(numbersEClass, NUMBERS__NUM);
+
+    operatorsEClass = createEClass(OPERATORS);
+    createEAttribute(operatorsEClass, OPERATORS__OP);
 
     mathExpressionEClass = createEClass(MATH_EXPRESSION);
     createEReference(mathExpressionEClass, MATH_EXPRESSION__CONTENT);
@@ -531,10 +594,15 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     commandEClass.getESuperTypes().add(this.getElement());
     commandEClass.getESuperTypes().add(this.getArgumentContent());
     commandEClass.getESuperTypes().add(this.getMathContent());
-    environmentEClass.getESuperTypes().add(this.getElement());
-    environmentEClass.getESuperTypes().add(this.getArgumentContent());
+    optionalArgumentEClass.getESuperTypes().add(this.getTextContent());
+    mandatoryArgumentEClass.getESuperTypes().add(this.getTextContent());
+    textContainerEClass.getESuperTypes().add(this.getTextContent());
     textContentEClass.getESuperTypes().add(this.getElement());
     textContentEClass.getESuperTypes().add(this.getArgumentContent());
+    textContentEClass.getESuperTypes().add(this.getMathContent());
+    identifiersEClass.getESuperTypes().add(this.getTextContent());
+    numbersEClass.getESuperTypes().add(this.getTextContent());
+    operatorsEClass.getESuperTypes().add(this.getTextContent());
     mathExpressionEClass.getESuperTypes().add(this.getElement());
     mathExpressionEClass.getESuperTypes().add(this.getArgumentContent());
     inlineMathEClass.getESuperTypes().add(this.getMathExpression());
@@ -547,7 +615,7 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCommand_Name(), ecorePackage.getEString(), "name", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCommand_Command(), ecorePackage.getEString(), "command", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCommand_OptionalArgs(), this.getOptionalArgument(), null, "optionalArgs", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCommand_MandatoryArgs(), this.getMandatoryArgument(), null, "mandatoryArgs", null, 0, -1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -557,15 +625,21 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     initEClass(mandatoryArgumentEClass, MandatoryArgument.class, "MandatoryArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMandatoryArgument_Content(), this.getArgumentContent(), null, "content", null, 0, -1, MandatoryArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(environmentEClass, Environment.class, "Environment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEnvironment_Type(), ecorePackage.getEString(), "type", null, 0, 1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEnvironment_Content(), this.getElement(), null, "content", null, 0, -1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEnvironment_EndType(), ecorePackage.getEString(), "endType", null, 0, 1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(argumentContentEClass, ArgumentContent.class, "ArgumentContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(textContainerEClass, TextContainer.class, "TextContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTextContainer_Text(), ecorePackage.getEString(), "text", null, 0, -1, TextContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(textContentEClass, TextContent.class, "TextContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTextContent_Text(), ecorePackage.getEString(), "text", null, 0, -1, TextContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(identifiersEClass, Identifiers.class, "Identifiers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIdentifiers_Id(), ecorePackage.getEString(), "id", null, 0, 1, Identifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(numbersEClass, Numbers.class, "Numbers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNumbers_Num(), ecorePackage.getEBigDecimal(), "num", null, 0, 1, Numbers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(operatorsEClass, Operators.class, "Operators", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOperators_Op(), ecorePackage.getEString(), "op", null, 0, -1, Operators.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mathExpressionEClass, MathExpression.class, "MathExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMathExpression_Content(), this.getMathContent(), null, "content", null, 0, -1, MathExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

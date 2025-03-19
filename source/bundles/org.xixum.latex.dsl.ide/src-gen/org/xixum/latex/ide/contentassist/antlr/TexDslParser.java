@@ -33,28 +33,24 @@ public class TexDslParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, TexDslGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
 			builder.put(grammarAccess.getArgumentContentAccess().getAlternatives(), "rule__ArgumentContent__Alternatives");
+			builder.put(grammarAccess.getTextContentAccess().getAlternatives(), "rule__TextContent__Alternatives");
 			builder.put(grammarAccess.getMathExpressionAccess().getAlternatives(), "rule__MathExpression__Alternatives");
 			builder.put(grammarAccess.getMathContentAccess().getAlternatives(), "rule__MathContent__Alternatives");
 			builder.put(grammarAccess.getCommandAccess().getGroup(), "rule__Command__Group__0");
 			builder.put(grammarAccess.getOptionalArgumentAccess().getGroup(), "rule__OptionalArgument__Group__0");
 			builder.put(grammarAccess.getMandatoryArgumentAccess().getGroup(), "rule__MandatoryArgument__Group__0");
-			builder.put(grammarAccess.getEnvironmentAccess().getGroup(), "rule__Environment__Group__0");
-			builder.put(grammarAccess.getTextContentAccess().getGroup(), "rule__TextContent__Group__0");
 			builder.put(grammarAccess.getInlineMathAccess().getGroup(), "rule__InlineMath__Group__0");
 			builder.put(grammarAccess.getDisplayMathAccess().getGroup(), "rule__DisplayMath__Group__0");
-			builder.put(grammarAccess.getMathContentAccess().getGroup_1(), "rule__MathContent__Group_1__0");
-			builder.put(grammarAccess.getMathContentAccess().getGroup_2(), "rule__MathContent__Group_2__0");
-			builder.put(grammarAccess.getMathContentAccess().getGroup_3(), "rule__MathContent__Group_3__0");
 			builder.put(grammarAccess.getModelAccess().getElementsAssignment(), "rule__Model__ElementsAssignment");
-			builder.put(grammarAccess.getCommandAccess().getNameAssignment_1(), "rule__Command__NameAssignment_1");
+			builder.put(grammarAccess.getCommandAccess().getCommandAssignment_1(), "rule__Command__CommandAssignment_1");
 			builder.put(grammarAccess.getCommandAccess().getOptionalArgsAssignment_2(), "rule__Command__OptionalArgsAssignment_2");
 			builder.put(grammarAccess.getCommandAccess().getMandatoryArgsAssignment_3(), "rule__Command__MandatoryArgsAssignment_3");
-			builder.put(grammarAccess.getOptionalArgumentAccess().getContentAssignment_1(), "rule__OptionalArgument__ContentAssignment_1");
-			builder.put(grammarAccess.getMandatoryArgumentAccess().getContentAssignment_1(), "rule__MandatoryArgument__ContentAssignment_1");
-			builder.put(grammarAccess.getEnvironmentAccess().getTypeAssignment_1(), "rule__Environment__TypeAssignment_1");
-			builder.put(grammarAccess.getEnvironmentAccess().getContentAssignment_3(), "rule__Environment__ContentAssignment_3");
-			builder.put(grammarAccess.getEnvironmentAccess().getEndTypeAssignment_5(), "rule__Environment__EndTypeAssignment_5");
-			builder.put(grammarAccess.getTextContentAccess().getTextAssignment_1(), "rule__TextContent__TextAssignment_1");
+			builder.put(grammarAccess.getOptionalArgumentAccess().getContentAssignment_2(), "rule__OptionalArgument__ContentAssignment_2");
+			builder.put(grammarAccess.getMandatoryArgumentAccess().getContentAssignment_2(), "rule__MandatoryArgument__ContentAssignment_2");
+			builder.put(grammarAccess.getTextContainerAccess().getTextAssignment(), "rule__TextContainer__TextAssignment");
+			builder.put(grammarAccess.getIdentifiersAccess().getIdAssignment(), "rule__Identifiers__IdAssignment");
+			builder.put(grammarAccess.getNumbersAccess().getNumAssignment(), "rule__Numbers__NumAssignment");
+			builder.put(grammarAccess.getOperatorsAccess().getOpAssignment(), "rule__Operators__OpAssignment");
 			builder.put(grammarAccess.getInlineMathAccess().getContentAssignment_2(), "rule__InlineMath__ContentAssignment_2");
 			builder.put(grammarAccess.getDisplayMathAccess().getContentAssignment_2(), "rule__DisplayMath__ContentAssignment_2");
 		}
