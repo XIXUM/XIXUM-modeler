@@ -78,33 +78,33 @@ ruleModel returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getModelAccess().getDocumentDocumentParserRuleCall_0());
+				newCompositeNode(grammarAccess.getModelAccess().getElementsElementParserRuleCall_0());
 			}
-			lv_document_0_0=ruleDocument
+			lv_elements_0_0=ruleElement
 			{
 				if ($current==null) {
 					$current = createModelElementForParent(grammarAccess.getModelRule());
 				}
 				add(
 					$current,
-					"document",
-					lv_document_0_0,
-					"org.xixum.latex.TexDsl.Document");
+					"elements",
+					lv_elements_0_0,
+					"org.xixum.latex.TexDsl.Element");
 				afterParserOrEnumRuleCall();
 			}
 		)
-	)+
+	)*
 ;
 
-// Entry rule entryRuleDocument
-entryRuleDocument returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDocumentRule()); }
-	iv_ruleDocument=ruleDocument
-	{ $current=$iv_ruleDocument.current; }
+// Entry rule entryRuleElement
+entryRuleElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getElementRule()); }
+	iv_ruleElement=ruleElement
+	{ $current=$iv_ruleElement.current; }
 	EOF;
 
-// Rule Document
-ruleDocument returns [EObject current=null]
+// Rule Element
+ruleElement returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -113,7 +113,7 @@ ruleDocument returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getDocumentAccess().getCommandParserRuleCall_0());
+			newCompositeNode(grammarAccess.getElementAccess().getCommandParserRuleCall_0());
 		}
 		this_Command_0=ruleCommand
 		{
@@ -122,136 +122,30 @@ ruleDocument returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getDocumentAccess().getTextParserRuleCall_1());
+			newCompositeNode(grammarAccess.getElementAccess().getEnvironmentParserRuleCall_1());
 		}
-		this_Text_1=ruleText
+		this_Environment_1=ruleEnvironment
 		{
-			$current = $this_Text_1.current;
+			$current = $this_Environment_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getDocumentAccess().getDocumentAction_2_0(),
-						$current);
-				}
-			)
-			this_END_3=RULE_END
-			{
-				newLeafNode(this_END_3, grammarAccess.getDocumentAccess().getENDTerminalRuleCall_2_1());
-			}
-		)
-	)
-;
-
-// Entry rule entryRuleText
-entryRuleText returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTextRule()); }
-	iv_ruleText=ruleText
-	{ $current=$iv_ruleText.current; }
-	EOF;
-
-// Rule Text
-ruleText returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				newCompositeNode(grammarAccess.getTextAccess().getTokenAnyTextParserRuleCall_0());
-			}
-			lv_token_0_0=ruleAnyText
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getTextRule());
-				}
-				add(
-					$current,
-					"token",
-					lv_token_0_0,
-					"org.xixum.latex.TexDsl.AnyText");
-				afterParserOrEnumRuleCall();
-			}
-		)
-	)
-;
-
-// Entry rule entryRuleAnyText
-entryRuleAnyText returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getAnyTextRule()); }
-	iv_ruleAnyText=ruleAnyText
-	{ $current=$iv_ruleAnyText.current.getText(); }
-	EOF;
-
-// Rule AnyText
-ruleAnyText returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_ID_0=RULE_ID
 		{
-			$current.merge(this_ID_0);
+			newCompositeNode(grammarAccess.getElementAccess().getTextContentParserRuleCall_2());
 		}
+		this_TextContent_2=ruleTextContent
 		{
-			newLeafNode(this_ID_0, grammarAccess.getAnyTextAccess().getIDTerminalRuleCall_0());
+			$current = $this_TextContent_2.current;
+			afterParserOrEnumRuleCall();
 		}
 		    |
-		this_ANY_OTHER_1=RULE_ANY_OTHER
 		{
-			$current.merge(this_ANY_OTHER_1);
+			newCompositeNode(grammarAccess.getElementAccess().getMathExpressionParserRuleCall_3());
 		}
+		this_MathExpression_3=ruleMathExpression
 		{
-			newLeafNode(this_ANY_OTHER_1, grammarAccess.getAnyTextAccess().getANY_OTHERTerminalRuleCall_1());
-		}
-		    |
-		this_KOMMA_2=RULE_KOMMA
-		{
-			$current.merge(this_KOMMA_2);
-		}
-		{
-			newLeafNode(this_KOMMA_2, grammarAccess.getAnyTextAccess().getKOMMATerminalRuleCall_2());
-		}
-		    |
-		this_PIPE_3=RULE_PIPE
-		{
-			$current.merge(this_PIPE_3);
-		}
-		{
-			newLeafNode(this_PIPE_3, grammarAccess.getAnyTextAccess().getPIPETerminalRuleCall_3());
-		}
-		    |
-		this_EXCL_4=RULE_EXCL
-		{
-			$current.merge(this_EXCL_4);
-		}
-		{
-			newLeafNode(this_EXCL_4, grammarAccess.getAnyTextAccess().getEXCLTerminalRuleCall_4());
-		}
-		    |
-		this_SYMBOL_5=RULE_SYMBOL
-		{
-			$current.merge(this_SYMBOL_5);
-		}
-		{
-			newLeafNode(this_SYMBOL_5, grammarAccess.getAnyTextAccess().getSYMBOLTerminalRuleCall_5());
-		}
-		    |
-		this_DOT_6=RULE_DOT
-		{
-			$current.merge(this_DOT_6);
-		}
-		{
-			newLeafNode(this_DOT_6, grammarAccess.getAnyTextAccess().getDOTTerminalRuleCall_6());
+			$current = $this_MathExpression_3.current;
+			afterParserOrEnumRuleCall();
 		}
 	)
 ;
@@ -272,11 +166,15 @@ ruleCommand returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='\\'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCommandAccess().getBackslashKeyword_0());
+		}
 		(
 			(
-				lv_command_0_0=RULE_ID_COMM
+				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_command_0_0, grammarAccess.getCommandAccess().getCommandID_COMMTerminalRuleCall_0_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getCommandAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -284,382 +182,62 @@ ruleCommand returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"command",
-						lv_command_0_0,
-						"org.xixum.latex.TexDsl.ID_COMM");
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
 		(
-			this_SQBO_1=RULE_SQBO
-			{
-				newLeafNode(this_SQBO_1, grammarAccess.getCommandAccess().getSQBOTerminalRuleCall_1_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getCommandAccess().getAttrsAttributesParserRuleCall_1_1_0());
-					}
-					lv_attrs_2_0=ruleAttributes
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCommandRule());
-						}
-						add(
-							$current,
-							"attrs",
-							lv_attrs_2_0,
-							"org.xixum.latex.TexDsl.Attributes");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				this_KOMMA_3=RULE_KOMMA
 				{
-					newLeafNode(this_KOMMA_3, grammarAccess.getCommandAccess().getKOMMATerminalRuleCall_1_2_0());
+					newCompositeNode(grammarAccess.getCommandAccess().getOptionalArgsOptionalArgumentParserRuleCall_2_0());
 				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getCommandAccess().getAttrsAttributesParserRuleCall_1_2_1_0());
-						}
-						lv_attrs_4_0=ruleAttributes
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getCommandRule());
-							}
-							add(
-								$current,
-								"attrs",
-								lv_attrs_4_0,
-								"org.xixum.latex.TexDsl.Attributes");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			this_SQBC_5=RULE_SQBC
-			{
-				newLeafNode(this_SQBC_5, grammarAccess.getCommandAccess().getSQBCTerminalRuleCall_1_3());
-			}
-		)?
-		(
-			this_CUBO_6=RULE_CUBO
-			{
-				newLeafNode(this_CUBO_6, grammarAccess.getCommandAccess().getCUBOTerminalRuleCall_2_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getCommandAccess().getTokensCompoundParserRuleCall_2_1_0());
-					}
-					lv_tokens_7_0=ruleCompound
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCommandRule());
-						}
-						add(
-							$current,
-							"tokens",
-							lv_tokens_7_0,
-							"org.xixum.latex.TexDsl.Compound");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				(
-					this_PIPE_8=RULE_PIPE
-					{
-						newLeafNode(this_PIPE_8, grammarAccess.getCommandAccess().getPIPETerminalRuleCall_2_2_0_0());
-					}
-					    |
-					this_EXCL_9=RULE_EXCL
-					{
-						newLeafNode(this_EXCL_9, grammarAccess.getCommandAccess().getEXCLTerminalRuleCall_2_2_0_1());
-					}
-				)
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getCommandAccess().getTokensCompoundParserRuleCall_2_2_1_0());
-						}
-						lv_tokens_10_0=ruleCompound
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getCommandRule());
-							}
-							add(
-								$current,
-								"tokens",
-								lv_tokens_10_0,
-								"org.xixum.latex.TexDsl.Compound");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			this_CUBC_11=RULE_CUBC
-			{
-				newLeafNode(this_CUBC_11, grammarAccess.getCommandAccess().getCUBCTerminalRuleCall_2_3());
-			}
-		)?
-	)
-;
-
-// Entry rule entryRuleMulti
-entryRuleMulti returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getMultiRule()); }
-	iv_ruleMulti=ruleMulti
-	{ $current=$iv_ruleMulti.current; }
-	EOF;
-
-// Rule Multi
-ruleMulti returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			lv_tokens_0_0=RULE_ID
-			{
-				newLeafNode(lv_tokens_0_0, grammarAccess.getMultiAccess().getTokensIDTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getMultiRule());
-				}
-				addWithLastConsumed(
-					$current,
-					"tokens",
-					lv_tokens_0_0,
-					"org.xixum.latex.TexDsl.ID");
-			}
-		)
-	)+
-;
-
-// Entry rule entryRuleCommandExt
-entryRuleCommandExt returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getCommandExtRule()); }
-	iv_ruleCommandExt=ruleCommandExt
-	{ $current=$iv_ruleCommandExt.current; }
-	EOF;
-
-// Rule CommandExt
-ruleCommandExt returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				(
-					lv_command_0_1=RULE_ID
-					{
-						newLeafNode(lv_command_0_1, grammarAccess.getCommandExtAccess().getCommandIDTerminalRuleCall_0_0_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getCommandExtRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"command",
-							lv_command_0_1,
-							"org.xixum.latex.TexDsl.ID");
-					}
-					    |
-					lv_command_0_2=RULE_ID_COMM
-					{
-						newLeafNode(lv_command_0_2, grammarAccess.getCommandExtAccess().getCommandID_COMMTerminalRuleCall_0_0_1());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getCommandExtRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"command",
-							lv_command_0_2,
-							"org.xixum.latex.TexDsl.ID_COMM");
-					}
-				)
-			)
-		)
-		(
-			this_CUBO_1=RULE_CUBO
-			{
-				newLeafNode(this_CUBO_1, grammarAccess.getCommandExtAccess().getCUBOTerminalRuleCall_1_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getCommandExtAccess().getTokensCompoundParserRuleCall_1_1_0());
-					}
-					lv_tokens_2_0=ruleCompound
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCommandExtRule());
-						}
-						add(
-							$current,
-							"tokens",
-							lv_tokens_2_0,
-							"org.xixum.latex.TexDsl.Compound");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				this_KOMMA_3=RULE_KOMMA
-				{
-					newLeafNode(this_KOMMA_3, grammarAccess.getCommandExtAccess().getKOMMATerminalRuleCall_1_2_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getCommandExtAccess().getTokensCompoundParserRuleCall_1_2_1_0());
-						}
-						lv_tokens_4_0=ruleCompound
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getCommandExtRule());
-							}
-							add(
-								$current,
-								"tokens",
-								lv_tokens_4_0,
-								"org.xixum.latex.TexDsl.Compound");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			this_CUBC_5=RULE_CUBC
-			{
-				newLeafNode(this_CUBC_5, grammarAccess.getCommandExtAccess().getCUBCTerminalRuleCall_1_3());
-			}
-		)
-	)
-;
-
-// Entry rule entryRuleCompound
-entryRuleCompound returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getCompoundRule()); }
-	iv_ruleCompound=ruleCompound
-	{ $current=$iv_ruleCompound.current; }
-	EOF;
-
-// Rule Compound
-ruleCompound returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getCompoundAccess().getMultiParserRuleCall_0());
-		}
-		this_Multi_0=ruleMulti
-		{
-			$current = $this_Multi_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getCompoundAccess().getExtrasParserRuleCall_1());
-		}
-		this_Extras_1=ruleExtras
-		{
-			$current = $this_Extras_1.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		(
-			(ruleCommandExt)=>
-			{
-				newCompositeNode(grammarAccess.getCompoundAccess().getCommandExtParserRuleCall_2());
-			}
-			this_CommandExt_2=ruleCommandExt
-			{
-				$current = $this_CommandExt_2.current;
-				afterParserOrEnumRuleCall();
-			}
-		)
-	)
-;
-
-// Entry rule entryRuleExtras
-entryRuleExtras returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExtrasRule()); }
-	iv_ruleExtras=ruleExtras
-	{ $current=$iv_ruleExtras.current; }
-	EOF;
-
-// Rule Extras
-ruleExtras returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_tokens_0_1=RULE_BO
-				{
-					newLeafNode(lv_tokens_0_1, grammarAccess.getExtrasAccess().getTokensBOTerminalRuleCall_0_0());
-				}
+				lv_optionalArgs_2_0=ruleOptionalArgument
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getExtrasRule());
+						$current = createModelElementForParent(grammarAccess.getCommandRule());
 					}
-					addWithLastConsumed(
+					add(
 						$current,
-						"tokens",
-						lv_tokens_0_1,
-						"org.xixum.latex.TexDsl.BO");
-				}
-				    |
-				lv_tokens_0_2=RULE_BC
-				{
-					newLeafNode(lv_tokens_0_2, grammarAccess.getExtrasAccess().getTokensBCTerminalRuleCall_0_1());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getExtrasRule());
-					}
-					addWithLastConsumed(
-						$current,
-						"tokens",
-						lv_tokens_0_2,
-						"org.xixum.latex.TexDsl.BC");
+						"optionalArgs",
+						lv_optionalArgs_2_0,
+						"org.xixum.latex.TexDsl.OptionalArgument");
+					afterParserOrEnumRuleCall();
 				}
 			)
-		)
-	)+
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCommandAccess().getMandatoryArgsMandatoryArgumentParserRuleCall_3_0());
+				}
+				lv_mandatoryArgs_3_0=ruleMandatoryArgument
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCommandRule());
+					}
+					add(
+						$current,
+						"mandatoryArgs",
+						lv_mandatoryArgs_3_0,
+						"org.xixum.latex.TexDsl.MandatoryArgument");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
 ;
 
-// Entry rule entryRuleAttributes
-entryRuleAttributes returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAttributesRule()); }
-	iv_ruleAttributes=ruleAttributes
-	{ $current=$iv_ruleAttributes.current; }
+// Entry rule entryRuleOptionalArgument
+entryRuleOptionalArgument returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getOptionalArgumentRule()); }
+	iv_ruleOptionalArgument=ruleOptionalArgument
+	{ $current=$iv_ruleOptionalArgument.current; }
 	EOF;
 
-// Rule Attributes
-ruleAttributes returns [EObject current=null]
+// Rule OptionalArgument
+ruleOptionalArgument returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -667,133 +245,552 @@ ruleAttributes returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='['
+		{
+			newLeafNode(otherlv_0, grammarAccess.getOptionalArgumentAccess().getLeftSquareBracketKeyword_0());
+		}
 		(
 			(
-				lv_key_0_0=RULE_ID
 				{
-					newLeafNode(lv_key_0_0, grammarAccess.getAttributesAccess().getKeyIDTerminalRuleCall_0_0());
+					newCompositeNode(grammarAccess.getOptionalArgumentAccess().getContentArgumentContentParserRuleCall_1_0());
+				}
+				lv_content_1_0=ruleArgumentContent
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getOptionalArgumentRule());
+					}
+					add(
+						$current,
+						"content",
+						lv_content_1_0,
+						"org.xixum.latex.TexDsl.ArgumentContent");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_2=']'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getOptionalArgumentAccess().getRightSquareBracketKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleMandatoryArgument
+entryRuleMandatoryArgument returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMandatoryArgumentRule()); }
+	iv_ruleMandatoryArgument=ruleMandatoryArgument
+	{ $current=$iv_ruleMandatoryArgument.current; }
+	EOF;
+
+// Rule MandatoryArgument
+ruleMandatoryArgument returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='{'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getMandatoryArgumentAccess().getLeftCurlyBracketKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMandatoryArgumentAccess().getContentArgumentContentParserRuleCall_1_0());
+				}
+				lv_content_1_0=ruleArgumentContent
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMandatoryArgumentRule());
+					}
+					add(
+						$current,
+						"content",
+						lv_content_1_0,
+						"org.xixum.latex.TexDsl.ArgumentContent");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_2='}'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getMandatoryArgumentAccess().getRightCurlyBracketKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleEnvironment
+entryRuleEnvironment returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEnvironmentRule()); }
+	iv_ruleEnvironment=ruleEnvironment
+	{ $current=$iv_ruleEnvironment.current; }
+	EOF;
+
+// Rule Environment
+ruleEnvironment returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='\\begin{'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getEnvironmentAccess().getBeginKeyword_0());
+		}
+		(
+			(
+				lv_type_1_0=RULE_ID
+				{
+					newLeafNode(lv_type_1_0, grammarAccess.getEnvironmentAccess().getTypeIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAttributesRule());
+						$current = createModelElement(grammarAccess.getEnvironmentRule());
 					}
 					setWithLastConsumed(
 						$current,
-						"key",
-						lv_key_0_0,
-						"org.xixum.latex.TexDsl.ID");
+						"type",
+						lv_type_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
+		otherlv_2='}'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getEnvironmentAccess().getRightCurlyBracketKeyword_2());
+		}
 		(
-			this_EQ_1=RULE_EQ
-			{
-				newLeafNode(this_EQ_1, grammarAccess.getAttributesAccess().getEQTerminalRuleCall_1_0());
-			}
 			(
-				(
-					this_CUBO_2=RULE_CUBO
-					{
-						newLeafNode(this_CUBO_2, grammarAccess.getAttributesAccess().getCUBOTerminalRuleCall_1_1_0_0());
+				{
+					newCompositeNode(grammarAccess.getEnvironmentAccess().getContentElementParserRuleCall_3_0());
+				}
+				lv_content_3_0=ruleElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEnvironmentRule());
 					}
-					(
-						(
-							{
-								newCompositeNode(grammarAccess.getAttributesAccess().getMultiMultiParserRuleCall_1_1_0_1_0());
-							}
-							lv_multi_3_0=ruleMulti
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getAttributesRule());
-								}
-								add(
-									$current,
-									"multi",
-									lv_multi_3_0,
-									"org.xixum.latex.TexDsl.Multi");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)+
-					this_CUBC_4=RULE_CUBC
-					{
-						newLeafNode(this_CUBC_4, grammarAccess.getAttributesAccess().getCUBCTerminalRuleCall_1_1_0_2());
-					}
-				)
-				    |
-				(
-					(
-						lv_single_5_0=RULE_ID
-						{
-							newLeafNode(lv_single_5_0, grammarAccess.getAttributesAccess().getSingleIDTerminalRuleCall_1_1_1_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getAttributesRule());
-							}
-							setWithLastConsumed(
-								$current,
-								"single",
-								lv_single_5_0,
-								"org.xixum.latex.TexDsl.ID");
-						}
-					)
-				)
+					add(
+						$current,
+						"content",
+						lv_content_3_0,
+						"org.xixum.latex.TexDsl.Element");
+					afterParserOrEnumRuleCall();
+				}
 			)
-		)?
+		)*
+		otherlv_4='\\end{'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getEnvironmentAccess().getEndKeyword_4());
+		}
+		(
+			(
+				lv_endType_5_0=RULE_ID
+				{
+					newLeafNode(lv_endType_5_0, grammarAccess.getEnvironmentAccess().getEndTypeIDTerminalRuleCall_5_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEnvironmentRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"endType",
+						lv_endType_5_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_6='}'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getEnvironmentAccess().getRightCurlyBracketKeyword_6());
+		}
 	)
 ;
 
-RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
+// Entry rule entryRuleArgumentContent
+entryRuleArgumentContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getArgumentContentRule()); }
+	iv_ruleArgumentContent=ruleArgumentContent
+	{ $current=$iv_ruleArgumentContent.current; }
+	EOF;
 
-RULE_ID : (RULE_ALPHA|RULE_SYMBOL) (RULE_ALPHA|RULE_SYMBOL|RULE_NUMERIC|RULE_DOT|RULE_AND)*;
+// Rule ArgumentContent
+ruleArgumentContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getArgumentContentAccess().getTextContentParserRuleCall_0());
+		}
+		this_TextContent_0=ruleTextContent
+		{
+			$current = $this_TextContent_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getArgumentContentAccess().getCommandParserRuleCall_1());
+		}
+		this_Command_1=ruleCommand
+		{
+			$current = $this_Command_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getArgumentContentAccess().getMathExpressionParserRuleCall_2());
+		}
+		this_MathExpression_2=ruleMathExpression
+		{
+			$current = $this_MathExpression_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getArgumentContentAccess().getEnvironmentParserRuleCall_3());
+		}
+		this_Environment_3=ruleEnvironment
+		{
+			$current = $this_Environment_3.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
 
-fragment RULE_BS : '\\';
+// Entry rule entryRuleTextContent
+entryRuleTextContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTextContentRule()); }
+	iv_ruleTextContent=ruleTextContent
+	{ $current=$iv_ruleTextContent.current; }
+	EOF;
 
-RULE_ID_COMM : RULE_BS RULE_ID;
+// Rule TextContent
+ruleTextContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getTextContentAccess().getTextContentAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				lv_text_1_0=RULE_TEXT
+				{
+					newLeafNode(lv_text_1_0, grammarAccess.getTextContentAccess().getTextTEXTTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTextContentRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"text",
+						lv_text_1_0,
+						"org.xixum.latex.TexDsl.TEXT");
+				}
+			)
+		)*
+	)
+;
 
-fragment RULE_ALPHA : (RULE_ALPHAC|RULE_ALPHAS|RULE_D_QUOTE|RULE_S_QUOTE);
+// Entry rule entryRuleMathExpression
+entryRuleMathExpression returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMathExpressionRule()); }
+	iv_ruleMathExpression=ruleMathExpression
+	{ $current=$iv_ruleMathExpression.current; }
+	EOF;
 
-fragment RULE_ALPHAC : ('A'..'Z'|'\u00C4'..'\u00DC'|'\u00C0'..'\u00D9'|'\u00C1'..'\u00DA');
+// Rule MathExpression
+ruleMathExpression returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getMathExpressionAccess().getInlineMathParserRuleCall_0());
+		}
+		this_InlineMath_0=ruleInlineMath
+		{
+			$current = $this_InlineMath_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getMathExpressionAccess().getDisplayMathParserRuleCall_1());
+		}
+		this_DisplayMath_1=ruleDisplayMath
+		{
+			$current = $this_DisplayMath_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
 
-fragment RULE_ALPHAS : ('a'..'z'|'\u00E4'..'\u00FC'|'\u00DF'|'\u00E0'..'\u00F9'|'\u00E1'..'\u00FA');
+// Entry rule entryRuleInlineMath
+entryRuleInlineMath returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInlineMathRule()); }
+	iv_ruleInlineMath=ruleInlineMath
+	{ $current=$iv_ruleInlineMath.current; }
+	EOF;
 
-fragment RULE_NUMERIC : '0'..'9';
+// Rule InlineMath
+ruleInlineMath returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getInlineMathAccess().getInlineMathAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='$'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getInlineMathAccess().getDollarSignKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getInlineMathAccess().getContentMathContentParserRuleCall_2_0());
+				}
+				lv_content_2_0=ruleMathContent
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInlineMathRule());
+					}
+					add(
+						$current,
+						"content",
+						lv_content_2_0,
+						"org.xixum.latex.TexDsl.MathContent");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_3='$'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getInlineMathAccess().getDollarSignKeyword_3());
+		}
+	)
+;
 
-RULE_SQBO : '[';
+// Entry rule entryRuleDisplayMath
+entryRuleDisplayMath returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDisplayMathRule()); }
+	iv_ruleDisplayMath=ruleDisplayMath
+	{ $current=$iv_ruleDisplayMath.current; }
+	EOF;
 
-RULE_SQBC : ']';
+// Rule DisplayMath
+ruleDisplayMath returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getDisplayMathAccess().getDisplayMathAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='$$'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDisplayMathAccess().getDollarSignDollarSignKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDisplayMathAccess().getContentMathContentParserRuleCall_2_0());
+				}
+				lv_content_2_0=ruleMathContent
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDisplayMathRule());
+					}
+					add(
+						$current,
+						"content",
+						lv_content_2_0,
+						"org.xixum.latex.TexDsl.MathContent");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_3='$$'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDisplayMathAccess().getDollarSignDollarSignKeyword_3());
+		}
+	)
+;
 
-RULE_BO : '(';
+// Entry rule entryRuleMathContent
+entryRuleMathContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMathContentRule()); }
+	iv_ruleMathContent=ruleMathContent
+	{ $current=$iv_ruleMathContent.current; }
+	EOF;
 
-RULE_BC : ')';
+// Rule MathContent
+ruleMathContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getMathContentAccess().getCommandParserRuleCall_0());
+		}
+		this_Command_0=ruleCommand
+		{
+			$current = $this_Command_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getMathContentAccess().getTextContentParserRuleCall_1());
+		}
+		this_TextContent_1=ruleTextContent
+		{
+			$current = $this_TextContent_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getMathContentAccess().getNumberContentParserRuleCall_2());
+		}
+		this_NumberContent_2=ruleNumberContent
+		{
+			$current = $this_NumberContent_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getMathContentAccess().getSymbolContentParserRuleCall_3());
+		}
+		this_SymbolContent_3=ruleSymbolContent
+		{
+			$current = $this_SymbolContent_3.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
 
-RULE_CUBO : '{';
+// Entry rule entryRuleNumberContent
+entryRuleNumberContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNumberContentRule()); }
+	iv_ruleNumberContent=ruleNumberContent
+	{ $current=$iv_ruleNumberContent.current; }
+	EOF;
 
-RULE_CUBC : '}';
+// Rule NumberContent
+ruleNumberContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_content_0_0=RULE_NUMBER
+			{
+				newLeafNode(lv_content_0_0, grammarAccess.getNumberContentAccess().getContentNUMBERTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getNumberContentRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"content",
+					lv_content_0_0,
+					"org.xixum.latex.TexDsl.NUMBER");
+			}
+		)
+	)
+;
 
-RULE_KOMMA : ',';
+// Entry rule entryRuleSymbolContent
+entryRuleSymbolContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSymbolContentRule()); }
+	iv_ruleSymbolContent=ruleSymbolContent
+	{ $current=$iv_ruleSymbolContent.current; }
+	EOF;
 
-RULE_EQ : '=';
+// Rule SymbolContent
+ruleSymbolContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_content_0_0=RULE_SYMBOL
+			{
+				newLeafNode(lv_content_0_0, grammarAccess.getSymbolContentAccess().getContentSYMBOLTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getSymbolContentRule());
+				}
+				addWithLastConsumed(
+					$current,
+					"content",
+					lv_content_0_0,
+					"org.xixum.latex.TexDsl.SYMBOL");
+			}
+		)
+	)+
+;
 
-RULE_DOT : '.';
+RULE_SYMBOL : ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
 
-fragment RULE_AND : '&';
+RULE_TEXT : ~(('\\'|'$'|'{'|'}'|'['|']'|'^'|'_'))+;
 
-RULE_PIPE : '|';
+RULE_NUMBER : RULE_INT ('.' RULE_INT)?;
 
-RULE_EXCL : '!';
+RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-fragment RULE_SPACE : ' ';
+fragment RULE_INT : ('0'..'9')+;
 
-RULE_SYMBOL : ('-'|'_'|'+'|'#'|'~');
+RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
-fragment RULE_D_QUOTE : '"';
+RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-fragment RULE_S_QUOTE : '\'';
+RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-RULE_END : EOF;
-
-RULE_WS : (RULE_SPACE|'\t'|'\r'|'\n')+;
+RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
 RULE_ANY_OTHER : .;

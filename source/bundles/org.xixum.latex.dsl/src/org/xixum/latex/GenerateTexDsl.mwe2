@@ -53,6 +53,7 @@ Workflow {
 			junitSupport = {
 				junitVersion = "5"
 			}
+			
 		}
 	}
 }

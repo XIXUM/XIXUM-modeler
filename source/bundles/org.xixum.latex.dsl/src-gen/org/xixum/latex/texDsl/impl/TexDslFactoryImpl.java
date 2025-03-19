@@ -66,14 +66,19 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
     switch (eClass.getClassifierID())
     {
       case TexDslPackage.MODEL: return createModel();
-      case TexDslPackage.DOCUMENT: return createDocument();
-      case TexDslPackage.TEXT: return createText();
+      case TexDslPackage.ELEMENT: return createElement();
       case TexDslPackage.COMMAND: return createCommand();
-      case TexDslPackage.MULTI: return createMulti();
-      case TexDslPackage.COMMAND_EXT: return createCommandExt();
-      case TexDslPackage.COMPOUND: return createCompound();
-      case TexDslPackage.EXTRAS: return createExtras();
-      case TexDslPackage.ATTRIBUTES: return createAttributes();
+      case TexDslPackage.OPTIONAL_ARGUMENT: return createOptionalArgument();
+      case TexDslPackage.MANDATORY_ARGUMENT: return createMandatoryArgument();
+      case TexDslPackage.ENVIRONMENT: return createEnvironment();
+      case TexDslPackage.ARGUMENT_CONTENT: return createArgumentContent();
+      case TexDslPackage.TEXT_CONTENT: return createTextContent();
+      case TexDslPackage.MATH_EXPRESSION: return createMathExpression();
+      case TexDslPackage.INLINE_MATH: return createInlineMath();
+      case TexDslPackage.DISPLAY_MATH: return createDisplayMath();
+      case TexDslPackage.MATH_CONTENT: return createMathContent();
+      case TexDslPackage.NUMBER_CONTENT: return createNumberContent();
+      case TexDslPackage.SYMBOL_CONTENT: return createSymbolContent();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -97,22 +102,10 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
    * @generated
    */
   @Override
-  public Document createDocument()
+  public Element createElement()
   {
-    DocumentImpl document = new DocumentImpl();
-    return document;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Text createText()
-  {
-    TextImpl text = new TextImpl();
-    return text;
+    ElementImpl element = new ElementImpl();
+    return element;
   }
 
   /**
@@ -133,10 +126,10 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
    * @generated
    */
   @Override
-  public Multi createMulti()
+  public OptionalArgument createOptionalArgument()
   {
-    MultiImpl multi = new MultiImpl();
-    return multi;
+    OptionalArgumentImpl optionalArgument = new OptionalArgumentImpl();
+    return optionalArgument;
   }
 
   /**
@@ -145,10 +138,10 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
    * @generated
    */
   @Override
-  public CommandExt createCommandExt()
+  public MandatoryArgument createMandatoryArgument()
   {
-    CommandExtImpl commandExt = new CommandExtImpl();
-    return commandExt;
+    MandatoryArgumentImpl mandatoryArgument = new MandatoryArgumentImpl();
+    return mandatoryArgument;
   }
 
   /**
@@ -157,10 +150,10 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
    * @generated
    */
   @Override
-  public Compound createCompound()
+  public Environment createEnvironment()
   {
-    CompoundImpl compound = new CompoundImpl();
-    return compound;
+    EnvironmentImpl environment = new EnvironmentImpl();
+    return environment;
   }
 
   /**
@@ -169,10 +162,10 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
    * @generated
    */
   @Override
-  public Extras createExtras()
+  public ArgumentContent createArgumentContent()
   {
-    ExtrasImpl extras = new ExtrasImpl();
-    return extras;
+    ArgumentContentImpl argumentContent = new ArgumentContentImpl();
+    return argumentContent;
   }
 
   /**
@@ -181,10 +174,82 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
    * @generated
    */
   @Override
-  public Attributes createAttributes()
+  public TextContent createTextContent()
   {
-    AttributesImpl attributes = new AttributesImpl();
-    return attributes;
+    TextContentImpl textContent = new TextContentImpl();
+    return textContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MathExpression createMathExpression()
+  {
+    MathExpressionImpl mathExpression = new MathExpressionImpl();
+    return mathExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public InlineMath createInlineMath()
+  {
+    InlineMathImpl inlineMath = new InlineMathImpl();
+    return inlineMath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DisplayMath createDisplayMath()
+  {
+    DisplayMathImpl displayMath = new DisplayMathImpl();
+    return displayMath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MathContent createMathContent()
+  {
+    MathContentImpl mathContent = new MathContentImpl();
+    return mathContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NumberContent createNumberContent()
+  {
+    NumberContentImpl numberContent = new NumberContentImpl();
+    return numberContent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SymbolContent createSymbolContent()
+  {
+    SymbolContentImpl symbolContent = new SymbolContentImpl();
+    return symbolContent;
   }
 
   /**

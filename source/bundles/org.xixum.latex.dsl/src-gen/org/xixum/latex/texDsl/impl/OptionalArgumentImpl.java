@@ -17,41 +17,41 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xixum.latex.texDsl.Element;
-import org.xixum.latex.texDsl.Model;
+import org.xixum.latex.texDsl.ArgumentContent;
+import org.xixum.latex.texDsl.OptionalArgument;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Optional Argument</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.impl.ModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.OptionalArgumentImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class OptionalArgumentImpl extends MinimalEObjectImpl.Container implements OptionalArgument
 {
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+   * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
+   * @see #getContent()
    * @generated
    * @ordered
    */
-  protected EList<Element> elements;
+  protected EList<ArgumentContent> content;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected OptionalArgumentImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return TexDslPackage.Literals.MODEL;
+    return TexDslPackage.Literals.OPTIONAL_ARGUMENT;
   }
 
   /**
@@ -73,13 +73,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<Element> getElements()
+  public EList<ArgumentContent> getContent()
   {
-    if (elements == null)
+    if (content == null)
     {
-      elements = new EObjectContainmentEList<Element>(Element.class, this, TexDslPackage.MODEL__ELEMENTS);
+      content = new EObjectContainmentEList<ArgumentContent>(ArgumentContent.class, this, TexDslPackage.OPTIONAL_ARGUMENT__CONTENT);
     }
-    return elements;
+    return content;
   }
 
   /**
@@ -92,8 +92,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case TexDslPackage.MODEL__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+      case TexDslPackage.OPTIONAL_ARGUMENT__CONTENT:
+        return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +108,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case TexDslPackage.MODEL__ELEMENTS:
-        return getElements();
+      case TexDslPackage.OPTIONAL_ARGUMENT__CONTENT:
+        return getContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +125,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case TexDslPackage.MODEL__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends Element>)newValue);
+      case TexDslPackage.OPTIONAL_ARGUMENT__CONTENT:
+        getContent().clear();
+        getContent().addAll((Collection<? extends ArgumentContent>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +143,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case TexDslPackage.MODEL__ELEMENTS:
-        getElements().clear();
+      case TexDslPackage.OPTIONAL_ARGUMENT__CONTENT:
+        getContent().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,10 +160,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case TexDslPackage.MODEL__ELEMENTS:
-        return elements != null && !elements.isEmpty();
+      case TexDslPackage.OPTIONAL_ARGUMENT__CONTENT:
+        return content != null && !content.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //OptionalArgumentImpl

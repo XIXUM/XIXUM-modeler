@@ -12,46 +12,44 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xixum.latex.texDsl.Element;
-import org.xixum.latex.texDsl.Model;
+import org.xixum.latex.texDsl.MathContent;
+import org.xixum.latex.texDsl.MathExpression;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Math Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.impl.ModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.MathExpressionImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class MathExpressionImpl extends ElementImpl implements MathExpression
 {
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+   * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
+   * @see #getContent()
    * @generated
    * @ordered
    */
-  protected EList<Element> elements;
+  protected EList<MathContent> content;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected MathExpressionImpl()
   {
     super();
   }
@@ -64,7 +62,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return TexDslPackage.Literals.MODEL;
+    return TexDslPackage.Literals.MATH_EXPRESSION;
   }
 
   /**
@@ -73,13 +71,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<Element> getElements()
+  public EList<MathContent> getContent()
   {
-    if (elements == null)
+    if (content == null)
     {
-      elements = new EObjectContainmentEList<Element>(Element.class, this, TexDslPackage.MODEL__ELEMENTS);
+      content = new EObjectContainmentEList<MathContent>(MathContent.class, this, TexDslPackage.MATH_EXPRESSION__CONTENT);
     }
-    return elements;
+    return content;
   }
 
   /**
@@ -92,8 +90,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case TexDslPackage.MODEL__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+      case TexDslPackage.MATH_EXPRESSION__CONTENT:
+        return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +106,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case TexDslPackage.MODEL__ELEMENTS:
-        return getElements();
+      case TexDslPackage.MATH_EXPRESSION__CONTENT:
+        return getContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +123,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case TexDslPackage.MODEL__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends Element>)newValue);
+      case TexDslPackage.MATH_EXPRESSION__CONTENT:
+        getContent().clear();
+        getContent().addAll((Collection<? extends MathContent>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +141,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case TexDslPackage.MODEL__ELEMENTS:
-        getElements().clear();
+      case TexDslPackage.MATH_EXPRESSION__CONTENT:
+        getContent().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,10 +158,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case TexDslPackage.MODEL__ELEMENTS:
-        return elements != null && !elements.isEmpty();
+      case TexDslPackage.MATH_EXPRESSION__CONTENT:
+        return content != null && !content.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //MathExpressionImpl

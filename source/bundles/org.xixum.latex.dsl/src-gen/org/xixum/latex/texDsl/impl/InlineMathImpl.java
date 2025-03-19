@@ -5,26 +5,24 @@ package org.xixum.latex.texDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.xixum.latex.texDsl.Document;
+import org.xixum.latex.texDsl.InlineMath;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Document</b></em>'.
+ * An implementation of the model object '<em><b>Inline Math</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class DocumentImpl extends MinimalEObjectImpl.Container implements Document
+public class InlineMathImpl extends MathExpressionImpl implements InlineMath
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DocumentImpl()
+  protected InlineMathImpl()
   {
     super();
   }
@@ -37,7 +35,7 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
   @Override
   protected EClass eStaticClass()
   {
-    return TexDslPackage.Literals.DOCUMENT;
+    return TexDslPackage.Literals.INLINE_MATH;
   }
 
-} //DocumentImpl
+} //InlineMathImpl

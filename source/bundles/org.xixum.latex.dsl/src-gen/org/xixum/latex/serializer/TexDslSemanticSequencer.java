@@ -11,17 +11,21 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xixum.latex.services.TexDslGrammarAccess;
-import org.xixum.latex.texDsl.Attributes;
 import org.xixum.latex.texDsl.Command;
-import org.xixum.latex.texDsl.CommandExt;
-import org.xixum.latex.texDsl.Document;
-import org.xixum.latex.texDsl.Extras;
+import org.xixum.latex.texDsl.DisplayMath;
+import org.xixum.latex.texDsl.Environment;
+import org.xixum.latex.texDsl.InlineMath;
+import org.xixum.latex.texDsl.MandatoryArgument;
 import org.xixum.latex.texDsl.Model;
-import org.xixum.latex.texDsl.Multi;
+import org.xixum.latex.texDsl.NumberContent;
+import org.xixum.latex.texDsl.OptionalArgument;
+import org.xixum.latex.texDsl.SymbolContent;
 import org.xixum.latex.texDsl.TexDslPackage;
-import org.xixum.latex.texDsl.Text;
+import org.xixum.latex.texDsl.TextContent;
 
 @SuppressWarnings("all")
 public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -37,29 +41,35 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == TexDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case TexDslPackage.ATTRIBUTES:
-				sequence_Attributes(context, (Attributes) semanticObject); 
-				return; 
 			case TexDslPackage.COMMAND:
 				sequence_Command(context, (Command) semanticObject); 
 				return; 
-			case TexDslPackage.COMMAND_EXT:
-				sequence_CommandExt(context, (CommandExt) semanticObject); 
+			case TexDslPackage.DISPLAY_MATH:
+				sequence_DisplayMath(context, (DisplayMath) semanticObject); 
 				return; 
-			case TexDslPackage.DOCUMENT:
-				sequence_Document(context, (Document) semanticObject); 
+			case TexDslPackage.ENVIRONMENT:
+				sequence_Environment(context, (Environment) semanticObject); 
 				return; 
-			case TexDslPackage.EXTRAS:
-				sequence_Extras(context, (Extras) semanticObject); 
+			case TexDslPackage.INLINE_MATH:
+				sequence_InlineMath(context, (InlineMath) semanticObject); 
+				return; 
+			case TexDslPackage.MANDATORY_ARGUMENT:
+				sequence_MandatoryArgument(context, (MandatoryArgument) semanticObject); 
 				return; 
 			case TexDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case TexDslPackage.MULTI:
-				sequence_Multi(context, (Multi) semanticObject); 
+			case TexDslPackage.NUMBER_CONTENT:
+				sequence_NumberContent(context, (NumberContent) semanticObject); 
 				return; 
-			case TexDslPackage.TEXT:
-				sequence_Text(context, (Text) semanticObject); 
+			case TexDslPackage.OPTIONAL_ARGUMENT:
+				sequence_OptionalArgument(context, (OptionalArgument) semanticObject); 
+				return; 
+			case TexDslPackage.SYMBOL_CONTENT:
+				sequence_SymbolContent(context, (SymbolContent) semanticObject); 
+				return; 
+			case TexDslPackage.TEXT_CONTENT:
+				sequence_TextContent(context, (TextContent) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -69,40 +79,13 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Attributes returns Attributes
-	 *
-	 * Constraint:
-	 *     (key=ID (multi+=Multi+ | single=ID)?)
-	 * </pre>
-	 */
-	protected void sequence_Attributes(ISerializationContext context, Attributes semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     CommandExt returns CommandExt
-	 *     Compound returns CommandExt
-	 *
-	 * Constraint:
-	 *     ((command=ID | command=ID_COMM) tokens+=Compound tokens+=Compound*)
-	 * </pre>
-	 */
-	protected void sequence_CommandExt(ISerializationContext context, CommandExt semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Document returns Command
+	 *     Element returns Command
 	 *     Command returns Command
+	 *     ArgumentContent returns Command
+	 *     MathContent returns Command
 	 *
 	 * Constraint:
-	 *     (command=ID_COMM (attrs+=Attributes attrs+=Attributes*)? (tokens+=Compound tokens+=Compound*)?)
+	 *     (name=ID optionalArgs+=OptionalArgument* mandatoryArgs+=MandatoryArgument*)
 	 * </pre>
 	 */
 	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
@@ -113,13 +96,16 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Document returns Document
+	 *     Element returns DisplayMath
+	 *     ArgumentContent returns DisplayMath
+	 *     MathExpression returns DisplayMath
+	 *     DisplayMath returns DisplayMath
 	 *
 	 * Constraint:
-	 *     {Document}
+	 *     content+=MathContent*
 	 * </pre>
 	 */
-	protected void sequence_Document(ISerializationContext context, Document semanticObject) {
+	protected void sequence_DisplayMath(ISerializationContext context, DisplayMath semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -127,14 +113,46 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Compound returns Extras
-	 *     Extras returns Extras
+	 *     Element returns Environment
+	 *     Environment returns Environment
+	 *     ArgumentContent returns Environment
 	 *
 	 * Constraint:
-	 *     (tokens+=BO | tokens+=BC)+
+	 *     (type=ID content+=Element* endType=ID)
 	 * </pre>
 	 */
-	protected void sequence_Extras(ISerializationContext context, Extras semanticObject) {
+	protected void sequence_Environment(ISerializationContext context, Environment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Element returns InlineMath
+	 *     ArgumentContent returns InlineMath
+	 *     MathExpression returns InlineMath
+	 *     InlineMath returns InlineMath
+	 *
+	 * Constraint:
+	 *     content+=MathContent*
+	 * </pre>
+	 */
+	protected void sequence_InlineMath(ISerializationContext context, InlineMath semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     MandatoryArgument returns MandatoryArgument
+	 *
+	 * Constraint:
+	 *     content+=ArgumentContent+
+	 * </pre>
+	 */
+	protected void sequence_MandatoryArgument(ISerializationContext context, MandatoryArgument semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -145,7 +163,7 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     document+=Document+
+	 *     elements+=Element+
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
@@ -156,14 +174,34 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Multi returns Multi
-	 *     Compound returns Multi
+	 *     MathContent returns NumberContent
+	 *     NumberContent returns NumberContent
 	 *
 	 * Constraint:
-	 *     tokens+=ID+
+	 *     content=NUMBER
 	 * </pre>
 	 */
-	protected void sequence_Multi(ISerializationContext context, Multi semanticObject) {
+	protected void sequence_NumberContent(ISerializationContext context, NumberContent semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TexDslPackage.Literals.NUMBER_CONTENT__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TexDslPackage.Literals.NUMBER_CONTENT__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNumberContentAccess().getContentNUMBERTerminalRuleCall_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     OptionalArgument returns OptionalArgument
+	 *
+	 * Constraint:
+	 *     content+=ArgumentContent+
+	 * </pre>
+	 */
+	protected void sequence_OptionalArgument(ISerializationContext context, OptionalArgument semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -171,14 +209,31 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Document returns Text
-	 *     Text returns Text
+	 *     MathContent returns SymbolContent
+	 *     SymbolContent returns SymbolContent
 	 *
 	 * Constraint:
-	 *     token+=AnyText
+	 *     content+=SYMBOL+
 	 * </pre>
 	 */
-	protected void sequence_Text(ISerializationContext context, Text semanticObject) {
+	protected void sequence_SymbolContent(ISerializationContext context, SymbolContent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Element returns TextContent
+	 *     ArgumentContent returns TextContent
+	 *     TextContent returns TextContent
+	 *     MathContent returns TextContent
+	 *
+	 * Constraint:
+	 *     text+=TEXT*
+	 * </pre>
+	 */
+	protected void sequence_TextContent(ISerializationContext context, TextContent semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

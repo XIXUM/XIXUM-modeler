@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.Model#getDocument <em>Document</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.Model#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see org.xixum.latex.texDsl.TexDslPackage#getModel()
@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Document</b></em>' containment reference list.
-   * The list contents are of type {@link org.xixum.latex.texDsl.Document}.
+   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+   * The list contents are of type {@link org.xixum.latex.texDsl.Element}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Document</em>' containment reference list.
-   * @see org.xixum.latex.texDsl.TexDslPackage#getModel_Document()
+   * @return the value of the '<em>Elements</em>' containment reference list.
+   * @see org.xixum.latex.texDsl.TexDslPackage#getModel_Elements()
    * @model containment="true"
    * @generated
    */
-  EList<Document> getDocument();
+  EList<Element> getElements();
 
 } // Model

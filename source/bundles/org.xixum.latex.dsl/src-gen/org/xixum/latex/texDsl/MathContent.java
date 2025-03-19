@@ -7,14 +7,14 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Document</b></em>'.
+ * A representation of the model object '<em><b>Math Content</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.xixum.latex.texDsl.TexDslPackage#getDocument()
+ * @see org.xixum.latex.texDsl.TexDslPackage#getMathContent()
  * @model
  * @generated
  */
-public interface Document extends EObject
+public interface MathContent extends EObject
 {
-} // Document
+} // MathContent

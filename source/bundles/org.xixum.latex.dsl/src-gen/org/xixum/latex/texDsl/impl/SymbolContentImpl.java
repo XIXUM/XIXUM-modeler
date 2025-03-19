@@ -11,40 +11,40 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
+import org.xixum.latex.texDsl.SymbolContent;
 import org.xixum.latex.texDsl.TexDslPackage;
-import org.xixum.latex.texDsl.Text;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Text</b></em>'.
+ * An implementation of the model object '<em><b>Symbol Content</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.impl.TextImpl#getToken <em>Token</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.SymbolContentImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TextImpl extends DocumentImpl implements Text
+public class SymbolContentImpl extends MathContentImpl implements SymbolContent
 {
   /**
-   * The cached value of the '{@link #getToken() <em>Token</em>}' attribute list.
+   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getToken()
+   * @see #getContent()
    * @generated
    * @ordered
    */
-  protected EList<String> token;
+  protected EList<String> content;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TextImpl()
+  protected SymbolContentImpl()
   {
     super();
   }
@@ -57,7 +57,7 @@ public class TextImpl extends DocumentImpl implements Text
   @Override
   protected EClass eStaticClass()
   {
-    return TexDslPackage.Literals.TEXT;
+    return TexDslPackage.Literals.SYMBOL_CONTENT;
   }
 
   /**
@@ -66,13 +66,13 @@ public class TextImpl extends DocumentImpl implements Text
    * @generated
    */
   @Override
-  public EList<String> getToken()
+  public EList<String> getContent()
   {
-    if (token == null)
+    if (content == null)
     {
-      token = new EDataTypeEList<String>(String.class, this, TexDslPackage.TEXT__TOKEN);
+      content = new EDataTypeEList<String>(String.class, this, TexDslPackage.SYMBOL_CONTENT__CONTENT);
     }
-    return token;
+    return content;
   }
 
   /**
@@ -85,8 +85,8 @@ public class TextImpl extends DocumentImpl implements Text
   {
     switch (featureID)
     {
-      case TexDslPackage.TEXT__TOKEN:
-        return getToken();
+      case TexDslPackage.SYMBOL_CONTENT__CONTENT:
+        return getContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -102,9 +102,9 @@ public class TextImpl extends DocumentImpl implements Text
   {
     switch (featureID)
     {
-      case TexDslPackage.TEXT__TOKEN:
-        getToken().clear();
-        getToken().addAll((Collection<? extends String>)newValue);
+      case TexDslPackage.SYMBOL_CONTENT__CONTENT:
+        getContent().clear();
+        getContent().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -120,8 +120,8 @@ public class TextImpl extends DocumentImpl implements Text
   {
     switch (featureID)
     {
-      case TexDslPackage.TEXT__TOKEN:
-        getToken().clear();
+      case TexDslPackage.SYMBOL_CONTENT__CONTENT:
+        getContent().clear();
         return;
     }
     super.eUnset(featureID);
@@ -137,8 +137,8 @@ public class TextImpl extends DocumentImpl implements Text
   {
     switch (featureID)
     {
-      case TexDslPackage.TEXT__TOKEN:
-        return token != null && !token.isEmpty();
+      case TexDslPackage.SYMBOL_CONTENT__CONTENT:
+        return content != null && !content.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -154,10 +154,10 @@ public class TextImpl extends DocumentImpl implements Text
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (token: ");
-    result.append(token);
+    result.append(" (content: ");
+    result.append(content);
     result.append(')');
     return result.toString();
   }
 
-} //TextImpl
+} //SymbolContentImpl

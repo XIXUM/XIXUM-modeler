@@ -7,14 +7,14 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Compound</b></em>'.
+ * A representation of the model object '<em><b>Element</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.xixum.latex.texDsl.TexDslPackage#getCompound()
+ * @see org.xixum.latex.texDsl.TexDslPackage#getElement()
  * @model
  * @generated
  */
-public interface Compound extends EObject
+public interface Element extends EObject
 {
-} // Compound
+} // Element

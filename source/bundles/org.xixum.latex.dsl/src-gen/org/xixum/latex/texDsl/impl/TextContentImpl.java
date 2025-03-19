@@ -11,40 +11,40 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.xixum.latex.texDsl.Multi;
 import org.xixum.latex.texDsl.TexDslPackage;
+import org.xixum.latex.texDsl.TextContent;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Multi</b></em>'.
+ * An implementation of the model object '<em><b>Text Content</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.impl.MultiImpl#getTokens <em>Tokens</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.TextContentImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MultiImpl extends CompoundImpl implements Multi
+public class TextContentImpl extends ElementImpl implements TextContent
 {
   /**
-   * The cached value of the '{@link #getTokens() <em>Tokens</em>}' attribute list.
+   * The cached value of the '{@link #getText() <em>Text</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTokens()
+   * @see #getText()
    * @generated
    * @ordered
    */
-  protected EList<String> tokens;
+  protected EList<String> text;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MultiImpl()
+  protected TextContentImpl()
   {
     super();
   }
@@ -57,7 +57,7 @@ public class MultiImpl extends CompoundImpl implements Multi
   @Override
   protected EClass eStaticClass()
   {
-    return TexDslPackage.Literals.MULTI;
+    return TexDslPackage.Literals.TEXT_CONTENT;
   }
 
   /**
@@ -66,13 +66,13 @@ public class MultiImpl extends CompoundImpl implements Multi
    * @generated
    */
   @Override
-  public EList<String> getTokens()
+  public EList<String> getText()
   {
-    if (tokens == null)
+    if (text == null)
     {
-      tokens = new EDataTypeEList<String>(String.class, this, TexDslPackage.MULTI__TOKENS);
+      text = new EDataTypeEList<String>(String.class, this, TexDslPackage.TEXT_CONTENT__TEXT);
     }
-    return tokens;
+    return text;
   }
 
   /**
@@ -85,8 +85,8 @@ public class MultiImpl extends CompoundImpl implements Multi
   {
     switch (featureID)
     {
-      case TexDslPackage.MULTI__TOKENS:
-        return getTokens();
+      case TexDslPackage.TEXT_CONTENT__TEXT:
+        return getText();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -102,9 +102,9 @@ public class MultiImpl extends CompoundImpl implements Multi
   {
     switch (featureID)
     {
-      case TexDslPackage.MULTI__TOKENS:
-        getTokens().clear();
-        getTokens().addAll((Collection<? extends String>)newValue);
+      case TexDslPackage.TEXT_CONTENT__TEXT:
+        getText().clear();
+        getText().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -120,8 +120,8 @@ public class MultiImpl extends CompoundImpl implements Multi
   {
     switch (featureID)
     {
-      case TexDslPackage.MULTI__TOKENS:
-        getTokens().clear();
+      case TexDslPackage.TEXT_CONTENT__TEXT:
+        getText().clear();
         return;
     }
     super.eUnset(featureID);
@@ -137,8 +137,8 @@ public class MultiImpl extends CompoundImpl implements Multi
   {
     switch (featureID)
     {
-      case TexDslPackage.MULTI__TOKENS:
-        return tokens != null && !tokens.isEmpty();
+      case TexDslPackage.TEXT_CONTENT__TEXT:
+        return text != null && !text.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -154,10 +154,10 @@ public class MultiImpl extends CompoundImpl implements Multi
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (tokens: ");
-    result.append(tokens);
+    result.append(" (text: ");
+    result.append(text);
     result.append(')');
     return result.toString();
   }
 
-} //MultiImpl
+} //TextContentImpl

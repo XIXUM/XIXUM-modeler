@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xixum.latex.texDsl.Attributes;
 import org.xixum.latex.texDsl.Command;
-import org.xixum.latex.texDsl.Compound;
+import org.xixum.latex.texDsl.MandatoryArgument;
+import org.xixum.latex.texDsl.OptionalArgument;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
@@ -31,54 +31,54 @@ import org.xixum.latex.texDsl.TexDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getCommand <em>Command</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getAttrs <em>Attrs</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getTokens <em>Tokens</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getOptionalArgs <em>Optional Args</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.CommandImpl#getMandatoryArgs <em>Mandatory Args</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CommandImpl extends DocumentImpl implements Command
+public class CommandImpl extends ElementImpl implements Command
 {
   /**
-   * The default value of the '{@link #getCommand() <em>Command</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCommand()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String COMMAND_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getCommand() <em>Command</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCommand()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String command = COMMAND_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getAttrs() <em>Attrs</em>}' containment reference list.
+   * The cached value of the '{@link #getOptionalArgs() <em>Optional Args</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttrs()
+   * @see #getOptionalArgs()
    * @generated
    * @ordered
    */
-  protected EList<Attributes> attrs;
+  protected EList<OptionalArgument> optionalArgs;
 
   /**
-   * The cached value of the '{@link #getTokens() <em>Tokens</em>}' containment reference list.
+   * The cached value of the '{@link #getMandatoryArgs() <em>Mandatory Args</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTokens()
+   * @see #getMandatoryArgs()
    * @generated
    * @ordered
    */
-  protected EList<Compound> tokens;
+  protected EList<MandatoryArgument> mandatoryArgs;
 
   /**
    * <!-- begin-user-doc -->
@@ -107,9 +107,9 @@ public class CommandImpl extends DocumentImpl implements Command
    * @generated
    */
   @Override
-  public String getCommand()
+  public String getName()
   {
-    return command;
+    return name;
   }
 
   /**
@@ -118,12 +118,12 @@ public class CommandImpl extends DocumentImpl implements Command
    * @generated
    */
   @Override
-  public void setCommand(String newCommand)
+  public void setName(String newName)
   {
-    String oldCommand = command;
-    command = newCommand;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.COMMAND__COMMAND, oldCommand, command));
+      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.COMMAND__NAME, oldName, name));
   }
 
   /**
@@ -132,13 +132,13 @@ public class CommandImpl extends DocumentImpl implements Command
    * @generated
    */
   @Override
-  public EList<Attributes> getAttrs()
+  public EList<OptionalArgument> getOptionalArgs()
   {
-    if (attrs == null)
+    if (optionalArgs == null)
     {
-      attrs = new EObjectContainmentEList<Attributes>(Attributes.class, this, TexDslPackage.COMMAND__ATTRS);
+      optionalArgs = new EObjectContainmentEList<OptionalArgument>(OptionalArgument.class, this, TexDslPackage.COMMAND__OPTIONAL_ARGS);
     }
-    return attrs;
+    return optionalArgs;
   }
 
   /**
@@ -147,13 +147,13 @@ public class CommandImpl extends DocumentImpl implements Command
    * @generated
    */
   @Override
-  public EList<Compound> getTokens()
+  public EList<MandatoryArgument> getMandatoryArgs()
   {
-    if (tokens == null)
+    if (mandatoryArgs == null)
     {
-      tokens = new EObjectContainmentEList<Compound>(Compound.class, this, TexDslPackage.COMMAND__TOKENS);
+      mandatoryArgs = new EObjectContainmentEList<MandatoryArgument>(MandatoryArgument.class, this, TexDslPackage.COMMAND__MANDATORY_ARGS);
     }
-    return tokens;
+    return mandatoryArgs;
   }
 
   /**
@@ -166,10 +166,10 @@ public class CommandImpl extends DocumentImpl implements Command
   {
     switch (featureID)
     {
-      case TexDslPackage.COMMAND__ATTRS:
-        return ((InternalEList<?>)getAttrs()).basicRemove(otherEnd, msgs);
-      case TexDslPackage.COMMAND__TOKENS:
-        return ((InternalEList<?>)getTokens()).basicRemove(otherEnd, msgs);
+      case TexDslPackage.COMMAND__OPTIONAL_ARGS:
+        return ((InternalEList<?>)getOptionalArgs()).basicRemove(otherEnd, msgs);
+      case TexDslPackage.COMMAND__MANDATORY_ARGS:
+        return ((InternalEList<?>)getMandatoryArgs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -184,12 +184,12 @@ public class CommandImpl extends DocumentImpl implements Command
   {
     switch (featureID)
     {
-      case TexDslPackage.COMMAND__COMMAND:
-        return getCommand();
-      case TexDslPackage.COMMAND__ATTRS:
-        return getAttrs();
-      case TexDslPackage.COMMAND__TOKENS:
-        return getTokens();
+      case TexDslPackage.COMMAND__NAME:
+        return getName();
+      case TexDslPackage.COMMAND__OPTIONAL_ARGS:
+        return getOptionalArgs();
+      case TexDslPackage.COMMAND__MANDATORY_ARGS:
+        return getMandatoryArgs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -205,16 +205,16 @@ public class CommandImpl extends DocumentImpl implements Command
   {
     switch (featureID)
     {
-      case TexDslPackage.COMMAND__COMMAND:
-        setCommand((String)newValue);
+      case TexDslPackage.COMMAND__NAME:
+        setName((String)newValue);
         return;
-      case TexDslPackage.COMMAND__ATTRS:
-        getAttrs().clear();
-        getAttrs().addAll((Collection<? extends Attributes>)newValue);
+      case TexDslPackage.COMMAND__OPTIONAL_ARGS:
+        getOptionalArgs().clear();
+        getOptionalArgs().addAll((Collection<? extends OptionalArgument>)newValue);
         return;
-      case TexDslPackage.COMMAND__TOKENS:
-        getTokens().clear();
-        getTokens().addAll((Collection<? extends Compound>)newValue);
+      case TexDslPackage.COMMAND__MANDATORY_ARGS:
+        getMandatoryArgs().clear();
+        getMandatoryArgs().addAll((Collection<? extends MandatoryArgument>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -230,14 +230,14 @@ public class CommandImpl extends DocumentImpl implements Command
   {
     switch (featureID)
     {
-      case TexDslPackage.COMMAND__COMMAND:
-        setCommand(COMMAND_EDEFAULT);
+      case TexDslPackage.COMMAND__NAME:
+        setName(NAME_EDEFAULT);
         return;
-      case TexDslPackage.COMMAND__ATTRS:
-        getAttrs().clear();
+      case TexDslPackage.COMMAND__OPTIONAL_ARGS:
+        getOptionalArgs().clear();
         return;
-      case TexDslPackage.COMMAND__TOKENS:
-        getTokens().clear();
+      case TexDslPackage.COMMAND__MANDATORY_ARGS:
+        getMandatoryArgs().clear();
         return;
     }
     super.eUnset(featureID);
@@ -253,12 +253,12 @@ public class CommandImpl extends DocumentImpl implements Command
   {
     switch (featureID)
     {
-      case TexDslPackage.COMMAND__COMMAND:
-        return COMMAND_EDEFAULT == null ? command != null : !COMMAND_EDEFAULT.equals(command);
-      case TexDslPackage.COMMAND__ATTRS:
-        return attrs != null && !attrs.isEmpty();
-      case TexDslPackage.COMMAND__TOKENS:
-        return tokens != null && !tokens.isEmpty();
+      case TexDslPackage.COMMAND__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case TexDslPackage.COMMAND__OPTIONAL_ARGS:
+        return optionalArgs != null && !optionalArgs.isEmpty();
+      case TexDslPackage.COMMAND__MANDATORY_ARGS:
+        return mandatoryArgs != null && !mandatoryArgs.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -274,8 +274,8 @@ public class CommandImpl extends DocumentImpl implements Command
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (command: ");
-    result.append(command);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

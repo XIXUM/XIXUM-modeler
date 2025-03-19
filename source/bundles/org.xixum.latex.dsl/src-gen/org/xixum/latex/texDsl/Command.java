@@ -14,61 +14,61 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.Command#getCommand <em>Command</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.Command#getAttrs <em>Attrs</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.Command#getTokens <em>Tokens</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.Command#getName <em>Name</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.Command#getOptionalArgs <em>Optional Args</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.Command#getMandatoryArgs <em>Mandatory Args</em>}</li>
  * </ul>
  *
  * @see org.xixum.latex.texDsl.TexDslPackage#getCommand()
  * @model
  * @generated
  */
-public interface Command extends Document
+public interface Command extends Element, ArgumentContent, MathContent
 {
   /**
-   * Returns the value of the '<em><b>Command</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Command</em>' attribute.
-   * @see #setCommand(String)
-   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Command()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Name()
    * @model
    * @generated
    */
-  String getCommand();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.xixum.latex.texDsl.Command#getCommand <em>Command</em>}' attribute.
+   * Sets the value of the '{@link org.xixum.latex.texDsl.Command#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Command</em>' attribute.
-   * @see #getCommand()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setCommand(String value);
+  void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Attrs</b></em>' containment reference list.
-   * The list contents are of type {@link org.xixum.latex.texDsl.Attributes}.
+   * Returns the value of the '<em><b>Optional Args</b></em>' containment reference list.
+   * The list contents are of type {@link org.xixum.latex.texDsl.OptionalArgument}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attrs</em>' containment reference list.
-   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Attrs()
+   * @return the value of the '<em>Optional Args</em>' containment reference list.
+   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_OptionalArgs()
    * @model containment="true"
    * @generated
    */
-  EList<Attributes> getAttrs();
+  EList<OptionalArgument> getOptionalArgs();
 
   /**
-   * Returns the value of the '<em><b>Tokens</b></em>' containment reference list.
-   * The list contents are of type {@link org.xixum.latex.texDsl.Compound}.
+   * Returns the value of the '<em><b>Mandatory Args</b></em>' containment reference list.
+   * The list contents are of type {@link org.xixum.latex.texDsl.MandatoryArgument}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tokens</em>' containment reference list.
-   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_Tokens()
+   * @return the value of the '<em>Mandatory Args</em>' containment reference list.
+   * @see org.xixum.latex.texDsl.TexDslPackage#getCommand_MandatoryArgs()
    * @model containment="true"
    * @generated
    */
-  EList<Compound> getTokens();
+  EList<MandatoryArgument> getMandatoryArgs();
 
 } // Command

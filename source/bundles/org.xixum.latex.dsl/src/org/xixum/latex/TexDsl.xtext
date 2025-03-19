@@ -1,155 +1,66 @@
-grammar org.xixum.latex.TexDsl  hidden(WS, SL_COMMENT)
+grammar org.xixum.latex.TexDsl with org.eclipse.xtext.common.Terminals
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 generate texDsl "http://www.xixum.org/latex/TexDsl"
 
+
+
 Model:
-	document+=Document+
-;
+    elements+=Element*;
 
-Document: 
-	Command | Text | {Document} END
-;
-
-Text:
-	token += AnyText 
-;
-
-AnyText: 
-	ID | ANY_OTHER | KOMMA | PIPE | EXCL | SYMBOL | DOT
-;
+Element:
+    Command | Environment | TextContent | MathExpression;
 
 Command:
-	command=ID_COMM (SQBO attrs+=Attributes (KOMMA attrs+=Attributes)* SQBC)? (CUBO tokens+=Compound ((PIPE | EXCL) tokens+=Compound)* CUBC)? 
+    '\\' name=ID 
+    optionalArgs+=OptionalArgument*
+    mandatoryArgs+=MandatoryArgument*
 ;
 
-Multi:
-	tokens+=ID+
+OptionalArgument:
+    '[' content+=ArgumentContent+ ']';
+
+MandatoryArgument:
+    '{' content+=ArgumentContent+ '}';
+
+Environment:
+    '\\begin{' type=ID '}'
+    content+=Element*
+    '\\end{' endType=ID '}';
+
+ArgumentContent:
+    TextContent | Command | MathExpression | Environment;
+
+TextContent:
+    {TextContent} text+=TEXT*;
+
+MathExpression:
+    InlineMath | DisplayMath;
+
+InlineMath:
+    {InlineMath} '$' content+=MathContent* '$';
+
+DisplayMath:
+    {DisplayMath} '$$' content+=MathContent* '$$';
+
+MathContent:
+    Command | TextContent | NumberContent | SymbolContent;
+    
+
+NumberContent:
+	content=NUMBER
 ;
 
-CommandExt:
-	command= (ID| ID_COMM) (CUBO tokens+=Compound (KOMMA tokens+=Compound)* CUBC)
-;
-
-Compound:
-	Multi | Extras | =>CommandExt
-;
-
-Extras:
-	tokens+= (BO | BC)+ 
-;
-
-Attributes:
-	key=ID (EQ (CUBO multi+=Multi+ CUBC | single=ID))?
-;
-	
-terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
-
-terminal ID:
-	(ALPHA | SYMBOL ) (ALPHA | SYMBOL | NUMERIC | DOT | AND)*
-;
-
-terminal BS:
-	'\\'
-;
-
-//terminal SYMBOLS:
-//	SYMBOL+
-//;
-
-//terminal ALPHA_NUMERIC:
-//	ALPHA+ ( NUMERIC+ ALPHA+ )* NUMERIC*
-//;
-
-terminal ID_COMM:
-	BS ID
-;
-
-terminal ALPHA:
-	ALPHAC | ALPHAS | D_QUOTE | S_QUOTE
-;
-
-terminal ALPHAC:
-	'A'..'Z'| 'Ä'..'Ü' | 'À'..'Ù' | 'Á'..'Ú'
-;
-
-terminal ALPHAS:
-	'a'..'z' | 'ä'..'ü' | 'ß' | 'à'..'ù' | 'á'..'ú';
-
-terminal NUMERIC:
-	'0'..'9'
-;
-
-terminal SQBO:
-	'['
-;
-
-terminal SQBC:
-	']'
-;
-
-terminal BO:
-	'('
-;
-
-terminal BC:
-	')'
-;
-
-terminal CUBO:
-	'{'
-;
-
-terminal CUBC:
-	'}'
-;
-
-terminal KOMMA:
-	','
-;
-
-terminal EQ:
-	'='
-;
-
-terminal DOT:
-	'.'
-;
-
-terminal AND:
-	'&'
-;
-
-terminal PIPE:
-	'|'
-;
-
-terminal EXCL:
-	'!'
-;
-
-terminal SPACE:
-	' '
+SymbolContent:
+	content+=SYMBOL+
 ;
 
 terminal SYMBOL:
-	'-' | '_' | '+' | '#' | '~'
-;
+    ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
 
-terminal D_QUOTE:
-	'"'
-;
+terminal TEXT:
+    !('\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_')+;
 
-terminal S_QUOTE:
-	"'"
-;
-
-terminal END:
-	EOF;
-	
-terminal WS: (SPACE|'\t'|'\r'|'\n')+;
-
-terminal ANY_OTHER: .;
-
-	
+terminal NUMBER returns ecore::EBigDecimal:
+    INT ('.' INT)?;

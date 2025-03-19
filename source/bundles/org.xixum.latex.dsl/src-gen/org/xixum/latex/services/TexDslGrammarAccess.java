@@ -12,9 +12,11 @@ import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
+import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
+import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 import org.eclipse.xtext.service.AbstractElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -23,478 +25,435 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Model");
-		private final Assignment cDocumentAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cDocumentDocumentParserRuleCall_0 = (RuleCall)cDocumentAssignment.eContents().get(0);
+		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cElementsElementParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
 		
 		//Model:
-		//    document+=Document+
-		//;
+		//    elements+=Element*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//document+=Document+
-		public Assignment getDocumentAssignment() { return cDocumentAssignment; }
+		//elements+=Element*
+		public Assignment getElementsAssignment() { return cElementsAssignment; }
 		
-		//Document
-		public RuleCall getDocumentDocumentParserRuleCall_0() { return cDocumentDocumentParserRuleCall_0; }
+		//Element
+		public RuleCall getElementsElementParserRuleCall_0() { return cElementsElementParserRuleCall_0; }
 	}
-	public class DocumentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Document");
+	public class ElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Element");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cCommandParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTextParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cDocumentAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final RuleCall cEnvironmentParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTextContentParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cMathExpressionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//Document:
-		//    Command | Text | {Document} END
-		//;
+		//Element:
+		//    Command | Environment | TextContent | MathExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Command | Text | {Document} END
+		//Command | Environment | TextContent | MathExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Command
 		public RuleCall getCommandParserRuleCall_0() { return cCommandParserRuleCall_0; }
 		
-		//Text
-		public RuleCall getTextParserRuleCall_1() { return cTextParserRuleCall_1; }
+		//Environment
+		public RuleCall getEnvironmentParserRuleCall_1() { return cEnvironmentParserRuleCall_1; }
 		
-		//{Document} END
-		public Group getGroup_2() { return cGroup_2; }
+		//TextContent
+		public RuleCall getTextContentParserRuleCall_2() { return cTextContentParserRuleCall_2; }
 		
-		//{Document}
-		public Action getDocumentAction_2_0() { return cDocumentAction_2_0; }
-		
-		//END
-		public RuleCall getENDTerminalRuleCall_2_1() { return cENDTerminalRuleCall_2_1; }
-	}
-	public class TextElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Text");
-		private final Assignment cTokenAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cTokenAnyTextParserRuleCall_0 = (RuleCall)cTokenAssignment.eContents().get(0);
-		
-		//Text:
-		//    token += AnyText
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//token += AnyText
-		public Assignment getTokenAssignment() { return cTokenAssignment; }
-		
-		//AnyText
-		public RuleCall getTokenAnyTextParserRuleCall_0() { return cTokenAnyTextParserRuleCall_0; }
-	}
-	public class AnyTextElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.AnyText");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cANY_OTHERTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cKOMMATerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cPIPETerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cEXCLTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cSYMBOLTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cDOTTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		
-		//AnyText:
-		//    ID | ANY_OTHER | KOMMA | PIPE | EXCL | SYMBOL | DOT
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//ID | ANY_OTHER | KOMMA | PIPE | EXCL | SYMBOL | DOT
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//ID
-		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
-		
-		//ANY_OTHER
-		public RuleCall getANY_OTHERTerminalRuleCall_1() { return cANY_OTHERTerminalRuleCall_1; }
-		
-		//KOMMA
-		public RuleCall getKOMMATerminalRuleCall_2() { return cKOMMATerminalRuleCall_2; }
-		
-		//PIPE
-		public RuleCall getPIPETerminalRuleCall_3() { return cPIPETerminalRuleCall_3; }
-		
-		//EXCL
-		public RuleCall getEXCLTerminalRuleCall_4() { return cEXCLTerminalRuleCall_4; }
-		
-		//SYMBOL
-		public RuleCall getSYMBOLTerminalRuleCall_5() { return cSYMBOLTerminalRuleCall_5; }
-		
-		//DOT
-		public RuleCall getDOTTerminalRuleCall_6() { return cDOTTerminalRuleCall_6; }
+		//MathExpression
+		public RuleCall getMathExpressionParserRuleCall_3() { return cMathExpressionParserRuleCall_3; }
 	}
 	public class CommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Command");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cCommandAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cCommandID_COMMTerminalRuleCall_0_0 = (RuleCall)cCommandAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final RuleCall cSQBOTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Assignment cAttrsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cAttrsAttributesParserRuleCall_1_1_0 = (RuleCall)cAttrsAssignment_1_1.eContents().get(0);
-		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
-		private final RuleCall cKOMMATerminalRuleCall_1_2_0 = (RuleCall)cGroup_1_2.eContents().get(0);
-		private final Assignment cAttrsAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cAttrsAttributesParserRuleCall_1_2_1_0 = (RuleCall)cAttrsAssignment_1_2_1.eContents().get(0);
-		private final RuleCall cSQBCTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final RuleCall cCUBOTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
-		private final Assignment cTokensAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cTokensCompoundParserRuleCall_2_1_0 = (RuleCall)cTokensAssignment_2_1.eContents().get(0);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Alternatives cAlternatives_2_2_0 = (Alternatives)cGroup_2_2.eContents().get(0);
-		private final RuleCall cPIPETerminalRuleCall_2_2_0_0 = (RuleCall)cAlternatives_2_2_0.eContents().get(0);
-		private final RuleCall cEXCLTerminalRuleCall_2_2_0_1 = (RuleCall)cAlternatives_2_2_0.eContents().get(1);
-		private final Assignment cTokensAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cTokensCompoundParserRuleCall_2_2_1_0 = (RuleCall)cTokensAssignment_2_2_1.eContents().get(0);
-		private final RuleCall cCUBCTerminalRuleCall_2_3 = (RuleCall)cGroup_2.eContents().get(3);
+		private final Keyword cBackslashKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cOptionalArgsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOptionalArgsOptionalArgumentParserRuleCall_2_0 = (RuleCall)cOptionalArgsAssignment_2.eContents().get(0);
+		private final Assignment cMandatoryArgsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMandatoryArgsMandatoryArgumentParserRuleCall_3_0 = (RuleCall)cMandatoryArgsAssignment_3.eContents().get(0);
 		
 		//Command:
-		//    command=ID_COMM (SQBO attrs+=Attributes (KOMMA attrs+=Attributes)* SQBC)? (CUBO tokens+=Compound ((PIPE | EXCL) tokens+=Compound)* CUBC)?
+		//    '\\' name=ID
+		//    optionalArgs+=OptionalArgument*
+		//    mandatoryArgs+=MandatoryArgument*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//command=ID_COMM (SQBO attrs+=Attributes (KOMMA attrs+=Attributes)* SQBC)? (CUBO tokens+=Compound ((PIPE | EXCL) tokens+=Compound)* CUBC)?
+		//'\\' name=ID
+		//optionalArgs+=OptionalArgument*
+		//mandatoryArgs+=MandatoryArgument*
 		public Group getGroup() { return cGroup; }
 		
-		//command=ID_COMM
-		public Assignment getCommandAssignment_0() { return cCommandAssignment_0; }
+		//'\\'
+		public Keyword getBackslashKeyword_0() { return cBackslashKeyword_0; }
 		
-		//ID_COMM
-		public RuleCall getCommandID_COMMTerminalRuleCall_0_0() { return cCommandID_COMMTerminalRuleCall_0_0; }
-		
-		//(SQBO attrs+=Attributes (KOMMA attrs+=Attributes)* SQBC)?
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//SQBO
-		public RuleCall getSQBOTerminalRuleCall_1_0() { return cSQBOTerminalRuleCall_1_0; }
-		
-		//attrs+=Attributes
-		public Assignment getAttrsAssignment_1_1() { return cAttrsAssignment_1_1; }
-		
-		//Attributes
-		public RuleCall getAttrsAttributesParserRuleCall_1_1_0() { return cAttrsAttributesParserRuleCall_1_1_0; }
-		
-		//(KOMMA attrs+=Attributes)*
-		public Group getGroup_1_2() { return cGroup_1_2; }
-		
-		//KOMMA
-		public RuleCall getKOMMATerminalRuleCall_1_2_0() { return cKOMMATerminalRuleCall_1_2_0; }
-		
-		//attrs+=Attributes
-		public Assignment getAttrsAssignment_1_2_1() { return cAttrsAssignment_1_2_1; }
-		
-		//Attributes
-		public RuleCall getAttrsAttributesParserRuleCall_1_2_1_0() { return cAttrsAttributesParserRuleCall_1_2_1_0; }
-		
-		//SQBC
-		public RuleCall getSQBCTerminalRuleCall_1_3() { return cSQBCTerminalRuleCall_1_3; }
-		
-		//(CUBO tokens+=Compound ((PIPE | EXCL) tokens+=Compound)* CUBC)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//CUBO
-		public RuleCall getCUBOTerminalRuleCall_2_0() { return cCUBOTerminalRuleCall_2_0; }
-		
-		//tokens+=Compound
-		public Assignment getTokensAssignment_2_1() { return cTokensAssignment_2_1; }
-		
-		//Compound
-		public RuleCall getTokensCompoundParserRuleCall_2_1_0() { return cTokensCompoundParserRuleCall_2_1_0; }
-		
-		//((PIPE | EXCL) tokens+=Compound)*
-		public Group getGroup_2_2() { return cGroup_2_2; }
-		
-		//(PIPE | EXCL)
-		public Alternatives getAlternatives_2_2_0() { return cAlternatives_2_2_0; }
-		
-		//PIPE
-		public RuleCall getPIPETerminalRuleCall_2_2_0_0() { return cPIPETerminalRuleCall_2_2_0_0; }
-		
-		//EXCL
-		public RuleCall getEXCLTerminalRuleCall_2_2_0_1() { return cEXCLTerminalRuleCall_2_2_0_1; }
-		
-		//tokens+=Compound
-		public Assignment getTokensAssignment_2_2_1() { return cTokensAssignment_2_2_1; }
-		
-		//Compound
-		public RuleCall getTokensCompoundParserRuleCall_2_2_1_0() { return cTokensCompoundParserRuleCall_2_2_1_0; }
-		
-		//CUBC
-		public RuleCall getCUBCTerminalRuleCall_2_3() { return cCUBCTerminalRuleCall_2_3; }
-	}
-	public class MultiElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Multi");
-		private final Assignment cTokensAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cTokensIDTerminalRuleCall_0 = (RuleCall)cTokensAssignment.eContents().get(0);
-		
-		//Multi:
-		//    tokens+=ID+
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//tokens+=ID+
-		public Assignment getTokensAssignment() { return cTokensAssignment; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getTokensIDTerminalRuleCall_0() { return cTokensIDTerminalRuleCall_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//optionalArgs+=OptionalArgument*
+		public Assignment getOptionalArgsAssignment_2() { return cOptionalArgsAssignment_2; }
+		
+		//OptionalArgument
+		public RuleCall getOptionalArgsOptionalArgumentParserRuleCall_2_0() { return cOptionalArgsOptionalArgumentParserRuleCall_2_0; }
+		
+		//mandatoryArgs+=MandatoryArgument*
+		public Assignment getMandatoryArgsAssignment_3() { return cMandatoryArgsAssignment_3; }
+		
+		//MandatoryArgument
+		public RuleCall getMandatoryArgsMandatoryArgumentParserRuleCall_3_0() { return cMandatoryArgsMandatoryArgumentParserRuleCall_3_0; }
 	}
-	public class CommandExtElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.CommandExt");
+	public class OptionalArgumentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.OptionalArgument");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cCommandAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cCommandAlternatives_0_0 = (Alternatives)cCommandAssignment_0.eContents().get(0);
-		private final RuleCall cCommandIDTerminalRuleCall_0_0_0 = (RuleCall)cCommandAlternatives_0_0.eContents().get(0);
-		private final RuleCall cCommandID_COMMTerminalRuleCall_0_0_1 = (RuleCall)cCommandAlternatives_0_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final RuleCall cCUBOTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Assignment cTokensAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cTokensCompoundParserRuleCall_1_1_0 = (RuleCall)cTokensAssignment_1_1.eContents().get(0);
-		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
-		private final RuleCall cKOMMATerminalRuleCall_1_2_0 = (RuleCall)cGroup_1_2.eContents().get(0);
-		private final Assignment cTokensAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cTokensCompoundParserRuleCall_1_2_1_0 = (RuleCall)cTokensAssignment_1_2_1.eContents().get(0);
-		private final RuleCall cCUBCTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
+		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentArgumentContentParserRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		//CommandExt:
-		//    command= (ID| ID_COMM) (CUBO tokens+=Compound (KOMMA tokens+=Compound)* CUBC)
-		//;
+		//OptionalArgument:
+		//    '[' content+=ArgumentContent+ ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//command= (ID| ID_COMM) (CUBO tokens+=Compound (KOMMA tokens+=Compound)* CUBC)
+		//'[' content+=ArgumentContent+ ']'
 		public Group getGroup() { return cGroup; }
 		
-		//command= (ID| ID_COMM)
-		public Assignment getCommandAssignment_0() { return cCommandAssignment_0; }
+		//'['
+		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
 		
-		//(ID| ID_COMM)
-		public Alternatives getCommandAlternatives_0_0() { return cCommandAlternatives_0_0; }
+		//content+=ArgumentContent+
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
 		
-		//ID
-		public RuleCall getCommandIDTerminalRuleCall_0_0_0() { return cCommandIDTerminalRuleCall_0_0_0; }
+		//ArgumentContent
+		public RuleCall getContentArgumentContentParserRuleCall_1_0() { return cContentArgumentContentParserRuleCall_1_0; }
 		
-		//ID_COMM
-		public RuleCall getCommandID_COMMTerminalRuleCall_0_0_1() { return cCommandID_COMMTerminalRuleCall_0_0_1; }
-		
-		//(CUBO tokens+=Compound (KOMMA tokens+=Compound)* CUBC)
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//CUBO
-		public RuleCall getCUBOTerminalRuleCall_1_0() { return cCUBOTerminalRuleCall_1_0; }
-		
-		//tokens+=Compound
-		public Assignment getTokensAssignment_1_1() { return cTokensAssignment_1_1; }
-		
-		//Compound
-		public RuleCall getTokensCompoundParserRuleCall_1_1_0() { return cTokensCompoundParserRuleCall_1_1_0; }
-		
-		//(KOMMA tokens+=Compound)*
-		public Group getGroup_1_2() { return cGroup_1_2; }
-		
-		//KOMMA
-		public RuleCall getKOMMATerminalRuleCall_1_2_0() { return cKOMMATerminalRuleCall_1_2_0; }
-		
-		//tokens+=Compound
-		public Assignment getTokensAssignment_1_2_1() { return cTokensAssignment_1_2_1; }
-		
-		//Compound
-		public RuleCall getTokensCompoundParserRuleCall_1_2_1_0() { return cTokensCompoundParserRuleCall_1_2_1_0; }
-		
-		//CUBC
-		public RuleCall getCUBCTerminalRuleCall_1_3() { return cCUBCTerminalRuleCall_1_3; }
+		//']'
+		public Keyword getRightSquareBracketKeyword_2() { return cRightSquareBracketKeyword_2; }
 	}
-	public class CompoundElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Compound");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cMultiParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cExtrasParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCommandExtParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+	public class MandatoryArgumentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.MandatoryArgument");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentArgumentContentParserRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		//Compound:
-		//    Multi | Extras | =>CommandExt
-		//;
+		//MandatoryArgument:
+		//    '{' content+=ArgumentContent+ '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Multi | Extras | =>CommandExt
+		//'{' content+=ArgumentContent+ '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
+		
+		//content+=ArgumentContent+
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//ArgumentContent
+		public RuleCall getContentArgumentContentParserRuleCall_1_0() { return cContentArgumentContentParserRuleCall_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
+	public class EnvironmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Environment");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBeginKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeIDTerminalRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cContentAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cContentElementParserRuleCall_3_0 = (RuleCall)cContentAssignment_3.eContents().get(0);
+		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cEndTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cEndTypeIDTerminalRuleCall_5_0 = (RuleCall)cEndTypeAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Environment:
+		//    '\\begin{' type=ID '}'
+		//    content+=Element*
+		//    '\\end{' endType=ID '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'\\begin{' type=ID '}'
+		//content+=Element*
+		//'\\end{' endType=ID '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'\\begin{'
+		public Keyword getBeginKeyword_0() { return cBeginKeyword_0; }
+		
+		//type=ID
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		
+		//ID
+		public RuleCall getTypeIDTerminalRuleCall_1_0() { return cTypeIDTerminalRuleCall_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+		
+		//content+=Element*
+		public Assignment getContentAssignment_3() { return cContentAssignment_3; }
+		
+		//Element
+		public RuleCall getContentElementParserRuleCall_3_0() { return cContentElementParserRuleCall_3_0; }
+		
+		//'\\end{'
+		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
+		
+		//endType=ID
+		public Assignment getEndTypeAssignment_5() { return cEndTypeAssignment_5; }
+		
+		//ID
+		public RuleCall getEndTypeIDTerminalRuleCall_5_0() { return cEndTypeIDTerminalRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class ArgumentContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ArgumentContent");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTextContentParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCommandParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cMathExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cEnvironmentParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		
+		//ArgumentContent:
+		//    TextContent | Command | MathExpression | Environment;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//TextContent | Command | MathExpression | Environment
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Multi
-		public RuleCall getMultiParserRuleCall_0() { return cMultiParserRuleCall_0; }
+		//TextContent
+		public RuleCall getTextContentParserRuleCall_0() { return cTextContentParserRuleCall_0; }
 		
-		//Extras
-		public RuleCall getExtrasParserRuleCall_1() { return cExtrasParserRuleCall_1; }
+		//Command
+		public RuleCall getCommandParserRuleCall_1() { return cCommandParserRuleCall_1; }
 		
-		//=>CommandExt
-		public RuleCall getCommandExtParserRuleCall_2() { return cCommandExtParserRuleCall_2; }
+		//MathExpression
+		public RuleCall getMathExpressionParserRuleCall_2() { return cMathExpressionParserRuleCall_2; }
+		
+		//Environment
+		public RuleCall getEnvironmentParserRuleCall_3() { return cEnvironmentParserRuleCall_3; }
 	}
-	public class ExtrasElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Extras");
-		private final Assignment cTokensAssignment = (Assignment)rule.eContents().get(1);
-		private final Alternatives cTokensAlternatives_0 = (Alternatives)cTokensAssignment.eContents().get(0);
-		private final RuleCall cTokensBOTerminalRuleCall_0_0 = (RuleCall)cTokensAlternatives_0.eContents().get(0);
-		private final RuleCall cTokensBCTerminalRuleCall_0_1 = (RuleCall)cTokensAlternatives_0.eContents().get(1);
-		
-		//Extras:
-		//    tokens+= (BO | BC)+
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//tokens+= (BO | BC)+
-		public Assignment getTokensAssignment() { return cTokensAssignment; }
-		
-		//(BO | BC)
-		public Alternatives getTokensAlternatives_0() { return cTokensAlternatives_0; }
-		
-		//BO
-		public RuleCall getTokensBOTerminalRuleCall_0_0() { return cTokensBOTerminalRuleCall_0_0; }
-		
-		//BC
-		public RuleCall getTokensBCTerminalRuleCall_0_1() { return cTokensBCTerminalRuleCall_0_1; }
-	}
-	public class AttributesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.Attributes");
+	public class TextContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.TextContent");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cKeyIDTerminalRuleCall_0_0 = (RuleCall)cKeyAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final RuleCall cEQTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
-		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
-		private final RuleCall cCUBOTerminalRuleCall_1_1_0_0 = (RuleCall)cGroup_1_1_0.eContents().get(0);
-		private final Assignment cMultiAssignment_1_1_0_1 = (Assignment)cGroup_1_1_0.eContents().get(1);
-		private final RuleCall cMultiMultiParserRuleCall_1_1_0_1_0 = (RuleCall)cMultiAssignment_1_1_0_1.eContents().get(0);
-		private final RuleCall cCUBCTerminalRuleCall_1_1_0_2 = (RuleCall)cGroup_1_1_0.eContents().get(2);
-		private final Assignment cSingleAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
-		private final RuleCall cSingleIDTerminalRuleCall_1_1_1_0 = (RuleCall)cSingleAssignment_1_1_1.eContents().get(0);
+		private final Action cTextContentAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cTextAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTextTEXTTerminalRuleCall_1_0 = (RuleCall)cTextAssignment_1.eContents().get(0);
 		
-		//Attributes:
-		//    key=ID (EQ (CUBO multi+=Multi+ CUBC | single=ID))?
-		//;
+		//TextContent:
+		//    {TextContent} text+=TEXT*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//key=ID (EQ (CUBO multi+=Multi+ CUBC | single=ID))?
+		//{TextContent} text+=TEXT*
 		public Group getGroup() { return cGroup; }
 		
-		//key=ID
-		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		//{TextContent}
+		public Action getTextContentAction_0() { return cTextContentAction_0; }
 		
-		//ID
-		public RuleCall getKeyIDTerminalRuleCall_0_0() { return cKeyIDTerminalRuleCall_0_0; }
+		//text+=TEXT*
+		public Assignment getTextAssignment_1() { return cTextAssignment_1; }
 		
-		//(EQ (CUBO multi+=Multi+ CUBC | single=ID))?
-		public Group getGroup_1() { return cGroup_1; }
+		//TEXT
+		public RuleCall getTextTEXTTerminalRuleCall_1_0() { return cTextTEXTTerminalRuleCall_1_0; }
+	}
+	public class MathExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.MathExpression");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cInlineMathParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDisplayMathParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//EQ
-		public RuleCall getEQTerminalRuleCall_1_0() { return cEQTerminalRuleCall_1_0; }
+		//MathExpression:
+		//    InlineMath | DisplayMath;
+		@Override public ParserRule getRule() { return rule; }
 		
-		//(CUBO multi+=Multi+ CUBC | single=ID)
-		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+		//InlineMath | DisplayMath
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//CUBO multi+=Multi+ CUBC
-		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
+		//InlineMath
+		public RuleCall getInlineMathParserRuleCall_0() { return cInlineMathParserRuleCall_0; }
 		
-		//CUBO
-		public RuleCall getCUBOTerminalRuleCall_1_1_0_0() { return cCUBOTerminalRuleCall_1_1_0_0; }
+		//DisplayMath
+		public RuleCall getDisplayMathParserRuleCall_1() { return cDisplayMathParserRuleCall_1; }
+	}
+	public class InlineMathElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.InlineMath");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cInlineMathAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cDollarSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cContentAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cContentMathContentParserRuleCall_2_0 = (RuleCall)cContentAssignment_2.eContents().get(0);
+		private final Keyword cDollarSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//multi+=Multi+
-		public Assignment getMultiAssignment_1_1_0_1() { return cMultiAssignment_1_1_0_1; }
+		//InlineMath:
+		//    {InlineMath} '$' content+=MathContent* '$';
+		@Override public ParserRule getRule() { return rule; }
 		
-		//Multi
-		public RuleCall getMultiMultiParserRuleCall_1_1_0_1_0() { return cMultiMultiParserRuleCall_1_1_0_1_0; }
+		//{InlineMath} '$' content+=MathContent* '$'
+		public Group getGroup() { return cGroup; }
 		
-		//CUBC
-		public RuleCall getCUBCTerminalRuleCall_1_1_0_2() { return cCUBCTerminalRuleCall_1_1_0_2; }
+		//{InlineMath}
+		public Action getInlineMathAction_0() { return cInlineMathAction_0; }
 		
-		//single=ID
-		public Assignment getSingleAssignment_1_1_1() { return cSingleAssignment_1_1_1; }
+		//'$'
+		public Keyword getDollarSignKeyword_1() { return cDollarSignKeyword_1; }
 		
-		//ID
-		public RuleCall getSingleIDTerminalRuleCall_1_1_1_0() { return cSingleIDTerminalRuleCall_1_1_1_0; }
+		//content+=MathContent*
+		public Assignment getContentAssignment_2() { return cContentAssignment_2; }
+		
+		//MathContent
+		public RuleCall getContentMathContentParserRuleCall_2_0() { return cContentMathContentParserRuleCall_2_0; }
+		
+		//'$'
+		public Keyword getDollarSignKeyword_3() { return cDollarSignKeyword_3; }
+	}
+	public class DisplayMathElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.DisplayMath");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cDisplayMathAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cDollarSignDollarSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cContentAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cContentMathContentParserRuleCall_2_0 = (RuleCall)cContentAssignment_2.eContents().get(0);
+		private final Keyword cDollarSignDollarSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//DisplayMath:
+		//    {DisplayMath} '$$' content+=MathContent* '$$';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{DisplayMath} '$$' content+=MathContent* '$$'
+		public Group getGroup() { return cGroup; }
+		
+		//{DisplayMath}
+		public Action getDisplayMathAction_0() { return cDisplayMathAction_0; }
+		
+		//'$$'
+		public Keyword getDollarSignDollarSignKeyword_1() { return cDollarSignDollarSignKeyword_1; }
+		
+		//content+=MathContent*
+		public Assignment getContentAssignment_2() { return cContentAssignment_2; }
+		
+		//MathContent
+		public RuleCall getContentMathContentParserRuleCall_2_0() { return cContentMathContentParserRuleCall_2_0; }
+		
+		//'$$'
+		public Keyword getDollarSignDollarSignKeyword_3() { return cDollarSignDollarSignKeyword_3; }
+	}
+	public class MathContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.MathContent");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCommandParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTextContentParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cNumberContentParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSymbolContentParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		
+		//MathContent:
+		//    Command | TextContent | NumberContent | SymbolContent;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Command | TextContent | NumberContent | SymbolContent
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Command
+		public RuleCall getCommandParserRuleCall_0() { return cCommandParserRuleCall_0; }
+		
+		//TextContent
+		public RuleCall getTextContentParserRuleCall_1() { return cTextContentParserRuleCall_1; }
+		
+		//NumberContent
+		public RuleCall getNumberContentParserRuleCall_2() { return cNumberContentParserRuleCall_2; }
+		
+		//SymbolContent
+		public RuleCall getSymbolContentParserRuleCall_3() { return cSymbolContentParserRuleCall_3; }
+	}
+	public class NumberContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.NumberContent");
+		private final Assignment cContentAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cContentNUMBERTerminalRuleCall_0 = (RuleCall)cContentAssignment.eContents().get(0);
+		
+		//NumberContent:
+		//    content=NUMBER
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//content=NUMBER
+		public Assignment getContentAssignment() { return cContentAssignment; }
+		
+		//NUMBER
+		public RuleCall getContentNUMBERTerminalRuleCall_0() { return cContentNUMBERTerminalRuleCall_0; }
+	}
+	public class SymbolContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SymbolContent");
+		private final Assignment cContentAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cContentSYMBOLTerminalRuleCall_0 = (RuleCall)cContentAssignment.eContents().get(0);
+		
+		//SymbolContent:
+		//    content+=SYMBOL+
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//content+=SYMBOL+
+		public Assignment getContentAssignment() { return cContentAssignment; }
+		
+		//SYMBOL
+		public RuleCall getContentSYMBOLTerminalRuleCall_0() { return cContentSYMBOLTerminalRuleCall_0; }
 	}
 	
 	
 	private final ModelElements pModel;
-	private final DocumentElements pDocument;
-	private final TextElements pText;
-	private final AnyTextElements pAnyText;
+	private final ElementElements pElement;
 	private final CommandElements pCommand;
-	private final MultiElements pMulti;
-	private final CommandExtElements pCommandExt;
-	private final CompoundElements pCompound;
-	private final ExtrasElements pExtras;
-	private final AttributesElements pAttributes;
-	private final TerminalRule tSL_COMMENT;
-	private final TerminalRule tID;
-	private final TerminalRule tBS;
-	private final TerminalRule tID_COMM;
-	private final TerminalRule tALPHA;
-	private final TerminalRule tALPHAC;
-	private final TerminalRule tALPHAS;
-	private final TerminalRule tNUMERIC;
-	private final TerminalRule tSQBO;
-	private final TerminalRule tSQBC;
-	private final TerminalRule tBO;
-	private final TerminalRule tBC;
-	private final TerminalRule tCUBO;
-	private final TerminalRule tCUBC;
-	private final TerminalRule tKOMMA;
-	private final TerminalRule tEQ;
-	private final TerminalRule tDOT;
-	private final TerminalRule tAND;
-	private final TerminalRule tPIPE;
-	private final TerminalRule tEXCL;
-	private final TerminalRule tSPACE;
+	private final OptionalArgumentElements pOptionalArgument;
+	private final MandatoryArgumentElements pMandatoryArgument;
+	private final EnvironmentElements pEnvironment;
+	private final ArgumentContentElements pArgumentContent;
+	private final TextContentElements pTextContent;
+	private final MathExpressionElements pMathExpression;
+	private final InlineMathElements pInlineMath;
+	private final DisplayMathElements pDisplayMath;
+	private final MathContentElements pMathContent;
+	private final NumberContentElements pNumberContent;
+	private final SymbolContentElements pSymbolContent;
 	private final TerminalRule tSYMBOL;
-	private final TerminalRule tD_QUOTE;
-	private final TerminalRule tS_QUOTE;
-	private final TerminalRule tEND;
-	private final TerminalRule tWS;
-	private final TerminalRule tANY_OTHER;
+	private final TerminalRule tTEXT;
+	private final TerminalRule tNUMBER;
 	
 	private final Grammar grammar;
+	
+	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
-	public TexDslGrammarAccess(GrammarProvider grammarProvider) {
+	public TexDslGrammarAccess(GrammarProvider grammarProvider,
+			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
+		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pDocument = new DocumentElements();
-		this.pText = new TextElements();
-		this.pAnyText = new AnyTextElements();
+		this.pElement = new ElementElements();
 		this.pCommand = new CommandElements();
-		this.pMulti = new MultiElements();
-		this.pCommandExt = new CommandExtElements();
-		this.pCompound = new CompoundElements();
-		this.pExtras = new ExtrasElements();
-		this.pAttributes = new AttributesElements();
-		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SL_COMMENT");
-		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ID");
-		this.tBS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.BS");
-		this.tID_COMM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ID_COMM");
-		this.tALPHA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ALPHA");
-		this.tALPHAC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ALPHAC");
-		this.tALPHAS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ALPHAS");
-		this.tNUMERIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.NUMERIC");
-		this.tSQBO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SQBO");
-		this.tSQBC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SQBC");
-		this.tBO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.BO");
-		this.tBC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.BC");
-		this.tCUBO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.CUBO");
-		this.tCUBC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.CUBC");
-		this.tKOMMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.KOMMA");
-		this.tEQ = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.EQ");
-		this.tDOT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.DOT");
-		this.tAND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.AND");
-		this.tPIPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.PIPE");
-		this.tEXCL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.EXCL");
-		this.tSPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SPACE");
+		this.pOptionalArgument = new OptionalArgumentElements();
+		this.pMandatoryArgument = new MandatoryArgumentElements();
+		this.pEnvironment = new EnvironmentElements();
+		this.pArgumentContent = new ArgumentContentElements();
+		this.pTextContent = new TextContentElements();
+		this.pMathExpression = new MathExpressionElements();
+		this.pInlineMath = new InlineMathElements();
+		this.pDisplayMath = new DisplayMathElements();
+		this.pMathContent = new MathContentElements();
+		this.pNumberContent = new NumberContentElements();
+		this.pSymbolContent = new SymbolContentElements();
 		this.tSYMBOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SYMBOL");
-		this.tD_QUOTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.D_QUOTE");
-		this.tS_QUOTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.S_QUOTE");
-		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.END");
-		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.WS");
-		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ANY_OTHER");
+		this.tTEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.TEXT");
+		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.NUMBER");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -518,11 +477,14 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return grammar;
 	}
 	
+	
+	public TerminalsGrammarAccess getTerminalsGrammarAccess() {
+		return gaTerminals;
+	}
 
 	
 	//Model:
-	//    document+=Document+
-	//;
+	//    elements+=Element*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -531,41 +493,20 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getModelAccess().getRule();
 	}
 	
-	//Document:
-	//    Command | Text | {Document} END
-	//;
-	public DocumentElements getDocumentAccess() {
-		return pDocument;
+	//Element:
+	//    Command | Environment | TextContent | MathExpression;
+	public ElementElements getElementAccess() {
+		return pElement;
 	}
 	
-	public ParserRule getDocumentRule() {
-		return getDocumentAccess().getRule();
-	}
-	
-	//Text:
-	//    token += AnyText
-	//;
-	public TextElements getTextAccess() {
-		return pText;
-	}
-	
-	public ParserRule getTextRule() {
-		return getTextAccess().getRule();
-	}
-	
-	//AnyText:
-	//    ID | ANY_OTHER | KOMMA | PIPE | EXCL | SYMBOL | DOT
-	//;
-	public AnyTextElements getAnyTextAccess() {
-		return pAnyText;
-	}
-	
-	public ParserRule getAnyTextRule() {
-		return getAnyTextAccess().getRule();
+	public ParserRule getElementRule() {
+		return getElementAccess().getRule();
 	}
 	
 	//Command:
-	//    command=ID_COMM (SQBO attrs+=Attributes (KOMMA attrs+=Attributes)* SQBC)? (CUBO tokens+=Compound ((PIPE | EXCL) tokens+=Compound)* CUBC)?
+	//    '\\' name=ID
+	//    optionalArgs+=OptionalArgument*
+	//    mandatoryArgs+=MandatoryArgument*
 	//;
 	public CommandElements getCommandAccess() {
 		return pCommand;
@@ -575,245 +516,173 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getCommandAccess().getRule();
 	}
 	
-	//Multi:
-	//    tokens+=ID+
+	//OptionalArgument:
+	//    '[' content+=ArgumentContent+ ']';
+	public OptionalArgumentElements getOptionalArgumentAccess() {
+		return pOptionalArgument;
+	}
+	
+	public ParserRule getOptionalArgumentRule() {
+		return getOptionalArgumentAccess().getRule();
+	}
+	
+	//MandatoryArgument:
+	//    '{' content+=ArgumentContent+ '}';
+	public MandatoryArgumentElements getMandatoryArgumentAccess() {
+		return pMandatoryArgument;
+	}
+	
+	public ParserRule getMandatoryArgumentRule() {
+		return getMandatoryArgumentAccess().getRule();
+	}
+	
+	//Environment:
+	//    '\\begin{' type=ID '}'
+	//    content+=Element*
+	//    '\\end{' endType=ID '}';
+	public EnvironmentElements getEnvironmentAccess() {
+		return pEnvironment;
+	}
+	
+	public ParserRule getEnvironmentRule() {
+		return getEnvironmentAccess().getRule();
+	}
+	
+	//ArgumentContent:
+	//    TextContent | Command | MathExpression | Environment;
+	public ArgumentContentElements getArgumentContentAccess() {
+		return pArgumentContent;
+	}
+	
+	public ParserRule getArgumentContentRule() {
+		return getArgumentContentAccess().getRule();
+	}
+	
+	//TextContent:
+	//    {TextContent} text+=TEXT*;
+	public TextContentElements getTextContentAccess() {
+		return pTextContent;
+	}
+	
+	public ParserRule getTextContentRule() {
+		return getTextContentAccess().getRule();
+	}
+	
+	//MathExpression:
+	//    InlineMath | DisplayMath;
+	public MathExpressionElements getMathExpressionAccess() {
+		return pMathExpression;
+	}
+	
+	public ParserRule getMathExpressionRule() {
+		return getMathExpressionAccess().getRule();
+	}
+	
+	//InlineMath:
+	//    {InlineMath} '$' content+=MathContent* '$';
+	public InlineMathElements getInlineMathAccess() {
+		return pInlineMath;
+	}
+	
+	public ParserRule getInlineMathRule() {
+		return getInlineMathAccess().getRule();
+	}
+	
+	//DisplayMath:
+	//    {DisplayMath} '$$' content+=MathContent* '$$';
+	public DisplayMathElements getDisplayMathAccess() {
+		return pDisplayMath;
+	}
+	
+	public ParserRule getDisplayMathRule() {
+		return getDisplayMathAccess().getRule();
+	}
+	
+	//MathContent:
+	//    Command | TextContent | NumberContent | SymbolContent;
+	public MathContentElements getMathContentAccess() {
+		return pMathContent;
+	}
+	
+	public ParserRule getMathContentRule() {
+		return getMathContentAccess().getRule();
+	}
+	
+	//NumberContent:
+	//    content=NUMBER
 	//;
-	public MultiElements getMultiAccess() {
-		return pMulti;
+	public NumberContentElements getNumberContentAccess() {
+		return pNumberContent;
 	}
 	
-	public ParserRule getMultiRule() {
-		return getMultiAccess().getRule();
+	public ParserRule getNumberContentRule() {
+		return getNumberContentAccess().getRule();
 	}
 	
-	//CommandExt:
-	//    command= (ID| ID_COMM) (CUBO tokens+=Compound (KOMMA tokens+=Compound)* CUBC)
+	//SymbolContent:
+	//    content+=SYMBOL+
 	//;
-	public CommandExtElements getCommandExtAccess() {
-		return pCommandExt;
+	public SymbolContentElements getSymbolContentAccess() {
+		return pSymbolContent;
 	}
 	
-	public ParserRule getCommandExtRule() {
-		return getCommandExtAccess().getRule();
-	}
-	
-	//Compound:
-	//    Multi | Extras | =>CommandExt
-	//;
-	public CompoundElements getCompoundAccess() {
-		return pCompound;
-	}
-	
-	public ParserRule getCompoundRule() {
-		return getCompoundAccess().getRule();
-	}
-	
-	//Extras:
-	//    tokens+= (BO | BC)+
-	//;
-	public ExtrasElements getExtrasAccess() {
-		return pExtras;
-	}
-	
-	public ParserRule getExtrasRule() {
-		return getExtrasAccess().getRule();
-	}
-	
-	//Attributes:
-	//    key=ID (EQ (CUBO multi+=Multi+ CUBC | single=ID))?
-	//;
-	public AttributesElements getAttributesAccess() {
-		return pAttributes;
-	}
-	
-	public ParserRule getAttributesRule() {
-		return getAttributesAccess().getRule();
-	}
-	
-	//terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
-	public TerminalRule getSL_COMMENTRule() {
-		return tSL_COMMENT;
-	}
-	
-	//terminal ID:
-	//    (ALPHA | SYMBOL ) (ALPHA | SYMBOL | NUMERIC | DOT | AND)*
-	//;
-	public TerminalRule getIDRule() {
-		return tID;
-	}
-	
-	//terminal BS:
-	//    '\\'
-	//;
-	public TerminalRule getBSRule() {
-		return tBS;
-	}
-	
-	////terminal SYMBOLS:
-	////    SYMBOL+
-	////;
-	////terminal ALPHA_NUMERIC:
-	////    ALPHA+ ( NUMERIC+ ALPHA+ )* NUMERIC*
-	////;
-	//terminal ID_COMM:
-	//    BS ID
-	//;
-	public TerminalRule getID_COMMRule() {
-		return tID_COMM;
-	}
-	
-	//terminal ALPHA:
-	//    ALPHAC | ALPHAS | D_QUOTE | S_QUOTE
-	//;
-	public TerminalRule getALPHARule() {
-		return tALPHA;
-	}
-	
-	//terminal ALPHAC:
-	//    'A'..'Z'| 'Ä'..'Ü' | 'À'..'Ù' | 'Á'..'Ú'
-	//;
-	public TerminalRule getALPHACRule() {
-		return tALPHAC;
-	}
-	
-	//terminal ALPHAS:
-	//    'a'..'z' | 'ä'..'ü' | 'ß' | 'à'..'ù' | 'á'..'ú';
-	public TerminalRule getALPHASRule() {
-		return tALPHAS;
-	}
-	
-	//terminal NUMERIC:
-	//    '0'..'9'
-	//;
-	public TerminalRule getNUMERICRule() {
-		return tNUMERIC;
-	}
-	
-	//terminal SQBO:
-	//    '['
-	//;
-	public TerminalRule getSQBORule() {
-		return tSQBO;
-	}
-	
-	//terminal SQBC:
-	//    ']'
-	//;
-	public TerminalRule getSQBCRule() {
-		return tSQBC;
-	}
-	
-	//terminal BO:
-	//    '('
-	//;
-	public TerminalRule getBORule() {
-		return tBO;
-	}
-	
-	//terminal BC:
-	//    ')'
-	//;
-	public TerminalRule getBCRule() {
-		return tBC;
-	}
-	
-	//terminal CUBO:
-	//    '{'
-	//;
-	public TerminalRule getCUBORule() {
-		return tCUBO;
-	}
-	
-	//terminal CUBC:
-	//    '}'
-	//;
-	public TerminalRule getCUBCRule() {
-		return tCUBC;
-	}
-	
-	//terminal KOMMA:
-	//    ','
-	//;
-	public TerminalRule getKOMMARule() {
-		return tKOMMA;
-	}
-	
-	//terminal EQ:
-	//    '='
-	//;
-	public TerminalRule getEQRule() {
-		return tEQ;
-	}
-	
-	//terminal DOT:
-	//    '.'
-	//;
-	public TerminalRule getDOTRule() {
-		return tDOT;
-	}
-	
-	//terminal AND:
-	//    '&'
-	//;
-	public TerminalRule getANDRule() {
-		return tAND;
-	}
-	
-	//terminal PIPE:
-	//    '|'
-	//;
-	public TerminalRule getPIPERule() {
-		return tPIPE;
-	}
-	
-	//terminal EXCL:
-	//    '!'
-	//;
-	public TerminalRule getEXCLRule() {
-		return tEXCL;
-	}
-	
-	//terminal SPACE:
-	//    ' '
-	//;
-	public TerminalRule getSPACERule() {
-		return tSPACE;
+	public ParserRule getSymbolContentRule() {
+		return getSymbolContentAccess().getRule();
 	}
 	
 	//terminal SYMBOL:
-	//    '-' | '_' | '+' | '#' | '~'
-	//;
+	//    ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
 	public TerminalRule getSYMBOLRule() {
 		return tSYMBOL;
 	}
 	
-	//terminal D_QUOTE:
-	//    '"'
-	//;
-	public TerminalRule getD_QUOTERule() {
-		return tD_QUOTE;
+	//terminal TEXT:
+	//    !('\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_')+;
+	public TerminalRule getTEXTRule() {
+		return tTEXT;
 	}
 	
-	//terminal S_QUOTE:
-	//    "'"
-	//;
-	public TerminalRule getS_QUOTERule() {
-		return tS_QUOTE;
+	//terminal NUMBER returns ecore::EBigDecimal:
+	//    INT ('.' INT)?;
+	public TerminalRule getNUMBERRule() {
+		return tNUMBER;
 	}
 	
-	//terminal END:
-	//    EOF;
-	public TerminalRule getENDRule() {
-		return tEND;
+	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+	public TerminalRule getIDRule() {
+		return gaTerminals.getIDRule();
 	}
 	
-	//terminal WS: (SPACE|'\t'|'\r'|'\n')+;
+	//terminal INT returns ecore::EInt: ('0'..'9')+;
+	public TerminalRule getINTRule() {
+		return gaTerminals.getINTRule();
+	}
+	
+	//terminal STRING:
+	//            '"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
+	//            "'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
+	//        ;
+	public TerminalRule getSTRINGRule() {
+		return gaTerminals.getSTRINGRule();
+	}
+	
+	//terminal ML_COMMENT : '/*' -> '*/';
+	public TerminalRule getML_COMMENTRule() {
+		return gaTerminals.getML_COMMENTRule();
+	}
+	
+	//terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')?;
+	public TerminalRule getSL_COMMENTRule() {
+		return gaTerminals.getSL_COMMENTRule();
+	}
+	
+	//terminal WS         : (' '|'\t'|'\r'|'\n')+;
 	public TerminalRule getWSRule() {
-		return tWS;
+		return gaTerminals.getWSRule();
 	}
 	
 	//terminal ANY_OTHER: .;
 	public TerminalRule getANY_OTHERRule() {
-		return tANY_OTHER;
+		return gaTerminals.getANY_OTHERRule();
 	}
 }

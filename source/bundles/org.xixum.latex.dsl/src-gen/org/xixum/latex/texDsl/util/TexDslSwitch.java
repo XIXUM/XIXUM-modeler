@@ -80,18 +80,10 @@ public class TexDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case TexDslPackage.DOCUMENT:
+      case TexDslPackage.ELEMENT:
       {
-        Document document = (Document)theEObject;
-        T result = caseDocument(document);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case TexDslPackage.TEXT:
-      {
-        Text text = (Text)theEObject;
-        T result = caseText(text);
-        if (result == null) result = caseDocument(text);
+        Element element = (Element)theEObject;
+        T result = caseElement(element);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -99,45 +91,101 @@ public class TexDslSwitch<T> extends Switch<T>
       {
         Command command = (Command)theEObject;
         T result = caseCommand(command);
-        if (result == null) result = caseDocument(command);
+        if (result == null) result = caseElement(command);
+        if (result == null) result = caseArgumentContent(command);
+        if (result == null) result = caseMathContent(command);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case TexDslPackage.MULTI:
+      case TexDslPackage.OPTIONAL_ARGUMENT:
       {
-        Multi multi = (Multi)theEObject;
-        T result = caseMulti(multi);
-        if (result == null) result = caseCompound(multi);
+        OptionalArgument optionalArgument = (OptionalArgument)theEObject;
+        T result = caseOptionalArgument(optionalArgument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case TexDslPackage.COMMAND_EXT:
+      case TexDslPackage.MANDATORY_ARGUMENT:
       {
-        CommandExt commandExt = (CommandExt)theEObject;
-        T result = caseCommandExt(commandExt);
-        if (result == null) result = caseCompound(commandExt);
+        MandatoryArgument mandatoryArgument = (MandatoryArgument)theEObject;
+        T result = caseMandatoryArgument(mandatoryArgument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case TexDslPackage.COMPOUND:
+      case TexDslPackage.ENVIRONMENT:
       {
-        Compound compound = (Compound)theEObject;
-        T result = caseCompound(compound);
+        Environment environment = (Environment)theEObject;
+        T result = caseEnvironment(environment);
+        if (result == null) result = caseElement(environment);
+        if (result == null) result = caseArgumentContent(environment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case TexDslPackage.EXTRAS:
+      case TexDslPackage.ARGUMENT_CONTENT:
       {
-        Extras extras = (Extras)theEObject;
-        T result = caseExtras(extras);
-        if (result == null) result = caseCompound(extras);
+        ArgumentContent argumentContent = (ArgumentContent)theEObject;
+        T result = caseArgumentContent(argumentContent);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case TexDslPackage.ATTRIBUTES:
+      case TexDslPackage.TEXT_CONTENT:
       {
-        Attributes attributes = (Attributes)theEObject;
-        T result = caseAttributes(attributes);
+        TextContent textContent = (TextContent)theEObject;
+        T result = caseTextContent(textContent);
+        if (result == null) result = caseElement(textContent);
+        if (result == null) result = caseArgumentContent(textContent);
+        if (result == null) result = caseMathContent(textContent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.MATH_EXPRESSION:
+      {
+        MathExpression mathExpression = (MathExpression)theEObject;
+        T result = caseMathExpression(mathExpression);
+        if (result == null) result = caseElement(mathExpression);
+        if (result == null) result = caseArgumentContent(mathExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.INLINE_MATH:
+      {
+        InlineMath inlineMath = (InlineMath)theEObject;
+        T result = caseInlineMath(inlineMath);
+        if (result == null) result = caseMathExpression(inlineMath);
+        if (result == null) result = caseElement(inlineMath);
+        if (result == null) result = caseArgumentContent(inlineMath);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.DISPLAY_MATH:
+      {
+        DisplayMath displayMath = (DisplayMath)theEObject;
+        T result = caseDisplayMath(displayMath);
+        if (result == null) result = caseMathExpression(displayMath);
+        if (result == null) result = caseElement(displayMath);
+        if (result == null) result = caseArgumentContent(displayMath);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.MATH_CONTENT:
+      {
+        MathContent mathContent = (MathContent)theEObject;
+        T result = caseMathContent(mathContent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.NUMBER_CONTENT:
+      {
+        NumberContent numberContent = (NumberContent)theEObject;
+        T result = caseNumberContent(numberContent);
+        if (result == null) result = caseMathContent(numberContent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TexDslPackage.SYMBOL_CONTENT:
+      {
+        SymbolContent symbolContent = (SymbolContent)theEObject;
+        T result = caseSymbolContent(symbolContent);
+        if (result == null) result = caseMathContent(symbolContent);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -162,33 +210,17 @@ public class TexDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Document</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Document</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDocument(Document object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Text</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseText(Text object)
+  public T caseElement(Element object)
   {
     return null;
   }
@@ -210,81 +242,177 @@ public class TexDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Multi</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Optional Argument</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multi</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Optional Argument</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMulti(Multi object)
+  public T caseOptionalArgument(OptionalArgument object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Command Ext</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Mandatory Argument</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Command Ext</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Mandatory Argument</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCommandExt(CommandExt object)
+  public T caseMandatoryArgument(MandatoryArgument object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Compound</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Environment</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Compound</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Environment</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCompound(Compound object)
+  public T caseEnvironment(Environment object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Extras</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Argument Content</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Extras</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Argument Content</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExtras(Extras object)
+  public T caseArgumentContent(ArgumentContent object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Attributes</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Text Content</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Attributes</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Text Content</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAttributes(Attributes object)
+  public T caseTextContent(TextContent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Math Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Math Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMathExpression(MathExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Inline Math</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Inline Math</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInlineMath(InlineMath object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Display Math</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Display Math</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDisplayMath(DisplayMath object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Math Content</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Math Content</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMathContent(MathContent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Number Content</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Number Content</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNumberContent(NumberContent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Symbol Content</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Symbol Content</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSymbolContent(SymbolContent object)
   {
     return null;
   }

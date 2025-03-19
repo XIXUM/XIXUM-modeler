@@ -33,22 +33,13 @@ public interface TexDslFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Document</em>'.
+   * Returns a new object of class '<em>Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Document</em>'.
+   * @return a new object of class '<em>Element</em>'.
    * @generated
    */
-  Document createDocument();
-
-  /**
-   * Returns a new object of class '<em>Text</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Text</em>'.
-   * @generated
-   */
-  Text createText();
+  Element createElement();
 
   /**
    * Returns a new object of class '<em>Command</em>'.
@@ -60,49 +51,103 @@ public interface TexDslFactory extends EFactory
   Command createCommand();
 
   /**
-   * Returns a new object of class '<em>Multi</em>'.
+   * Returns a new object of class '<em>Optional Argument</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Multi</em>'.
+   * @return a new object of class '<em>Optional Argument</em>'.
    * @generated
    */
-  Multi createMulti();
+  OptionalArgument createOptionalArgument();
 
   /**
-   * Returns a new object of class '<em>Command Ext</em>'.
+   * Returns a new object of class '<em>Mandatory Argument</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Command Ext</em>'.
+   * @return a new object of class '<em>Mandatory Argument</em>'.
    * @generated
    */
-  CommandExt createCommandExt();
+  MandatoryArgument createMandatoryArgument();
 
   /**
-   * Returns a new object of class '<em>Compound</em>'.
+   * Returns a new object of class '<em>Environment</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Compound</em>'.
+   * @return a new object of class '<em>Environment</em>'.
    * @generated
    */
-  Compound createCompound();
+  Environment createEnvironment();
 
   /**
-   * Returns a new object of class '<em>Extras</em>'.
+   * Returns a new object of class '<em>Argument Content</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Extras</em>'.
+   * @return a new object of class '<em>Argument Content</em>'.
    * @generated
    */
-  Extras createExtras();
+  ArgumentContent createArgumentContent();
 
   /**
-   * Returns a new object of class '<em>Attributes</em>'.
+   * Returns a new object of class '<em>Text Content</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attributes</em>'.
+   * @return a new object of class '<em>Text Content</em>'.
    * @generated
    */
-  Attributes createAttributes();
+  TextContent createTextContent();
+
+  /**
+   * Returns a new object of class '<em>Math Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Math Expression</em>'.
+   * @generated
+   */
+  MathExpression createMathExpression();
+
+  /**
+   * Returns a new object of class '<em>Inline Math</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inline Math</em>'.
+   * @generated
+   */
+  InlineMath createInlineMath();
+
+  /**
+   * Returns a new object of class '<em>Display Math</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Display Math</em>'.
+   * @generated
+   */
+  DisplayMath createDisplayMath();
+
+  /**
+   * Returns a new object of class '<em>Math Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Math Content</em>'.
+   * @generated
+   */
+  MathContent createMathContent();
+
+  /**
+   * Returns a new object of class '<em>Number Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Number Content</em>'.
+   * @generated
+   */
+  NumberContent createNumberContent();
+
+  /**
+   * Returns a new object of class '<em>Symbol Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol Content</em>'.
+   * @generated
+   */
+  SymbolContent createSymbolContent();
 
   /**
    * Returns the package supported by this factory.

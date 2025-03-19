@@ -5,26 +5,24 @@ package org.xixum.latex.texDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.xixum.latex.texDsl.Compound;
+import org.xixum.latex.texDsl.DisplayMath;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Compound</b></em>'.
+ * An implementation of the model object '<em><b>Display Math</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class CompoundImpl extends MinimalEObjectImpl.Container implements Compound
+public class DisplayMathImpl extends MathExpressionImpl implements DisplayMath
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CompoundImpl()
+  protected DisplayMathImpl()
   {
     super();
   }
@@ -37,7 +35,7 @@ public class CompoundImpl extends MinimalEObjectImpl.Container implements Compou
   @Override
   protected EClass eStaticClass()
   {
-    return TexDslPackage.Literals.COMPOUND;
+    return TexDslPackage.Literals.DISPLAY_MATH;
   }
 
-} //CompoundImpl
+} //DisplayMathImpl

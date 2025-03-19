@@ -14,88 +14,87 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xixum.latex.texDsl.Attributes;
-import org.xixum.latex.texDsl.Multi;
+import org.xixum.latex.texDsl.Element;
+import org.xixum.latex.texDsl.Environment;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Attributes</b></em>'.
+ * An implementation of the model object '<em><b>Environment</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.impl.AttributesImpl#getKey <em>Key</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.impl.AttributesImpl#getMulti <em>Multi</em>}</li>
- *   <li>{@link org.xixum.latex.texDsl.impl.AttributesImpl#getSingle <em>Single</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.EnvironmentImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.EnvironmentImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.EnvironmentImpl#getEndType <em>End Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AttributesImpl extends MinimalEObjectImpl.Container implements Attributes
+public class EnvironmentImpl extends ElementImpl implements Environment
 {
   /**
-   * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKey()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final String KEY_EDEFAULT = null;
+  protected static final String TYPE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKey()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected String key = KEY_EDEFAULT;
+  protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getMulti() <em>Multi</em>}' containment reference list.
+   * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMulti()
+   * @see #getContent()
    * @generated
    * @ordered
    */
-  protected EList<Multi> multi;
+  protected EList<Element> content;
 
   /**
-   * The default value of the '{@link #getSingle() <em>Single</em>}' attribute.
+   * The default value of the '{@link #getEndType() <em>End Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSingle()
+   * @see #getEndType()
    * @generated
    * @ordered
    */
-  protected static final String SINGLE_EDEFAULT = null;
+  protected static final String END_TYPE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getSingle() <em>Single</em>}' attribute.
+   * The cached value of the '{@link #getEndType() <em>End Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSingle()
+   * @see #getEndType()
    * @generated
    * @ordered
    */
-  protected String single = SINGLE_EDEFAULT;
+  protected String endType = END_TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AttributesImpl()
+  protected EnvironmentImpl()
   {
     super();
   }
@@ -108,7 +107,7 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   @Override
   protected EClass eStaticClass()
   {
-    return TexDslPackage.Literals.ATTRIBUTES;
+    return TexDslPackage.Literals.ENVIRONMENT;
   }
 
   /**
@@ -117,9 +116,9 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
    * @generated
    */
   @Override
-  public String getKey()
+  public String getType()
   {
-    return key;
+    return type;
   }
 
   /**
@@ -128,12 +127,12 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
    * @generated
    */
   @Override
-  public void setKey(String newKey)
+  public void setType(String newType)
   {
-    String oldKey = key;
-    key = newKey;
+    String oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.ATTRIBUTES__KEY, oldKey, key));
+      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.ENVIRONMENT__TYPE, oldType, type));
   }
 
   /**
@@ -142,13 +141,13 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
    * @generated
    */
   @Override
-  public EList<Multi> getMulti()
+  public EList<Element> getContent()
   {
-    if (multi == null)
+    if (content == null)
     {
-      multi = new EObjectContainmentEList<Multi>(Multi.class, this, TexDslPackage.ATTRIBUTES__MULTI);
+      content = new EObjectContainmentEList<Element>(Element.class, this, TexDslPackage.ENVIRONMENT__CONTENT);
     }
-    return multi;
+    return content;
   }
 
   /**
@@ -157,9 +156,9 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
    * @generated
    */
   @Override
-  public String getSingle()
+  public String getEndType()
   {
-    return single;
+    return endType;
   }
 
   /**
@@ -168,12 +167,12 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
    * @generated
    */
   @Override
-  public void setSingle(String newSingle)
+  public void setEndType(String newEndType)
   {
-    String oldSingle = single;
-    single = newSingle;
+    String oldEndType = endType;
+    endType = newEndType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.ATTRIBUTES__SINGLE, oldSingle, single));
+      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.ENVIRONMENT__END_TYPE, oldEndType, endType));
   }
 
   /**
@@ -186,8 +185,8 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case TexDslPackage.ATTRIBUTES__MULTI:
-        return ((InternalEList<?>)getMulti()).basicRemove(otherEnd, msgs);
+      case TexDslPackage.ENVIRONMENT__CONTENT:
+        return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -202,12 +201,12 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case TexDslPackage.ATTRIBUTES__KEY:
-        return getKey();
-      case TexDslPackage.ATTRIBUTES__MULTI:
-        return getMulti();
-      case TexDslPackage.ATTRIBUTES__SINGLE:
-        return getSingle();
+      case TexDslPackage.ENVIRONMENT__TYPE:
+        return getType();
+      case TexDslPackage.ENVIRONMENT__CONTENT:
+        return getContent();
+      case TexDslPackage.ENVIRONMENT__END_TYPE:
+        return getEndType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -223,15 +222,15 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case TexDslPackage.ATTRIBUTES__KEY:
-        setKey((String)newValue);
+      case TexDslPackage.ENVIRONMENT__TYPE:
+        setType((String)newValue);
         return;
-      case TexDslPackage.ATTRIBUTES__MULTI:
-        getMulti().clear();
-        getMulti().addAll((Collection<? extends Multi>)newValue);
+      case TexDslPackage.ENVIRONMENT__CONTENT:
+        getContent().clear();
+        getContent().addAll((Collection<? extends Element>)newValue);
         return;
-      case TexDslPackage.ATTRIBUTES__SINGLE:
-        setSingle((String)newValue);
+      case TexDslPackage.ENVIRONMENT__END_TYPE:
+        setEndType((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -247,14 +246,14 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case TexDslPackage.ATTRIBUTES__KEY:
-        setKey(KEY_EDEFAULT);
+      case TexDslPackage.ENVIRONMENT__TYPE:
+        setType(TYPE_EDEFAULT);
         return;
-      case TexDslPackage.ATTRIBUTES__MULTI:
-        getMulti().clear();
+      case TexDslPackage.ENVIRONMENT__CONTENT:
+        getContent().clear();
         return;
-      case TexDslPackage.ATTRIBUTES__SINGLE:
-        setSingle(SINGLE_EDEFAULT);
+      case TexDslPackage.ENVIRONMENT__END_TYPE:
+        setEndType(END_TYPE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -270,12 +269,12 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case TexDslPackage.ATTRIBUTES__KEY:
-        return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-      case TexDslPackage.ATTRIBUTES__MULTI:
-        return multi != null && !multi.isEmpty();
-      case TexDslPackage.ATTRIBUTES__SINGLE:
-        return SINGLE_EDEFAULT == null ? single != null : !SINGLE_EDEFAULT.equals(single);
+      case TexDslPackage.ENVIRONMENT__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case TexDslPackage.ENVIRONMENT__CONTENT:
+        return content != null && !content.isEmpty();
+      case TexDslPackage.ENVIRONMENT__END_TYPE:
+        return END_TYPE_EDEFAULT == null ? endType != null : !END_TYPE_EDEFAULT.equals(endType);
     }
     return super.eIsSet(featureID);
   }
@@ -291,12 +290,12 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (key: ");
-    result.append(key);
-    result.append(", single: ");
-    result.append(single);
+    result.append(" (type: ");
+    result.append(type);
+    result.append(", endType: ");
+    result.append(endType);
     result.append(')');
     return result.toString();
   }
 
-} //AttributesImpl
+} //EnvironmentImpl

@@ -3,48 +3,58 @@
  */
 package org.xixum.latex.texDsl.impl;
 
-import java.util.Collection;
+import java.math.BigDecimal;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xixum.latex.texDsl.Extras;
+import org.xixum.latex.texDsl.NumberContent;
 import org.xixum.latex.texDsl.TexDslPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Extras</b></em>'.
+ * An implementation of the model object '<em><b>Number Content</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xixum.latex.texDsl.impl.ExtrasImpl#getTokens <em>Tokens</em>}</li>
+ *   <li>{@link org.xixum.latex.texDsl.impl.NumberContentImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExtrasImpl extends CompoundImpl implements Extras
+public class NumberContentImpl extends MathContentImpl implements NumberContent
 {
   /**
-   * The cached value of the '{@link #getTokens() <em>Tokens</em>}' attribute list.
+   * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTokens()
+   * @see #getContent()
    * @generated
    * @ordered
    */
-  protected EList<String> tokens;
+  protected static final BigDecimal CONTENT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContent()
+   * @generated
+   * @ordered
+   */
+  protected BigDecimal content = CONTENT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExtrasImpl()
+  protected NumberContentImpl()
   {
     super();
   }
@@ -57,7 +67,7 @@ public class ExtrasImpl extends CompoundImpl implements Extras
   @Override
   protected EClass eStaticClass()
   {
-    return TexDslPackage.Literals.EXTRAS;
+    return TexDslPackage.Literals.NUMBER_CONTENT;
   }
 
   /**
@@ -66,13 +76,23 @@ public class ExtrasImpl extends CompoundImpl implements Extras
    * @generated
    */
   @Override
-  public EList<String> getTokens()
+  public BigDecimal getContent()
   {
-    if (tokens == null)
-    {
-      tokens = new EDataTypeEList<String>(String.class, this, TexDslPackage.EXTRAS__TOKENS);
-    }
-    return tokens;
+    return content;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setContent(BigDecimal newContent)
+  {
+    BigDecimal oldContent = content;
+    content = newContent;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TexDslPackage.NUMBER_CONTENT__CONTENT, oldContent, content));
   }
 
   /**
@@ -85,8 +105,8 @@ public class ExtrasImpl extends CompoundImpl implements Extras
   {
     switch (featureID)
     {
-      case TexDslPackage.EXTRAS__TOKENS:
-        return getTokens();
+      case TexDslPackage.NUMBER_CONTENT__CONTENT:
+        return getContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -96,15 +116,13 @@ public class ExtrasImpl extends CompoundImpl implements Extras
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case TexDslPackage.EXTRAS__TOKENS:
-        getTokens().clear();
-        getTokens().addAll((Collection<? extends String>)newValue);
+      case TexDslPackage.NUMBER_CONTENT__CONTENT:
+        setContent((BigDecimal)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -120,8 +138,8 @@ public class ExtrasImpl extends CompoundImpl implements Extras
   {
     switch (featureID)
     {
-      case TexDslPackage.EXTRAS__TOKENS:
-        getTokens().clear();
+      case TexDslPackage.NUMBER_CONTENT__CONTENT:
+        setContent(CONTENT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -137,8 +155,8 @@ public class ExtrasImpl extends CompoundImpl implements Extras
   {
     switch (featureID)
     {
-      case TexDslPackage.EXTRAS__TOKENS:
-        return tokens != null && !tokens.isEmpty();
+      case TexDslPackage.NUMBER_CONTENT__CONTENT:
+        return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
     }
     return super.eIsSet(featureID);
   }
@@ -154,10 +172,10 @@ public class ExtrasImpl extends CompoundImpl implements Extras
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (tokens: ");
-    result.append(tokens);
+    result.append(" (content: ");
+    result.append(content);
     result.append(')');
     return result.toString();
   }
 
-} //ExtrasImpl
+} //NumberContentImpl

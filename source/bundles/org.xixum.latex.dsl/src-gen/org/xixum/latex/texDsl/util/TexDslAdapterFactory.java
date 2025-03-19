@@ -81,14 +81,9 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseDocument(Document object)
+      public Adapter caseElement(Element object)
       {
-        return createDocumentAdapter();
-      }
-      @Override
-      public Adapter caseText(Text object)
-      {
-        return createTextAdapter();
+        return createElementAdapter();
       }
       @Override
       public Adapter caseCommand(Command object)
@@ -96,29 +91,59 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
         return createCommandAdapter();
       }
       @Override
-      public Adapter caseMulti(Multi object)
+      public Adapter caseOptionalArgument(OptionalArgument object)
       {
-        return createMultiAdapter();
+        return createOptionalArgumentAdapter();
       }
       @Override
-      public Adapter caseCommandExt(CommandExt object)
+      public Adapter caseMandatoryArgument(MandatoryArgument object)
       {
-        return createCommandExtAdapter();
+        return createMandatoryArgumentAdapter();
       }
       @Override
-      public Adapter caseCompound(Compound object)
+      public Adapter caseEnvironment(Environment object)
       {
-        return createCompoundAdapter();
+        return createEnvironmentAdapter();
       }
       @Override
-      public Adapter caseExtras(Extras object)
+      public Adapter caseArgumentContent(ArgumentContent object)
       {
-        return createExtrasAdapter();
+        return createArgumentContentAdapter();
       }
       @Override
-      public Adapter caseAttributes(Attributes object)
+      public Adapter caseTextContent(TextContent object)
       {
-        return createAttributesAdapter();
+        return createTextContentAdapter();
+      }
+      @Override
+      public Adapter caseMathExpression(MathExpression object)
+      {
+        return createMathExpressionAdapter();
+      }
+      @Override
+      public Adapter caseInlineMath(InlineMath object)
+      {
+        return createInlineMathAdapter();
+      }
+      @Override
+      public Adapter caseDisplayMath(DisplayMath object)
+      {
+        return createDisplayMathAdapter();
+      }
+      @Override
+      public Adapter caseMathContent(MathContent object)
+      {
+        return createMathContentAdapter();
+      }
+      @Override
+      public Adapter caseNumberContent(NumberContent object)
+      {
+        return createNumberContentAdapter();
+      }
+      @Override
+      public Adapter caseSymbolContent(SymbolContent object)
+      {
+        return createSymbolContentAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -158,31 +183,16 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Document <em>Document</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Element <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xixum.latex.texDsl.Document
+   * @see org.xixum.latex.texDsl.Element
    * @generated
    */
-  public Adapter createDocumentAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Text <em>Text</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xixum.latex.texDsl.Text
-   * @generated
-   */
-  public Adapter createTextAdapter()
+  public Adapter createElementAdapter()
   {
     return null;
   }
@@ -203,76 +213,166 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Multi <em>Multi</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.OptionalArgument <em>Optional Argument</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xixum.latex.texDsl.Multi
+   * @see org.xixum.latex.texDsl.OptionalArgument
    * @generated
    */
-  public Adapter createMultiAdapter()
+  public Adapter createOptionalArgumentAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.CommandExt <em>Command Ext</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.MandatoryArgument <em>Mandatory Argument</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xixum.latex.texDsl.CommandExt
+   * @see org.xixum.latex.texDsl.MandatoryArgument
    * @generated
    */
-  public Adapter createCommandExtAdapter()
+  public Adapter createMandatoryArgumentAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Compound <em>Compound</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Environment <em>Environment</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xixum.latex.texDsl.Compound
+   * @see org.xixum.latex.texDsl.Environment
    * @generated
    */
-  public Adapter createCompoundAdapter()
+  public Adapter createEnvironmentAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Extras <em>Extras</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.ArgumentContent <em>Argument Content</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xixum.latex.texDsl.Extras
+   * @see org.xixum.latex.texDsl.ArgumentContent
    * @generated
    */
-  public Adapter createExtrasAdapter()
+  public Adapter createArgumentContentAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.Attributes <em>Attributes</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.TextContent <em>Text Content</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xixum.latex.texDsl.Attributes
+   * @see org.xixum.latex.texDsl.TextContent
    * @generated
    */
-  public Adapter createAttributesAdapter()
+  public Adapter createTextContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.MathExpression <em>Math Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.MathExpression
+   * @generated
+   */
+  public Adapter createMathExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.InlineMath <em>Inline Math</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.InlineMath
+   * @generated
+   */
+  public Adapter createInlineMathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.DisplayMath <em>Display Math</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.DisplayMath
+   * @generated
+   */
+  public Adapter createDisplayMathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.MathContent <em>Math Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.MathContent
+   * @generated
+   */
+  public Adapter createMathContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.NumberContent <em>Number Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.NumberContent
+   * @generated
+   */
+  public Adapter createNumberContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.SymbolContent <em>Symbol Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xixum.latex.texDsl.SymbolContent
+   * @generated
+   */
+  public Adapter createSymbolContentAdapter()
   {
     return null;
   }
