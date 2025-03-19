@@ -20,9 +20,7 @@ import org.xixum.latex.texDsl.MandatoryArgument;
 import org.xixum.latex.texDsl.MathContent;
 import org.xixum.latex.texDsl.MathExpression;
 import org.xixum.latex.texDsl.Model;
-import org.xixum.latex.texDsl.NumberContent;
 import org.xixum.latex.texDsl.OptionalArgument;
-import org.xixum.latex.texDsl.SymbolContent;
 import org.xixum.latex.texDsl.TexDslFactory;
 import org.xixum.latex.texDsl.TexDslPackage;
 import org.xixum.latex.texDsl.TextContent;
@@ -118,20 +116,6 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   private EClass mathContentEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass numberContentEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass symbolContentEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -454,50 +438,6 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
    * @generated
    */
   @Override
-  public EClass getNumberContent()
-  {
-    return numberContentEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getNumberContent_Content()
-  {
-    return (EAttribute)numberContentEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getSymbolContent()
-  {
-    return symbolContentEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSymbolContent_Content()
-  {
-    return (EAttribute)symbolContentEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public TexDslFactory getTexDslFactory()
   {
     return (TexDslFactory)getEFactoryInstance();
@@ -557,12 +497,6 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     displayMathEClass = createEClass(DISPLAY_MATH);
 
     mathContentEClass = createEClass(MATH_CONTENT);
-
-    numberContentEClass = createEClass(NUMBER_CONTENT);
-    createEAttribute(numberContentEClass, NUMBER_CONTENT__CONTENT);
-
-    symbolContentEClass = createEClass(SYMBOL_CONTENT);
-    createEAttribute(symbolContentEClass, SYMBOL_CONTENT__CONTENT);
   }
 
   /**
@@ -601,13 +535,10 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     environmentEClass.getESuperTypes().add(this.getArgumentContent());
     textContentEClass.getESuperTypes().add(this.getElement());
     textContentEClass.getESuperTypes().add(this.getArgumentContent());
-    textContentEClass.getESuperTypes().add(this.getMathContent());
     mathExpressionEClass.getESuperTypes().add(this.getElement());
     mathExpressionEClass.getESuperTypes().add(this.getArgumentContent());
     inlineMathEClass.getESuperTypes().add(this.getMathExpression());
     displayMathEClass.getESuperTypes().add(this.getMathExpression());
-    numberContentEClass.getESuperTypes().add(this.getMathContent());
-    symbolContentEClass.getESuperTypes().add(this.getMathContent());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -644,12 +575,6 @@ public class TexDslPackageImpl extends EPackageImpl implements TexDslPackage
     initEClass(displayMathEClass, DisplayMath.class, "DisplayMath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(mathContentEClass, MathContent.class, "MathContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(numberContentEClass, NumberContent.class, "NumberContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNumberContent_Content(), ecorePackage.getEBigDecimal(), "content", null, 0, 1, NumberContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(symbolContentEClass, SymbolContent.class, "SymbolContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSymbolContent_Content(), ecorePackage.getEString(), "content", null, 0, -1, SymbolContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

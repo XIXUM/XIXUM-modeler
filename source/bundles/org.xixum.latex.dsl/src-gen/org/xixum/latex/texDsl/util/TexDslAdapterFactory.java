@@ -136,16 +136,6 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
         return createMathContentAdapter();
       }
       @Override
-      public Adapter caseNumberContent(NumberContent object)
-      {
-        return createNumberContentAdapter();
-      }
-      @Override
-      public Adapter caseSymbolContent(SymbolContent object)
-      {
-        return createSymbolContentAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -343,36 +333,6 @@ public class TexDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMathContentAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.NumberContent <em>Number Content</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xixum.latex.texDsl.NumberContent
-   * @generated
-   */
-  public Adapter createNumberContentAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xixum.latex.texDsl.SymbolContent <em>Symbol Content</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xixum.latex.texDsl.SymbolContent
-   * @generated
-   */
-  public Adapter createSymbolContentAdapter()
   {
     return null;
   }

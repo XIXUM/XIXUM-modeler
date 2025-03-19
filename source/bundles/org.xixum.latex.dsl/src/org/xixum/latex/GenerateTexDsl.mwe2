@@ -53,7 +53,15 @@ Workflow {
 			junitSupport = {
 				junitVersion = "5"
 			}
-			
+			parserGenerator = {
+				debugGrammar = true
+				options = {
+					backtrack = true
+					classSplitting = true
+					fieldsPerClass = "100"
+					methodsPerClass= "100" 
+				}
+			}
 		}
 	}
 }

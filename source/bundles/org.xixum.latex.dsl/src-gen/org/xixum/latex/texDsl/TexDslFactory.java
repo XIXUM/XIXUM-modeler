@@ -132,24 +132,6 @@ public interface TexDslFactory extends EFactory
   MathContent createMathContent();
 
   /**
-   * Returns a new object of class '<em>Number Content</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Number Content</em>'.
-   * @generated
-   */
-  NumberContent createNumberContent();
-
-  /**
-   * Returns a new object of class '<em>Symbol Content</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Symbol Content</em>'.
-   * @generated
-   */
-  SymbolContent createSymbolContent();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

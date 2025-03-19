@@ -28,7 +28,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="endType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArgumentContent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TextContent" eSuperTypes="#//Element #//ArgumentContent #//MathContent">
+  <eClassifiers xsi:type="ecore:EClass" name="TextContent" eSuperTypes="#//Element #//ArgumentContent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -39,11 +39,4 @@
   <eClassifiers xsi:type="ecore:EClass" name="InlineMath" eSuperTypes="#//MathExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="DisplayMath" eSuperTypes="#//MathExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="MathContent"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberContent" eSuperTypes="#//MathContent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SymbolContent" eSuperTypes="#//MathContent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
 </ecore:EPackage>

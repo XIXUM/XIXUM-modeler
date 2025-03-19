@@ -11,19 +11,16 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xixum.latex.services.TexDslGrammarAccess;
 import org.xixum.latex.texDsl.Command;
 import org.xixum.latex.texDsl.DisplayMath;
 import org.xixum.latex.texDsl.Environment;
 import org.xixum.latex.texDsl.InlineMath;
 import org.xixum.latex.texDsl.MandatoryArgument;
+import org.xixum.latex.texDsl.MathContent;
 import org.xixum.latex.texDsl.Model;
-import org.xixum.latex.texDsl.NumberContent;
 import org.xixum.latex.texDsl.OptionalArgument;
-import org.xixum.latex.texDsl.SymbolContent;
 import org.xixum.latex.texDsl.TexDslPackage;
 import org.xixum.latex.texDsl.TextContent;
 
@@ -56,17 +53,14 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case TexDslPackage.MANDATORY_ARGUMENT:
 				sequence_MandatoryArgument(context, (MandatoryArgument) semanticObject); 
 				return; 
+			case TexDslPackage.MATH_CONTENT:
+				sequence_MathContent(context, (MathContent) semanticObject); 
+				return; 
 			case TexDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case TexDslPackage.NUMBER_CONTENT:
-				sequence_NumberContent(context, (NumberContent) semanticObject); 
-				return; 
 			case TexDslPackage.OPTIONAL_ARGUMENT:
 				sequence_OptionalArgument(context, (OptionalArgument) semanticObject); 
-				return; 
-			case TexDslPackage.SYMBOL_CONTENT:
-				sequence_SymbolContent(context, (SymbolContent) semanticObject); 
 				return; 
 			case TexDslPackage.TEXT_CONTENT:
 				sequence_TextContent(context, (TextContent) semanticObject); 
@@ -160,6 +154,20 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     MathContent returns MathContent
+	 *
+	 * Constraint:
+	 *     {MathContent}
+	 * </pre>
+	 */
+	protected void sequence_MathContent(ISerializationContext context, MathContent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
@@ -168,27 +176,6 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     MathContent returns NumberContent
-	 *     NumberContent returns NumberContent
-	 *
-	 * Constraint:
-	 *     content=NUMBER
-	 * </pre>
-	 */
-	protected void sequence_NumberContent(ISerializationContext context, NumberContent semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TexDslPackage.Literals.NUMBER_CONTENT__CONTENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TexDslPackage.Literals.NUMBER_CONTENT__CONTENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNumberContentAccess().getContentNUMBERTerminalRuleCall_0(), semanticObject.getContent());
-		feeder.finish();
 	}
 	
 	
@@ -209,25 +196,9 @@ public class TexDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     MathContent returns SymbolContent
-	 *     SymbolContent returns SymbolContent
-	 *
-	 * Constraint:
-	 *     content+=SYMBOL+
-	 * </pre>
-	 */
-	protected void sequence_SymbolContent(ISerializationContext context, SymbolContent semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     Element returns TextContent
 	 *     ArgumentContent returns TextContent
 	 *     TextContent returns TextContent
-	 *     MathContent returns TextContent
 	 *
 	 * Constraint:
 	 *     text+=TEXT*

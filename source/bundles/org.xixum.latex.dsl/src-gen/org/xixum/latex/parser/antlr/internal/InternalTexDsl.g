@@ -5,6 +5,7 @@ grammar InternalTexDsl;
 
 options {
 	superClass=AbstractInternalAntlrParser;
+	backtrack=true;
 }
 
 @lexer::header {
@@ -32,6 +33,11 @@ import org.xixum.latex.services.TexDslGrammarAccess;
 }
 
 @parser::members {
+
+/*
+  This grammar contains a lot of empty actions to work around a bug in ANTLR.
+  Otherwise the ANTLR tool will create synpreds that cannot be compiled in some rare cases.
+*/
 
  	private TexDslGrammarAccess grammarAccess;
 
@@ -113,6 +119,9 @@ ruleElement returns [EObject current=null]
 }:
 	(
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getElementAccess().getCommandParserRuleCall_0());
 		}
 		this_Command_0=ruleCommand
@@ -121,6 +130,9 @@ ruleElement returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getElementAccess().getEnvironmentParserRuleCall_1());
 		}
@@ -131,6 +143,9 @@ ruleElement returns [EObject current=null]
 		}
 		    |
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getElementAccess().getTextContentParserRuleCall_2());
 		}
 		this_TextContent_2=ruleTextContent
@@ -139,6 +154,9 @@ ruleElement returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getElementAccess().getMathExpressionParserRuleCall_3());
 		}
@@ -184,7 +202,7 @@ ruleCommand returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"org.xixum.latex.TexDsl.ID");
 				}
 			)
 		)
@@ -355,7 +373,7 @@ ruleEnvironment returns [EObject current=null]
 						$current,
 						"type",
 						lv_type_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"org.xixum.latex.TexDsl.ID");
 				}
 			)
 		)
@@ -400,7 +418,7 @@ ruleEnvironment returns [EObject current=null]
 						$current,
 						"endType",
 						lv_endType_5_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"org.xixum.latex.TexDsl.ID");
 				}
 			)
 		)
@@ -428,6 +446,9 @@ ruleArgumentContent returns [EObject current=null]
 }:
 	(
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getArgumentContentAccess().getTextContentParserRuleCall_0());
 		}
 		this_TextContent_0=ruleTextContent
@@ -436,6 +457,9 @@ ruleArgumentContent returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getArgumentContentAccess().getCommandParserRuleCall_1());
 		}
@@ -446,6 +470,9 @@ ruleArgumentContent returns [EObject current=null]
 		}
 		    |
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getArgumentContentAccess().getMathExpressionParserRuleCall_2());
 		}
 		this_MathExpression_2=ruleMathExpression
@@ -454,6 +481,9 @@ ruleArgumentContent returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getArgumentContentAccess().getEnvironmentParserRuleCall_3());
 		}
@@ -482,6 +512,9 @@ ruleTextContent returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				$current = forceCreateModelElement(
 					grammarAccess.getTextContentAccess().getTextContentAction_0(),
@@ -526,6 +559,9 @@ ruleMathExpression returns [EObject current=null]
 }:
 	(
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getMathExpressionAccess().getInlineMathParserRuleCall_0());
 		}
 		this_InlineMath_0=ruleInlineMath
@@ -534,6 +570,9 @@ ruleMathExpression returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			/* */
+		}
 		{
 			newCompositeNode(grammarAccess.getMathExpressionAccess().getDisplayMathParserRuleCall_1());
 		}
@@ -562,6 +601,9 @@ ruleInlineMath returns [EObject current=null]
 }:
 	(
 		(
+			{
+				/* */
+			}
 			{
 				$current = forceCreateModelElement(
 					grammarAccess.getInlineMathAccess().getInlineMathAction_0(),
@@ -616,6 +658,9 @@ ruleDisplayMath returns [EObject current=null]
 	(
 		(
 			{
+				/* */
+			}
+			{
 				$current = forceCreateModelElement(
 					grammarAccess.getDisplayMathAccess().getDisplayMathAction_0(),
 					$current);
@@ -668,6 +713,9 @@ ruleMathContent returns [EObject current=null]
 }:
 	(
 		{
+			/* */
+		}
+		{
 			newCompositeNode(grammarAccess.getMathContentAccess().getCommandParserRuleCall_0());
 		}
 		this_Command_0=ruleCommand
@@ -676,121 +724,71 @@ ruleMathContent returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
-		{
-			newCompositeNode(grammarAccess.getMathContentAccess().getTextContentParserRuleCall_1());
-		}
-		this_TextContent_1=ruleTextContent
-		{
-			$current = $this_TextContent_1.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getMathContentAccess().getNumberContentParserRuleCall_2());
-		}
-		this_NumberContent_2=ruleNumberContent
-		{
-			$current = $this_NumberContent_2.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getMathContentAccess().getSymbolContentParserRuleCall_3());
-		}
-		this_SymbolContent_3=ruleSymbolContent
-		{
-			$current = $this_SymbolContent_3.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleNumberContent
-entryRuleNumberContent returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNumberContentRule()); }
-	iv_ruleNumberContent=ruleNumberContent
-	{ $current=$iv_ruleNumberContent.current; }
-	EOF;
-
-// Rule NumberContent
-ruleNumberContent returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
 		(
-			lv_content_0_0=RULE_NUMBER
-			{
-				newLeafNode(lv_content_0_0, grammarAccess.getNumberContentAccess().getContentNUMBERTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getNumberContentRule());
+			(
+				{
+					/* */
 				}
-				setWithLastConsumed(
-					$current,
-					"content",
-					lv_content_0_0,
-					"org.xixum.latex.TexDsl.NUMBER");
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getMathContentAccess().getMathContentAction_1_0(),
+						$current);
+				}
+			)
+			this_TEXT_2=RULE_TEXT
+			{
+				newLeafNode(this_TEXT_2, grammarAccess.getMathContentAccess().getTEXTTerminalRuleCall_1_1());
+			}
+		)
+		    |
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getMathContentAccess().getMathContentAction_2_0(),
+						$current);
+				}
+			)
+			this_NUMBER_4=RULE_NUMBER
+			{
+				newLeafNode(this_NUMBER_4, grammarAccess.getMathContentAccess().getNUMBERTerminalRuleCall_2_1());
+			}
+		)
+		    |
+		(
+			(
+				{
+					/* */
+				}
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getMathContentAccess().getMathContentAction_3_0(),
+						$current);
+				}
+			)
+			this_SYMBOL_6=RULE_SYMBOL
+			{
+				newLeafNode(this_SYMBOL_6, grammarAccess.getMathContentAccess().getSYMBOLTerminalRuleCall_3_1());
 			}
 		)
 	)
 ;
-
-// Entry rule entryRuleSymbolContent
-entryRuleSymbolContent returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSymbolContentRule()); }
-	iv_ruleSymbolContent=ruleSymbolContent
-	{ $current=$iv_ruleSymbolContent.current; }
-	EOF;
-
-// Rule SymbolContent
-ruleSymbolContent returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			lv_content_0_0=RULE_SYMBOL
-			{
-				newLeafNode(lv_content_0_0, grammarAccess.getSymbolContentAccess().getContentSYMBOLTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getSymbolContentRule());
-				}
-				addWithLastConsumed(
-					$current,
-					"content",
-					lv_content_0_0,
-					"org.xixum.latex.TexDsl.SYMBOL");
-			}
-		)
-	)+
-;
-
-RULE_SYMBOL : ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
-
-RULE_TEXT : ~(('\\'|'$'|'{'|'}'|'['|']'|'^'|'_'))+;
 
 RULE_NUMBER : RULE_INT ('.' RULE_INT)?;
 
-RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+RULE_SYMBOL : ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
 
-fragment RULE_INT : ('0'..'9')+;
+RULE_TEXT : ~(('\\'|'$'|'{'|'}'|'['|']'|'^'|'_'|' '|'\t'|'\r'|'\n'))+;
 
-RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
-
-RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
-
-RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
+RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-RULE_ANY_OTHER : .;
+fragment RULE_INT : ('0'..'9')+;
+
+RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
+RULE_END : EOF;

@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface TextContent extends Element, ArgumentContent, MathContent
+public interface TextContent extends Element, ArgumentContent
 {
   /**
    * Returns the value of the '<em><b>Text</b></em>' attribute list.

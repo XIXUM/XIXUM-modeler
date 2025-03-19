@@ -402,62 +402,6 @@ public interface TexDslPackage extends EPackage
    */
   int MATH_CONTENT_FEATURE_COUNT = 0;
 
-  /**
-   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.NumberContentImpl <em>Number Content</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xixum.latex.texDsl.impl.NumberContentImpl
-   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getNumberContent()
-   * @generated
-   */
-  int NUMBER_CONTENT = 12;
-
-  /**
-   * The feature id for the '<em><b>Content</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMBER_CONTENT__CONTENT = MATH_CONTENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Number Content</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMBER_CONTENT_FEATURE_COUNT = MATH_CONTENT_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.xixum.latex.texDsl.impl.SymbolContentImpl <em>Symbol Content</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xixum.latex.texDsl.impl.SymbolContentImpl
-   * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getSymbolContent()
-   * @generated
-   */
-  int SYMBOL_CONTENT = 13;
-
-  /**
-   * The feature id for the '<em><b>Content</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SYMBOL_CONTENT__CONTENT = MATH_CONTENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Symbol Content</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SYMBOL_CONTENT_FEATURE_COUNT = MATH_CONTENT_FEATURE_COUNT + 1;
-
 
   /**
    * Returns the meta object for class '{@link org.xixum.latex.texDsl.Model <em>Model</em>}'.
@@ -701,48 +645,6 @@ public interface TexDslPackage extends EPackage
   EClass getMathContent();
 
   /**
-   * Returns the meta object for class '{@link org.xixum.latex.texDsl.NumberContent <em>Number Content</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Number Content</em>'.
-   * @see org.xixum.latex.texDsl.NumberContent
-   * @generated
-   */
-  EClass getNumberContent();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xixum.latex.texDsl.NumberContent#getContent <em>Content</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Content</em>'.
-   * @see org.xixum.latex.texDsl.NumberContent#getContent()
-   * @see #getNumberContent()
-   * @generated
-   */
-  EAttribute getNumberContent_Content();
-
-  /**
-   * Returns the meta object for class '{@link org.xixum.latex.texDsl.SymbolContent <em>Symbol Content</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Symbol Content</em>'.
-   * @see org.xixum.latex.texDsl.SymbolContent
-   * @generated
-   */
-  EClass getSymbolContent();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xixum.latex.texDsl.SymbolContent#getContent <em>Content</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Content</em>'.
-   * @see org.xixum.latex.texDsl.SymbolContent#getContent()
-   * @see #getSymbolContent()
-   * @generated
-   */
-  EAttribute getSymbolContent_Content();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -972,42 +874,6 @@ public interface TexDslPackage extends EPackage
      * @generated
      */
     EClass MATH_CONTENT = eINSTANCE.getMathContent();
-
-    /**
-     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.NumberContentImpl <em>Number Content</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xixum.latex.texDsl.impl.NumberContentImpl
-     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getNumberContent()
-     * @generated
-     */
-    EClass NUMBER_CONTENT = eINSTANCE.getNumberContent();
-
-    /**
-     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute NUMBER_CONTENT__CONTENT = eINSTANCE.getNumberContent_Content();
-
-    /**
-     * The meta object literal for the '{@link org.xixum.latex.texDsl.impl.SymbolContentImpl <em>Symbol Content</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xixum.latex.texDsl.impl.SymbolContentImpl
-     * @see org.xixum.latex.texDsl.impl.TexDslPackageImpl#getSymbolContent()
-     * @generated
-     */
-    EClass SYMBOL_CONTENT = eINSTANCE.getSymbolContent();
-
-    /**
-     * The meta object literal for the '<em><b>Content</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SYMBOL_CONTENT__CONTENT = eINSTANCE.getSymbolContent_Content();
 
   }
 

@@ -16,7 +16,6 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 import org.eclipse.xtext.service.AbstractElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -353,60 +352,52 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.MathContent");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cCommandParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTextContentParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cNumberContentParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cSymbolContentParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cMathContentAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final RuleCall cTEXTTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cMathContentAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final RuleCall cNUMBERTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Action cMathContentAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final RuleCall cSYMBOLTerminalRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
 		
 		//MathContent:
-		//    Command | TextContent | NumberContent | SymbolContent;
+		//    Command | {MathContent} TEXT | {MathContent} NUMBER | {MathContent} SYMBOL;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Command | TextContent | NumberContent | SymbolContent
+		//Command | {MathContent} TEXT | {MathContent} NUMBER | {MathContent} SYMBOL
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Command
 		public RuleCall getCommandParserRuleCall_0() { return cCommandParserRuleCall_0; }
 		
-		//TextContent
-		public RuleCall getTextContentParserRuleCall_1() { return cTextContentParserRuleCall_1; }
+		//{MathContent} TEXT
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//NumberContent
-		public RuleCall getNumberContentParserRuleCall_2() { return cNumberContentParserRuleCall_2; }
+		//{MathContent}
+		public Action getMathContentAction_1_0() { return cMathContentAction_1_0; }
 		
-		//SymbolContent
-		public RuleCall getSymbolContentParserRuleCall_3() { return cSymbolContentParserRuleCall_3; }
-	}
-	public class NumberContentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.NumberContent");
-		private final Assignment cContentAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cContentNUMBERTerminalRuleCall_0 = (RuleCall)cContentAssignment.eContents().get(0);
+		//TEXT
+		public RuleCall getTEXTTerminalRuleCall_1_1() { return cTEXTTerminalRuleCall_1_1; }
 		
-		//NumberContent:
-		//    content=NUMBER
-		//;
-		@Override public ParserRule getRule() { return rule; }
+		//{MathContent} NUMBER
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//content=NUMBER
-		public Assignment getContentAssignment() { return cContentAssignment; }
+		//{MathContent}
+		public Action getMathContentAction_2_0() { return cMathContentAction_2_0; }
 		
 		//NUMBER
-		public RuleCall getContentNUMBERTerminalRuleCall_0() { return cContentNUMBERTerminalRuleCall_0; }
-	}
-	public class SymbolContentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SymbolContent");
-		private final Assignment cContentAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cContentSYMBOLTerminalRuleCall_0 = (RuleCall)cContentAssignment.eContents().get(0);
+		public RuleCall getNUMBERTerminalRuleCall_2_1() { return cNUMBERTerminalRuleCall_2_1; }
 		
-		//SymbolContent:
-		//    content+=SYMBOL+
-		//;
-		@Override public ParserRule getRule() { return rule; }
+		//{MathContent} SYMBOL
+		public Group getGroup_3() { return cGroup_3; }
 		
-		//content+=SYMBOL+
-		public Assignment getContentAssignment() { return cContentAssignment; }
+		//{MathContent}
+		public Action getMathContentAction_3_0() { return cMathContentAction_3_0; }
 		
 		//SYMBOL
-		public RuleCall getContentSYMBOLTerminalRuleCall_0() { return cContentSYMBOLTerminalRuleCall_0; }
+		public RuleCall getSYMBOLTerminalRuleCall_3_1() { return cSYMBOLTerminalRuleCall_3_1; }
 	}
 	
 	
@@ -422,21 +413,20 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	private final InlineMathElements pInlineMath;
 	private final DisplayMathElements pDisplayMath;
 	private final MathContentElements pMathContent;
-	private final NumberContentElements pNumberContent;
-	private final SymbolContentElements pSymbolContent;
+	private final TerminalRule tNUMBER;
 	private final TerminalRule tSYMBOL;
 	private final TerminalRule tTEXT;
-	private final TerminalRule tNUMBER;
+	private final TerminalRule tSL_COMMENT;
+	private final TerminalRule tWS;
+	private final TerminalRule tINT;
+	private final TerminalRule tID;
+	private final TerminalRule tEND;
 	
 	private final Grammar grammar;
-	
-	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
-	public TexDslGrammarAccess(GrammarProvider grammarProvider,
-			TerminalsGrammarAccess gaTerminals) {
+	public TexDslGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
-		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pElement = new ElementElements();
 		this.pCommand = new CommandElements();
@@ -449,11 +439,14 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		this.pInlineMath = new InlineMathElements();
 		this.pDisplayMath = new DisplayMathElements();
 		this.pMathContent = new MathContentElements();
-		this.pNumberContent = new NumberContentElements();
-		this.pSymbolContent = new SymbolContentElements();
+		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.NUMBER");
 		this.tSYMBOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SYMBOL");
 		this.tTEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.TEXT");
-		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.NUMBER");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.SL_COMMENT");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.WS");
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.INT");
+		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.ID");
+		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xixum.latex.TexDsl.END");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -477,10 +470,6 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return grammar;
 	}
 	
-	
-	public TerminalsGrammarAccess getTerminalsGrammarAccess() {
-		return gaTerminals;
-	}
 
 	
 	//Model:
@@ -599,7 +588,7 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//MathContent:
-	//    Command | TextContent | NumberContent | SymbolContent;
+	//    Command | {MathContent} TEXT | {MathContent} NUMBER | {MathContent} SYMBOL;
 	public MathContentElements getMathContentAccess() {
 		return pMathContent;
 	}
@@ -608,26 +597,10 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getMathContentAccess().getRule();
 	}
 	
-	//NumberContent:
-	//    content=NUMBER
-	//;
-	public NumberContentElements getNumberContentAccess() {
-		return pNumberContent;
-	}
-	
-	public ParserRule getNumberContentRule() {
-		return getNumberContentAccess().getRule();
-	}
-	
-	//SymbolContent:
-	//    content+=SYMBOL+
-	//;
-	public SymbolContentElements getSymbolContentAccess() {
-		return pSymbolContent;
-	}
-	
-	public ParserRule getSymbolContentRule() {
-		return getSymbolContentAccess().getRule();
+	//terminal NUMBER returns ecore::EBigDecimal:
+	//    INT ('.' INT)?;
+	public TerminalRule getNUMBERRule() {
+		return tNUMBER;
 	}
 	
 	//terminal SYMBOL:
@@ -637,52 +610,35 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//terminal TEXT:
-	//    !('\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_')+;
+	//    !('\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' '|'\t'|'\r'|'\n')+;
 	public TerminalRule getTEXTRule() {
 		return tTEXT;
 	}
 	
-	//terminal NUMBER returns ecore::EBigDecimal:
-	//    INT ('.' INT)?;
-	public TerminalRule getNUMBERRule() {
-		return tNUMBER;
-	}
-	
-	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-	public TerminalRule getIDRule() {
-		return gaTerminals.getIDRule();
-	}
-	
-	//terminal INT returns ecore::EInt: ('0'..'9')+;
-	public TerminalRule getINTRule() {
-		return gaTerminals.getINTRule();
-	}
-	
-	//terminal STRING:
-	//            '"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
-	//            "'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
-	//        ;
-	public TerminalRule getSTRINGRule() {
-		return gaTerminals.getSTRINGRule();
-	}
-	
-	//terminal ML_COMMENT : '/*' -> '*/';
-	public TerminalRule getML_COMMENTRule() {
-		return gaTerminals.getML_COMMENTRule();
-	}
-	
-	//terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')?;
+	//terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
-		return gaTerminals.getSL_COMMENTRule();
+		return tSL_COMMENT;
 	}
 	
 	//terminal WS         : (' '|'\t'|'\r'|'\n')+;
 	public TerminalRule getWSRule() {
-		return gaTerminals.getWSRule();
+		return tWS;
 	}
 	
-	//terminal ANY_OTHER: .;
-	public TerminalRule getANY_OTHERRule() {
-		return gaTerminals.getANY_OTHERRule();
+	//terminal INT returns ecore::EInt: ('0'..'9')+;
+	public TerminalRule getINTRule() {
+		return tINT;
+	}
+	
+	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+	public TerminalRule getIDRule() {
+		return tID;
+	}
+	
+	//terminal END:
+	//    EOF
+	//;
+	public TerminalRule getENDRule() {
+		return tEND;
 	}
 }

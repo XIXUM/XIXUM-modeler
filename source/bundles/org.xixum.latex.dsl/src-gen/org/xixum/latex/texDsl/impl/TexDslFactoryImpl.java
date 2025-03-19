@@ -77,8 +77,6 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
       case TexDslPackage.INLINE_MATH: return createInlineMath();
       case TexDslPackage.DISPLAY_MATH: return createDisplayMath();
       case TexDslPackage.MATH_CONTENT: return createMathContent();
-      case TexDslPackage.NUMBER_CONTENT: return createNumberContent();
-      case TexDslPackage.SYMBOL_CONTENT: return createSymbolContent();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -226,30 +224,6 @@ public class TexDslFactoryImpl extends EFactoryImpl implements TexDslFactory
   {
     MathContentImpl mathContent = new MathContentImpl();
     return mathContent;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NumberContent createNumberContent()
-  {
-    NumberContentImpl numberContent = new NumberContentImpl();
-    return numberContent;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SymbolContent createSymbolContent()
-  {
-    SymbolContentImpl symbolContent = new SymbolContentImpl();
-    return symbolContent;
   }
 
   /**

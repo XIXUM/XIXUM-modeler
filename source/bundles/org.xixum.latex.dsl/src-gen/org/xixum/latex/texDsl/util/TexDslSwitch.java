@@ -133,7 +133,6 @@ public class TexDslSwitch<T> extends Switch<T>
         T result = caseTextContent(textContent);
         if (result == null) result = caseElement(textContent);
         if (result == null) result = caseArgumentContent(textContent);
-        if (result == null) result = caseMathContent(textContent);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -170,22 +169,6 @@ public class TexDslSwitch<T> extends Switch<T>
       {
         MathContent mathContent = (MathContent)theEObject;
         T result = caseMathContent(mathContent);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case TexDslPackage.NUMBER_CONTENT:
-      {
-        NumberContent numberContent = (NumberContent)theEObject;
-        T result = caseNumberContent(numberContent);
-        if (result == null) result = caseMathContent(numberContent);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case TexDslPackage.SYMBOL_CONTENT:
-      {
-        SymbolContent symbolContent = (SymbolContent)theEObject;
-        T result = caseSymbolContent(symbolContent);
-        if (result == null) result = caseMathContent(symbolContent);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -381,38 +364,6 @@ public class TexDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMathContent(MathContent object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Number Content</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Number Content</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNumberContent(NumberContent object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Symbol Content</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Symbol Content</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSymbolContent(SymbolContent object)
   {
     return null;
   }

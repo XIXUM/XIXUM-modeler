@@ -36,11 +36,5 @@
     <genClasses ecoreClass="TexDsl.ecore#//InlineMath"/>
     <genClasses ecoreClass="TexDsl.ecore#//DisplayMath"/>
     <genClasses ecoreClass="TexDsl.ecore#//MathContent"/>
-    <genClasses ecoreClass="TexDsl.ecore#//NumberContent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//NumberContent/content"/>
-    </genClasses>
-    <genClasses ecoreClass="TexDsl.ecore#//SymbolContent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TexDsl.ecore#//SymbolContent/content"/>
-    </genClasses>
   </genPackages>
 </genmodel:GenModel>
