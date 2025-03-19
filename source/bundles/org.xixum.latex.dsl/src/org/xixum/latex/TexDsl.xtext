@@ -10,24 +10,33 @@ Model:
     elements+=Element*;
 
 Element:
-    Command | TextContent | MathExpression;
+    Command | TextContent | MathExpression | CodeblockContent;
 
 Command:
-    '\\' command=ID 
+    BS command=ID 
     optionalArgs+=OptionalArgument*
     mandatoryArgs+=MandatoryArgument*
 ;
 
 OptionalArgument:
-    {OptionalArgument} '[' content+=ArgumentContent* ']';
+    {OptionalArgument} SQBO content+=ArgumentContent* SQBC;
 
 MandatoryArgument:
-    {MandatoryArgument} '{' content+=ArgumentContent* '}';
+    {MandatoryArgument} CUBO content+=ArgumentContent* CUBC;
 
-Environment:
-    '\\begin{' type=ID '}'
-    content+=Element*
-    '\\end{' endType=ID '}';
+//Codeblock:
+//    BEGIN CUBO type='codeblock' CUBC
+//    content= CodeblockContent
+//    END CUBO type='codeblock' CUBC;
+    
+CodeblockContent:
+    block+=CODEBLOCK;
+
+//CodeblockElement:
+//    AnyToken | Command;
+//
+//AnyToken:
+//    ID | TEXT | SYMBOL | NUMBER | SQBO | SQBC | CUBO | CUBC | BEGIN;
 
 ArgumentContent:
     TextContent | Command | MathExpression;
@@ -62,15 +71,37 @@ DisplayMath:
 
 MathContent:
     Command | TextContent | Numbers | Operators;
-      
 
+terminal CODEBLOCK:
+'\\begin{codeblock}'
+->
+'\\end{codeblock}'
+;
+
+terminal BS:
+	'\\'
+;
 
 terminal SYMBOL:
     ('+'|'-'|'='|'/'|'*'|'^'|'_'|'<'|'>'|'&'|'%'|'#');
     
 terminal SL_COMMENT : '%' !('\n'|'\r')* ('\r'? '\n')?;
 
+terminal SQBO:
+	'['
+;
 
+terminal SQBC:
+	']'
+;
+
+terminal CUBO:
+	'{'
+;
+
+terminal CUBC:
+	'}'
+;
 
 terminal NUMBER returns ecore::EBigDecimal:
     INT ('.' INT)?;
@@ -81,10 +112,9 @@ terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 terminal WS         : (' '|'\t'|'\r'|'\n')+;
 
-//terminal END:
-//	EOF
-//;
+
 
 terminal TEXT:
     !('\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' '|'\t'|'\r'|'\n')+;
+    
 
