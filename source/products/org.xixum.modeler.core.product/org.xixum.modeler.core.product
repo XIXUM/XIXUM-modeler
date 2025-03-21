@@ -62,6 +62,7 @@ plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425
       <linux icon="/org.xixum.modeler.core.product/icons/xixum_favicon_256p.xpm"/>
       <macosx icon="/org.xixum.modeler.core.application/icons/xixum_favicon_256p.icns"/>
       <win useIco="false">
+         <ico path="/org.xixum.modeler.core.application/icons/favicon.ico"/>
          <bmp
             winSmallHigh="/org.xixum.modeler.core.application/icons/favicon_xixum_16_32bit.bmp"
             winSmallLow="/org.xixum.modeler.core.application/icons/favicon_xixum_16_8bit.bmp"

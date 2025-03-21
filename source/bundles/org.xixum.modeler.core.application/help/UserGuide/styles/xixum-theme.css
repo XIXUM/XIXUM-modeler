@@ -69,7 +69,7 @@ h1.titleLead {
 	font-weight: 400;
 }
 
-span.titleTCA {
+span.titleXIXUM {
 	text-align: center;
 	font-size: 3em;
 	margin-bottom: 0px;
@@ -127,16 +127,16 @@ td.tableblock > .content > .tableImageFix:last-child:last-child {
 }
 
 /* table style */
-table.TCATableStyle th {
+table.ModelerTableStyle th {
 	border-color: #000000;
 	background: #000000;
 }
 
-table.TCATableStyle td {
+table.ModelerTableStyle td {
 	border-color: #000000;
 }
 
-table.TCATableStyle {
+table.ModelerTableStyle {
 	border-color: #000000;
 }
 
