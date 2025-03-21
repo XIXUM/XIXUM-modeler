@@ -112,5 +112,116 @@
 			<unit id="junit-jupiter-params" version="5.10.1"/>
 			<unit id="org.eclipse.orbit.maven.org.antlr.3.2.feature.group" version="4.30.0.v20230929-1400"/>
 		</location>
+		
+		<location includeDependencyDepth="none"
+			includeDependencyScopes="compile" includeSource="true"
+			missingManifest="generate" type="Maven">
+			<dependencies>
+				<dependency>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-buffer</artifactId>
+					<version>4.2.0.RC4</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-base</artifactId>
+					<version>4.2.0.RC4</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-common</artifactId>
+					<version>4.2.0.RC4</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-handler</artifactId>
+					<version>4.2.0.RC4</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-resolver</artifactId>
+					<version>4.2.0.RC4</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-tcnative-classes</artifactId>
+					<version>2.0.70.Final</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-transport-native-unix-common</artifactId>
+					<version>4.2.0.RC4</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-transport</artifactId>
+					<version>4.2.0.RC4</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>io.projectreactor</groupId>
+					<artifactId>reactor-core</artifactId>
+					<version>3.7.4</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>org.neo4j.bolt</groupId>
+					<artifactId>neo4j-bolt-connection-netty</artifactId>
+					<version>1.0.0</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>org.neo4j.bolt</groupId>
+					<artifactId>neo4j-bolt-connection-pooled</artifactId>
+					<version>1.0.0</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>org.neo4j.bolt</groupId>
+					<artifactId>neo4j-bolt-connection-routed</artifactId>
+					<version>1.0.0</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>org.neo4j.bolt</groupId>
+					<artifactId>neo4j-bolt-connection</artifactId>
+					<version>1.0.0</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>org.neo4j.driver</groupId>
+					<artifactId>neo4j-java-driver</artifactId>
+					<version>5.28.2</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>org.neo4j</groupId>
+					<artifactId>neo4j-bolt</artifactId>
+					<version>5.26.4</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>org.reactivestreams</groupId>
+					<artifactId>reactive-streams</artifactId>
+					<version>1.0.4</version>
+					<type>jar</type>
+				</dependency>
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+					<version>2.0.17</version>
+					<type>jar</type>
+				</dependency>
+			</dependencies>
+		</location>
+		
+		
 	</locations>
 </target>
