@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dictionary
+Bundle-SymbolicName: org.xixum.nlx.dictionary
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Validas AG
+Automatic-Module-Name: org.xixum.nlx.dictionary
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.xtext.ui,
+ org.eclipse.xtext.xbase.lib,
+ org.xixum.nlx.ai;visibility:=reexport,
+ org.xixum.utils.Data,
+ org.eclipse.xtext.builder;bundle-version="2.16.0"
+Import-Package: org.apache.log4j;version="1.2.15"
+Export-Package: org.xixum.nlx.dictionary,
+ org.xixum.nlx.dictionary.constants,
+ org.xixum.nlx.dictionary.type,
+ org.xixum.nlx.dictionary.type.elements,
+ org.xixum.nlx.dictionary.util
