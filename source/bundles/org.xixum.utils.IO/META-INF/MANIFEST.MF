@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IO
+Bundle-SymbolicName: org.xixum.utils.IO
+Bundle-Version: 0.1.5.qualifier
+Bundle-Activator: org.xixum.utils.io.Activator
+Bundle-Vendor: Validas AG
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.xixum.utils.Data,
+ com.google.guava;bundle-version="21.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.xixum.utils
+Bundle-ActivationPolicy: lazy
+Export-Package: org.xixum.utils.io,
+ org.xixum.utils.io.filesystem

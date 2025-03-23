@@ -1,0 +1,16 @@
+<<<<<<< HEAD:source/de.validas.utils.Data.test/pom.xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.validas.utils.Data.test</groupId>
+  <artifactId>de.validas.utils.Data.test</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>eclipse-plugin</packaging>
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.xixum.utils.Data.test</groupId>
+  <artifactId>org.xixum.utils.Data.test</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>eclipse-plugin</packaging>
+>>>>>>> 28be792edcf63b5c495498de39713fad9b7858d6:source/org.xixum.utils.Data.test/pom.xml
+</project>

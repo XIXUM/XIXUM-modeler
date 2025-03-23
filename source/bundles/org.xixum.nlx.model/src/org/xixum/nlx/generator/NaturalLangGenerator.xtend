@@ -42,7 +42,6 @@ import org.xixum.utils.data.lists.IAppendable
 import org.xixum.utils.data.lists.LinkedList
 import org.xixum.utils.data.lists.XList
 import org.xixum.utils.io.filesystem.File
-import org.xixum.utils.io.filesystem.Path
 import java.util.ArrayList
 import java.util.Collections
 import java.util.HashMap
@@ -74,6 +73,7 @@ import static org.xixum.nlx.constants.NaturalLangMessages.*
 import static org.xixum.nlx.generator.utils.ReflectiveUtils.getAllChildrenRecursive
 
 import static extension org.eclipse.xtext.nodemodel.util.NodeModelUtils.*
+import org.xixum.utils.io.filesystem.XPath
 
 /**
  * Generates code from your model files on save.
@@ -97,7 +97,7 @@ class NaturalLangGenerator extends AbstractGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		var absoluteLocation = NlxGeneratorUtil.findResourceInWS(resource)
-		var documentPath = new Path(absoluteLocation.toOSString)
+		var documentPath = new XPath(absoluteLocation.toOSString)
 		var file = documentPath.getLastPathElement()
 		if (file instanceof File) {
 			(file as File).extension = MODEL_EXTENSION

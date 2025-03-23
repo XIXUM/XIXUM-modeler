@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Neo4j Driver Access
+Bundle-SymbolicName: org.xixum.neo4j.driver
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: org.xixum.neo4j.driver.activator.Activator
+Bundle-Vendor: XIXUM.ORG
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.neo4j.driver.neo4j-java-driver;bundle-version="5.28.2"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Automatic-Module-Name: org.xixum.modeler.neo4j.driver
+Bundle-ActivationPolicy: lazy
+Import-Package: org.neo4j.driver.v1.exceptions

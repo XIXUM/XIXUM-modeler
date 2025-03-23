@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Data-Handling
+Bundle-SymbolicName: org.xixum.utils.Data;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-Activator: org.xixum.utils.data.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.google.guava
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.xixum.utils.Data
+Bundle-Vendor: Validas AG
+Export-Package: org.xixum.utils.data,
+ org.xixum.utils.data.lists,
+ org.xixum.utils.data.types,
+ org.xixum.utils.data.util
