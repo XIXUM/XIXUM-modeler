@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Automatic-Module-Name: org.xixum.nlx.model
 Bundle-ManifestVersion: 2
 Bundle-Name: org.xixum.nlx.model
-Bundle-Vendor: My Company
+Bundle-Vendor: XIXUM
 Bundle-Version: 0.2.0.qualifier
 Bundle-SymbolicName: org.xixum.nlx.model; singleton:=true
 Bundle-ActivationPolicy: lazy

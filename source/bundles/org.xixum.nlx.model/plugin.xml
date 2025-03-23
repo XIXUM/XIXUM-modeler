@@ -3,7 +3,7 @@
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package 
-			uri = "http://www.validas.de/spedit/NaturalLang"
+			uri = "http://www.xixum.org/modeler/NaturalLang"
 			class = "org.xixum.nlx.naturalLang.NaturalLangPackage"
 			genModel = "model/generated/NaturalLang.genmodel" />
 	</extension>

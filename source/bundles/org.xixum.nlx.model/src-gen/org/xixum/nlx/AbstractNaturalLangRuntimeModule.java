@@ -62,7 +62,7 @@ public abstract class AbstractNaturalLangRuntimeModule extends DefaultRuntimeMod
 
 	@Override
 	public void configure(Binder binder) {
-		properties = tryBindProperties(binder, "de/validas/spedit/NaturalLang.properties");
+		properties = tryBindProperties(binder, "org/xixum/modeler/NaturalLang.properties");
 		super.configure(binder);
 	}
 	

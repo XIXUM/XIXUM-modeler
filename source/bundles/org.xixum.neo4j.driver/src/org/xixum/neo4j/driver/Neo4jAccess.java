@@ -13,16 +13,9 @@ import static org.xixum.nlx.constants.Neo4jConstants.DB_USER;
 
 import java.util.List;
 
-import org.neo4j.driver.v1.AuthTokens;
-import org.neo4j.driver.v1.Driver;
-import org.neo4j.driver.v1.GraphDatabase;
-import org.neo4j.driver.v1.Record;
-import org.neo4j.driver.v1.Session;
-import org.neo4j.driver.v1.StatementResult;
-import org.neo4j.driver.v1.Transaction;
-import org.neo4j.driver.v1.TransactionWork;
-import org.neo4j.driver.v1.exceptions.ServiceUnavailableException;
-
+import org.neo4j.driver.AuthTokens;
+import org.neo4j.driver.GraphDatabase;
+import org.neo4j.driver.exceptions.ServiceUnavailableException;
 import org.xixum.nlx.ai.IDbAccess;
 
 

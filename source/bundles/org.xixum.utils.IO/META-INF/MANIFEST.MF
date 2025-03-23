@@ -4,7 +4,7 @@ Bundle-Name: IO
 Bundle-SymbolicName: org.xixum.utils.IO
 Bundle-Version: 0.1.5.qualifier
 Bundle-Activator: org.xixum.utils.io.Activator
-Bundle-Vendor: Validas AG
+Bundle-Vendor: XIXUM
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.xixum.utils.Data,

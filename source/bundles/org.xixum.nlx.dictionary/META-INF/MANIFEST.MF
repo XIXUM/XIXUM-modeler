@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Dictionary
 Bundle-SymbolicName: org.xixum.nlx.dictionary
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Validas AG
+Bundle-Vendor: XIXUM
 Automatic-Module-Name: org.xixum.nlx.dictionary
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.xtext.ui,

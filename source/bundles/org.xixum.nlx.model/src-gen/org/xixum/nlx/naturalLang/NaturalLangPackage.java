@@ -39,7 +39,7 @@ public interface NaturalLangPackage extends EPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  String eNS_URI = "http://www.validas.de/spedit/NaturalLang";
+  String eNS_URI = "http://www.xixum.org/spedit/NaturalLang";
 
   /**
    * The package namespace name.

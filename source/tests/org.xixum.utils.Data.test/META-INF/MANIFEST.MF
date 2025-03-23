@@ -1,30 +1,3 @@
-<<<<<<< HEAD:source/de.validas.utils.Data.test/META-INF/MANIFEST.MF
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Test-Data
-Bundle-SymbolicName: de.validas.utils.Data.test
-Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: de.validas.utils.data.test.Activator
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.junit,
- org.junit.jupiter.api,
- org.junit.jupiter.engine,
- org.junit.jupiter.migrationsupport,
- org.junit.jupiter.params,
- org.junit.platform.commons,
- org.junit.platform.engine,
- org.junit.platform.launcher,
- org.junit.platform.runner,
- org.junit.platform.suite.api,
- org.junit.vintage.engine,
- org.hamcrest.core,
- org.opentest4j,
- org.apiguardian
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Automatic-Module-Name: de.validas.utils.Data.test
-Bundle-ActivationPolicy: lazy
-=======
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Test-Data
@@ -50,4 +23,3 @@ Require-Bundle: org.eclipse.ui,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.xixum.utils.Data.test
 Bundle-ActivationPolicy: lazy
->>>>>>> 28be792edcf63b5c495498de39713fad9b7858d6:source/org.xixum.utils.Data.test/META-INF/MANIFEST.MF
