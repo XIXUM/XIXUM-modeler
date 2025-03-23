@@ -9,7 +9,13 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.neo4j.driver.neo4j-java-driver;bundle-version="5.28.2",
  org.eclipse.emf.common;bundle-version="2.31.0",
- org.eclipse.emf.common.ui;bundle-version="2.23.0"
+ org.eclipse.emf.common.ui;bundle-version="2.23.0",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.xtext.builder,
+ com.google.inject
 Bundle-RequiredExecutionEnvironment: JavaSE-21
 Automatic-Module-Name: org.xixum.modeler.neo4j.driver
 Bundle-ActivationPolicy: lazy

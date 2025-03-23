@@ -7,16 +7,22 @@
 
 package org.xixum.neo4j.driver;
 
-import static org.xixum.nlx.constants.Neo4jConstants.DB_PASS;
-import static org.xixum.nlx.constants.Neo4jConstants.DB_URI;
-import static org.xixum.nlx.constants.Neo4jConstants.DB_USER;
+import static org.xixum.neo4j.driver.constants.Neo4jConstants.DB_PASS;
+import static org.xixum.neo4j.driver.constants.Neo4jConstants.DB_URI;
+import static org.xixum.neo4j.driver.constants.Neo4jConstants.DB_USER;
 
 import java.util.List;
 
 import org.neo4j.driver.AuthTokens;
+import org.neo4j.driver.Driver;
 import org.neo4j.driver.GraphDatabase;
+import org.neo4j.driver.Record;
+import org.neo4j.driver.Result;
+import org.neo4j.driver.Session;
+import org.neo4j.driver.TransactionCallback;
+import org.neo4j.driver.TransactionContext;
 import org.neo4j.driver.exceptions.ServiceUnavailableException;
-import org.xixum.nlx.ai.IDbAccess;
+
 
 
 public class Neo4jAccess implements IDbAccess {
@@ -38,12 +44,6 @@ public class Neo4jAccess implements IDbAccess {
 		READ;
 	}
 	
-//	public enum Direction {
-//		LEFT,
-//		RIGHT;
-//	}
-	
-
 	public Neo4jAccess() {
 		this (DB_URI, DB_USER, DB_PASS);
 	}
@@ -69,7 +69,7 @@ public class Neo4jAccess implements IDbAccess {
 		}
 	}
 	/**
-	 * returns a String as querey result
+	 * returns a String as query result
 	 * @param input
 	 * @param action
 	 * @return
@@ -78,24 +78,24 @@ public class Neo4jAccess implements IDbAccess {
     {
     	try ( Session session = driver.session() )
     	{
-    		TransactionWork<String> txWork = new TransactionWork<String>()
+    		TransactionCallback<String> txWork = new TransactionCallback<String>()
             {
                 @Override
-                public String execute( Transaction tx )
+                public String execute( TransactionContext tx )
                 {
-                    StatementResult result = tx.run( input );
+                    Result result = tx.run( input );
                     return result.list().toString();
                 }
             }; 
     		
     		if (action == Action.WRITE)
-    			return session.writeTransaction(txWork);
+    			return session.executeWrite(txWork);
     		else
-    			return session.readTransaction(txWork);
+    			return session.executeWrite(txWork);
     	}
     }
 	/**
-	 * returns a Record list as querey result
+	 * returns a Record list as query result
 	 * @param input
 	 * @param action
 	 * @return
@@ -105,20 +105,20 @@ public class Neo4jAccess implements IDbAccess {
     	try ( Session session = driver.session() )
     	{
     		List<Record> queryResult = null;
-    		TransactionWork<List<Record>> txWork = new TransactionWork<List<Record>>()
+    		TransactionCallback<List<Record>> txWork = new TransactionCallback<List<Record>>()
             {
                 @Override
-                public List<Record> execute( Transaction tx )
+                public List<Record> execute( TransactionContext tx )
                 {
-                    StatementResult result = tx.run( input );
+                    Result result = tx.run( input );
                     return result.list();
                 }
             }; 
 
     		if (action == Action.WRITE)
-    			queryResult = session.writeTransaction(txWork);
+    			queryResult = session.executeWrite(txWork);
     		else
-    			queryResult = session.readTransaction(txWork);
+    			queryResult = session.executeWrite(txWork);
     		return queryResult;
     	}
     }

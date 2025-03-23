@@ -1,6 +1,6 @@
-package org.xixum.nlx.constants
+package org.xixum.neo4j.driver.constants
 
-import org.xixum.nlx.util.PluginUtils
+import org.xixum.neo4j.driver.activator.PluginUtils
 
 class Neo4jConstants {
 	
