@@ -76,21 +76,21 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final RuleCall cMandatoryArgsMandatoryArgumentParserRuleCall_3_0 = (RuleCall)cMandatoryArgsAssignment_3.eContents().get(0);
 		
 		//Command:
-		//    ->BS command=ID
+		//    BS =>command=ID
 		//    optionalArgs+=OptionalArgument*
 		//    mandatoryArgs+=MandatoryArgument*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//->BS command=ID
+		//BS =>command=ID
 		//optionalArgs+=OptionalArgument*
 		//mandatoryArgs+=MandatoryArgument*
 		public Group getGroup() { return cGroup; }
 		
-		//->BS
+		//BS
 		public RuleCall getBSTerminalRuleCall_0() { return cBSTerminalRuleCall_0; }
 		
-		//command=ID
+		//=>command=ID
 		public Assignment getCommandAssignment_1() { return cCommandAssignment_1; }
 		
 		//ID
@@ -181,20 +181,20 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cEndCodeblockKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Codeblock:
-		//    BS ->'begin{codeblock}'
+		//    BS 'begin{codeblock}'
 		//    content=CodeblockContent
-		//    BS ->'end{codeblock}';
+		//    BS 'end{codeblock}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//BS ->'begin{codeblock}'
+		//BS 'begin{codeblock}'
 		//content=CodeblockContent
-		//BS ->'end{codeblock}'
+		//BS 'end{codeblock}'
 		public Group getGroup() { return cGroup; }
 		
 		//BS
 		public RuleCall getBSTerminalRuleCall_0() { return cBSTerminalRuleCall_0; }
 		
-		//->'begin{codeblock}'
+		//'begin{codeblock}'
 		public Keyword getBeginCodeblockKeyword_1() { return cBeginCodeblockKeyword_1; }
 		
 		//content=CodeblockContent
@@ -206,7 +206,7 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//BS
 		public RuleCall getBSTerminalRuleCall_3() { return cBSTerminalRuleCall_3; }
 		
-		//->'end{codeblock}'
+		//'end{codeblock}'
 		public Keyword getEndCodeblockKeyword_4() { return cEndCodeblockKeyword_4; }
 	}
 	public class CodeblockContentElements extends AbstractParserRuleElementFinder {
@@ -652,7 +652,7 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//Command:
-	//    ->BS command=ID
+	//    BS =>command=ID
 	//    optionalArgs+=OptionalArgument*
 	//    mandatoryArgs+=MandatoryArgument*
 	//;
@@ -685,9 +685,9 @@ public class TexDslGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//Codeblock:
-	//    BS ->'begin{codeblock}'
+	//    BS 'begin{codeblock}'
 	//    content=CodeblockContent
-	//    BS ->'end{codeblock}';
+	//    BS 'end{codeblock}';
 	public CodeblockElements getCodeblockAccess() {
 		return pCodeblock;
 	}

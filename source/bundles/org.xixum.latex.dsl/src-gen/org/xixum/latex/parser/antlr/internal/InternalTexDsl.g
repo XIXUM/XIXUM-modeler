@@ -184,14 +184,15 @@ ruleCommand returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		this_BS_0=RULE_BS
+		{
+			newLeafNode(this_BS_0, grammarAccess.getCommandAccess().getBSTerminalRuleCall_0());
+		}
 		(
-			(RULE_BS)=>
-			this_BS_0=RULE_BS
-			{
-				newLeafNode(this_BS_0, grammarAccess.getCommandAccess().getBSTerminalRuleCall_0());
-			}
-		)
-		(
+			((
+				RULE_ID
+			)
+			)=>
 			(
 				lv_command_1_0=RULE_ID
 				{
@@ -382,13 +383,10 @@ ruleCodeblock returns [EObject current=null]
 		{
 			newLeafNode(this_BS_0, grammarAccess.getCodeblockAccess().getBSTerminalRuleCall_0());
 		}
-		(
-			('begin{codeblock}')=>
-			otherlv_1='begin{codeblock}'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getCodeblockAccess().getBeginCodeblockKeyword_1());
-			}
-		)
+		otherlv_1='begin{codeblock}'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getCodeblockAccess().getBeginCodeblockKeyword_1());
+		}
 		(
 			(
 				{
@@ -412,13 +410,10 @@ ruleCodeblock returns [EObject current=null]
 		{
 			newLeafNode(this_BS_3, grammarAccess.getCodeblockAccess().getBSTerminalRuleCall_3());
 		}
-		(
-			('end{codeblock}')=>
-			otherlv_4='end{codeblock}'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getCodeblockAccess().getEndCodeblockKeyword_4());
-			}
-		)
+		otherlv_4='end{codeblock}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getCodeblockAccess().getEndCodeblockKeyword_4());
+		}
 	)
 ;
 

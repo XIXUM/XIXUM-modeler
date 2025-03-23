@@ -24,11 +24,12 @@ ruleElement:
 
 // Rule Command
 ruleCommand:
+	RULE_BS
 	(
-		(RULE_BS)=>
-		RULE_BS
+		(RULE_ID
+		)=>
+		RULE_ID
 	)
-	RULE_ID
 	ruleOptionalArgument
 	*
 	ruleMandatoryArgument
@@ -54,16 +55,10 @@ ruleMandatoryArgument:
 // Rule Codeblock
 ruleCodeblock:
 	RULE_BS
-	(
-		('begin{codeblock}')=>
-		'begin{codeblock}'
-	)
+	'begin{codeblock}'
 	ruleCodeblockContent
 	RULE_BS
-	(
-		('end{codeblock}')=>
-		'end{codeblock}'
-	)
+	'end{codeblock}'
 ;
 
 // Rule CodeblockContent

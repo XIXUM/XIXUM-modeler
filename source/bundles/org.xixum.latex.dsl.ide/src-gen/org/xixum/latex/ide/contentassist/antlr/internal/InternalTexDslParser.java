@@ -2420,7 +2420,10 @@ abstract class InternalTexDslParser2 extends InternalTexDslParser1 {
             else if ( (LA5_0==RULE_BS) ) {
                 int LA5_2 = input.LA(2);
 
-                if ( (LA5_2==RULE_ID) ) {
+                if ( (LA5_2==EOF||(LA5_2>=RULE_TEXT && LA5_2<=RULE_BS)) ) {
+                    alt5=1;
+                }
+                else if ( (LA5_2==RULE_ID) ) {
                     int LA5_3 = input.LA(3);
 
                     if ( (synpred7_InternalTexDsl()) ) {
@@ -2436,9 +2439,6 @@ abstract class InternalTexDslParser2 extends InternalTexDslParser1 {
 
                         throw nvae;
                     }
-                }
-                else if ( (LA5_2==EOF||(LA5_2>=RULE_TEXT && LA5_2<=RULE_BS)) ) {
-                    alt5=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -3468,28 +3468,22 @@ abstract class InternalTexDslParser2 extends InternalTexDslParser1 {
 
 
     // $ANTLR start "rule__Command__Group__0__Impl"
-    // InternalTexDsl.g:804:1: rule__Command__Group__0__Impl : ( ( RULE_BS ) ) ;
+    // InternalTexDsl.g:804:1: rule__Command__Group__0__Impl : ( RULE_BS ) ;
     public final void rule__Command__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTexDsl.g:808:1: ( ( ( RULE_BS ) ) )
-            // InternalTexDsl.g:809:1: ( ( RULE_BS ) )
+            // InternalTexDsl.g:808:1: ( ( RULE_BS ) )
+            // InternalTexDsl.g:809:1: ( RULE_BS )
             {
-            // InternalTexDsl.g:809:1: ( ( RULE_BS ) )
-            // InternalTexDsl.g:810:2: ( RULE_BS )
+            // InternalTexDsl.g:809:1: ( RULE_BS )
+            // InternalTexDsl.g:810:2: RULE_BS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCommandAccess().getBSTerminalRuleCall_0()); 
             }
-            // InternalTexDsl.g:811:2: ( RULE_BS )
-            // InternalTexDsl.g:811:3: RULE_BS
-            {
             match(input,RULE_BS,FollowSets000.FOLLOW_2); if (state.failed) return ;
-
-            }
-
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCommandAccess().getBSTerminalRuleCall_0()); 
             }
@@ -4596,28 +4590,22 @@ abstract class InternalTexDslParser2 extends InternalTexDslParser1 {
 
 
     // $ANTLR start "rule__Codeblock__Group__1__Impl"
-    // InternalTexDsl.g:1155:1: rule__Codeblock__Group__1__Impl : ( ( 'begin{codeblock}' ) ) ;
+    // InternalTexDsl.g:1155:1: rule__Codeblock__Group__1__Impl : ( 'begin{codeblock}' ) ;
     public final void rule__Codeblock__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTexDsl.g:1159:1: ( ( ( 'begin{codeblock}' ) ) )
-            // InternalTexDsl.g:1160:1: ( ( 'begin{codeblock}' ) )
+            // InternalTexDsl.g:1159:1: ( ( 'begin{codeblock}' ) )
+            // InternalTexDsl.g:1160:1: ( 'begin{codeblock}' )
             {
-            // InternalTexDsl.g:1160:1: ( ( 'begin{codeblock}' ) )
-            // InternalTexDsl.g:1161:2: ( 'begin{codeblock}' )
+            // InternalTexDsl.g:1160:1: ( 'begin{codeblock}' )
+            // InternalTexDsl.g:1161:2: 'begin{codeblock}'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCodeblockAccess().getBeginCodeblockKeyword_1()); 
             }
-            // InternalTexDsl.g:1162:2: ( 'begin{codeblock}' )
-            // InternalTexDsl.g:1162:3: 'begin{codeblock}'
-            {
             match(input,16,FollowSets000.FOLLOW_2); if (state.failed) return ;
-
-            }
-
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCodeblockAccess().getBeginCodeblockKeyword_1()); 
             }
@@ -4844,28 +4832,22 @@ abstract class InternalTexDslParser2 extends InternalTexDslParser1 {
 
 
     // $ANTLR start "rule__Codeblock__Group__4__Impl"
-    // InternalTexDsl.g:1235:1: rule__Codeblock__Group__4__Impl : ( ( 'end{codeblock}' ) ) ;
+    // InternalTexDsl.g:1235:1: rule__Codeblock__Group__4__Impl : ( 'end{codeblock}' ) ;
     public final void rule__Codeblock__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalTexDsl.g:1239:1: ( ( ( 'end{codeblock}' ) ) )
-            // InternalTexDsl.g:1240:1: ( ( 'end{codeblock}' ) )
+            // InternalTexDsl.g:1239:1: ( ( 'end{codeblock}' ) )
+            // InternalTexDsl.g:1240:1: ( 'end{codeblock}' )
             {
-            // InternalTexDsl.g:1240:1: ( ( 'end{codeblock}' ) )
-            // InternalTexDsl.g:1241:2: ( 'end{codeblock}' )
+            // InternalTexDsl.g:1240:1: ( 'end{codeblock}' )
+            // InternalTexDsl.g:1241:2: 'end{codeblock}'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCodeblockAccess().getEndCodeblockKeyword_4()); 
             }
-            // InternalTexDsl.g:1242:2: ( 'end{codeblock}' )
-            // InternalTexDsl.g:1242:3: 'end{codeblock}'
-            {
             match(input,17,FollowSets000.FOLLOW_2); if (state.failed) return ;
-
-            }
-
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCodeblockAccess().getEndCodeblockKeyword_4()); 
             }

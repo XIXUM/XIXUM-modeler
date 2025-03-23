@@ -131,8 +131,8 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_BS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1122:9: ( '\\\\' )
-            // InternalTexDsl.g:1122:11: '\\\\'
+            // InternalTexDsl.g:1117:9: ( '\\\\' )
+            // InternalTexDsl.g:1117:11: '\\\\'
             {
             match('\\'); 
 
@@ -151,8 +151,8 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_SYMBOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1124:13: ( ( '+' | '-' | '=' | '/' | '*' | '^' | '_' | '<' | '>' | '&' | '%' | '#' ) )
-            // InternalTexDsl.g:1124:15: ( '+' | '-' | '=' | '/' | '*' | '^' | '_' | '<' | '>' | '&' | '%' | '#' )
+            // InternalTexDsl.g:1119:13: ( ( '+' | '-' | '=' | '/' | '*' | '^' | '_' | '<' | '>' | '&' | '%' | '#' ) )
+            // InternalTexDsl.g:1119:15: ( '+' | '-' | '=' | '/' | '*' | '^' | '_' | '<' | '>' | '&' | '%' | '#' )
             {
             if ( input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='*' && input.LA(1)<='+')||input.LA(1)=='-'||input.LA(1)=='/'||(input.LA(1)>='<' && input.LA(1)<='>')||(input.LA(1)>='^' && input.LA(1)<='_') ) {
                 input.consume();
@@ -179,11 +179,11 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1126:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalTexDsl.g:1126:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalTexDsl.g:1121:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalTexDsl.g:1121:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('%'); 
-            // InternalTexDsl.g:1126:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalTexDsl.g:1121:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop1:
             do {
                 int alt1=2;
@@ -196,7 +196,7 @@ public class InternalTexDslLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalTexDsl.g:1126:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalTexDsl.g:1121:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -216,7 +216,7 @@ public class InternalTexDslLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalTexDsl.g:1126:39: ( ( '\\r' )? '\\n' )?
+            // InternalTexDsl.g:1121:39: ( ( '\\r' )? '\\n' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -225,9 +225,9 @@ public class InternalTexDslLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalTexDsl.g:1126:40: ( '\\r' )? '\\n'
+                    // InternalTexDsl.g:1121:40: ( '\\r' )? '\\n'
                     {
-                    // InternalTexDsl.g:1126:40: ( '\\r' )?
+                    // InternalTexDsl.g:1121:40: ( '\\r' )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -236,7 +236,7 @@ public class InternalTexDslLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // InternalTexDsl.g:1126:40: '\\r'
+                            // InternalTexDsl.g:1121:40: '\\r'
                             {
                             match('\r'); 
 
@@ -268,8 +268,8 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_SQBO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1128:11: ( '[' )
-            // InternalTexDsl.g:1128:13: '['
+            // InternalTexDsl.g:1123:11: ( '[' )
+            // InternalTexDsl.g:1123:13: '['
             {
             match('['); 
 
@@ -288,8 +288,8 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_SQBC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1130:11: ( ']' )
-            // InternalTexDsl.g:1130:13: ']'
+            // InternalTexDsl.g:1125:11: ( ']' )
+            // InternalTexDsl.g:1125:13: ']'
             {
             match(']'); 
 
@@ -308,8 +308,8 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_CUBO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1132:11: ( '{' )
-            // InternalTexDsl.g:1132:13: '{'
+            // InternalTexDsl.g:1127:11: ( '{' )
+            // InternalTexDsl.g:1127:13: '{'
             {
             match('{'); 
 
@@ -328,8 +328,8 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_CUBC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1134:11: ( '}' )
-            // InternalTexDsl.g:1134:13: '}'
+            // InternalTexDsl.g:1129:11: ( '}' )
+            // InternalTexDsl.g:1129:13: '}'
             {
             match('}'); 
 
@@ -348,11 +348,11 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_NUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1136:13: ( RULE_INT ( '.' RULE_INT )? )
-            // InternalTexDsl.g:1136:15: RULE_INT ( '.' RULE_INT )?
+            // InternalTexDsl.g:1131:13: ( RULE_INT ( '.' RULE_INT )? )
+            // InternalTexDsl.g:1131:15: RULE_INT ( '.' RULE_INT )?
             {
             mRULE_INT(); 
-            // InternalTexDsl.g:1136:24: ( '.' RULE_INT )?
+            // InternalTexDsl.g:1131:24: ( '.' RULE_INT )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -361,7 +361,7 @@ public class InternalTexDslLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalTexDsl.g:1136:25: '.' RULE_INT
+                    // InternalTexDsl.g:1131:25: '.' RULE_INT
                     {
                     match('.'); 
                     mRULE_INT(); 
@@ -385,10 +385,10 @@ public class InternalTexDslLexer extends Lexer {
     // $ANTLR start "RULE_INT"
     public final void mRULE_INT() throws RecognitionException {
         try {
-            // InternalTexDsl.g:1138:19: ( ( '0' .. '9' )+ )
-            // InternalTexDsl.g:1138:21: ( '0' .. '9' )+
+            // InternalTexDsl.g:1133:19: ( ( '0' .. '9' )+ )
+            // InternalTexDsl.g:1133:21: ( '0' .. '9' )+
             {
-            // InternalTexDsl.g:1138:21: ( '0' .. '9' )+
+            // InternalTexDsl.g:1133:21: ( '0' .. '9' )+
             int cnt5=0;
             loop5:
             do {
@@ -402,7 +402,7 @@ public class InternalTexDslLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalTexDsl.g:1138:22: '0' .. '9'
+            	    // InternalTexDsl.g:1133:22: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -432,10 +432,10 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1140:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalTexDsl.g:1140:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalTexDsl.g:1135:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalTexDsl.g:1135:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalTexDsl.g:1140:11: ( '^' )?
+            // InternalTexDsl.g:1135:11: ( '^' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -444,7 +444,7 @@ public class InternalTexDslLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalTexDsl.g:1140:11: '^'
+                    // InternalTexDsl.g:1135:11: '^'
                     {
                     match('^'); 
 
@@ -462,7 +462,7 @@ public class InternalTexDslLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalTexDsl.g:1140:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalTexDsl.g:1135:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop7:
             do {
                 int alt7=2;
@@ -511,10 +511,10 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1142:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalTexDsl.g:1142:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalTexDsl.g:1137:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalTexDsl.g:1137:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalTexDsl.g:1142:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalTexDsl.g:1137:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt8=0;
             loop8:
             do {
@@ -568,10 +568,10 @@ public class InternalTexDslLexer extends Lexer {
         try {
             int _type = RULE_TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalTexDsl.g:1144:11: ( (~ ( ( '\\\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' ' | '\\t' | '\\r' | '\\n' ) ) )+ )
-            // InternalTexDsl.g:1144:13: (~ ( ( '\\\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' ' | '\\t' | '\\r' | '\\n' ) ) )+
+            // InternalTexDsl.g:1139:11: ( (~ ( ( '\\\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' ' | '\\t' | '\\r' | '\\n' ) ) )+ )
+            // InternalTexDsl.g:1139:13: (~ ( ( '\\\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' ' | '\\t' | '\\r' | '\\n' ) ) )+
             {
-            // InternalTexDsl.g:1144:13: (~ ( ( '\\\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' ' | '\\t' | '\\r' | '\\n' ) ) )+
+            // InternalTexDsl.g:1139:13: (~ ( ( '\\\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' ' | '\\t' | '\\r' | '\\n' ) ) )+
             int cnt9=0;
             loop9:
             do {
@@ -585,7 +585,7 @@ public class InternalTexDslLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalTexDsl.g:1144:13: ~ ( ( '\\\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' ' | '\\t' | '\\r' | '\\n' ) )
+            	    // InternalTexDsl.g:1139:13: ~ ( ( '\\\\' | '$' | '{' | '}' | '[' | ']' | '^' | '_' | ' ' | '\\t' | '\\r' | '\\n' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\b')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u001F')||(input.LA(1)>='!' && input.LA(1)<='#')||(input.LA(1)>='%' && input.LA(1)<='Z')||(input.LA(1)>='`' && input.LA(1)<='z')||input.LA(1)=='|'||(input.LA(1)>='~' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();

@@ -808,7 +808,7 @@ rule__Command__Group__0__Impl
 :
 (
 	{ before(grammarAccess.getCommandAccess().getBSTerminalRuleCall_0()); }
-	(RULE_BS)
+	RULE_BS
 	{ after(grammarAccess.getCommandAccess().getBSTerminalRuleCall_0()); }
 )
 ;
@@ -1159,7 +1159,7 @@ rule__Codeblock__Group__1__Impl
 :
 (
 	{ before(grammarAccess.getCodeblockAccess().getBeginCodeblockKeyword_1()); }
-	('begin{codeblock}')
+	'begin{codeblock}'
 	{ after(grammarAccess.getCodeblockAccess().getBeginCodeblockKeyword_1()); }
 )
 ;
@@ -1239,7 +1239,7 @@ rule__Codeblock__Group__4__Impl
 :
 (
 	{ before(grammarAccess.getCodeblockAccess().getEndCodeblockKeyword_4()); }
-	('end{codeblock}')
+	'end{codeblock}'
 	{ after(grammarAccess.getCodeblockAccess().getEndCodeblockKeyword_4()); }
 )
 ;
