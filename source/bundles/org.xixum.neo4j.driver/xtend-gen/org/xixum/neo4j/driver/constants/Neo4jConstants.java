@@ -4,11 +4,11 @@ import org.xixum.neo4j.driver.activator.PluginUtils;
 
 @SuppressWarnings("all")
 public class Neo4jConstants {
-  public static final String DB_URI = "bolt://localhost:7687";
+  public static final String DB_URI = "neo4j://localhost";
 
   public static final String DB_USER = "neo4j";
 
-  public static final String DB_PASS = "test";
+  public static final String DB_PASS = "test1234";
 
   public static final String _NODE = Neo4jConstants.getString("_NODE");
 

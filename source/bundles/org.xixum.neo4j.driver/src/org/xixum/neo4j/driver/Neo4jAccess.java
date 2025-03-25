@@ -12,17 +12,19 @@ import static org.xixum.neo4j.driver.constants.Neo4jConstants.DB_URI;
 import static org.xixum.neo4j.driver.constants.Neo4jConstants.DB_USER;
 
 import java.util.List;
+import java.util.Map;
 
 import org.neo4j.driver.AuthTokens;
 import org.neo4j.driver.Driver;
+import org.neo4j.driver.EagerResult;
 import org.neo4j.driver.GraphDatabase;
+import org.neo4j.driver.QueryConfig;
 import org.neo4j.driver.Record;
 import org.neo4j.driver.Result;
 import org.neo4j.driver.Session;
 import org.neo4j.driver.TransactionCallback;
 import org.neo4j.driver.TransactionContext;
 import org.neo4j.driver.exceptions.ServiceUnavailableException;
-
 
 
 public class Neo4jAccess implements IDbAccess {
@@ -74,6 +76,7 @@ public class Neo4jAccess implements IDbAccess {
 	 * @param action
 	 * @return
 	 */
+	@Deprecated
 	public String runCodeString(String input, Action action)
     {
     	try ( Session session = driver.session() )
@@ -96,10 +99,12 @@ public class Neo4jAccess implements IDbAccess {
     }
 	/**
 	 * returns a Record list as query result
+	 * @Deprecated use ececuteCommand
 	 * @param input
 	 * @param action
 	 * @return
 	 */
+	@Deprecated
 	public List<Record> runCodeRecords(String input, Action action)
     {
     	try ( Session session = driver.session() )
@@ -122,8 +127,41 @@ public class Neo4jAccess implements IDbAccess {
     		return queryResult;
     	}
     }
-
 	
+	
+	/**
+	 * new Query Function for Accessing DB with Parameters
+	 * @param command
+	 * @param parameters
+	 * @param database
+	 * @return
+	 */
+	public EagerResult executeCommandWtParams(String command, Map<String, Object> parameters, String database) {
+		
+		var result = driver.executableQuery(command)
+			    .withParameters(parameters)
+			    .withConfig(QueryConfig.builder().withDatabase(database).build())
+			    .execute();
+		
+		return result;
+	}
+	
+	/**
+	 * New Query F-unction for Accessing DB plain w.o. Parameters 
+	 * @param command
+	 * @param database
+	 * @return
+	 */
+	public EagerResult executeCommand(String command, String database) {
+		
+		var result = driver.executableQuery(command)
+				.withConfig(QueryConfig.builder().withDatabase(database).build())
+				.execute();
+		
+		return result;
+	}
+	
+		
 	public boolean ensureDbConnect() {
 		if (!dbConnected ) {
 			driver = connectToDatabase(uri, user, pass);

@@ -14,7 +14,7 @@ import org.xixum.nlx.dictionary.grammar.types.IGrammarType
  * @author schaller
  *
  */
-public interface IGrammarItem extends IAppendable, IContainable, IIndexable{
+interface IGrammarItem extends IAppendable, IContainable, IIndexable {
 
 	def abstract String getName();
 	

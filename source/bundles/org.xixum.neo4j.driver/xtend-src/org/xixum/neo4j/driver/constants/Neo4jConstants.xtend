@@ -5,9 +5,9 @@ import org.xixum.neo4j.driver.activator.PluginUtils
 class Neo4jConstants {
 	
 	//TODO: 14.03.22 consider to protect, y to extract in a more consealed constants class with package visibility ------>
-	public static val DB_URI = "bolt://localhost:7687";
+	public static val DB_URI = "neo4j://localhost";
 	public static val String DB_USER = "neo4j";
-	public static val String DB_PASS = "test";		//<------------
+	public static val String DB_PASS = "test1234";		//<------------
 	
 	public static val _NODE 			= getString("_NODE"); 				//"n";
 	public static val _NAME 			= getString("_NAME");				//"name";
