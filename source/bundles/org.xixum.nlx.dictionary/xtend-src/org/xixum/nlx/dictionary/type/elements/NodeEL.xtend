@@ -1,8 +1,8 @@
 package org.xixum.nlx.dictionary.type.elements
 
-import org.xixum.nlx.constants.Direction
+import org.xixum.neo4j.driver.constants.Direction
 import java.util.List
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.types.Node
 
 class NodeEL extends NetworkEL implements INodeEL {
 	

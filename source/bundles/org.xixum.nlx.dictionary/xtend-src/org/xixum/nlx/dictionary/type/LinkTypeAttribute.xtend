@@ -1,20 +1,15 @@
 package org.xixum.nlx.dictionary.type
 
-import org.xixum.nlx.dictionary.type.ITypeAttributes
-import org.neo4j.driver.v1.types.Node
-import java.util.Set
-import java.util.HashMap
-
-import static org.xixum.nlx.dictionary.constants.DictionaryConstants._START;
-import static org.xixum.nlx.dictionary.constants.DictionaryConstants._END;
-import java.util.Map
-import org.xixum.nlx.dictionary.constants.AttributeSet
 import java.util.Collection
-import org.xixum.nlx.dictionary.type.elements.INodeEL
+import java.util.Map
+import org.neo4j.driver.types.Node
+import org.xixum.nlx.dictionary.constants.AttributeSet
 import org.xixum.nlx.dictionary.type.elements.INetworkEL
+import org.xixum.nlx.dictionary.type.elements.INodeEL
 import org.xixum.nlx.dictionary.type.elements.IRelationshipEL
-import java.util.List
-import org.xixum.nlx.constants.Direction
+
+import static org.xixum.nlx.dictionary.constants.DictionaryConstants._END
+import static org.xixum.nlx.dictionary.constants.DictionaryConstants._START
 
 class LinkTypeAttribute implements ITypeAttributes {
 	

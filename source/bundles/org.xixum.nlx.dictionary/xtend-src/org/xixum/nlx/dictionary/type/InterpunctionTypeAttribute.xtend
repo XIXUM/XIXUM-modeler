@@ -1,7 +1,7 @@
 package org.xixum.nlx.dictionary.type
 
 import org.xixum.nlx.dictionary.type.ITypeAttributes
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.types.Node
 
 class InterpunctionTypeAttribute implements ITypeAttributes {
 	

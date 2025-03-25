@@ -4,7 +4,7 @@ import org.xixum.nlx.dictionary.type.ITypeAttributes
 import org.xixum.utils.data.types.XPair
 import java.util.HashMap
 import java.util.List
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.types.Node
 
 abstract class AbstractTypeInfo implements ITypeInfo{
 	

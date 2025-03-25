@@ -4,7 +4,7 @@ import org.xixum.nlx.dictionary.type.elements.INodeEL
 import org.xixum.nlx.dictionary.type.elements.IRelationshipEL
 import java.util.Collection
 import java.util.List
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.types.Node
 
 interface ITypeAttributes {
 

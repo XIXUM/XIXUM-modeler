@@ -9,21 +9,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.neo4j.driver.Record;
 import org.neo4j.driver.Value;
-import org.neo4j.driver.internal.InternalRecord;
-import org.neo4j.driver.internal.value.FloatValue;
-import org.neo4j.driver.internal.value.IntegerValue;
-import org.neo4j.driver.internal.value.ListValue;
-import org.neo4j.driver.internal.value.MapValue;
-import org.neo4j.driver.internal.value.NodeValue;
-import org.neo4j.driver.internal.value.StringValue;
 import org.neo4j.driver.types.Node;
 import org.neo4j.driver.types.Path;
 import org.neo4j.driver.types.Relationship;
@@ -342,41 +333,19 @@ public class NodeUtil {
   }
 
   public static Node getFirstRecord(final List<Record> records, final String varName) {
-    Object _xblockexpression = null;
-    {
-      for (final Record rec : records) {
-        if ((rec instanceof InternalRecord)) {
-          Value value = ((InternalRecord)rec).get(varName);
-          if ((value instanceof NodeValue)) {
-            return ((NodeValue)value).asNode();
-          }
-        }
-      }
-      _xblockexpression = null;
-    }
-    return ((Node)_xblockexpression);
+    throw new Error("Unresolved compilation problems:"
+      + "\nAccess restriction: The type InternalRecord is not accessible due to restriction on required project org.xixum.neo4j.driver"
+      + "\nAccess restriction: The type NodeValue is not accessible due to restriction on required project org.xixum.neo4j.driver");
   }
 
   public static Relationship getFirstRelation(final List<Record> records, final String varName) {
-    for (final Record rec : records) {
-      if ((rec instanceof InternalRecord)) {
-        return ((InternalRecord)rec).get(varName).asRelationship();
-      }
-    }
-    return null;
+    throw new Error("Unresolved compilation problems:"
+      + "\nAccess restriction: The type InternalRecord is not accessible due to restriction on required project org.xixum.neo4j.driver");
   }
 
   public static List<Node> recordsToNode(final List<Record> records, final String key) {
-    List<Node> _xblockexpression = null;
-    {
-      List<Node> targets = CollectionLiterals.<Node>newArrayList();
-      for (final Record record : records) {
-        Value _get = record.get(key);
-        targets.add(((NodeValue) _get).asNode());
-      }
-      _xblockexpression = targets;
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nAccess restriction: The type NodeValue is not accessible due to restriction on required project org.xixum.neo4j.driver");
   }
 
   public static List<Record> listConnections(final IDbAccess dbAccessor, final Node source, final String type) {
@@ -410,98 +379,17 @@ public class NodeUtil {
   }
 
   public static Node asNode(final Value value) {
-    Object _xblockexpression = null;
-    {
-      if ((value instanceof NodeValue)) {
-        return ((NodeValue)value).asNode();
-      }
-      _xblockexpression = null;
-    }
-    return ((Node)_xblockexpression);
+    throw new Error("Unresolved compilation problems:"
+      + "\nAccess restriction: The type NodeValue is not accessible due to restriction on required project org.xixum.neo4j.driver");
   }
 
   public static Object valueToNum(final Value value) {
-    Object _switchResult = null;
-    boolean _matched = false;
-    if (value instanceof IntegerValue) {
-      _matched=true;
-      _switchResult = Integer.valueOf(((IntegerValue)value).asInt());
-    }
-    if (!_matched) {
-      if (value instanceof FloatValue) {
-        _matched=true;
-        _switchResult = Float.valueOf(((FloatValue)value).asFloat());
-      }
-    }
-    if (!_matched) {
-      if (value instanceof StringValue) {
-        _matched=true;
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append("\"");
-        String _asString = ((StringValue)value).asString();
-        _builder.append(_asString);
-        _builder.append("\"");
-        _switchResult = _builder;
-      }
-    }
-    if (!_matched) {
-      if (value instanceof ListValue) {
-        _matched=true;
-        CharSequence _xblockexpression = null;
-        {
-          List<Object> list = ((ListValue)value).asList();
-          StringConcatenation _builder = new StringConcatenation();
-          _builder.append("[");
-          {
-            boolean _hasElements = false;
-            for(final Object el : list) {
-              if (!_hasElements) {
-                _hasElements = true;
-              } else {
-                _builder.appendImmediate(", ", "");
-              }
-              Object _valueToNum = NodeUtil.valueToNum(((Value) el));
-              _builder.append(_valueToNum);
-            }
-          }
-          _builder.append("]");
-          _xblockexpression = _builder;
-        }
-        _switchResult = _xblockexpression;
-      }
-    }
-    if (!_matched) {
-      if (value instanceof MapValue) {
-        _matched=true;
-        CharSequence _xblockexpression = null;
-        {
-          Map<String, Object> map = ((MapValue)value).asMap();
-          StringConcatenation _builder = new StringConcatenation();
-          _builder.append("{");
-          {
-            Set<String> _keySet = map.keySet();
-            boolean _hasElements = false;
-            for(final String key : _keySet) {
-              if (!_hasElements) {
-                _hasElements = true;
-              } else {
-                _builder.appendImmediate(", ", "");
-              }
-              _builder.append("\"");
-              _builder.append(key);
-              _builder.append("\":");
-              Object _get = map.get(key);
-              Object _valueToNum = NodeUtil.valueToNum(((Value) _get));
-              _builder.append(_valueToNum);
-            }
-          }
-          _builder.append("}");
-          _xblockexpression = _builder;
-        }
-        _switchResult = _xblockexpression;
-      }
-    }
-    return _switchResult;
+    throw new Error("Unresolved compilation problems:"
+      + "\nAccess restriction: The type IntegerValue is not accessible due to restriction on required project org.xixum.neo4j.driver"
+      + "\nAccess restriction: The type FloatValue is not accessible due to restriction on required project org.xixum.neo4j.driver"
+      + "\nAccess restriction: The type StringValue is not accessible due to restriction on required project org.xixum.neo4j.driver"
+      + "\nAccess restriction: The type ListValue is not accessible due to restriction on required project org.xixum.neo4j.driver"
+      + "\nAccess restriction: The type MapValue is not accessible due to restriction on required project org.xixum.neo4j.driver");
   }
 
   public static ArrayList<ArrayList<Node>> pathToNodes(final List<Path> paths) {

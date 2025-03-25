@@ -3,6 +3,13 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Neo4j Driver Access
 Bundle-SymbolicName: org.xixum.neo4j.driver
 Bundle-Version: 0.0.1.qualifier
+Export-Package: org.xixum.neo4j.driver,
+ org.xixum.neo4j.driver.constants,
+ org.xixum.neo4j.driver.entities,
+ org.xixum.neo4j.driver.entities.interfaces,
+ org.xixum.neo4j.driver.factory,
+ org.xixum.neo4j.driver.types,
+ org.xixum.neo4j.driver.util
 Bundle-Activator: org.xixum.neo4j.driver.activator.Activator
 Bundle-Vendor: XIXUM.ORG
 Require-Bundle: org.eclipse.ui,

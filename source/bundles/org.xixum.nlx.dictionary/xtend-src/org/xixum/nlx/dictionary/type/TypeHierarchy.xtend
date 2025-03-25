@@ -1,8 +1,8 @@
 package org.xixum.nlx.dictionary.type
 
 import java.util.List
-import org.neo4j.driver.v1.types.Node
-import static org.xixum.nlx.constants.Neo4jConstants._NAME
+import org.neo4j.driver.types.Node
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NAME
 
 class TypeHierarchy implements ITypeHierarchy{
 	

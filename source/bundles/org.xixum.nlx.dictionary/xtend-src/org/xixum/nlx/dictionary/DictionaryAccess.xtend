@@ -9,11 +9,11 @@ package org.xixum.nlx.dictionary
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
-import org.xixum.nlx.ai.IDbAccess
-import org.xixum.nlx.ai.neo4j.Neo4jAccess.Action
-import org.xixum.nlx.ai.util.Arrow
-import org.xixum.nlx.ai.util.NodeUtil
-import org.xixum.nlx.constants.Direction
+import org.xixum.neo4j.driver.IDbAccess
+import org.xixum.neo4j.driver.Neo4jAccess.Action
+import org.xixum.neo4j.driver.entities.Arrow
+import org.xixum.neo4j.driver.util.NodeUtil
+import org.xixum.neo4j.driver.constants.Direction
 import org.xixum.nlx.dictionary.type.ITypeAttributes
 import org.xixum.nlx.dictionary.type.ITypeHierarchy
 import org.xixum.nlx.dictionary.type.InterpunctionTypeAttribute
@@ -30,47 +30,48 @@ import org.neo4j.driver.internal.value.ListValue
 import org.neo4j.driver.internal.value.NodeValue
 import org.neo4j.driver.internal.value.NullValue
 import org.neo4j.driver.internal.value.RelationshipValue
-import org.neo4j.driver.v1.Record
-import org.neo4j.driver.v1.Value
-import org.neo4j.driver.v1.exceptions.ClientException
-import org.neo4j.driver.v1.types.Node
-import org.neo4j.driver.v1.types.Relationship
-import static org.xixum.nlx.constants.Neo4jConstants._A
-import static org.xixum.nlx.constants.Neo4jConstants._ATTR
-import static org.xixum.nlx.constants.Neo4jConstants._ATTRS
-import static org.xixum.nlx.constants.Neo4jConstants._B
-import static org.xixum.nlx.constants.Neo4jConstants._C
-import static org.xixum.nlx.constants.Neo4jConstants._D
-import static org.xixum.nlx.constants.Neo4jConstants._F
-import static org.xixum.nlx.constants.Neo4jConstants._G
-import static org.xixum.nlx.constants.Neo4jConstants._H
-import static org.xixum.nlx.constants.Neo4jConstants._CL
-import static org.xixum.nlx.constants.Neo4jConstants._E
-import static org.xixum.nlx.constants.Neo4jConstants._HIT
-import static org.xixum.nlx.constants.Neo4jConstants._L
-import static org.xixum.nlx.constants.Neo4jConstants._L2
-import static org.xixum.nlx.constants.Neo4jConstants._L3
-import static org.xixum.nlx.constants.Neo4jConstants._LK
-import static org.xixum.nlx.constants.Neo4jConstants._LA
-import static org.xixum.nlx.constants.Neo4jConstants._LS
-import static org.xixum.nlx.constants.Neo4jConstants._N
-import static org.xixum.nlx.constants.Neo4jConstants._P
-import static org.xixum.nlx.constants.Neo4jConstants._IT
-import static org.xixum.nlx.constants.Neo4jConstants._X
-import static org.xixum.nlx.constants.Neo4jConstants._INDEX
-import static org.xixum.nlx.constants.Neo4jConstants._NAME
-import static org.xixum.nlx.constants.Neo4jConstants._OF_CLASS
+import org.neo4j.driver.Record
+import org.neo4j.driver.Value
+import org.neo4j.driver.exceptions.ClientException
+import org.neo4j.driver.types.Node
+import org.neo4j.driver.types.Relationship
+
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._A
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._ATTR
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._ATTRS
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._B
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._C
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._D
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._F
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._G
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._H
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._CL
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._E
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._HIT
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._L
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._L2
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._L3
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._LK
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._LA
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._LS
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._N
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._P
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._IT
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._X
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._INDEX
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NAME
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._OF_CLASS
 import static org.xixum.nlx.dictionary.constants.DictionaryConstants._WORD_CLASS
-import static org.xixum.nlx.constants.Neo4jConstants._R
-import static org.xixum.nlx.constants.Neo4jConstants._S
-import static org.xixum.nlx.constants.Neo4jConstants._SC
-import static org.xixum.nlx.constants.Neo4jConstants._SOURCE
-import static org.xixum.nlx.constants.Neo4jConstants._SUBCLASS_OF
-import static org.xixum.nlx.constants.Neo4jConstants._T
-import static org.xixum.nlx.constants.Neo4jConstants._VALUE
-import static org.xixum.nlx.constants.Neo4jConstants._ID
-import static org.xixum.nlx.constants.Neo4jConstants._TARGET
-import static org.xixum.nlx.constants.Neo4jConstants._LINK
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._R
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._S
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._SC
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._SOURCE
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._SUBCLASS_OF
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._T
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._VALUE
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._ID
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TARGET
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._LINK
 import static org.xixum.nlx.dictionary.constants.DictionaryConstants.*
 import static org.xixum.nlx.dictionary.constants.NodeConstants.*
 import org.xixum.utils.data.types.XPair

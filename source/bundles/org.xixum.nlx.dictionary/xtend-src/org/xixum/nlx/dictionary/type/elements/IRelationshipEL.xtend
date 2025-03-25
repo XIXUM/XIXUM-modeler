@@ -1,6 +1,6 @@
 package org.xixum.nlx.dictionary.type.elements
 
-import org.neo4j.driver.v1.types.Relationship
+import org.neo4j.driver.types.Relationship
 
 interface IRelationshipEL extends INetworkEL {
 	

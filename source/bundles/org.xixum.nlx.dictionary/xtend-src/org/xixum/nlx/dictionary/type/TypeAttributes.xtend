@@ -6,8 +6,8 @@ import org.xixum.nlx.dictionary.type.elements.NodeEL
 import org.xixum.nlx.dictionary.type.elements.RelationshipEL
 import java.util.List
 import java.util.Set
-import org.neo4j.driver.v1.types.Node
-import org.neo4j.driver.v1.types.Relationship
+import org.neo4j.driver.types.Node
+import org.neo4j.driver.types.Relationship
 
 class TypeAttributes implements ITypeAttributes {
 	

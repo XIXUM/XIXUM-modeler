@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.xtext.builder.debug.IBuildLogger;
-import org.neo4j.driver.v1.Record;
-import org.neo4j.driver.v1.types.Node;
+import org.neo4j.driver.Record;
+import org.neo4j.driver.types.Node;
 
-import org.xixum.nlx.ai.IDbAccess;
-import org.xixum.nlx.constants.Direction;
+import org.xixum.neo4j.driver.IDbAccess;
+import org.xixum.neo4j.driver.constants.Direction;
 import org.xixum.nlx.dictionary.type.ITypeAttributes;
 import org.xixum.nlx.dictionary.type.ITypeHierarchy;
 import org.xixum.nlx.dictionary.type.ITypeInfo;
