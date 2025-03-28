@@ -1,0 +1,56 @@
+/*******************************************************************************
+ * Copyright (c) 2012 itemis AG (http://www.itemis.eu) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ ******************************************************************************/
+grammar org.xixum.modeler.docgen.template.Template with org.eclipse.xtext.xbase.annotations.XbaseWithAnnotations
+
+generate template "http://www.xtext.org/template/Template"
+import 'http://www.eclipse.org/xtext/xbase/Xbase' as xbase
+
+TemplateFile:
+	'<!--''«' 
+		('package' package=QualifiedName)? 
+		importSection=XImportSection? 
+		params+=Parameter* 
+		body=RichString;
+
+Parameter:
+	annotations+=XAnnotation* 
+	'param' type=JvmTypeReference? name=ID ('=' defaultexp=XExpression)?;
+
+RichString returns xbase::XBlockExpression:
+	{RichString}  
+	expressions+=RichStringLiteral 
+	(expressions+=RichStringPart expressions+=RichStringLiteral)*;
+
+RichStringLiteral returns xbase::XStringLiteral:
+	{RichStringLiteral} value=TEXT;
+
+RichStringPart returns xbase::XExpression:
+	XExpressionOrVarDeclaration |
+	RichStringForLoop |
+	RichStringIf;
+
+RichStringForLoop returns xbase::XForLoopExpression:
+	{RichStringForLoop}
+	"FOR" declaredParam=JvmFormalParameter ':' forExpression=XExpression
+		eachExpression=RichString
+	"ENDFOR";
+
+RichStringIf returns xbase::XIfExpression:
+	{RichStringIf}
+	"IF" if=XExpression
+		then=RichString
+	(else=RichStringElseIf | "ELSE" else=RichString)?
+	"ENDIF";
+	
+RichStringElseIf returns xbase::XIfExpression:
+	{RichStringIf}
+	"ELSEIF"if=XExpression
+		then=RichString
+	(else=RichStringElseIf | "ELSE" else=RichString)?;
+
+terminal TEXT : '»' (!'«')* (EOF|'«');
