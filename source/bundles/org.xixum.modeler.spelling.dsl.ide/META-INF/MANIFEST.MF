@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xixum.modeler.spelling.dsl.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xixum.modeler.spelling.dsl.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xixum.modeler.spelling.dsl.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.xixum.modeler.spelling.dsl,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.xixum.modeler.spelling.ide.contentassist.antlr.internal,
+ org.xixum.modeler.spelling.ide.contentassist.antlr

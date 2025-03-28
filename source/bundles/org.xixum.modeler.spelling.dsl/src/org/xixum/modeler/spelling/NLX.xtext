@@ -1,0 +1,553 @@
+grammar org.xixum.modeler.spelling.NLX /*with org.eclipse.xtext.common.Terminals*/ hidden(SPACE)
+
+generate nlx "http://www.xixum.org/modeler/spelling/NLX"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Model:
+	sentences+=SentenceType*;
+
+SentenceType:
+	Whitespace? (=>ChapterSentence | ParagraphBlock | Table) pEnd=Paragraph;
+
+Paragraph:
+	NEWLINE+ | END
+;
+
+ParagraphBlock:
+	block+=BlockElement+;
+
+BlockElement:
+	SentenceChain | IgnoredText | FootNote| =>ListSentence ;
+
+FootNote:
+	number = simpleNum BR_CL SentenceChain=SentenceChain
+;
+
+TableLine hidden():
+//content+=PLUS content+=MINUS_LINE (content+=PLUS content+=MINUS_LINE)* content+=PLUS;
+	content=TABLE_LINE;
+
+TableBorder:
+	TableColumnSeparator | TableLine;
+
+TableRow:
+	{TableRow} content+=TableBorder content+=LineSentenceChain? (content+=TableBorder content+=LineSentenceChain?)*
+	content+=TableBorder;
+
+TableColumnSeparator:
+	char=HORIZ_SEP;
+
+Table:
+	lines+=TableLine NEWLINE (lines+=TableRow NEWLINE)+ (lines+=TableLine NEWLINE (lines+=TableRow NEWLINE)+)*
+	lines+=TableLine;
+
+LineSentenceChain:
+	{SentenceChain} sentences+=LineSentence (separators+=FULL_STOP_IM sentences+=LineSentence)* (endpoint=FULL_STOP_IM)?;
+
+SentenceChain:
+	{SentenceChain} =>sentences+=Sentence (separators+=FULL_STOP_IM sentences+=SentenceX)* (endpoint=FULL_STOP_NL | endpoint=NEWLINE);
+	
+SentenceChainX:
+	{SentenceChain} sentences+=Sentence (separators+=FULL_STOP_IM sentences+=SentenceX)* =>(endpoint=FULL_STOP_NL | endpoint=NEWLINE | endpoint=KOMMA );
+	
+Sentence:
+	{Sentence} subsentence+=SubSentence (KOMMA subsentence+=TrailSubSentence)*;
+
+LineSentence:
+	{Sentence} subsentence+=LineSubSentence (KOMMA subsentence+=LineSubSentence)*;
+
+FreeSentence:
+	{Sentence} subsentence+=FreeSubSentence (KOMMA subsentence+=FreeSubSentence)*;
+	
+SentenceX:
+	{Sentence} subsentence+=TrailSubSentence (KOMMA subsentence+=TrailSubSentence)*;
+
+ListSentence:
+	listpoint=ListPoint (SentenceChain=SentenceChainX | NEWLINE);
+
+ChapterSentence:
+	(=>chapterNumber=Chapter_Unit_Low | chapterNumber=ChapterAlpha | chapterNumber=Chapter_Unit_HI) Headline=LineSentenceChain;
+
+SubSentence hidden():
+	{SubSentence} ((elements+=NoNElement (SPACE elements+=Elements)*) | 
+		elements+=NoNElementX (SPACE elements+=Elements)+
+	) (SPACE?  elements+=New_Line SPACE? elements+=NoNElementX2  (SPACE elements+=Elements)*)* SPACE?
+	;
+	
+TrailSubSentence hidden():
+	{SubSentence} (elements+=Elements (SPACE elements+= Elements)* 
+	(SPACE?  elements+=New_Line SPACE? =>elements+= NoNElementX2 (SPACE elements+= Elements)*)*) SPACE?;
+
+FreeSubSentence hidden():
+	{SubSentence} (SPACE | elements+=New_Line)* elements+=AllElements ((SPACE | elements+=New_Line)+ elements+=AllElements)* (SPACE | elements+=New_Line)*;
+
+LineSubSentence hidden():
+	{SubSentence} elements+=Elements (SPACE elements+=Elements)* SPACE?;
+	
+ListPoint:
+	MULTI | DASH | ListPointNum | MINUS;
+	
+ListPointNum hidden():
+	INT (DOT BR_CL SPACE | FULL_STOP_IM)  | ALPHA (DOT BR_CL SPACE | FULL_STOP_IM);
+
+//AttachableElmts:
+//	Word | SymbolsX | IgnoredText | ShortCut
+//;
+
+
+NoNElement: 
+	Quote | Brackets | Word | SymbolsX | IgnoredText | ShortCut |
+	HashNumber |  UrlAdress | MailAdress | Formula | Array | ItWord		//=>ItWord
+;
+	
+Brackets:
+	BracketSentence | ExtBracketSentence | ExtBracketSentenceC
+;
+	
+NoNElementX: 
+	 NoNElement | WordShort;
+	 
+NoNElementX2:
+	SimpleUnit | Unit  | NoNElement | ChapterAlpha //| NumericID
+;
+
+//NoNElementX3:
+//	NoNElement | ItWord //| NumericID
+//;
+
+Elements:
+	Symbols | =>NoNElementX2 | WordShort //| ItWord // Chapter_Unit_HI|
+;  
+	
+AllElements: // hiddenElement that groups all Elements in one Interface class
+	=>Elements | New_Line   
+;
+
+BracketSentence:
+	{BracketSentence} open=BR_O (brackedSentences+=FreeSentence (separator+=FullStop brackedSentences+=FreeSentence)*)? separator+=(DOT | FS | FullStop)? (SPACE | NEWLINE)* SPACE? =>close=BR_CL;
+
+	//TODO: has some redundancy: consider to convert into bracket sentence... Test Nesting of BracketSentences
+ExtBracketSentence returns BracketSentence:
+	{ExtBracketSentence} open=EXBR_O (brackedSentences+=FreeSentence (separator+=FullStop brackedSentences+=FreeSentence)*)? separator+=(DOT | FS | FullStop)?  SPACE? =>close=EXBR_CL;
+	
+ExtBracketSentenceC returns BracketSentence:
+	{ExtBracketSentence} open=EXBRC_O (brackedSentences+=FreeSentence (separator+=FullStop brackedSentences+=FreeSentence)*)? separator+=(DOT | FS | FullStop)? SPACE? =>close=EXBRC_CL;
+
+FullStop:
+	FULL_STOP_NL | FULL_STOP_IM;
+
+//FullS:
+//	DOT
+//;
+
+Word hidden():
+	((word+=FragmentX) | =>(word+=Fragment) (word+=SeparatorsL word+=Fragment)+) word+=SeparatorsL? ;
+	
+WordShort:
+	{Word} word+=ALPHA 
+;
+
+FragmentX:
+	ID | ID_C | ALL_ALPHA
+;
+
+Fragment:
+	FragmentX | ALPHA
+;
+
+Asterisk:
+	MULTI MULTI? | Fragment MULTI | ItWordEl MULTI
+;
+
+HashP:
+	HASH;
+
+ItWord hidden():
+	 ((((word+=SeparatorsIt+ | word+=HashP | word+=MULTI | word+=CURRENCY) (word+=ItWordElXx | word+=Fragment) | (word+=ItWordEl | word+=CURL | word+=ALL_ALPHA word+=COLON)) (word+=AllSep+ word+=ItWordElXx)*)| 
+	 	(=>word+=Fragment | word+=Asterisk ) ((word+=SeparatorsIt+ word+=ItWordElXx)|(word+=AllSep+ word+=ItWordElX)) (word+=AllSep+ word+=ItWordElXx)*
+	 ) word+=AllSep*;
+
+Whitespace:
+	SPACE | (SPACE? NEWLINE SPACE?)
+;
+
+ItWordEl hidden():
+	  IT_ID | DOUBLE_DOT;
+	  
+ItWordElurl hidden():
+	IT_ID | ID_ALL | ID
+;
+
+ItWordElX hidden():
+	  ItWordEl | INT | HEX_NUMBER | ID_ALL;
+	  
+ItWordElXx hidden():
+	  (ALL_ALPHA | ALPHA | =>ItWordElX | Fragment | Asterisk | ID_C | CURL)+;
+	
+SeparatorsL hidden():
+	SLASH | SEPARATORS | DASH | MINUS 
+;
+
+SeparatorsIt hidden():
+	DOT | SEPARATORS_IT | COLON
+; 
+
+AllSep hidden():
+	SeparatorsIt | SeparatorsL
+;
+
+Quote:
+	quote=STRING;
+
+Unit hidden():
+	signature=MINUS? =>value+=Number (unit=CURRENCY | unit=ID | unit=PERCENT)?;
+	
+SimpleUnit:
+	{Unit} value+=chapterNum | value+=ItNum | value+=HEX_NUMBER
+;
+
+Chapter_Unit_HI hidden():
+	{Unit} value+=chapterNum SPACE?
+;
+Chapter_Unit_Low hidden():
+	{Unit} value+=decimalNumEN SPACE?; // odd but it works. this rule does not need a space at the end.
+
+HashNumber hidden():
+	{Unit} sign=(HASH | PARAGR) value+=Number;
+	
+ChapterAlpha hidden():
+	{Unit} (value+=ID_C | value+=ALL_ALPHA)  value+=DOT value+=ChapterIntermediate ((value+=DOT | value+=MINUS) value+=ChapterIntermediate)* SPACE
+;
+
+//TODO: simplify when Numbers are converted
+ChapterIntermediate hidden():
+	ID_C | ID_ALL | =>INT | IT_ID | ALL_ALPHA | ALPHA
+;
+
+
+SymbolsX:
+	{Symbols} symbol=SpecialSymbols;
+
+SpecialCh:
+	PERCENT | DASH | MINUS | SEPARATORS | MULTI;
+	 
+Symbols:
+	{Symbols} symbol=SpecialCh;
+
+
+ShortcutGen hidden():
+	{EString} (word+=ALL_ALPHA | word+=ALPHA) (word+=DOT (word+=ALL_ALPHA | word+=ALPHA))+ word+=DOT
+;
+
+ShortcutLib:
+	{EString} shortcut=SHORTCUTS;
+
+ShortCut:
+	shortcut=ShortcutLib | shortcut=ShortcutGen;
+
+IgnoredText:
+	ignored=IGNORED; 
+
+simpleNum hidden():
+	INT
+;
+
+ItNum hidden():
+	INT ((SEPARATORS_IT | COLON | DASH | MINUS | SLASH) INT)+ (KM INT)?
+;
+
+
+//NumericID:
+//	{Unit} value+=simpleNum (value+=ALL_ALPHA | value+=ID | value+=ID_C) (value+=simpleNum | value+=ALL_ALPHA | value+=ID | value+=ID_C)+ //| value+=chapterNum
+//;
+
+SpecialSymbols:
+	SLASH | OPERATORS | ARROW | SMILEY | TRIPLE_DOT;
+
+decimalNumEN hidden(): //TODO: 1000th separator
+	INT DOT INT;
+
+decimalNumDE hidden(): //TODO: 1000th separator
+	INT KM INT;
+	
+chapterNum hidden():
+	 (INT (DOT ChapterIntermediate)+) //| (INT DOT (ID_C | ID_ALL | IT_ID | ALL_ALPHA | ALPHA))
+;
+
+Number hidden():
+	 simpleNum | decimalNumEN | decimalNumDE
+;
+
+UrlAdress hidden():
+	protocol=URL_PROTOCOL url+=ItWordElurl (url+=AllSep+ (url+=ItWordElXx | url+=simpleNum | url+=Fragment))* url+=AllSep*;
+
+EmailAT:
+	email+=AT
+;
+
+MailAdress hidden():
+	(email+=ItWord | email+=Word) email+=EmailAT =>email+=ItWord;
+	
+Formula hidden():
+	name+=EmailAT? (name+=ItWord | name+=Word) parameters+=BracketSentence ( DOT (name+=ItWord | name+=Word) parameters+=BracketSentence)*
+;
+
+Array hidden(): 
+	(name+=ItWord | name+=Word) parameters+=ExtBracketSentence+
+;
+
+New_Line:
+{Elements}	nl=NEWLINE;
+
+terminal COLON:
+	':';
+	
+terminal DOT:
+	'.';
+		
+terminal FS:
+	DOT | ';' | INTERJ | COLON;
+
+terminal fragment INTERJ:
+	'?' | '!'
+;
+
+terminal KM:
+	',' ;
+
+terminal SPACE:
+	(' ' | '\t')+;
+
+terminal NEWLINE:
+	'\r'? '\n';
+	
+terminal CURL:
+	'~'
+;
+	
+terminal OPERATORS:
+	 AND AND? | EXP | PLUS | CURL | EQUAL EQUAL? | INTERJ EQUAL | GT EQUAL | SM EQUAL | GT GT | SM SM;
+
+//@Override
+terminal WS:
+	NEWLINE | SPACE;
+	
+terminal ARROW:
+	MINUS* GT | SM MINUS*;
+	
+terminal FULL_STOP_IM:
+	FS SPACE;
+	
+terminal FULL_STOP_NL:
+	FS SPACE? NEWLINE;
+
+
+terminal END:
+	EOF;
+	
+terminal KOMMA:
+	KM WS;
+
+terminal ALPHA:
+	'a'..'z' | 'ä'..'ü' | 'ß' | 'à'..'ù' | 'á'..'ú';
+
+terminal ALL_ALPHA:
+	ALPHA_CAPITAL | ALPHA ;
+
+//@Override
+terminal ID:
+	ALL_ALPHA (ALPHA)+;
+	
+terminal ID_C:
+	ALPHA_CAPITAL ALPHA_CAPITAL+	
+;
+	
+terminal AT:
+	'@';
+
+terminal HEX_NUMBER:
+	'0x' ('0'..'9'|'A'..'F')+
+;	
+	
+//terminal fragment LIST_ALPHA:
+//	'a'..'z';
+	
+//terminal fragment ESCAPED_CHAR:
+//	'\\' ('n' | 't' | 'r' | '\\');
+	
+//terminal fragment STRING_CHAR:
+//	ESCAPED_CHAR | !('\\' | '"' | "'" | '”' | '“');
+	
+terminal fragment ALPHA_CAPITAL:
+	'A'..'Z' | 'Ä'..'Ü' | 'À'..'Ù' | 'Á'..'Ú';
+
+terminal ALPHA_NUMERIC:
+	(ALPHA | '0'..'9');
+	
+terminal MINUS:
+	'-';
+
+terminal PERCENT:
+	'%';
+	
+terminal EQUAL:
+	"=";
+
+terminal fragment EXP:
+	"^";
+	
+terminal AND:
+	'&';
+	
+//terminal LIST_POINT:
+//	INT DOT ')'? SPACE  | LIST_ALPHA DOT ')'? SPACE;
+	
+	
+terminal SEPARATORS:
+	 "'" | '’' | '´' | BACKSLASH;
+	
+terminal SEPARATORS_IT:
+	UNDERSCORE | COLON;
+
+//@Override
+terminal INT returns ecore::EInt:
+	('0'..'9')+;
+
+
+//TODO: convert into parser rule	
+//terminal CHAPTER_NUMERIC:
+//	INT DOT INT (DOT ID_ALL)+;
+	
+//terminal DOUBLE_EN:
+//	INT DOT INT;
+	
+//terminal DOUBLE_DE:
+//	INT ',' INT;
+	
+
+	
+//terminal NUMBER_COLON:
+//	INT COLON;
+
+terminal UNDERSCORE:
+	'_'
+;
+
+terminal BR_O:
+	'(' 
+;
+terminal EXBR_O:
+	'['
+;
+
+terminal EXBRC_O:
+	'{'
+;
+
+terminal BR_CL:
+	')'
+;
+
+terminal EXBR_CL:
+	']'
+;
+
+terminal EXBRC_CL:
+	'}'
+;
+
+terminal GT:
+	'>'
+;
+
+terminal SM:
+	'<'
+;
+
+
+//terminal IT_ID:
+//	 IT_IDLC | (ALPHA_CAPITAL ALPHA_NUMERIC_C*);
+
+terminal IT_ID:
+	(ALPHA | ALPHA_CAPITAL) (ALPHA_NUMERIC_C)+
+;
+
+terminal DOUBLE_DOT:
+	DOT DOT
+;
+
+terminal TRIPLE_DOT:
+	DOT DOT DOT
+;
+
+terminal fragment DECORATIONS:
+	( EQUAL EQUAL EQUAL+ | MULTI MULTI MULTI+ | HASH HASH+ | DOT DOT DOT DOT+ | MINUS MINUS+);
+	
+terminal IGNORED:
+	DECORATIONS;
+	
+terminal SMILEY:
+	':)' | ':-)' | ';)' | ';-)' | ':D' | ':(' | ':-(' | '©' | '®';
+
+
+terminal URL_PROTOCOL:
+	('http') ('s')? ('://') | 'ftp://' | 'ssh://' | 'svn://';
+	
+terminal HASH:
+	'#';
+
+terminal PARAGR:
+	'§';
+	
+terminal PLUS:
+	'+';
+	
+terminal MULTI:
+	'*';
+	
+terminal DASH:
+	'–'| '—';
+	
+terminal HORIZ_SEP:
+	'|';
+
+terminal BACKSLASH:
+	'\\'
+;
+
+terminal SLASH:
+	'/'
+;
+
+terminal CURRENCY:
+	'$' | '€' // | Pound
+;
+
+terminal ALPHA_NUMERIC_C:
+	(ALPHA_CAPITAL | ALPHA_NUMERIC);
+
+//@Override 
+//terminal ML_COMMENT : '´´´' (!'´´´') '´´´';
+//@Override 
+//terminal SL_COMMENT : '´´'; 
+//@Override
+//terminal STRING:
+//	'"' (!'"')* '"' |
+//	'“' (!'“')* '”';
+//@Override
+terminal STRING:
+			'"' ( '\\' . | !('\\'|'"') )* '"' |
+			'“' -> '”'
+		;
+		
+terminal TABLE_LINE:
+	PLUS MINUS+ (PLUS MINUS+)* PLUS;
+	
+terminal ID_ALL:
+	ALPHA_NUMERIC_C (ALPHA_NUMERIC_C)+;
+	
+	
+terminal SHORTCUTS:
+	'etc.' | 'asf.' | 'bzw.' | 'bspw.' | 'Evtl.' | 'evtl.' | 'Inc.' | 'inc.' | 'Bspw.' | 'Bzw.' | 'Dr.' | 'Prof.' | 'Ing.' | 'med.';
+	
+terminal ANY_OTHER: .;

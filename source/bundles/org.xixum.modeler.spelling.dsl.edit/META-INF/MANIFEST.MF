@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.xixum.modeler.spelling.dsl.edit;singleton:=true
+Automatic-Module-Name: org.xixum.modeler.spelling.dsl.edit
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.xixum.modeler.spelling.nLX.provider.NLXEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.xixum.modeler.spelling.nLX.provider
+Require-Bundle: org.eclipse.core.runtime,
+ org.xixum.modeler.spelling.dsl;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.xtext.xbase.lib
+Bundle-ActivationPolicy: lazy
