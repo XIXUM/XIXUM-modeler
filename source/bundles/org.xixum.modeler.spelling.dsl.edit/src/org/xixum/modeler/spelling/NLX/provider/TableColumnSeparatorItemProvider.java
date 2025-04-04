@@ -4,8 +4,8 @@
 package org.xixum.modeler.spelling.NLX.provider;
 
 
-import de.validas.cqc.tcm.spelling.nLX.NLXPackage;
-import de.validas.cqc.tcm.spelling.nLX.TableColumnSeparator;
+import org.xixum.modeler.spelling.nLX.NLXPackage;
+import org.xixum.modeler.spelling.nLX.TableColumnSeparator;
 
 import java.util.Collection;
 import java.util.List;

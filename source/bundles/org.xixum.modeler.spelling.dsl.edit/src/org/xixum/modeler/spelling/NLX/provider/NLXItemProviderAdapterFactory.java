@@ -3,7 +3,7 @@
  */
 package org.xixum.modeler.spelling.NLX.provider;
 
-import de.validas.cqc.tcm.spelling.nLX.util.NLXAdapterFactory;
+import org.xixum.modeler.spelling.nLX.util.NLXAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;

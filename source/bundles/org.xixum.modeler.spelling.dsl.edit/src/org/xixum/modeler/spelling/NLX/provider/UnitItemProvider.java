@@ -4,8 +4,8 @@
 package org.xixum.modeler.spelling.NLX.provider;
 
 
-import de.validas.cqc.tcm.spelling.nLX.NLXPackage;
-import de.validas.cqc.tcm.spelling.nLX.Unit;
+import org.xixum.modeler.spelling.nLX.NLXPackage;
+import org.xixum.modeler.spelling.nLX.Unit;
 
 import java.util.Collection;
 import java.util.List;

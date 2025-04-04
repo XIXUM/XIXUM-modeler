@@ -10,7 +10,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated NLX -->
       <factory
-            uri="http://www.validas.de/cqc/tcm/spelling/NLX"
+            uri="http://www.xixum.org/modeler/spelling/NLX"
             class="org.xixum.modeler.spelling.nLX.provider.NLXItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

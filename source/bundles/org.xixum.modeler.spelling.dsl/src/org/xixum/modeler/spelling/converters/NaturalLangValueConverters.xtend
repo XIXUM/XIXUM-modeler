@@ -22,17 +22,17 @@ class NaturalLangValueConverters extends XtextValueConverters {
 		nlxValueConverter
 	}
 	
-	@ValueConverter(rule = "de.validas.spedit.NaturalLang.STRING")
+	@ValueConverter(rule = "org.xixum.nlx.model.STRING")
 	def IValueConverter<String> NlxSTRING() {
 		nlxValueConverter
 	}
 	
-	@ValueConverter(rule = "de.validas.spedit.NaturalLang.Number")
+	@ValueConverter(rule = "org.xixum.nlx.model.NaturalLang.Number")
 	def IValueConverter<String> NlxNumber() {
 		nlxValueConverter
 	}
 	
-	@ValueConverter(rule = "de.validas.spedit.NaturalLang.ALPHA_NUMERIC_C")
+	@ValueConverter(rule = "org.xixum.nlx.model.NaturalLang.ALPHA_NUMERIC_C")
 	def IValueConverter<String> NlxAlphaNumeric() {
 		nlxValueConverter
 	}

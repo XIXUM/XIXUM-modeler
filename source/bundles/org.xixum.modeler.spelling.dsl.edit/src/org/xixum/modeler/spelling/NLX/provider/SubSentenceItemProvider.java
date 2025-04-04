@@ -4,9 +4,9 @@
 package org.xixum.modeler.spelling.NLX.provider;
 
 
-import de.validas.cqc.tcm.spelling.nLX.NLXFactory;
-import de.validas.cqc.tcm.spelling.nLX.NLXPackage;
-import de.validas.cqc.tcm.spelling.nLX.SubSentence;
+import org.xixum.modeler.spelling.nLX.NLXFactory;
+import org.xixum.modeler.spelling.nLX.NLXPackage;
+import org.xixum.modeler.spelling.nLX.SubSentence;
 
 import java.util.Collection;
 import java.util.List;

@@ -4,7 +4,7 @@
 package org.xixum.modeler.spelling.NLX.provider;
 
 
-import de.validas.cqc.tcm.spelling.nLX.ExtBracketSentence;
+import org.xixum.modeler.spelling.nLX.ExtBracketSentence;
 
 import java.util.Collection;
 import java.util.List;

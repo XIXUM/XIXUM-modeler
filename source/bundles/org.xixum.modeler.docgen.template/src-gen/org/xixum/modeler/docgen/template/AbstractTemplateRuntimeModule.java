@@ -72,7 +72,7 @@ public abstract class AbstractTemplateRuntimeModule extends DefaultXbaseWithAnno
 
 	@Override
 	public void configure(Binder binder) {
-		properties = tryBindProperties(binder, "de/validas/cqc/sec/docgen/template/Template.properties");
+		properties = tryBindProperties(binder, "org/xixum/modeler/docgen/template/Template.properties");
 		super.configure(binder);
 	}
 	

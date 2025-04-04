@@ -4,7 +4,7 @@
 package org.xixum.modeler.spelling.NLX.provider;
 
 
-import de.validas.cqc.tcm.spelling.nLX.ChapterAlpha;
+import org.xixum.modeler.spelling.nLX.ChapterAlpha;
 
 import java.util.Collection;
 import java.util.List;

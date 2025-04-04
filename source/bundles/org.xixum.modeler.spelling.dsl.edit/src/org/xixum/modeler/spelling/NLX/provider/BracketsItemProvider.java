@@ -4,7 +4,7 @@
 package org.xixum.modeler.spelling.NLX.provider;
 
 
-import de.validas.cqc.tcm.spelling.nLX.Brackets;
+import org.xixum.modeler.spelling.nLX.Brackets;
 
 import java.util.Collection;
 import java.util.List;
