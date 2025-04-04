@@ -1,11 +1,11 @@
 package org.xixum.nlx.dictionary.grammar.nodes
 
-import org.xixum.nlx.ai.IParserDriver
-import org.xixum.nlx.ai.semantics.INode
 import org.xixum.nlx.dictionary.grammar.bool.BoolAnd
 import java.util.List
-import org.neo4j.driver.v1.Record
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.Record
+import org.neo4j.driver.types.Node
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
+import org.xixum.neo4j.driver.entities.interfaces.INode
 
 class BoolAndConditionNode extends ConditionNode {
 	

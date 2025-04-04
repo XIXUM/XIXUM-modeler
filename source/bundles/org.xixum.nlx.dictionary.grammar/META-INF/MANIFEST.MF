@@ -11,7 +11,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- org.xixum.nlx.ai;bundle-version="0.2.0",
  org.xixum.nlx.dictionary;bundle-version="0.2.0",
  org.xixum.nlx.model;bundle-version="0.2.0",
  org.xixum.utils.Data;bundle-version="0.2.0",
@@ -19,7 +18,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore;bundle-version="2.14.0",
  org.eclipse.xtext.builder;bundle-version="2.16.0",
  org.eclipse.emf.common.ui,
- org.eclipse.emf.edit;bundle-version="2.13.0"
+ org.eclipse.emf.edit;bundle-version="2.13.0",
+ org.xixum.neo4j.driver;bundle-version="0.0.1",
+ org.neo4j.driver.neo4j-java-driver;bundle-version="5.28.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.xixum.nlx.dictionary.semantics
 Bundle-ActivationPolicy: lazy
