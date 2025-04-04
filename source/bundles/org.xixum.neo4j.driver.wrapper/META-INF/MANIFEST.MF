@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Wrapper
+Bundle-SymbolicName: org.xixum.neo4j.driver.wrapper
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Import-Package: 
+ org.neo4j.driver;version="[5.28.0,6.0.0)",
+ org.neo4j.driver.async;version="[5.28.0,6.0.0)",
+ org.neo4j.driver.exceptions;version="[5.28.0,6.0.0)",
+ org.neo4j.driver.exceptions.value;version="[5.28.0,6.0.0)",
+ org.neo4j.driver.internal;resolution:=optional,
+ org.neo4j.driver.net;version="[5.28.0,6.0.0)",
+ org.neo4j.driver.reactive;version="[5.28.0,6.0.0)",
+ org.neo4j.driver.reactivestreams;version="[5.28.0,6.0.0)",
+ org.neo4j.driver.summary;version="[5.28.0,6.0.0)",
+ org.neo4j.driver.types;version="[5.28.0,6.0.0)",
+ org.neo4j.driver.util;version="[5.28.0,6.0.0)"
+Export-Package: 
+  org.neo4j.driver.internal,
+  org.neo4j.driver.*
+Embed-Dependency: 
+  neo4j-java-driver-all;scope=compile;inline=true # Embed shaded driver (from search result [4])
