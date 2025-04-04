@@ -7,12 +7,8 @@
 
 package org.xixum.nlx.dictionary.grammar.predicates
 
-import org.xixum.nlx.ai.IDbAccess
-import org.xixum.nlx.ai.neo4j.Neo4jAccess.Action
-import org.xixum.nlx.ai.semantics.INode
-import org.xixum.nlx.ai.semantics.IPredicate
-import org.xixum.nlx.ai.util.Arrow
-import org.xixum.nlx.constants.Direction
+import org.xixum.neo4j.driver.IDbAccess
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.nodes.ValidateNode
 import java.text.MessageFormat
 import java.util.Collections
@@ -20,19 +16,18 @@ import java.util.List
 import org.neo4j.driver.internal.value.NodeValue
 import org.neo4j.driver.internal.value.NullValue
 import org.neo4j.driver.internal.value.RelationshipValue
-import org.neo4j.driver.v1.Record
-import org.neo4j.driver.v1.types.Relationship
+import org.neo4j.driver.Record
+import org.neo4j.driver.types.Relationship
 
-import static org.xixum.nlx.constants.Neo4jConstants._LINK
-import static org.xixum.nlx.constants.Neo4jConstants._NODE
-//import static org.xixum.nlx.constants.Neo4jConstants._NAME
-//import static org.xixum.nlx.constants.Neo4jConstants._OF_CLASS
-import static org.xixum.nlx.constants.Neo4jConstants._TARGET
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._LINK
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NODE
+//import static org.xixum.neo4j.driver.constants.Neo4jConstants._NAME
+//import static org.xixum.neo4j.driver.constants.Neo4jConstants._OF_CLASS
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TARGET
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.BASE_FORM_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.CONJUGATION_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.GET_SOURCE_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.GET_TARGET_
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.NAME_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.SUB_CLASS_OF_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.PRECEED_BY_
@@ -40,6 +35,10 @@ import static org.xixum.nlx.dictionary.constants.PredicateConstants.TENSE_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.WITH_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.RESULT_
 import org.xixum.nlx.dictionary.grammar.nodes.IDictNode
+import org.xixum.neo4j.driver.entities.interfaces.IPredicate
+import org.xixum.neo4j.driver.constants.Direction
+import org.xixum.neo4j.driver.entities.Arrow
+import org.xixum.neo4j.driver.Neo4jAccess.Action
 
 //import static org.xixum.nlx.dictionary.constants.NodeConstants._WORD
 //import static org.xixum.nlx.dictionary.constants.DictionaryConstants._POSITION

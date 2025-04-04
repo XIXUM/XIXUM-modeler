@@ -1,16 +1,17 @@
 package org.xixum.nlx.dictionary.grammar.factories
 
-import org.xixum.nlx.ai.INodeFactory
-import org.xixum.nlx.ai.IParserDriver
+
 import org.xixum.nlx.dictionary.grammar.nodes.BoolAndConditionNode
 import org.xixum.nlx.dictionary.grammar.nodes.BoolOrConditionNode
 import java.util.HashMap
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.types.Node
 
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.TYPE_
 import static org.xixum.nlx.dictionary.constants.NodeConstants._BOOL_AND
 import static org.xixum.nlx.dictionary.constants.NodeConstants._BOOL_OR
 import org.xixum.nlx.dictionary.grammar.nodes.ErrorNode
+import org.xixum.neo4j.driver.factory.INodeFactory
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
 
 class ConditionFactory implements INodeFactory {
 

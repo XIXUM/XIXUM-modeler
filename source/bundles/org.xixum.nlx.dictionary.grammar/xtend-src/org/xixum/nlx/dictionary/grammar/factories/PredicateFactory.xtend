@@ -1,10 +1,5 @@
 package org.xixum.nlx.dictionary.grammar.factories
 
-//import static org.xixum.nlx.constants.Neo4jConstants._ATTR_NAME
-//import static org.xixum.nlx.constants.Neo4jConstants._NAME
-//import static org.xixum.nlx.constants.Neo4jConstants._NODE
-//import static org.xixum.nlx.constants.Neo4jConstants._TARGET
-//import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.DO_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.ENDS_WITH_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.ENTER_RULE_
@@ -22,15 +17,11 @@ import static org.xixum.nlx.dictionary.constants.PredicateConstants.LINK_TO_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.NEXT_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.PREVIOUS_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.OF_
-//import static org.xixum.nlx.dictionary.constants.PredicateConstants.RESULT_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.TARGET_
-//import static org.xixum.nlx.dictionary.constants.PredicateConstants.WITH_
-//import static org.xixum.nlx.dictionary.constants.NodeConstants._QUERY
-//import static org.xixum.nlx.dictionary.constants.NodeConstants._WORD
 
-import org.xixum.nlx.ai.IDbAccess
-import org.xixum.nlx.ai.IPredicateFactory
-import org.xixum.nlx.ai.semantics.INode
+
+import org.xixum.neo4j.driver.IDbAccess
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.predicates.Predicate
 import org.neo4j.driver.internal.value.RelationshipValue
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateNEXT
@@ -48,6 +39,7 @@ import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateGET_NAME
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateFIND
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateOF_CLASS
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateTARGET
+import org.xixum.neo4j.driver.factory.IPredicateFactory
 
 class PredicateFactory implements IPredicateFactory {
 	IDbAccess dbAccessor

@@ -1,8 +1,6 @@
 package org.xixum.nlx.dictionary.grammar.rules
 
-import org.xixum.nlx.ai.IParserDriver
-import org.xixum.nlx.ai.ParserDriver
-import org.xixum.nlx.ai.neo4j.Neo4jAccess.Action
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
 import org.xixum.nlx.dictionary.IDictionaryAccess
 import org.xixum.nlx.dictionary.grammar.factories.PredicateFactory
 import org.xixum.nlx.dictionary.grammar.factories.RuleNodeFactory
@@ -22,14 +20,16 @@ import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.builder.debug.IBuildLogger
 import org.neo4j.driver.internal.value.NodeValue
-import org.neo4j.driver.v1.Record
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.Record
+import org.neo4j.driver.types.Node
 
-import static org.xixum.nlx.constants.Neo4jConstants._NODE
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NODE
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TOKEN
 import static org.xixum.nlx.dictionary.constants.NodeConstants._IMPL_DICT_RULE
 import static org.xixum.nlx.dictionary.constants.NodeConstants._KOMMA
 import org.xixum.nlx.dictionary.grammar.factories.ContextFactory
+import org.xixum.neo4j.driver.entities.ParserDriver
+import org.xixum.neo4j.driver.Neo4jAccess.Action
 
 class ImplicitRulesOnDict {
 

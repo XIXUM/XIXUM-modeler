@@ -1,17 +1,17 @@
 package org.xixum.nlx.dictionary.grammar.nodes
 
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TOKEN
 import static org.xixum.nlx.dictionary.constants.NodeConstants._TYPE
+import static org.xixum.nlx.dictionary.constants.DictionaryConstants._POSITION
 
 import org.xixum.nlx.dictionary.grammar.nodes.AbstractDictRuleObj
-import org.neo4j.driver.v1.types.Node
-import org.xixum.nlx.ai.IParserDriver
-
-
-import static org.xixum.nlx.dictionary.constants.DictionaryConstants._POSITION
+import org.neo4j.driver.types.Node
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateEQUALS
-import org.xixum.nlx.ai.semantics.INode
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.token.IGrammarItem
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
+import org.xixum.neo4j.driver.util.IFunction1
+import org.xixum.neo4j.driver.constants.Direction
 
 class TerminalNode extends AbstractDictRuleObj implements IDictNode, IPredicateEQUALS {
 	

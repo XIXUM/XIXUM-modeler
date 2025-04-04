@@ -7,15 +7,15 @@ import static org.xixum.nlx.dictionary.constants.PredicateConstants.PREVIOUS_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.RESULT_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.TARGET_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.AS_
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
-import static org.xixum.nlx.constants.Neo4jConstants._NODE
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TOKEN
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NODE
 
-import org.xixum.nlx.ai.IParserDriver
-import org.xixum.nlx.ai.semantics.INode
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.bool.BoolOr
 import java.util.List
-import org.neo4j.driver.v1.Record
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.Record
+import org.neo4j.driver.types.Node
 import org.xixum.nlx.dictionary.grammar.token.IGrammarItem
 import org.eclipse.xtext.xbase.lib.Functions.Function1
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicatePREVIOUS
@@ -23,7 +23,7 @@ import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateENTER_RULE
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateEXTENDS
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateGET
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateNEXT
-import org.neo4j.driver.v1.types.Relationship
+import org.neo4j.driver.types.Relationship
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateLINK_TO
 import java.util.Set
 import java.util.Collection

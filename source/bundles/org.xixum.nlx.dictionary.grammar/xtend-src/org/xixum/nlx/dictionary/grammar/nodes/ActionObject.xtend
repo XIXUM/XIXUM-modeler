@@ -1,15 +1,15 @@
 package org.xixum.nlx.dictionary.grammar.nodes
 
-import org.xixum.nlx.ai.IParserDriver
-import org.xixum.nlx.ai.semantics.INode
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.bool.BoolOr
 import java.util.List
-import org.neo4j.driver.v1.Record
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.Record
+import org.neo4j.driver.types.Node
 
-import static org.xixum.nlx.constants.Neo4jConstants._NAME
-import static org.xixum.nlx.constants.Neo4jConstants._NODE
-import static org.xixum.nlx.constants.Neo4jConstants._TARGET
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NAME
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NODE
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TARGET
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.GET_NAME_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.WITH_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.OF_
@@ -21,7 +21,7 @@ import static org.xixum.nlx.dictionary.constants.NodeConstants._WORD
 
 import org.xixum.nlx.dictionary.grammar.nodes.AbstractActionPredicatedNodeObj
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateOF
-import org.neo4j.driver.v1.types.Relationship
+import org.neo4j.driver.types.Relationship
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateFIND
 
 class ActionObject extends AbstractActionPredicatedNodeObj implements IObjectNode, IPredicateOF, IPredicateFIND {

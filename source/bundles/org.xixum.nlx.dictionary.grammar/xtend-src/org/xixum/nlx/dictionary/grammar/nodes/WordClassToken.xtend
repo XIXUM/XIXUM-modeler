@@ -1,19 +1,19 @@
 package org.xixum.nlx.dictionary.grammar.nodes
 
-import static org.xixum.nlx.constants.Neo4jConstants._NAME
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NAME
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TOKEN
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.AS_
 
-import org.xixum.nlx.ai.IParserDriver
-import org.neo4j.driver.v1.types.Node
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
+import org.neo4j.driver.types.Node
 import org.xixum.nlx.dictionary.grammar.token.IGrammarItem
 import org.xixum.nlx.dictionary.grammar.token.IGrammarLiteral
 import org.xixum.nlx.dictionary.grammar.token.IGrammarInterpunction
 import org.xixum.nlx.dictionary.grammar.utils.GrammarUtil
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateIS
-import org.xixum.nlx.ai.semantics.INode
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateOF_CLASS
-import org.neo4j.driver.v1.types.Relationship
+import org.neo4j.driver.types.Relationship
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateLINK_TO
 
 class WordClassToken extends AbstractPredicatedNodeObj implements IDictNode, IPredicateIS, IPredicateOF_CLASS, IPredicateLINK_TO  {

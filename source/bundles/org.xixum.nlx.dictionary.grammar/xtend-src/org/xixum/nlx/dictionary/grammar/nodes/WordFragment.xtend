@@ -1,12 +1,12 @@
 package org.xixum.nlx.dictionary.grammar.nodes
 
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
-import static org.xixum.nlx.constants.Neo4jConstants._ATTR_NAME
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TOKEN
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._ATTR_NAME
 
-import org.xixum.nlx.ai.IParserDriver
-import org.neo4j.driver.v1.types.Node
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
+import org.neo4j.driver.types.Node
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateENDS_WITH
-import org.xixum.nlx.ai.semantics.INode
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.token.IGrammarItem
 import org.xixum.nlx.dictionary.grammar.utils.GrammarUtil
 

@@ -1,7 +1,7 @@
 package org.xixum.nlx.dictionary.grammar.factories
 
-import org.xixum.nlx.ai.INodeFactory
-import org.xixum.nlx.ai.IParserDriver
+import org.xixum.neo4j.driver.factory.INodeFactory
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
 import org.xixum.nlx.dictionary.grammar.nodes.ActionNode
 import org.xixum.nlx.dictionary.grammar.nodes.ActionObject
 import org.xixum.nlx.dictionary.grammar.nodes.RuleToken
@@ -9,7 +9,7 @@ import org.xixum.nlx.dictionary.grammar.nodes.TenseNode
 import org.xixum.nlx.dictionary.grammar.nodes.WordClassToken
 import org.xixum.nlx.dictionary.grammar.nodes.WordFragment
 import org.xixum.nlx.dictionary.grammar.nodes.WordToken
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.types.Node
 
 import static org.xixum.nlx.dictionary.constants.NodeConstants._ACTION
 import static org.xixum.nlx.dictionary.constants.NodeConstants._ACTION_OBJECT
@@ -20,8 +20,9 @@ import static org.xixum.nlx.dictionary.constants.NodeConstants._TENSE
 import static org.xixum.nlx.dictionary.constants.NodeConstants._WORD
 import static org.xixum.nlx.dictionary.constants.NodeConstants._WORD_CLASS
 import static org.xixum.nlx.dictionary.constants.NodeConstants._WORD_FRAGMENT
-import static org.xixum.nlx.constants.Neo4jConstants._CLASS
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._CLASS
 import org.xixum.nlx.dictionary.grammar.nodes.ClassNode
+
 
 class RuleNodeFactory implements INodeFactory {
 	

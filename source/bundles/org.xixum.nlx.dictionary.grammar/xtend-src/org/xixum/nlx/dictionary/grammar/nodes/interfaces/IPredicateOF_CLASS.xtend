@@ -4,8 +4,8 @@
 
 package org.xixum.nlx.dictionary.grammar.nodes.interfaces
 
-import org.neo4j.driver.v1.types.Relationship
-import org.xixum.nlx.ai.semantics.INode
+import org.neo4j.driver.types.Relationship
+import org.xixum.neo4j.driver.entities.interfaces.INode
 
 /**
  * @author Felix Schaller

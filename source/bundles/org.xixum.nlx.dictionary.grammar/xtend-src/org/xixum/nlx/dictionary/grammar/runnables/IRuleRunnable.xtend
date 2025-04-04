@@ -1,6 +1,6 @@
 package org.xixum.nlx.dictionary.grammar.runnables
 
-import org.xixum.nlx.ai.semantics.INode
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.nodes.ImplRuleNode
 import org.xixum.utils.data.types.XPair
 import java.util.Map

@@ -3,11 +3,11 @@ package org.xixum.nlx.dictionary.grammar.nodes
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.NAME_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.AS_
 
-import org.xixum.nlx.ai.IParserDriver
-import org.neo4j.driver.v1.types.Node
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
+import org.neo4j.driver.types.Node
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateLINK_TO
-import org.xixum.nlx.ai.semantics.INode
-import org.neo4j.driver.v1.types.Relationship
+import org.xixum.neo4j.driver.entities.interfaces.INode
+import org.neo4j.driver.types.Relationship
 //import org.eclipse.xtext.xbase.lib.Functions.Function1
 
 class TenseNode extends AbstractPredicatedNodeObj implements IDictNode, IPredicateLINK_TO {

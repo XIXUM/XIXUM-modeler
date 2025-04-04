@@ -1,14 +1,14 @@
 package org.xixum.nlx.dictionary.grammar.nodes
 
-import org.xixum.nlx.ai.IParserDriver
-import org.xixum.nlx.ai.semantics.INode
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.bool.BoolOr
 import org.xixum.utils.data.lists.IAppendable
 import java.util.List
-import org.neo4j.driver.v1.Record
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.Record
+import org.neo4j.driver.types.Node
 
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TOKEN
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.DO_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.ENTER_RULE_
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateDO

@@ -4,13 +4,13 @@ import static org.xixum.nlx.dictionary.constants.PredicateConstants.ENDS_WITH_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.INSTANCE_OF_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.IS_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.TARGET_
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
-import static org.xixum.nlx.constants.Neo4jConstants._NODE
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TOKEN
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NODE
 
-import org.xixum.nlx.ai.IParserDriver
-import org.xixum.nlx.ai.semantics.INode
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import java.util.List
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.types.Node
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateEQUALS
 import org.xixum.nlx.dictionary.grammar.token.IGrammarItem
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateTARGET

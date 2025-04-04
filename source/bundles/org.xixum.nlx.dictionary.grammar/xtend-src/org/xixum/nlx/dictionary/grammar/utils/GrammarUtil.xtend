@@ -1,32 +1,26 @@
 package org.xixum.nlx.dictionary.grammar.utils
 
-import static org.xixum.nlx.dictionary.constants.NodeConstants._WORD
-import static org.xixum.nlx.dictionary.constants.DictionaryConstants._POSITION
-import static org.xixum.nlx.constants.Neo4jConstants._NAME
-import static org.xixum.nlx.constants.Neo4jConstants._OF_CLASS
-import static org.xixum.nlx.constants.Neo4jConstants._CLASS
-import static org.xixum.nlx.dictionary.constants.DictionaryConstants._WORD_TYPE
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
-import static org.xixum.nlx.constants.Neo4jConstants._P
-import static org.xixum.nlx.constants.Neo4jConstants._N
-import static org.xixum.nlx.constants.Neo4jConstants._T
-import static org.xixum.nlx.constants.Neo4jConstants._L
-
-
-import org.eclipse.xtext.xbase.lib.Functions.Function1
-import org.xixum.nlx.ai.semantics.INode
 import java.util.List
-import org.neo4j.driver.v1.types.Node
-import org.xixum.nlx.constants.Direction
-import org.xixum.nlx.dictionary.grammar.token.IGrammarItem
+import org.eclipse.xtext.xbase.lib.Functions.Function1
+import org.neo4j.driver.types.Node
+import org.xixum.neo4j.driver.constants.Direction
+import org.xixum.neo4j.driver.entities.Arrow
+import org.xixum.neo4j.driver.entities.interfaces.INode
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
 import org.xixum.nlx.dictionary.grammar.nodes.TerminalNode
-import org.xixum.nlx.dictionary.grammar.nodes.ClassNode
-import org.xixum.nlx.ai.util.Arrow
-import org.neo4j.driver.v1.Record
-import org.xixum.nlx.ai.util.NodeUtil
-import org.xixum.nlx.ai.neo4j.Neo4jAccess.Action
-import org.xixum.nlx.ai.IParserDriver
-import org.neo4j.driver.v1.types.Path
+import org.xixum.nlx.dictionary.grammar.token.IGrammarItem
+import org.neo4j.driver.Record
+import org.neo4j.driver.types.Path
+
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._L
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._N
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NAME
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._OF_CLASS
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._P
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._T
+import static org.xixum.nlx.dictionary.constants.DictionaryConstants._POSITION
+import static org.xixum.nlx.dictionary.constants.NodeConstants._WORD
+import org.xixum.neo4j.driver.Neo4jAccess.Action
 
 class GrammarUtil {
 	

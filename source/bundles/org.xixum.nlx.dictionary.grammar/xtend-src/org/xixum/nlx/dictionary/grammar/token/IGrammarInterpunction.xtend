@@ -1,7 +1,7 @@
 package org.xixum.nlx.dictionary.grammar.token
 
 import org.xixum.nlx.dictionary.grammar.types.ItemType
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.types.Node
 
 interface IGrammarInterpunction {
 	

@@ -1,10 +1,10 @@
 package org.xixum.nlx.dictionary.grammar.nodes
 
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TOKEN
 
 import java.util.HashMap
 import java.util.List
-import org.xixum.nlx.ai.semantics.INode
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.token.IGrammarItem
 
 class ValidateNode {

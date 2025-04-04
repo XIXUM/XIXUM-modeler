@@ -7,14 +7,14 @@
 
 package org.xixum.nlx.dictionary.grammar.nodes
 
-import static org.xixum.nlx.constants.Neo4jConstants._ATTR_NAME
-import static org.xixum.nlx.constants.Neo4jConstants._LINK
-import static org.xixum.nlx.constants.Neo4jConstants._NODE
-import static org.xixum.nlx.constants.Neo4jConstants._NAME
-import static org.xixum.nlx.constants.Neo4jConstants._TARGET
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._ATTR_NAME
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._LINK
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NODE
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._NAME
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TARGET
 import static org.xixum.nlx.dictionary.constants.NodeConstants._KOMMA_SEP_FILTER
 import static org.xixum.nlx.dictionary.constants.NodeConstants._NEGATIVE_FILTER
-import static org.xixum.nlx.constants.Neo4jConstants._TOKEN
+import static org.xixum.neo4j.driver.constants.Neo4jConstants._TOKEN
 
 import org.xixum.nlx.dictionary.grammar.bool.BoolOp
 import java.util.ArrayList
@@ -24,8 +24,6 @@ import java.util.List
 import org.neo4j.driver.internal.value.NodeValue
 import org.neo4j.driver.internal.value.RelationshipValue
 import org.neo4j.driver.Record
-
-
 import java.util.Map
 import org.neo4j.driver.types.Node
 import org.eclipse.xtext.xbase.lib.Functions.Function1
@@ -33,6 +31,13 @@ import org.xixum.nlx.dictionary.grammar.token.IGrammarItem
 import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
 import org.xixum.neo4j.driver.entities.interfaces.IPredicate
+import org.xixum.neo4j.driver.Neo4jAccess.Action
+import org.xixum.neo4j.driver.util.IFunction1
+import org.xixum.neo4j.driver.constants.Direction
+import org.xixum.neo4j.driver.entities.Arrow
+import org.xixum.neo4j.driver.util.NodeUtil
+
+
 
 abstract class AbstractDictRuleObj extends AbstractNode implements INode {
 	protected Node node

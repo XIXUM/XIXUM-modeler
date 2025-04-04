@@ -1,7 +1,7 @@
 package org.xixum.nlx.dictionary.grammar.nodes
 
-import org.xixum.nlx.ai.IParserDriver
-import org.xixum.nlx.ai.semantics.IContextNode
+import org.xixum.neo4j.driver.entities.interfaces.IContextNode
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
 
 class ContextNode extends AbstractNode implements IContextNode {
 	

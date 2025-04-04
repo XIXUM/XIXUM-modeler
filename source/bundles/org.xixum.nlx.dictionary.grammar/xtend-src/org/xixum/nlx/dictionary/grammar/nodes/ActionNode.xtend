@@ -9,12 +9,12 @@ import static org.xixum.nlx.dictionary.constants.PredicateConstants.LINK_TO_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.WITH_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.TARGET_
 
-import org.xixum.nlx.ai.IParserDriver
-import org.xixum.nlx.ai.semantics.INode
+import org.xixum.neo4j.driver.entities.interfaces.IParserDriver
+import org.xixum.neo4j.driver.entities.interfaces.INode
 import org.xixum.nlx.dictionary.grammar.bool.BoolOr
 import java.util.List
-import org.neo4j.driver.v1.Record
-import org.neo4j.driver.v1.types.Node
+import org.neo4j.driver.Record
+import org.neo4j.driver.types.Node
 
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateDO
 
