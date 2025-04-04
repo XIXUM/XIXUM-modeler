@@ -40,6 +40,7 @@ import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateFIND
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateOF_CLASS
 import org.xixum.nlx.dictionary.grammar.nodes.interfaces.IPredicateTARGET
 import org.xixum.neo4j.driver.factory.IPredicateFactory
+import org.neo4j.driver.types.Relationship
 
 class PredicateFactory implements IPredicateFactory {
 	IDbAccess dbAccessor
@@ -49,7 +50,7 @@ class PredicateFactory implements IPredicateFactory {
 	}
 
 	override create(RelationshipValue value, INode nodeStart, INode nodeEnd) {
-		var rel = value.asRelationship()
+		var Relationship rel = value.asRelationship() as Relationship
 		var typeName = rel.type.toLowerCase
 		switch (typeName) {
 			// TODO: 27.10.22 consider to use annotations with reflection instead of Ipredicate interfaces  

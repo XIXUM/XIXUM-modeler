@@ -21,8 +21,6 @@ import org.neo4j.driver.types.Relationship
 
 import static org.xixum.neo4j.driver.constants.Neo4jConstants._LINK
 import static org.xixum.neo4j.driver.constants.Neo4jConstants._NODE
-//import static org.xixum.neo4j.driver.constants.Neo4jConstants._NAME
-//import static org.xixum.neo4j.driver.constants.Neo4jConstants._OF_CLASS
 import static org.xixum.neo4j.driver.constants.Neo4jConstants._TARGET
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.BASE_FORM_
 import static org.xixum.nlx.dictionary.constants.PredicateConstants.CONJUGATION_
@@ -40,8 +38,6 @@ import org.xixum.neo4j.driver.constants.Direction
 import org.xixum.neo4j.driver.entities.Arrow
 import org.xixum.neo4j.driver.Neo4jAccess.Action
 
-//import static org.xixum.nlx.dictionary.constants.NodeConstants._WORD
-//import static org.xixum.nlx.dictionary.constants.DictionaryConstants._POSITION
 
 
 
