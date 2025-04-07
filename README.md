@@ -18,6 +18,10 @@ about_xixum_modeler.jpg
 [![Preview 1](https://github.com/XIXUM/XIXUM-modeler/blob/master/docu/images/welcome_page.jpg?raw=true)](https://github.com/XIXUM/XIXUM-modeler/blob/master/)
 [![Preview 2](https://github.com/XIXUM/XIXUM-modeler/blob/master/docu/images/about_xixum_modeler.jpg?raw=true)](https://github.com/XIXUM/XIXUM-modeler/blob/master/)
 
+## Installation
+
+currently only cloning from source code is available, but we are working on a first release version that may come out soon...
+
 ## Mode Details Coming Soon...
 This repository is just initialized. It will soon hold all the required information including a full description
 
