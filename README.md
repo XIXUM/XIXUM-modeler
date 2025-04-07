@@ -1,4 +1,6 @@
 # XIXUM-modeler
+[![Build Status](https://github.com/XIXUM/XIXUM-modeler/workflows/Java%20CI%20with%20Maven/badge.svg)](https://github.com/XIXUM/XIXUM-modeler/actions)
+
 XIXUM Modeler is an Modeling IDE and AI Model Generator that can edit and generate Models from natural language using Large Language Models (LLMs)
 it is a Testing environment where our cognitive Model is built on. 
 
@@ -11,8 +13,6 @@ The modeler uses all kinds of data artifacts and creates data annotation from:
 
 it contracts all these input creating an semantic structure where a cognitive model is built on.
 This cognitive Model builds the Core for The AI for performing all kinds of logical tasks.
-
-[![Build Status](https://github.com/XIXUM/XIXUM-modeler/workflows/Java%20CI%20with%20Maven/badge.svg)](https://github.com/XIXUM/XIXUM-modeler/actions)
 
 about_xixum_modeler.jpg
 [![Preview 1](https://github.com/XIXUM/XIXUM-modeler/blob/master/docu/images/welcome_page.jpg?raw=true)](https://github.com/XIXUM/XIXUM-modeler/blob/master/)
