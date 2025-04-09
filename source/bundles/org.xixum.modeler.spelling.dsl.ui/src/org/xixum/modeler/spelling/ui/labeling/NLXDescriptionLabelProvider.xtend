@@ -11,7 +11,7 @@ import org.eclipse.xtext.resource.IEObjectDescription
  * 
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
-class NaturalLangDescriptionLabelProvider extends DefaultDescriptionLabelProvider {
+class NLXDescriptionLabelProvider extends DefaultDescriptionLabelProvider {
 
 	// Labels and icons can be computed like this:
 	

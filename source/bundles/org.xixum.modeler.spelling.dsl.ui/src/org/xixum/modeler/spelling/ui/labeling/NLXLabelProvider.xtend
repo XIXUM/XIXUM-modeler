@@ -24,7 +24,7 @@ import org.xixum.modeler.spelling.nlx.Word
  * 
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
-class NaturalLangLabelProvider extends DefaultEObjectLabelProvider {
+class NLXLabelProvider extends DefaultEObjectLabelProvider {
 
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
