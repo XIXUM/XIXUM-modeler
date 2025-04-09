@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xixum.latex.dsl
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xixum.latex.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xixum.latex.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.apache.commons.logging;bundle-version="1.1.1",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.xixum.latex.texDsl,
+ org.xixum.latex.services,
+ org.xixum.latex.texDsl.util,
+ org.xixum.latex.parser.antlr.internal,
+ org.xixum.latex.parser.antlr,
+ org.xixum.latex.scoping,
+ org.xixum.latex.texDsl.impl,
+ org.xixum.latex.generator,
+ org.xixum.latex,
+ org.xixum.latex.validation,
+ org.xixum.latex.serializer
+Import-Package: org.apache.log4j

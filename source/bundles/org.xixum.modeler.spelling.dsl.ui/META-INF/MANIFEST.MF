@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xixum.modeler.spelling.dsl.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xixum.modeler.spelling.dsl.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xixum.modeler.spelling.dsl.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.xixum.modeler.spelling.dsl,
+ org.xixum.modeler.spelling.dsl.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.ide;bundle-version="3.18.500",
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.core.filesystem;bundle-version="1.10.200",
+ org.eclipse.ui.console;bundle-version="3.13.100",
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.core.expressions,
+ org.eclipse.ui.workbench.texteditor,
+ org.eclipse.emf.common.ui,
+ org.xixum.modeler.spelling.dsl.edit,
+ org.eclipse.ui,
+ org.eclipse.ui.editors,
+ org.xixum.utils.Data;bundle-version="0.2.0"
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.xixum.modeler.spelling.ui.quickfix,
+ org.xixum.modeler.spelling.dsl.ui.internal,
+ org.xixum.modeler.spelling.ui.contentassist
+Bundle-Activator: org.xixum.modeler.spelling.dsl.ui.internal.DslActivator

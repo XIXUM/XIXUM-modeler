@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="XIXUM Modeler" uid="org.xixum.modeler.core" id="org.xixum.modeler.core.application.product" application="org.eclipse.ui.ide.workbench" version="2.0.0.qualifier" type="bundles" includeLaunchers="true" autoIncludeRequirements="true">
+<product name="XIXUM Modeler" uid="org.xixum.modeler.core" id="org.xixum.modeler.core.application.product" application="org.eclipse.ui.ide.workbench" version="0.0.1.qualifier" type="bundles" includeLaunchers="true" includeJRE="true" autoIncludeRequirements="true">
 
    <aboutInfo>
       <image path="/org.xixum.modeler.core.application/icons/about.gif"/>
@@ -51,14 +51,15 @@ plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425
       <linux icon="/org.xixum.modeler.core.product/icons/xixum_favicon_256p.xpm"/>
       <macosx icon="/org.xixum.modeler.core.product/icons/xixum_favicon_256p.icns"/>
       <win useIco="false">
+         <ico path="/org.xixum.modeler.core.application/icons/favicon.ico"/>
          <bmp
-            winSmallHigh="/org.xixum.modeler.core.product/icons/favicon_xixum_16_32bit.bmp"
-            winSmallLow="/org.xixum.modeler.core.product/icons/favicon_xixum_16_8bit.bmp"
-            winMediumHigh="/org.xixum.modeler.core.product/icons/favicon_xixum_32_32bit.bmp"
-            winMediumLow="/org.xixum.modeler.core.product/icons/favicon_xixum_32_8bit.bmp"
-            winLargeHigh="/org.xixum.modeler.core.product/icons/favicon_xixum_48_32bit.bmp"
-            winLargeLow="/org.xixum.modeler.core.product/icons/favicon_xixum_48_8bit.bmp"
-            winExtraLargeHigh="/org.xixum.modeler.core.product/icons/favicon_xixum_256_32bit.bmp"/>
+            winSmallHigh="/org.xixum.modeler.core.application/icons/favicon_xixum_16_32bit.bmp"
+            winSmallLow="/org.xixum.modeler.core.application/icons/favicon_xixum_16_8bit.bmp"
+            winMediumHigh="/org.xixum.modeler.core.application/icons/favicon_xixum_32_32bit.bmp"
+            winMediumLow="/org.xixum.modeler.core.application/icons/favicon_xixum_32_8bit.bmp"
+            winLargeHigh="/org.xixum.modeler.core.application/icons/favicon_xixum_48_32bit.bmp"
+            winLargeLow="/org.xixum.modeler.core.application/icons/favicon_xixum_48_8bit.bmp"
+            winExtraLargeHigh="/org.xixum.modeler.core.application/icons/favicon_xixum_256_32bit.bmp"/>
       </win>
    </launcher>
 
