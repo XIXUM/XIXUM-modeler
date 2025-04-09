@@ -4,7 +4,6 @@
 package org.xixum.modeler.docgen.template.parser.antlr;
 
 import com.google.inject.Inject;
-
 import org.eclipse.xtext.parser.antlr.AbstractAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.xixum.modeler.docgen.template.parser.antlr.internal.InternalTemplateParser;

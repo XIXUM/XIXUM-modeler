@@ -11,6 +11,6 @@ public class TemplateAntlrTokenFileProvider implements IAntlrTokenFileProvider {
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-		return classLoader.getResourceAsStream("de/validas/cqc/sec/docgen/template/parser/antlr/internal/InternalTemplate.tokens");
+		return classLoader.getResourceAsStream("org/xixum/modeler/docgen/template/parser/antlr/internal/InternalTemplate.tokens");
 	}
 }

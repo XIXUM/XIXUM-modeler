@@ -19,11 +19,11 @@ Require-Bundle: org.xixum.modeler.spelling.dsl,
  org.eclipse.e4.core.di.annotations,
  org.eclipse.core.expressions,
  org.eclipse.ui.workbench.texteditor,
- de.validas.utils.Data;bundle-version="0.2.0",
  org.eclipse.emf.common.ui,
  org.xixum.modeler.spelling.dsl.edit,
  org.eclipse.ui,
- org.eclipse.ui.editors
+ org.eclipse.ui.editors,
+ org.xixum.utils.Data;bundle-version="0.2.0"
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.xixum.modeler.spelling.ui.quickfix,

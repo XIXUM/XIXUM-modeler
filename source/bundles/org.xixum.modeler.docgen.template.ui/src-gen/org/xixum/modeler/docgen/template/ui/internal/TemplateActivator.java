@@ -6,7 +6,6 @@ package org.xixum.modeler.docgen.template.ui.internal;
 import com.google.common.collect.Maps;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-
 import java.util.Collections;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -24,7 +23,7 @@ import org.xixum.modeler.docgen.template.ui.TemplateUiModule;
 public class TemplateActivator extends AbstractUIPlugin {
 
 	public static final String PLUGIN_ID = "org.xixum.modeler.docgen.template.ui";
-	public static final String DE_VALIDAS_CQC_SEC_DOCGEN_TEMPLATE_TEMPLATE = "org.xixum.modeler.docgen.template.Template";
+	public static final String ORG_XIXUM_MODELER_DOCGEN_TEMPLATE_TEMPLATE = "org.xixum.modeler.docgen.template.Template";
 	
 	private static final Logger logger = Logger.getLogger(TemplateActivator.class);
 	
@@ -74,14 +73,14 @@ public class TemplateActivator extends AbstractUIPlugin {
 	}
 	
 	protected com.google.inject.Module getRuntimeModule(String grammar) {
-		if (DE_VALIDAS_CQC_SEC_DOCGEN_TEMPLATE_TEMPLATE.equals(grammar)) {
+		if (ORG_XIXUM_MODELER_DOCGEN_TEMPLATE_TEMPLATE.equals(grammar)) {
 			return new TemplateRuntimeModule();
 		}
 		throw new IllegalArgumentException(grammar);
 	}
 	
 	protected com.google.inject.Module getUiModule(String grammar) {
-		if (DE_VALIDAS_CQC_SEC_DOCGEN_TEMPLATE_TEMPLATE.equals(grammar)) {
+		if (ORG_XIXUM_MODELER_DOCGEN_TEMPLATE_TEMPLATE.equals(grammar)) {
 			return new TemplateUiModule(this);
 		}
 		throw new IllegalArgumentException(grammar);

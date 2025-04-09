@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: de.validas.cqc.tcm.spelling.dsl
+Automatic-Module-Name: org.xixum.modeler.spelling.dsl
 Bundle-ManifestVersion: 2
-Bundle-Name: de.validas.cqc.tcm.spelling.dsl
-Bundle-Vendor: My Company
+Bundle-Name: org.xixum.modeler.spelling.dsl
+Bundle-Vendor: XIXUM
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: de.validas.cqc.tcm.spelling.dsl; singleton:=true
+Bundle-SymbolicName: org.xixum.modeler.spelling.dsl; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
@@ -21,18 +21,16 @@ Export-Package: org.xixum.modeler.spelling,
  org.xixum.modeler.spelling.constants,
  org.xixum.modeler.spelling.converters,
  org.xixum.modeler.spelling.generator,
- org.xixum.modeler.spelling.nLX,
- org.xixum.modeler.spelling.nLX.impl,
- org.xixum.modeler.spelling.nLX.util,
  org.xixum.modeler.spelling.naming,
+ org.xixum.modeler.spelling.nlx,
+ org.xixum.modeler.spelling.nlx.impl,
+ org.xixum.modeler.spelling.nlx.util,
  org.xixum.modeler.spelling.parser.antlr,
  org.xixum.modeler.spelling.parser.antlr.internal,
  org.xixum.modeler.spelling.presets,
  org.xixum.modeler.spelling.scoping,
  org.xixum.modeler.spelling.serializer,
  org.xixum.modeler.spelling.services,
- org.xixum.modeler.spelling.validation,
- org.xixum.modeler.spelling.nlx.impl,
- org.xixum.modeler.spelling.nlx,
- org.xixum.modeler.spelling.nlx.util
+ org.xixum.modeler.spelling.util,
+ org.xixum.modeler.spelling.validation
 Import-Package: org.apache.log4j

@@ -17,6 +17,7 @@ import org.eclipse.xtext.xbase.XbasePackage;
 import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotationsPackage;
 
 import org.eclipse.xtext.xtype.XtypePackage;
+
 import org.xixum.modeler.docgen.template.template.Parameter;
 import org.xixum.modeler.docgen.template.template.RichString;
 import org.xixum.modeler.docgen.template.template.RichStringForLoop;
