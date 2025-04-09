@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metaModel" nsURI="http://www.validas.de/spedit/metaModel" nsPrefix="de.validas">
+  <eClassifiers xsi:type="ecore:EClass" name="Workaround">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="issue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eSubpackages name="suptertype" nsURI="http://www.validas.de/spedit/superType" nsPrefix="de.validas">
+    <eClassifiers xsi:type="ecore:EClass" name="Named" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="DescriptionOK TypeUniqueName GlobalUniqueName"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="longDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deactivated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="SafetyLevel">
+      <eLiterals name="ASIL_A"/>
+      <eLiterals name="ASIL_B" value="1"/>
+      <eLiterals name="ASIL_C" value="2"/>
+      <eLiterals name="ASIL_D" value="3"/>
+      <eLiterals name="SIL_1" value="4" literal="SIL_1"/>
+      <eLiterals name="SIL_2" value="5"/>
+      <eLiterals name="SIL_3" value="6"/>
+      <eLiterals name="SIL_4" value="7"/>
+      <eLiterals name="TQL_5" value="8" literal="TQL_5"/>
+      <eLiterals name="TQL_4" value="9" literal="TQL_4"/>
+      <eLiterals name="TQL_3" value="10" literal="TQL_3"/>
+      <eLiterals name="TQL_2" value="11" literal="TQL_2"/>
+      <eLiterals name="TQL_1" value="12" literal="TQL_1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Variantable" abstract="true" eSuperTypes="#//suptertype/Named">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="TypesOK"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Variants" upperBound="-1"
+          eType="#//terms/BoolTerm" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="LayoutBefore" upperBound="-1"
+          eType="#//suptertype/Variantable" eOpposite="#//suptertype/Variantable/LayoutAfter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="LayoutAfter" upperBound="-1"
+          eType="#//suptertype/Variantable" eOpposite="#//suptertype/Variantable/LayoutBefore"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="LayoutPriority" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Layout">
+      <eLiterals name="TOP_BOTTOM"/>
+      <eLiterals name="BOTTOM_TOP"/>
+      <eLiterals name="LEFT_RIGTH"/>
+      <eLiterals name="RIGHT_LEFT"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Preference">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="referenceProcess" nsURI="http://www.validas.de/spedit/referenceProcess"
+      nsPrefix="de.validas">
+    <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//suptertype/Named">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tools" upperBound="-1"
+          eType="#//referenceProcess/Tool" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+          eType="#//referenceProcess/Requirement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
+          eType="#//referenceProcess/Artifact" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
+          eType="#//referenceProcess/Method" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processModules" upperBound="-1"
+          eType="#//referenceProcess/ProcessModule" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stakeHolders" upperBound="-1"
+          eType="#//referenceProcess/StakeHolder" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processConditions" upperBound="-1"
+          eType="#//modellDescr/ProzessCondition" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Parameters" upperBound="-1"
+          eType="#//terms/Parameter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Bindings" upperBound="-1"
+          eType="#//terms/Binding" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Types" upperBound="-1"
+          eType="#//terms/Type" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaximalSafetyLevel" eType="#//suptertype/SafetyLevel"
+          defaultValueLiteral="ASIL_D"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preferences" upperBound="-1"
+          eType="#//suptertype/Preference"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="filterScope" upperBound="-1"
+          eType="#//referenceProcess/ProcessModule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Tool" eSuperTypes="#//suptertype/Variantable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="ToolUsedInProcess"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processModules" upperBound="-1"
+          eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/tools"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Methods" upperBound="-1"
+          eType="#//referenceProcess/Method" eOpposite="#//referenceProcess/Method/Tools"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MetaModel" eType="#//modellDescr/MetaModel"
+          eOpposite="#//modellDescr/MetaModel/Tool"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PreliminaryClassification"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ClassificationExplanation"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ToolOwner" eType="#//referenceProcess/StakeHolder"
+          eOpposite="#//referenceProcess/StakeHolder/OwnedTools"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StakeHolder" eSuperTypes="#//suptertype/Variantable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedModules" upperBound="-1"
+          eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/StakeHolder"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InvolvedModules" upperBound="-1"
+          eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/InvolvedStakeHolders"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Compliances" upperBound="-1"
+          eType="#//referenceProcess/Compliance" eOpposite="#//referenceProcess/Compliance/StakeHolders"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="AssignedPerson" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedArtifacts" upperBound="-1"
+          eType="#//referenceProcess/Artifact" eOpposite="#//referenceProcess/Artifact/StakeHolder"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InvolvedArtifacts" upperBound="-1"
+          eType="#//referenceProcess/Artifact" eOpposite="#//referenceProcess/Artifact/InvolvedStakeHolders"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedTools" upperBound="-1"
+          eType="#//referenceProcess/Tool" eOpposite="#//referenceProcess/Tool/ToolOwner"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Layout" eType="#//suptertype/Layout"
+          defaultValueLiteral="TOP_BOTTOM"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//referenceProcess/Artifact">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="MMConsistent MMConsistentIncluded MMAttributesInElements MMAssociationsInElements"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MetaModel" eType="#//modellDescr/MetaModel"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Includes" upperBound="-1"
+          eType="#//referenceProcess/Model" eOpposite="#//referenceProcess/Model/IsIncludedIn"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsIncludedIn" upperBound="-1"
+          eType="#//referenceProcess/Model" eOpposite="#//referenceProcess/Model/Includes"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MandatoryElements" upperBound="-1"
+          eType="#//modellDescr/MetaModelElement" eOpposite="#//modellDescr/MetaModelElement/MandatoryInModels"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MandatoryAttributes"
+          upperBound="-1" eType="#//modellDescr/MetaModelAttribute" eOpposite="#//modellDescr/MetaModelAttribute/MandatoryInModels"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MandatoryAssociations"
+          upperBound="-1" eType="#//modellDescr/MetaModelAssociation" eOpposite="#//modellDescr/MetaModelAssociation/MandatoryInModels"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OptionalElements" upperBound="-1"
+          eType="#//modellDescr/MetaModelElement" eOpposite="#//modellDescr/MetaModelElement/OptionalInModels"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OptionalAttributes" upperBound="-1"
+          eType="#//modellDescr/MetaModelAttribute" eOpposite="#//modellDescr/MetaModelAttribute/OptionalInModels"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OptionalAssociations"
+          upperBound="-1" eType="#//modellDescr/MetaModelAssociation" eOpposite="#//modellDescr/MetaModelAssociation/OptionalInModels"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessModule" eSuperTypes="#//suptertype/Variantable #//referenceProcess/IVerified #//referenceProcess/IVerifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="CycleCheck InputArtifacts OutputArtifacts HasOrInheritStakeHolder InterfaceCheck"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+          eType="#//referenceProcess/Requirement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subProcessModules" upperBound="-1"
+          eType="#//referenceProcess/ProcessModule" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputArtifacts" upperBound="-1"
+          eType="#//referenceProcess/Artifact" eOpposite="#//referenceProcess/Artifact/readByProcessModules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tools" upperBound="-1"
+          eType="#//referenceProcess/Tool" eOpposite="#//referenceProcess/Tool/processModules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="beforeProcessModules"
+          upperBound="-1" eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/afterProcessModules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="afterProcessModules"
+          upperBound="-1" eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/beforeProcessModules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InvolvedStakeHolders"
+          upperBound="-1" eType="#//referenceProcess/StakeHolder" eOpposite="#//referenceProcess/StakeHolder/InvolvedModules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="preMMCondition" eType="#//modellDescr/MMCondition"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="postMMCondition" eType="#//modellDescr/MMCondition"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputArtifacts" upperBound="-1"
+          eType="#//referenceProcess/Artifact" eOpposite="#//referenceProcess/Artifact/createdByProcessModules"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//terms/Parameter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+          eType="#//terms/Binding" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="NumberOfInstances" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Effort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Progress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PlannedStartDate" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PlannedEndDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubProcessModuleReferences"
+          upperBound="-1" eType="#//referenceProcess/ProcessModule"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstanceOfProcessModule"
+          eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/InstantiatedInProcessModules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstantiatedInProcessModules"
+          upperBound="-1" eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/InstanceOfProcessModule"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Compliances" upperBound="-1"
+          eType="#//referenceProcess/Compliance" eOpposite="#//referenceProcess/Compliance/ProcessModules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="StakeHolder" eType="#//referenceProcess/StakeHolder"
+          eOpposite="#//referenceProcess/StakeHolder/OwnedModules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ClaimedComplianceRequirements"
+          upperBound="-1" eType="#//referenceProcess/Requirement" eOpposite="#//referenceProcess/Requirement/ClaimingProcessModules"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="#//referenceProcess/ProcessStatus"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterReferences"
+          upperBound="-1" eType="#//terms/Parameter" eOpposite="#//terms/Parameter/ReusingProcessModules"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DeterminedVariables"
+          upperBound="-1" eType="#//terms/ProcessVariable" eOpposite="#//terms/ProcessVariable/DeterminedByProcessModules"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Layout" eType="#//suptertype/Layout"
+          defaultValueLiteral="TOP_BOTTOM"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
+          eType="#//referenceProcess/Artifact" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stakeHolders" upperBound="-1"
+          eType="#//referenceProcess/StakeHolder" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Types" upperBound="-1"
+          eType="#//terms/Type" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//suptertype/Variantable #//referenceProcess/IVerified">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="CycleCheck"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subRequirements" upperBound="-1"
+          eType="#//referenceProcess/Requirement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRequirements"
+          upperBound="-1" eType="#//referenceProcess/Requirement" eOpposite="#//referenceProcess/Requirement/requiredByRequirements"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredByRequirements"
+          upperBound="-1" eType="#//referenceProcess/Requirement" eOpposite="#//referenceProcess/Requirement/requiredRequirements"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recommentedFrom" eType="#//suptertype/SafetyLevel"
+          defaultValueLiteral="ASIL_A"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recommentedTo" eType="#//suptertype/SafetyLevel"
+          defaultValueLiteral="ASIL_D"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Compliances" upperBound="-1"
+          eType="#//referenceProcess/Compliance" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ClaimingProcessModules"
+          upperBound="-1" eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/ClaimedComplianceRequirements"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Artifact" eSuperTypes="#//suptertype/Variantable #//referenceProcess/IVerified">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="CycleCheck PathCheck ReadCheck WriteCheck ReadOrWriteCheck HasOrInheritStakeHolder"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentStatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="readByProcessModules"
+          upperBound="-1" eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/inputArtifacts"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processConditions" upperBound="-1"
+          eType="#//modellDescr/ProzessCondition" eOpposite="#//modellDescr/ProzessCondition/artefakt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="createdByProcessModules"
+          upperBound="-1" eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/outputArtifacts"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubArtifacts" upperBound="-1"
+          eType="#//referenceProcess/Artifact" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubArtifactReferences"
+          upperBound="-1" eType="#//referenceProcess/Artifact" eOpposite="#//referenceProcess/Artifact/ReferedByArtifacts"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Compliances" upperBound="-1"
+          eType="#//referenceProcess/Compliance" eOpposite="#//referenceProcess/Compliance/Artifatcs"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InvolvedStakeHolders"
+          upperBound="-1" eType="#//referenceProcess/StakeHolder" eOpposite="#//referenceProcess/StakeHolder/InvolvedArtifacts"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="StakeHolder" eType="#//referenceProcess/StakeHolder"
+          eOpposite="#//referenceProcess/StakeHolder/OwnedArtifacts"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="#//referenceProcess/ProcessStatus"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PartOfProduct" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ReferedByArtifacts" upperBound="-1"
+          eType="#//referenceProcess/Artifact" eOpposite="#//referenceProcess/Artifact/SubArtifactReferences"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ProjectInput" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Layout" eType="#//suptertype/Layout"
+          defaultValueLiteral="TOP_BOTTOM"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Alternative" eSuperTypes="#//suptertype/Named #//referenceProcess/ProcessModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processModules" upperBound="-1"
+          eType="#//referenceProcess/ProcessModule"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Condition" eType="#//terms/BoolTerm"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parallel" eSuperTypes="#//suptertype/Named #//referenceProcess/ProcessModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processModules" upperBound="-1"
+          eType="#//referenceProcess/ProcessModule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//suptertype/Variantable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Tools" upperBound="-1"
+          eType="#//referenceProcess/Tool" eOpposite="#//referenceProcess/Tool/Methods"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IVerified" abstract="true" interface="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="verifiedBy" upperBound="-1"
+          eType="#//referenceProcess/IVerifier" eOpposite="#//referenceProcess/IVerifier/verifies"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IVerifier" abstract="true" interface="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="verifies" upperBound="-1"
+          eType="#//referenceProcess/IVerified" eOpposite="#//referenceProcess/IVerified/verifiedBy"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Compliance" eSuperTypes="#//suptertype/Variantable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="VandVLinks ProcessLinks NAnoLinks"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ProcessModules" upperBound="-1"
+          eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/Compliances"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="StakeHolders" upperBound="-1"
+          eType="#//referenceProcess/StakeHolder" eOpposite="#//referenceProcess/StakeHolder/Compliances"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="VerificationModules"
+          upperBound="-1" eType="#//referenceProcess/VerificationModule" eOpposite="#//referenceProcess/VerificationModule/VerifiedCompliances"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Artifatcs" upperBound="-1"
+          eType="#//referenceProcess/Artifact" eOpposite="#//referenceProcess/Artifact/Compliances"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubCompliances" upperBound="-1"
+          eType="#//referenceProcess/Compliance"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Applicable" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+          defaultValueLiteral="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VerificationModule" eSuperTypes="#//referenceProcess/ProcessModule">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="VerifiesExactOneInput IsUsedInCompliances HasCriterion"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="VerifiedCompliances"
+          upperBound="-1" eType="#//referenceProcess/Compliance" eOpposite="#//referenceProcess/Compliance/VerificationModules"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Implicit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Criteria" upperBound="-1"
+          eType="#//referenceProcess/Criterion" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredDocument" eSuperTypes="#//referenceProcess/Requirement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Artifacts" upperBound="-1"
+          eType="#//referenceProcess/Artifact"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ProcessStatus">
+      <eLiterals name="DEFINED"/>
+      <eLiterals name="PLANNED" value="1"/>
+      <eLiterals name="READY" value="2"/>
+      <eLiterals name="IN_PROGRESS" value="3"/>
+      <eLiterals name="DONE" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Criterion" eSuperTypes="#//suptertype/Variantable"/>
+  </eSubpackages>
+  <eSubpackages name="modellDescr" nsURI="http://www.validas.de/spedit/modellDescr"
+      nsPrefix="de.validas">
+    <eClassifiers xsi:type="ecore:EClass" name="MMCondition" eSuperTypes="#//suptertype/Named">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MetaModellElements" upperBound="-1"
+          eType="#//modellDescr/MetaModelElement" eOpposite="#//modellDescr/MetaModelElement/MMConditions"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MetaModellAttributes"
+          upperBound="-1" eType="#//modellDescr/MetaModelAttribute" eOpposite="#//modellDescr/MetaModelAttribute/MMConditions"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MetaModellAssociations"
+          upperBound="-1" eType="#//modellDescr/MetaModelAssociation" eOpposite="#//modellDescr/MetaModelAssociation/MMConditions"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Variant" eType="#//terms/BoolTerm"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ProcessCondition" upperBound="-1"
+          eType="#//modellDescr/ProzessCondition" eOpposite="#//modellDescr/ProzessCondition/MMConditions"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MetaModelElement" eSuperTypes="#//suptertype/Named">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="CycleCheck ContainedCheck"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MMConditions" upperBound="-1"
+          eType="#//modellDescr/MMCondition" eOpposite="#//modellDescr/MMCondition/MetaModellElements"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MetaModelAttributes"
+          upperBound="-1" eType="#//modellDescr/MetaModelAttribute" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MetaModelAssociations"
+          upperBound="-1" eType="#//modellDescr/MetaModelAssociation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MandatoryInModels" upperBound="-1"
+          eType="#//referenceProcess/Model" eOpposite="#//referenceProcess/Model/MandatoryElements"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Parents" upperBound="-1"
+          eType="#//modellDescr/MetaModelElement"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OptionalInModels" upperBound="-1"
+          eType="#//referenceProcess/Model" eOpposite="#//referenceProcess/Model/OptionalElements"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MetaModelAssociation" eSuperTypes="#//suptertype/Named">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="TypeCheck"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MMConditions" upperBound="-1"
+          eType="#//modellDescr/MMCondition" eOpposite="#//modellDescr/MMCondition/MetaModellAssociations"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MandatoryInModels" upperBound="-1"
+          eType="#//referenceProcess/Model" eOpposite="#//referenceProcess/Model/MandatoryAssociations"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ToElement" eType="#//modellDescr/MetaModelElement"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Containment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cardinality" eType="#//modellDescr/Cardinality"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OptionalInModels" upperBound="-1"
+          eType="#//referenceProcess/Model" eOpposite="#//referenceProcess/Model/OptionalAssociations"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MetaModelAttribute" eSuperTypes="#//suptertype/Named">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="TypeCheck"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MMConditions" upperBound="-1"
+          eType="#//modellDescr/MMCondition" eOpposite="#//modellDescr/MMCondition/MetaModellAttributes"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MandatoryInModels" upperBound="-1"
+          eType="#//referenceProcess/Model" eOpposite="#//referenceProcess/Model/MandatoryAttributes"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OptionalInModels" upperBound="-1"
+          eType="#//referenceProcess/Model" eOpposite="#//referenceProcess/Model/OptionalAttributes"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProzessCondition" eSuperTypes="#//suptertype/Named">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artefakt" upperBound="-1"
+          eType="#//referenceProcess/Artifact" eOpposite="#//referenceProcess/Artifact/processConditions"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processmodule" upperBound="-1"
+          eType="#//referenceProcess/ProcessModule"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Variant" eType="#//terms/BoolTerm"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MMConditions" upperBound="-1"
+          eType="#//modellDescr/MMCondition" eOpposite="#//modellDescr/MMCondition/ProcessCondition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MetaModel">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="RootCheck"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MetaModelElements" upperBound="-1"
+          eType="#//modellDescr/MetaModelElement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Tool" eType="#//referenceProcess/Tool"
+          eOpposite="#//referenceProcess/Tool/MetaModel"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Cardinality">
+      <eLiterals name="CARDINALITY_0_to_1"/>
+      <eLiterals name="CARDINALITY_1" literal="CARDINALITY_1"/>
+      <eLiterals name="CARDINALITY_N"/>
+      <eLiterals name="CARDINALITY_0_to_N" literal="CARDINALITY_0_to_N"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="terms" nsURI="http://www.validas.de/spedit/terms" nsPrefix="de.validas">
+    <eClassifiers xsi:type="ecore:EClass" name="Term">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="TypesOK"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Type" eType="#//terms/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BoolTerm" eSuperTypes="#//terms/Term">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Terms" upperBound="-1"
+          eType="#//terms/Term" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ListTerm" eSuperTypes="#//terms/Term">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Terms" upperBound="-1"
+          eType="#//terms/Term" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//terms/Term">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParamRef" eSuperTypes="#//terms/Term">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="ReferenceOK"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Parameter" eType="#//terms/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" abstract="true" eSuperTypes="#//suptertype/Named">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="TypesOK"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Type" eType="#//terms/Type"
+          eOpposite="#//terms/Type/Parameters"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Binding" upperBound="-1"
+          eType="#//terms/Binding" eOpposite="#//terms/Binding/Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ValueFromListParameter"
+          eType="#//terms/Parameter" eOpposite="#//terms/Parameter/IteratorParameters"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IteratorParameters" upperBound="-1"
+          eType="#//terms/Parameter" eOpposite="#//terms/Parameter/ValueFromListParameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ReusingProcessModules"
+          upperBound="-1" eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/parameterReferences"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//suptertype/Named">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="TypesOK"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Parameters" upperBound="-1"
+          eType="#//terms/Parameter" eOpposite="#//terms/Parameter/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumType" eSuperTypes="#//terms/Type">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EnumValues" upperBound="-1"
+          eType="#//terms/EnumValue" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumValue" eSuperTypes="#//suptertype/Named"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ANDTerm" eSuperTypes="#//terms/BoolTerm"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ORTerm" eSuperTypes="#//terms/BoolTerm"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EQTerm" eSuperTypes="#//terms/BoolTerm"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NOTTerm" eSuperTypes="#//terms/BoolTerm"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Binding">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="TypesOK OccursCheck"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Parameter" eType="#//terms/Parameter"
+          eOpposite="#//terms/Parameter/Binding"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Value" eType="#//terms/Term"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumValueRef" eSuperTypes="#//terms/Term">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="ReferenceOK"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EnumValue" eType="#//terms/EnumValue"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProjectParameter" eSuperTypes="#//terms/Parameter"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessParameter" eSuperTypes="#//terms/Parameter"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ListType" eSuperTypes="#//terms/Type">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="BaseType" eType="#//terms/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlanningParameter" eSuperTypes="#//terms/Parameter"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InList" eSuperTypes="#//terms/BoolTerm"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessVariable" eSuperTypes="#//terms/Parameter">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DeterminedByProcessModules"
+          upperBound="-1" eType="#//referenceProcess/ProcessModule" eOpposite="#//referenceProcess/ProcessModule/DeterminedVariables"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>
