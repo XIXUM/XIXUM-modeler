@@ -4,3 +4,5 @@
 target/
 workspace/
 runtime-org.xixum.modeler.core.product/
+*.xml_gen
+bin/
