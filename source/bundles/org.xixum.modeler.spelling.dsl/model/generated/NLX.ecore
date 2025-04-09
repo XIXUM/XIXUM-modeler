@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="nlx" nsURI="http://www.xixum.org/modeler/spelling/NLX" nsPrefix="nlx">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sentences" upperBound="-1"
+        eType="#//SentenceType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SentenceType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParagraphBlock" eSuperTypes="#//SentenceType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
+        eType="#//BlockElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlockElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FootNote" eSuperTypes="#//BlockElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SentenceChain" eType="#//SentenceChain"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableLine" eSuperTypes="#//TableBorder">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableBorder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TableRow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableColumnSeparator" eSuperTypes="#//TableBorder">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="char" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//SentenceType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lines" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LineSentenceChain"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SentenceChain" eSuperTypes="#//BlockElement #//LineSentenceChain #//SentenceChainX">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sentences" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="separators" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SentenceChainX"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sentence" eSuperTypes="#//LineSentence #//FreeSentence #//SentenceX">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subsentence" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LineSentence"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FreeSentence"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SentenceX"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ListSentence" eSuperTypes="#//BlockElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="listpoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SentenceChain" eType="#//SentenceChainX"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChapterSentence" eSuperTypes="#//SentenceType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chapterNumber" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Headline" eType="#//LineSentenceChain"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubSentence" eSuperTypes="#//TrailSubSentence #//FreeSubSentence #//LineSubSentence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TrailSubSentence"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FreeSubSentence"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LineSubSentence"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NoNElement" eSuperTypes="#//NoNElementX #//NoNElementX2"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Brackets" eSuperTypes="#//NoNElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NoNElementX"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NoNElementX2" eSuperTypes="#//Elements"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Elements" eSuperTypes="#//AllElements #//New_Line">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllElements"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BracketSentence" eSuperTypes="#//Brackets">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="open" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="brackedSentences" upperBound="-1"
+        eType="#//FreeSentence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="separator" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="close" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Word" eSuperTypes="#//NoNElement #//WordShort">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="word" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WordShort" eSuperTypes="#//NoNElementX #//Elements"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItWord" eSuperTypes="#//NoNElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="word" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Quote" eSuperTypes="#//NoNElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Unit" eSuperTypes="#//NoNElementX2 #//SimpleUnit #//Chapter_Unit_HI #//Chapter_Unit_Low #//HashNumber #//ChapterAlpha">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sign" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleUnit" eSuperTypes="#//NoNElementX2">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chapter_Unit_HI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Chapter_Unit_Low"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HashNumber" eSuperTypes="#//NoNElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChapterAlpha" eSuperTypes="#//NoNElementX2"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SymbolsX" eSuperTypes="#//NoNElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Symbols" eSuperTypes="#//Elements #//SymbolsX">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShortcutGen"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ShortcutLib"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ShortCut" eSuperTypes="#//NoNElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shortcut" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IgnoredText" eSuperTypes="#//BlockElement #//NoNElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignored" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UrlAdress" eSuperTypes="#//NoNElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EmailAT">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MailAdress" eSuperTypes="#//NoNElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="email" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//NoNElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//BracketSentence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Array" eSuperTypes="#//NoNElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" upperBound="-1" eType="#//NoNElement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//BracketSentence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="New_Line" eSuperTypes="#//AllElements"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtBracketSentence" eSuperTypes="#//BracketSentence"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EString" eSuperTypes="#//ShortcutGen #//ShortcutLib">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="word" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortcut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
