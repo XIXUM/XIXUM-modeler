@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.Quote;
 
 /**
@@ -65,7 +65,7 @@ public class QuoteImpl extends NoNElementImpl implements Quote
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.QUOTE;
+    return NlxPackage.Literals.QUOTE;
   }
 
   /**
@@ -90,7 +90,7 @@ public class QuoteImpl extends NoNElementImpl implements Quote
     String oldQuote = quote;
     quote = newQuote;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.QUOTE__QUOTE, oldQuote, quote));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.QUOTE__QUOTE, oldQuote, quote));
   }
 
   /**
@@ -103,7 +103,7 @@ public class QuoteImpl extends NoNElementImpl implements Quote
   {
     switch (featureID)
     {
-      case Nlx2Package.QUOTE__QUOTE:
+      case NlxPackage.QUOTE__QUOTE:
         return getQuote();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class QuoteImpl extends NoNElementImpl implements Quote
   {
     switch (featureID)
     {
-      case Nlx2Package.QUOTE__QUOTE:
+      case NlxPackage.QUOTE__QUOTE:
         setQuote((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class QuoteImpl extends NoNElementImpl implements Quote
   {
     switch (featureID)
     {
-      case Nlx2Package.QUOTE__QUOTE:
+      case NlxPackage.QUOTE__QUOTE:
         setQuote(QUOTE_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class QuoteImpl extends NoNElementImpl implements Quote
   {
     switch (featureID)
     {
-      case Nlx2Package.QUOTE__QUOTE:
+      case NlxPackage.QUOTE__QUOTE:
         return QUOTE_EDEFAULT == null ? quote != null : !QUOTE_EDEFAULT.equals(quote);
     }
     return super.eIsSet(featureID);

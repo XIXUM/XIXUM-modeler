@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xixum.modeler.spelling.nlx.ChapterSentence;
 import org.xixum.modeler.spelling.nlx.LineSentenceChain;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,7 +70,7 @@ public class ChapterSentenceImpl extends SentenceTypeImpl implements ChapterSent
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.CHAPTER_SENTENCE;
+    return NlxPackage.Literals.CHAPTER_SENTENCE;
   }
 
   /**
@@ -95,7 +95,7 @@ public class ChapterSentenceImpl extends SentenceTypeImpl implements ChapterSent
     chapterNumber = newChapterNumber;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Nlx2Package.CHAPTER_SENTENCE__CHAPTER_NUMBER, oldChapterNumber, newChapterNumber);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlxPackage.CHAPTER_SENTENCE__CHAPTER_NUMBER, oldChapterNumber, newChapterNumber);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -113,14 +113,14 @@ public class ChapterSentenceImpl extends SentenceTypeImpl implements ChapterSent
     {
       NotificationChain msgs = null;
       if (chapterNumber != null)
-        msgs = ((InternalEObject)chapterNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Nlx2Package.CHAPTER_SENTENCE__CHAPTER_NUMBER, null, msgs);
+        msgs = ((InternalEObject)chapterNumber).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlxPackage.CHAPTER_SENTENCE__CHAPTER_NUMBER, null, msgs);
       if (newChapterNumber != null)
-        msgs = ((InternalEObject)newChapterNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Nlx2Package.CHAPTER_SENTENCE__CHAPTER_NUMBER, null, msgs);
+        msgs = ((InternalEObject)newChapterNumber).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlxPackage.CHAPTER_SENTENCE__CHAPTER_NUMBER, null, msgs);
       msgs = basicSetChapterNumber(newChapterNumber, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.CHAPTER_SENTENCE__CHAPTER_NUMBER, newChapterNumber, newChapterNumber));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.CHAPTER_SENTENCE__CHAPTER_NUMBER, newChapterNumber, newChapterNumber));
   }
 
   /**
@@ -145,7 +145,7 @@ public class ChapterSentenceImpl extends SentenceTypeImpl implements ChapterSent
     headline = newHeadline;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Nlx2Package.CHAPTER_SENTENCE__HEADLINE, oldHeadline, newHeadline);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlxPackage.CHAPTER_SENTENCE__HEADLINE, oldHeadline, newHeadline);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -163,14 +163,14 @@ public class ChapterSentenceImpl extends SentenceTypeImpl implements ChapterSent
     {
       NotificationChain msgs = null;
       if (headline != null)
-        msgs = ((InternalEObject)headline).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Nlx2Package.CHAPTER_SENTENCE__HEADLINE, null, msgs);
+        msgs = ((InternalEObject)headline).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlxPackage.CHAPTER_SENTENCE__HEADLINE, null, msgs);
       if (newHeadline != null)
-        msgs = ((InternalEObject)newHeadline).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Nlx2Package.CHAPTER_SENTENCE__HEADLINE, null, msgs);
+        msgs = ((InternalEObject)newHeadline).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlxPackage.CHAPTER_SENTENCE__HEADLINE, null, msgs);
       msgs = basicSetHeadline(newHeadline, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.CHAPTER_SENTENCE__HEADLINE, newHeadline, newHeadline));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.CHAPTER_SENTENCE__HEADLINE, newHeadline, newHeadline));
   }
 
   /**
@@ -183,9 +183,9 @@ public class ChapterSentenceImpl extends SentenceTypeImpl implements ChapterSent
   {
     switch (featureID)
     {
-      case Nlx2Package.CHAPTER_SENTENCE__CHAPTER_NUMBER:
+      case NlxPackage.CHAPTER_SENTENCE__CHAPTER_NUMBER:
         return basicSetChapterNumber(null, msgs);
-      case Nlx2Package.CHAPTER_SENTENCE__HEADLINE:
+      case NlxPackage.CHAPTER_SENTENCE__HEADLINE:
         return basicSetHeadline(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -201,9 +201,9 @@ public class ChapterSentenceImpl extends SentenceTypeImpl implements ChapterSent
   {
     switch (featureID)
     {
-      case Nlx2Package.CHAPTER_SENTENCE__CHAPTER_NUMBER:
+      case NlxPackage.CHAPTER_SENTENCE__CHAPTER_NUMBER:
         return getChapterNumber();
-      case Nlx2Package.CHAPTER_SENTENCE__HEADLINE:
+      case NlxPackage.CHAPTER_SENTENCE__HEADLINE:
         return getHeadline();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -219,10 +219,10 @@ public class ChapterSentenceImpl extends SentenceTypeImpl implements ChapterSent
   {
     switch (featureID)
     {
-      case Nlx2Package.CHAPTER_SENTENCE__CHAPTER_NUMBER:
+      case NlxPackage.CHAPTER_SENTENCE__CHAPTER_NUMBER:
         setChapterNumber((EObject)newValue);
         return;
-      case Nlx2Package.CHAPTER_SENTENCE__HEADLINE:
+      case NlxPackage.CHAPTER_SENTENCE__HEADLINE:
         setHeadline((LineSentenceChain)newValue);
         return;
     }
@@ -239,10 +239,10 @@ public class ChapterSentenceImpl extends SentenceTypeImpl implements ChapterSent
   {
     switch (featureID)
     {
-      case Nlx2Package.CHAPTER_SENTENCE__CHAPTER_NUMBER:
+      case NlxPackage.CHAPTER_SENTENCE__CHAPTER_NUMBER:
         setChapterNumber((EObject)null);
         return;
-      case Nlx2Package.CHAPTER_SENTENCE__HEADLINE:
+      case NlxPackage.CHAPTER_SENTENCE__HEADLINE:
         setHeadline((LineSentenceChain)null);
         return;
     }
@@ -259,9 +259,9 @@ public class ChapterSentenceImpl extends SentenceTypeImpl implements ChapterSent
   {
     switch (featureID)
     {
-      case Nlx2Package.CHAPTER_SENTENCE__CHAPTER_NUMBER:
+      case NlxPackage.CHAPTER_SENTENCE__CHAPTER_NUMBER:
         return chapterNumber != null;
-      case Nlx2Package.CHAPTER_SENTENCE__HEADLINE:
+      case NlxPackage.CHAPTER_SENTENCE__HEADLINE:
         return headline != null;
     }
     return super.eIsSet(featureID);

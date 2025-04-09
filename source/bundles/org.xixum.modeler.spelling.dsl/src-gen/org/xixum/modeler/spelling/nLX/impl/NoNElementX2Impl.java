@@ -5,7 +5,7 @@ package org.xixum.modeler.spelling.nlx.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.NoNElementX2;
 
 /**
@@ -35,7 +35,7 @@ public class NoNElementX2Impl extends ElementsImpl implements NoNElementX2
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.NO_NELEMENT_X2;
+    return NlxPackage.Literals.NO_NELEMENT_X2;
   }
 
 } //NoNElementX2Impl

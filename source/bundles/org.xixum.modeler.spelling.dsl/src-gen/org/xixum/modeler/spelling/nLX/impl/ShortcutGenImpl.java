@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.ShortcutGen;
 
 /**
@@ -37,7 +37,7 @@ public class ShortcutGenImpl extends MinimalEObjectImpl.Container implements Sho
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.SHORTCUT_GEN;
+    return NlxPackage.Literals.SHORTCUT_GEN;
   }
 
 } //ShortcutGenImpl

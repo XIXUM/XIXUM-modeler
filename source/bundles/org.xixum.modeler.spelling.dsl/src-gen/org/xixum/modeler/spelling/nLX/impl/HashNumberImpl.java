@@ -6,7 +6,7 @@ package org.xixum.modeler.spelling.nlx.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.xixum.modeler.spelling.nlx.HashNumber;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public class HashNumberImpl extends NoNElementImpl implements HashNumber
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.HASH_NUMBER;
+    return NlxPackage.Literals.HASH_NUMBER;
   }
 
 } //HashNumberImpl

@@ -5,7 +5,7 @@ package org.xixum.modeler.spelling.nlx.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.SymbolsX;
 
 /**
@@ -35,7 +35,7 @@ public class SymbolsXImpl extends NoNElementImpl implements SymbolsX
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.SYMBOLS_X;
+    return NlxPackage.Literals.SYMBOLS_X;
   }
 
 } //SymbolsXImpl

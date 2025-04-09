@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.NoNElementX;
 
 /**
@@ -37,7 +37,7 @@ public class NoNElementXImpl extends MinimalEObjectImpl.Container implements NoN
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.NO_NELEMENT_X;
+    return NlxPackage.Literals.NO_NELEMENT_X;
   }
 
 } //NoNElementXImpl

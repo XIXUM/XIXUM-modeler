@@ -22,8 +22,8 @@ import org.eclipse.xtext.ui.editor.reconciler.IReconcileStrategyFactory;
 import org.eclipse.xtext.ui.editor.reconciler.XtextSpellingReconcileStrategy;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.DefaultAntlrTokenToAttributeIdMapper;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
-import org.xixum.modeler.spelling.nlx.provider.NlxItemProviderAdapterFactory;
-import org.xixum.modeler.spelling.nlx.util.Nlx2AdapterFactory;
+import org.xixum.modeler.spelling.nlx.util.NlxAdapterFactory;
+import org.xixum.modeler.spelling.nlx2.provider.NlxItemProviderAdapterFactory;
 import org.xixum.modeler.spelling.ui.AbstractNLXUiModule;
 import org.xixum.modeler.spelling.ui.editor.NlxBuildConsole;
 import org.xixum.modeler.spelling.ui.editor.NlxEObjectNodeAdapterFactory;
@@ -94,7 +94,7 @@ public class NLXUiModule extends AbstractNLXUiModule {
 				.toInstance(eObjectAdapterFactory);
 		LinkedBindingBuilder<AdapterFactory> _annotatedWith = binder.<AdapterFactory>bind(AdapterFactory.class)
 				.annotatedWith(Names.named("nlxAdapterFactory"));
-		Nlx2AdapterFactory _naturalLangAdapterFactory = new Nlx2AdapterFactory();
+		NlxAdapterFactory _naturalLangAdapterFactory = new NlxAdapterFactory();
 		_annotatedWith.toInstance(_naturalLangAdapterFactory);
 	}
 

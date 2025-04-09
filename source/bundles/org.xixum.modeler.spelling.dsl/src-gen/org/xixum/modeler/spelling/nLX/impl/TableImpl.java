@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.Table;
 
 /**
@@ -62,7 +62,7 @@ public class TableImpl extends SentenceTypeImpl implements Table
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.TABLE;
+    return NlxPackage.Literals.TABLE;
   }
 
   /**
@@ -75,7 +75,7 @@ public class TableImpl extends SentenceTypeImpl implements Table
   {
     if (lines == null)
     {
-      lines = new EObjectContainmentEList<EObject>(EObject.class, this, Nlx2Package.TABLE__LINES);
+      lines = new EObjectContainmentEList<EObject>(EObject.class, this, NlxPackage.TABLE__LINES);
     }
     return lines;
   }
@@ -90,7 +90,7 @@ public class TableImpl extends SentenceTypeImpl implements Table
   {
     switch (featureID)
     {
-      case Nlx2Package.TABLE__LINES:
+      case NlxPackage.TABLE__LINES:
         return ((InternalEList<?>)getLines()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class TableImpl extends SentenceTypeImpl implements Table
   {
     switch (featureID)
     {
-      case Nlx2Package.TABLE__LINES:
+      case NlxPackage.TABLE__LINES:
         return getLines();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class TableImpl extends SentenceTypeImpl implements Table
   {
     switch (featureID)
     {
-      case Nlx2Package.TABLE__LINES:
+      case NlxPackage.TABLE__LINES:
         getLines().clear();
         getLines().addAll((Collection<? extends EObject>)newValue);
         return;
@@ -141,7 +141,7 @@ public class TableImpl extends SentenceTypeImpl implements Table
   {
     switch (featureID)
     {
-      case Nlx2Package.TABLE__LINES:
+      case NlxPackage.TABLE__LINES:
         getLines().clear();
         return;
     }
@@ -158,7 +158,7 @@ public class TableImpl extends SentenceTypeImpl implements Table
   {
     switch (featureID)
     {
-      case Nlx2Package.TABLE__LINES:
+      case NlxPackage.TABLE__LINES:
         return lines != null && !lines.isEmpty();
     }
     return super.eIsSet(featureID);

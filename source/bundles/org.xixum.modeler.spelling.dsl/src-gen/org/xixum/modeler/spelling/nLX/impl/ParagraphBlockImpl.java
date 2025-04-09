@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xixum.modeler.spelling.nlx.BlockElement;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.ParagraphBlock;
 
 /**
@@ -62,7 +62,7 @@ public class ParagraphBlockImpl extends SentenceTypeImpl implements ParagraphBlo
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.PARAGRAPH_BLOCK;
+    return NlxPackage.Literals.PARAGRAPH_BLOCK;
   }
 
   /**
@@ -75,7 +75,7 @@ public class ParagraphBlockImpl extends SentenceTypeImpl implements ParagraphBlo
   {
     if (block == null)
     {
-      block = new EObjectContainmentEList<BlockElement>(BlockElement.class, this, Nlx2Package.PARAGRAPH_BLOCK__BLOCK);
+      block = new EObjectContainmentEList<BlockElement>(BlockElement.class, this, NlxPackage.PARAGRAPH_BLOCK__BLOCK);
     }
     return block;
   }
@@ -90,7 +90,7 @@ public class ParagraphBlockImpl extends SentenceTypeImpl implements ParagraphBlo
   {
     switch (featureID)
     {
-      case Nlx2Package.PARAGRAPH_BLOCK__BLOCK:
+      case NlxPackage.PARAGRAPH_BLOCK__BLOCK:
         return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class ParagraphBlockImpl extends SentenceTypeImpl implements ParagraphBlo
   {
     switch (featureID)
     {
-      case Nlx2Package.PARAGRAPH_BLOCK__BLOCK:
+      case NlxPackage.PARAGRAPH_BLOCK__BLOCK:
         return getBlock();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class ParagraphBlockImpl extends SentenceTypeImpl implements ParagraphBlo
   {
     switch (featureID)
     {
-      case Nlx2Package.PARAGRAPH_BLOCK__BLOCK:
+      case NlxPackage.PARAGRAPH_BLOCK__BLOCK:
         getBlock().clear();
         getBlock().addAll((Collection<? extends BlockElement>)newValue);
         return;
@@ -141,7 +141,7 @@ public class ParagraphBlockImpl extends SentenceTypeImpl implements ParagraphBlo
   {
     switch (featureID)
     {
-      case Nlx2Package.PARAGRAPH_BLOCK__BLOCK:
+      case NlxPackage.PARAGRAPH_BLOCK__BLOCK:
         getBlock().clear();
         return;
     }
@@ -158,7 +158,7 @@ public class ParagraphBlockImpl extends SentenceTypeImpl implements ParagraphBlo
   {
     switch (featureID)
     {
-      case Nlx2Package.PARAGRAPH_BLOCK__BLOCK:
+      case NlxPackage.PARAGRAPH_BLOCK__BLOCK:
         return block != null && !block.isEmpty();
     }
     return super.eIsSet(featureID);

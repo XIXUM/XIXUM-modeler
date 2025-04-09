@@ -11,7 +11,7 @@
       <!-- @generated NLX -->
       <factory
             uri="http://www.xixum.org/modeler/spelling/NLX"
-            class="org.xixum.modeler.spelling.nlx.provider.NlxItemProviderAdapterFactory"
+            class="org.xixum.modeler.spelling.nlx2.provider.NlxItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

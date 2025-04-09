@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.Word;
 
 /**
@@ -57,7 +57,7 @@ public class WordImpl extends NoNElementImpl implements Word
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.WORD;
+    return NlxPackage.Literals.WORD;
   }
 
   /**
@@ -70,7 +70,7 @@ public class WordImpl extends NoNElementImpl implements Word
   {
     if (word == null)
     {
-      word = new EDataTypeEList<String>(String.class, this, Nlx2Package.WORD__WORD);
+      word = new EDataTypeEList<String>(String.class, this, NlxPackage.WORD__WORD);
     }
     return word;
   }
@@ -85,7 +85,7 @@ public class WordImpl extends NoNElementImpl implements Word
   {
     switch (featureID)
     {
-      case Nlx2Package.WORD__WORD:
+      case NlxPackage.WORD__WORD:
         return getWord();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -102,7 +102,7 @@ public class WordImpl extends NoNElementImpl implements Word
   {
     switch (featureID)
     {
-      case Nlx2Package.WORD__WORD:
+      case NlxPackage.WORD__WORD:
         getWord().clear();
         getWord().addAll((Collection<? extends String>)newValue);
         return;
@@ -120,7 +120,7 @@ public class WordImpl extends NoNElementImpl implements Word
   {
     switch (featureID)
     {
-      case Nlx2Package.WORD__WORD:
+      case NlxPackage.WORD__WORD:
         getWord().clear();
         return;
     }
@@ -137,7 +137,7 @@ public class WordImpl extends NoNElementImpl implements Word
   {
     switch (featureID)
     {
-      case Nlx2Package.WORD__WORD:
+      case NlxPackage.WORD__WORD:
         return word != null && !word.isEmpty();
     }
     return super.eIsSet(featureID);

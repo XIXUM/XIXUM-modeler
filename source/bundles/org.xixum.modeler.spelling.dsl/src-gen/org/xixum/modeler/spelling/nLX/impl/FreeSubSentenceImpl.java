@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xixum.modeler.spelling.nlx.FreeSubSentence;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class FreeSubSentenceImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.FREE_SUB_SENTENCE;
+    return NlxPackage.Literals.FREE_SUB_SENTENCE;
   }
 
 } //FreeSubSentenceImpl

@@ -14,7 +14,7 @@ import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.eclipse.xtext.util.Modules2;
 import org.osgi.framework.BundleContext;
 import org.xixum.nlx.NaturalLangRuntimeModule;
-import org.xixum.nlx.ui.NaturalLangUiModule;
+
 
 /**
  * This class was generated. Customizations should only happen in a newly

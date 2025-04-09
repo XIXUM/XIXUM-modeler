@@ -14,7 +14,7 @@ import org.eclipse.xtext.XtextPackage;
 import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.IResourceServiceProvider;
 import org.eclipse.xtext.resource.impl.BinaryGrammarResourceFactoryImpl;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 @SuppressWarnings("all")
 public class NLXStandaloneSetupGenerated implements ISetup {
@@ -45,7 +45,7 @@ public class NLXStandaloneSetupGenerated implements ISetup {
 	
 	public void register(Injector injector) {
 		if (!EPackage.Registry.INSTANCE.containsKey("http://www.xixum.org/modeler/spelling/NLX")) {
-			EPackage.Registry.INSTANCE.put("http://www.xixum.org/modeler/spelling/NLX", Nlx2Package.eINSTANCE);
+			EPackage.Registry.INSTANCE.put("http://www.xixum.org/modeler/spelling/NLX", NlxPackage.eINSTANCE);
 		}
 		IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
 		IResourceServiceProvider serviceProvider = injector.getInstance(IResourceServiceProvider.class);

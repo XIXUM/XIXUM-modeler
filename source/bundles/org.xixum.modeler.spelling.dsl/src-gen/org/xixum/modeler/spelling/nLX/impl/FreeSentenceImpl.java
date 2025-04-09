@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xixum.modeler.spelling.nlx.FreeSentence;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class FreeSentenceImpl extends MinimalEObjectImpl.Container implements Fr
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.FREE_SENTENCE;
+    return NlxPackage.Literals.FREE_SENTENCE;
   }
 
 } //FreeSentenceImpl

@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xixum.modeler.spelling.nlx.Model;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.SentenceType;
 
 /**
@@ -64,7 +64,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.MODEL;
+    return NlxPackage.Literals.MODEL;
   }
 
   /**
@@ -77,7 +77,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     if (sentences == null)
     {
-      sentences = new EObjectContainmentEList<SentenceType>(SentenceType.class, this, Nlx2Package.MODEL__SENTENCES);
+      sentences = new EObjectContainmentEList<SentenceType>(SentenceType.class, this, NlxPackage.MODEL__SENTENCES);
     }
     return sentences;
   }
@@ -92,7 +92,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case Nlx2Package.MODEL__SENTENCES:
+      case NlxPackage.MODEL__SENTENCES:
         return ((InternalEList<?>)getSentences()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -108,7 +108,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case Nlx2Package.MODEL__SENTENCES:
+      case NlxPackage.MODEL__SENTENCES:
         return getSentences();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -125,7 +125,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case Nlx2Package.MODEL__SENTENCES:
+      case NlxPackage.MODEL__SENTENCES:
         getSentences().clear();
         getSentences().addAll((Collection<? extends SentenceType>)newValue);
         return;
@@ -143,7 +143,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case Nlx2Package.MODEL__SENTENCES:
+      case NlxPackage.MODEL__SENTENCES:
         getSentences().clear();
         return;
     }
@@ -160,7 +160,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case Nlx2Package.MODEL__SENTENCES:
+      case NlxPackage.MODEL__SENTENCES:
         return sentences != null && !sentences.isEmpty();
     }
     return super.eIsSet(featureID);

@@ -6,7 +6,7 @@ package org.xixum.modeler.spelling.nlx.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.xixum.modeler.spelling.nlx.ExtBracketSentence;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public class ExtBracketSentenceImpl extends BracketSentenceImpl implements ExtBr
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.EXT_BRACKET_SENTENCE;
+    return NlxPackage.Literals.EXT_BRACKET_SENTENCE;
   }
 
 } //ExtBracketSentenceImpl

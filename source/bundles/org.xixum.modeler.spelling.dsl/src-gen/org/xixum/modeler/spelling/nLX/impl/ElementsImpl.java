@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xixum.modeler.spelling.nlx.Elements;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public class ElementsImpl extends AllElementsImpl implements Elements
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.ELEMENTS;
+    return NlxPackage.Literals.ELEMENTS;
   }
 
   /**
@@ -90,7 +90,7 @@ public class ElementsImpl extends AllElementsImpl implements Elements
     String oldNl = nl;
     nl = newNl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.ELEMENTS__NL, oldNl, nl));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.ELEMENTS__NL, oldNl, nl));
   }
 
   /**
@@ -103,7 +103,7 @@ public class ElementsImpl extends AllElementsImpl implements Elements
   {
     switch (featureID)
     {
-      case Nlx2Package.ELEMENTS__NL:
+      case NlxPackage.ELEMENTS__NL:
         return getNl();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class ElementsImpl extends AllElementsImpl implements Elements
   {
     switch (featureID)
     {
-      case Nlx2Package.ELEMENTS__NL:
+      case NlxPackage.ELEMENTS__NL:
         setNl((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class ElementsImpl extends AllElementsImpl implements Elements
   {
     switch (featureID)
     {
-      case Nlx2Package.ELEMENTS__NL:
+      case NlxPackage.ELEMENTS__NL:
         setNl(NL_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class ElementsImpl extends AllElementsImpl implements Elements
   {
     switch (featureID)
     {
-      case Nlx2Package.ELEMENTS__NL:
+      case NlxPackage.ELEMENTS__NL:
         return NL_EDEFAULT == null ? nl != null : !NL_EDEFAULT.equals(nl);
     }
     return super.eIsSet(featureID);

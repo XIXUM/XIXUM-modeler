@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.xixum.modeler.spelling.nlx.AllElements;
 import org.xixum.modeler.spelling.nlx.Elements;
 import org.xixum.modeler.spelling.nlx.New_Line;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.WordShort;
 
 /**
@@ -68,7 +68,7 @@ public class WordShortImpl extends NoNElementXImpl implements WordShort
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.WORD_SHORT;
+    return NlxPackage.Literals.WORD_SHORT;
   }
 
   /**
@@ -93,7 +93,7 @@ public class WordShortImpl extends NoNElementXImpl implements WordShort
     String oldNl = nl;
     nl = newNl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.WORD_SHORT__NL, oldNl, nl));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.WORD_SHORT__NL, oldNl, nl));
   }
 
   /**
@@ -106,7 +106,7 @@ public class WordShortImpl extends NoNElementXImpl implements WordShort
   {
     switch (featureID)
     {
-      case Nlx2Package.WORD_SHORT__NL:
+      case NlxPackage.WORD_SHORT__NL:
         return getNl();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -122,7 +122,7 @@ public class WordShortImpl extends NoNElementXImpl implements WordShort
   {
     switch (featureID)
     {
-      case Nlx2Package.WORD_SHORT__NL:
+      case NlxPackage.WORD_SHORT__NL:
         setNl((String)newValue);
         return;
     }
@@ -139,7 +139,7 @@ public class WordShortImpl extends NoNElementXImpl implements WordShort
   {
     switch (featureID)
     {
-      case Nlx2Package.WORD_SHORT__NL:
+      case NlxPackage.WORD_SHORT__NL:
         setNl(NL_EDEFAULT);
         return;
     }
@@ -156,7 +156,7 @@ public class WordShortImpl extends NoNElementXImpl implements WordShort
   {
     switch (featureID)
     {
-      case Nlx2Package.WORD_SHORT__NL:
+      case NlxPackage.WORD_SHORT__NL:
         return NL_EDEFAULT == null ? nl != null : !NL_EDEFAULT.equals(nl);
     }
     return super.eIsSet(featureID);
@@ -188,7 +188,7 @@ public class WordShortImpl extends NoNElementXImpl implements WordShort
     {
       switch (derivedFeatureID)
       {
-        case Nlx2Package.WORD_SHORT__NL: return Nlx2Package.ELEMENTS__NL;
+        case NlxPackage.WORD_SHORT__NL: return NlxPackage.ELEMENTS__NL;
         default: return -1;
       }
     }
@@ -221,7 +221,7 @@ public class WordShortImpl extends NoNElementXImpl implements WordShort
     {
       switch (baseFeatureID)
       {
-        case Nlx2Package.ELEMENTS__NL: return Nlx2Package.WORD_SHORT__NL;
+        case NlxPackage.ELEMENTS__NL: return NlxPackage.WORD_SHORT__NL;
         default: return -1;
       }
     }

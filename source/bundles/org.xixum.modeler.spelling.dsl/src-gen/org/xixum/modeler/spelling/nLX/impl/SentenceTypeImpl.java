@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.SentenceType;
 
 /**
@@ -66,7 +66,7 @@ public class SentenceTypeImpl extends MinimalEObjectImpl.Container implements Se
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.SENTENCE_TYPE;
+    return NlxPackage.Literals.SENTENCE_TYPE;
   }
 
   /**
@@ -91,7 +91,7 @@ public class SentenceTypeImpl extends MinimalEObjectImpl.Container implements Se
     String oldPEnd = pEnd;
     pEnd = newPEnd;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.SENTENCE_TYPE__PEND, oldPEnd, pEnd));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.SENTENCE_TYPE__PEND, oldPEnd, pEnd));
   }
 
   /**
@@ -104,7 +104,7 @@ public class SentenceTypeImpl extends MinimalEObjectImpl.Container implements Se
   {
     switch (featureID)
     {
-      case Nlx2Package.SENTENCE_TYPE__PEND:
+      case NlxPackage.SENTENCE_TYPE__PEND:
         return getPEnd();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -120,7 +120,7 @@ public class SentenceTypeImpl extends MinimalEObjectImpl.Container implements Se
   {
     switch (featureID)
     {
-      case Nlx2Package.SENTENCE_TYPE__PEND:
+      case NlxPackage.SENTENCE_TYPE__PEND:
         setPEnd((String)newValue);
         return;
     }
@@ -137,7 +137,7 @@ public class SentenceTypeImpl extends MinimalEObjectImpl.Container implements Se
   {
     switch (featureID)
     {
-      case Nlx2Package.SENTENCE_TYPE__PEND:
+      case NlxPackage.SENTENCE_TYPE__PEND:
         setPEnd(PEND_EDEFAULT);
         return;
     }
@@ -154,7 +154,7 @@ public class SentenceTypeImpl extends MinimalEObjectImpl.Container implements Se
   {
     switch (featureID)
     {
-      case Nlx2Package.SENTENCE_TYPE__PEND:
+      case NlxPackage.SENTENCE_TYPE__PEND:
         return PEND_EDEFAULT == null ? pEnd != null : !PEND_EDEFAULT.equals(pEnd);
     }
     return super.eIsSet(featureID);

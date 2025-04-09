@@ -45,9 +45,9 @@ import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.xixum.nlx.model.ui.editor.NaturalLangEditor;
+import org.xixum.nlx.model.ui.editor.model.NlxDocument;
 
-import org.xixum.nlx.ui.editor.NaturalLangEditor;
-import org.xixum.nlx.ui.editor.model.NlxDocument;
 
 @SuppressWarnings("restriction")
 public class SaveModelHandler extends AbstractSaveHandler{

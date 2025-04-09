@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.TrailSubSentence;
 
 /**
@@ -37,7 +37,7 @@ public class TrailSubSentenceImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.TRAIL_SUB_SENTENCE;
+    return NlxPackage.Literals.TRAIL_SUB_SENTENCE;
   }
 
 } //TrailSubSentenceImpl

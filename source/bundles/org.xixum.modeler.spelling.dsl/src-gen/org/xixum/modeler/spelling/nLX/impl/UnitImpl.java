@@ -19,7 +19,7 @@ import org.xixum.modeler.spelling.nlx.ChapterAlpha;
 import org.xixum.modeler.spelling.nlx.Chapter_Unit_HI;
 import org.xixum.modeler.spelling.nlx.Chapter_Unit_Low;
 import org.xixum.modeler.spelling.nlx.HashNumber;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.NoNElement;
 import org.xixum.modeler.spelling.nlx.NoNElementX;
 import org.xixum.modeler.spelling.nlx.SimpleUnit;
@@ -131,7 +131,7 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.UNIT;
+    return NlxPackage.Literals.UNIT;
   }
 
   /**
@@ -144,7 +144,7 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
   {
     if (value == null)
     {
-      value = new EDataTypeEList<String>(String.class, this, Nlx2Package.UNIT__VALUE);
+      value = new EDataTypeEList<String>(String.class, this, NlxPackage.UNIT__VALUE);
     }
     return value;
   }
@@ -171,7 +171,7 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
     String oldSignature = signature;
     signature = newSignature;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.UNIT__SIGNATURE, oldSignature, signature));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.UNIT__SIGNATURE, oldSignature, signature));
   }
 
   /**
@@ -196,7 +196,7 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
     String oldUnit = unit;
     unit = newUnit;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.UNIT__UNIT, oldUnit, unit));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.UNIT__UNIT, oldUnit, unit));
   }
 
   /**
@@ -221,7 +221,7 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
     String oldSign = sign;
     sign = newSign;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.UNIT__SIGN, oldSign, sign));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.UNIT__SIGN, oldSign, sign));
   }
 
   /**
@@ -234,13 +234,13 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
   {
     switch (featureID)
     {
-      case Nlx2Package.UNIT__VALUE:
+      case NlxPackage.UNIT__VALUE:
         return getValue();
-      case Nlx2Package.UNIT__SIGNATURE:
+      case NlxPackage.UNIT__SIGNATURE:
         return getSignature();
-      case Nlx2Package.UNIT__UNIT:
+      case NlxPackage.UNIT__UNIT:
         return getUnit();
-      case Nlx2Package.UNIT__SIGN:
+      case NlxPackage.UNIT__SIGN:
         return getSign();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -257,17 +257,17 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
   {
     switch (featureID)
     {
-      case Nlx2Package.UNIT__VALUE:
+      case NlxPackage.UNIT__VALUE:
         getValue().clear();
         getValue().addAll((Collection<? extends String>)newValue);
         return;
-      case Nlx2Package.UNIT__SIGNATURE:
+      case NlxPackage.UNIT__SIGNATURE:
         setSignature((String)newValue);
         return;
-      case Nlx2Package.UNIT__UNIT:
+      case NlxPackage.UNIT__UNIT:
         setUnit((String)newValue);
         return;
-      case Nlx2Package.UNIT__SIGN:
+      case NlxPackage.UNIT__SIGN:
         setSign((String)newValue);
         return;
     }
@@ -284,16 +284,16 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
   {
     switch (featureID)
     {
-      case Nlx2Package.UNIT__VALUE:
+      case NlxPackage.UNIT__VALUE:
         getValue().clear();
         return;
-      case Nlx2Package.UNIT__SIGNATURE:
+      case NlxPackage.UNIT__SIGNATURE:
         setSignature(SIGNATURE_EDEFAULT);
         return;
-      case Nlx2Package.UNIT__UNIT:
+      case NlxPackage.UNIT__UNIT:
         setUnit(UNIT_EDEFAULT);
         return;
-      case Nlx2Package.UNIT__SIGN:
+      case NlxPackage.UNIT__SIGN:
         setSign(SIGN_EDEFAULT);
         return;
     }
@@ -310,13 +310,13 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
   {
     switch (featureID)
     {
-      case Nlx2Package.UNIT__VALUE:
+      case NlxPackage.UNIT__VALUE:
         return value != null && !value.isEmpty();
-      case Nlx2Package.UNIT__SIGNATURE:
+      case NlxPackage.UNIT__SIGNATURE:
         return SIGNATURE_EDEFAULT == null ? signature != null : !SIGNATURE_EDEFAULT.equals(signature);
-      case Nlx2Package.UNIT__UNIT:
+      case NlxPackage.UNIT__UNIT:
         return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
-      case Nlx2Package.UNIT__SIGN:
+      case NlxPackage.UNIT__SIGN:
         return SIGN_EDEFAULT == null ? sign != null : !SIGN_EDEFAULT.equals(sign);
     }
     return super.eIsSet(featureID);
@@ -334,7 +334,7 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
     {
       switch (derivedFeatureID)
       {
-        case Nlx2Package.UNIT__VALUE: return Nlx2Package.SIMPLE_UNIT__VALUE;
+        case NlxPackage.UNIT__VALUE: return NlxPackage.SIMPLE_UNIT__VALUE;
         default: return -1;
       }
     }
@@ -395,7 +395,7 @@ public class UnitImpl extends NoNElementX2Impl implements Unit
     {
       switch (baseFeatureID)
       {
-        case Nlx2Package.SIMPLE_UNIT__VALUE: return Nlx2Package.UNIT__VALUE;
+        case NlxPackage.SIMPLE_UNIT__VALUE: return NlxPackage.UNIT__VALUE;
         default: return -1;
       }
     }

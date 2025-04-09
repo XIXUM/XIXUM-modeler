@@ -13,7 +13,7 @@ public abstract class AbstractNLXValidator extends AbstractDeclarativeValidator 
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(org.xixum.modeler.spelling.nlx.Nlx2Package.eINSTANCE);
+		result.add(org.xixum.modeler.spelling.nlx.NlxPackage.eINSTANCE);
 		return result;
 	}
 }

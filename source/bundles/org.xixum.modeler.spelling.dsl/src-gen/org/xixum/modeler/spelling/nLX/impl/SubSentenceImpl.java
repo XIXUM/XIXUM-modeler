@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.SubSentence;
 
 /**
@@ -62,7 +62,7 @@ public class SubSentenceImpl extends TrailSubSentenceImpl implements SubSentence
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.SUB_SENTENCE;
+    return NlxPackage.Literals.SUB_SENTENCE;
   }
 
   /**
@@ -75,7 +75,7 @@ public class SubSentenceImpl extends TrailSubSentenceImpl implements SubSentence
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<EObject>(EObject.class, this, Nlx2Package.SUB_SENTENCE__ELEMENTS);
+      elements = new EObjectContainmentEList<EObject>(EObject.class, this, NlxPackage.SUB_SENTENCE__ELEMENTS);
     }
     return elements;
   }
@@ -90,7 +90,7 @@ public class SubSentenceImpl extends TrailSubSentenceImpl implements SubSentence
   {
     switch (featureID)
     {
-      case Nlx2Package.SUB_SENTENCE__ELEMENTS:
+      case NlxPackage.SUB_SENTENCE__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class SubSentenceImpl extends TrailSubSentenceImpl implements SubSentence
   {
     switch (featureID)
     {
-      case Nlx2Package.SUB_SENTENCE__ELEMENTS:
+      case NlxPackage.SUB_SENTENCE__ELEMENTS:
         return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class SubSentenceImpl extends TrailSubSentenceImpl implements SubSentence
   {
     switch (featureID)
     {
-      case Nlx2Package.SUB_SENTENCE__ELEMENTS:
+      case NlxPackage.SUB_SENTENCE__ELEMENTS:
         getElements().clear();
         getElements().addAll((Collection<? extends EObject>)newValue);
         return;
@@ -141,7 +141,7 @@ public class SubSentenceImpl extends TrailSubSentenceImpl implements SubSentence
   {
     switch (featureID)
     {
-      case Nlx2Package.SUB_SENTENCE__ELEMENTS:
+      case NlxPackage.SUB_SENTENCE__ELEMENTS:
         getElements().clear();
         return;
     }
@@ -158,7 +158,7 @@ public class SubSentenceImpl extends TrailSubSentenceImpl implements SubSentence
   {
     switch (featureID)
     {
-      case Nlx2Package.SUB_SENTENCE__ELEMENTS:
+      case NlxPackage.SUB_SENTENCE__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);

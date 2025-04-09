@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.TableLine;
 
 /**
@@ -65,7 +65,7 @@ public class TableLineImpl extends TableBorderImpl implements TableLine
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.TABLE_LINE;
+    return NlxPackage.Literals.TABLE_LINE;
   }
 
   /**
@@ -90,7 +90,7 @@ public class TableLineImpl extends TableBorderImpl implements TableLine
     String oldContent = content;
     content = newContent;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.TABLE_LINE__CONTENT, oldContent, content));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.TABLE_LINE__CONTENT, oldContent, content));
   }
 
   /**
@@ -103,7 +103,7 @@ public class TableLineImpl extends TableBorderImpl implements TableLine
   {
     switch (featureID)
     {
-      case Nlx2Package.TABLE_LINE__CONTENT:
+      case NlxPackage.TABLE_LINE__CONTENT:
         return getContent();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class TableLineImpl extends TableBorderImpl implements TableLine
   {
     switch (featureID)
     {
-      case Nlx2Package.TABLE_LINE__CONTENT:
+      case NlxPackage.TABLE_LINE__CONTENT:
         setContent((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class TableLineImpl extends TableBorderImpl implements TableLine
   {
     switch (featureID)
     {
-      case Nlx2Package.TABLE_LINE__CONTENT:
+      case NlxPackage.TABLE_LINE__CONTENT:
         setContent(CONTENT_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class TableLineImpl extends TableBorderImpl implements TableLine
   {
     switch (featureID)
     {
-      case Nlx2Package.TABLE_LINE__CONTENT:
+      case NlxPackage.TABLE_LINE__CONTENT:
         return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
     }
     return super.eIsSet(featureID);

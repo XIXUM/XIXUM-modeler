@@ -6,7 +6,7 @@ package org.xixum.modeler.spelling.nlx.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.xixum.modeler.spelling.nlx.Brackets;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public class BracketsImpl extends NoNElementImpl implements Brackets
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.BRACKETS;
+    return NlxPackage.Literals.BRACKETS;
   }
 
 } //BracketsImpl

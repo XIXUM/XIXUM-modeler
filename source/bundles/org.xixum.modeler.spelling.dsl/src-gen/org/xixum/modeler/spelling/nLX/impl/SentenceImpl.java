@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.Sentence;
 
 /**
@@ -62,7 +62,7 @@ public class SentenceImpl extends LineSentenceImpl implements Sentence
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.SENTENCE;
+    return NlxPackage.Literals.SENTENCE;
   }
 
   /**
@@ -75,7 +75,7 @@ public class SentenceImpl extends LineSentenceImpl implements Sentence
   {
     if (subsentence == null)
     {
-      subsentence = new EObjectContainmentEList<EObject>(EObject.class, this, Nlx2Package.SENTENCE__SUBSENTENCE);
+      subsentence = new EObjectContainmentEList<EObject>(EObject.class, this, NlxPackage.SENTENCE__SUBSENTENCE);
     }
     return subsentence;
   }
@@ -90,7 +90,7 @@ public class SentenceImpl extends LineSentenceImpl implements Sentence
   {
     switch (featureID)
     {
-      case Nlx2Package.SENTENCE__SUBSENTENCE:
+      case NlxPackage.SENTENCE__SUBSENTENCE:
         return ((InternalEList<?>)getSubsentence()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class SentenceImpl extends LineSentenceImpl implements Sentence
   {
     switch (featureID)
     {
-      case Nlx2Package.SENTENCE__SUBSENTENCE:
+      case NlxPackage.SENTENCE__SUBSENTENCE:
         return getSubsentence();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class SentenceImpl extends LineSentenceImpl implements Sentence
   {
     switch (featureID)
     {
-      case Nlx2Package.SENTENCE__SUBSENTENCE:
+      case NlxPackage.SENTENCE__SUBSENTENCE:
         getSubsentence().clear();
         getSubsentence().addAll((Collection<? extends EObject>)newValue);
         return;
@@ -141,7 +141,7 @@ public class SentenceImpl extends LineSentenceImpl implements Sentence
   {
     switch (featureID)
     {
-      case Nlx2Package.SENTENCE__SUBSENTENCE:
+      case NlxPackage.SENTENCE__SUBSENTENCE:
         getSubsentence().clear();
         return;
     }
@@ -158,7 +158,7 @@ public class SentenceImpl extends LineSentenceImpl implements Sentence
   {
     switch (featureID)
     {
-      case Nlx2Package.SENTENCE__SUBSENTENCE:
+      case NlxPackage.SENTENCE__SUBSENTENCE:
         return subsentence != null && !subsentence.isEmpty();
     }
     return super.eIsSet(featureID);

@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xixum.modeler.spelling.nlx.AllElements;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class AllElementsImpl extends MinimalEObjectImpl.Container implements All
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.ALL_ELEMENTS;
+    return NlxPackage.Literals.ALL_ELEMENTS;
   }
 
 } //AllElementsImpl

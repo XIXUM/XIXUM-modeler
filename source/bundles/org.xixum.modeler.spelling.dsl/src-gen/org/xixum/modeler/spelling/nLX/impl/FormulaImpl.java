@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xixum.modeler.spelling.nlx.BracketSentence;
 import org.xixum.modeler.spelling.nlx.Formula;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public class FormulaImpl extends NoNElementImpl implements Formula
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.FORMULA;
+    return NlxPackage.Literals.FORMULA;
   }
 
   /**
@@ -87,7 +87,7 @@ public class FormulaImpl extends NoNElementImpl implements Formula
   {
     if (name == null)
     {
-      name = new EObjectContainmentEList<EObject>(EObject.class, this, Nlx2Package.FORMULA__NAME);
+      name = new EObjectContainmentEList<EObject>(EObject.class, this, NlxPackage.FORMULA__NAME);
     }
     return name;
   }
@@ -102,7 +102,7 @@ public class FormulaImpl extends NoNElementImpl implements Formula
   {
     if (parameters == null)
     {
-      parameters = new EObjectContainmentEList<BracketSentence>(BracketSentence.class, this, Nlx2Package.FORMULA__PARAMETERS);
+      parameters = new EObjectContainmentEList<BracketSentence>(BracketSentence.class, this, NlxPackage.FORMULA__PARAMETERS);
     }
     return parameters;
   }
@@ -117,9 +117,9 @@ public class FormulaImpl extends NoNElementImpl implements Formula
   {
     switch (featureID)
     {
-      case Nlx2Package.FORMULA__NAME:
+      case NlxPackage.FORMULA__NAME:
         return ((InternalEList<?>)getName()).basicRemove(otherEnd, msgs);
-      case Nlx2Package.FORMULA__PARAMETERS:
+      case NlxPackage.FORMULA__PARAMETERS:
         return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -135,9 +135,9 @@ public class FormulaImpl extends NoNElementImpl implements Formula
   {
     switch (featureID)
     {
-      case Nlx2Package.FORMULA__NAME:
+      case NlxPackage.FORMULA__NAME:
         return getName();
-      case Nlx2Package.FORMULA__PARAMETERS:
+      case NlxPackage.FORMULA__PARAMETERS:
         return getParameters();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -154,11 +154,11 @@ public class FormulaImpl extends NoNElementImpl implements Formula
   {
     switch (featureID)
     {
-      case Nlx2Package.FORMULA__NAME:
+      case NlxPackage.FORMULA__NAME:
         getName().clear();
         getName().addAll((Collection<? extends EObject>)newValue);
         return;
-      case Nlx2Package.FORMULA__PARAMETERS:
+      case NlxPackage.FORMULA__PARAMETERS:
         getParameters().clear();
         getParameters().addAll((Collection<? extends BracketSentence>)newValue);
         return;
@@ -176,10 +176,10 @@ public class FormulaImpl extends NoNElementImpl implements Formula
   {
     switch (featureID)
     {
-      case Nlx2Package.FORMULA__NAME:
+      case NlxPackage.FORMULA__NAME:
         getName().clear();
         return;
-      case Nlx2Package.FORMULA__PARAMETERS:
+      case NlxPackage.FORMULA__PARAMETERS:
         getParameters().clear();
         return;
     }
@@ -196,9 +196,9 @@ public class FormulaImpl extends NoNElementImpl implements Formula
   {
     switch (featureID)
     {
-      case Nlx2Package.FORMULA__NAME:
+      case NlxPackage.FORMULA__NAME:
         return name != null && !name.isEmpty();
-      case Nlx2Package.FORMULA__PARAMETERS:
+      case NlxPackage.FORMULA__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
     }
     return super.eIsSet(featureID);

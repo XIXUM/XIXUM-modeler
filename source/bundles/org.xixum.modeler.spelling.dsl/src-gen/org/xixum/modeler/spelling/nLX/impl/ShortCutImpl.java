@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.ShortCut;
 
 /**
@@ -58,7 +58,7 @@ public class ShortCutImpl extends NoNElementImpl implements ShortCut
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.SHORT_CUT;
+    return NlxPackage.Literals.SHORT_CUT;
   }
 
   /**
@@ -83,7 +83,7 @@ public class ShortCutImpl extends NoNElementImpl implements ShortCut
     shortcut = newShortcut;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Nlx2Package.SHORT_CUT__SHORTCUT, oldShortcut, newShortcut);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlxPackage.SHORT_CUT__SHORTCUT, oldShortcut, newShortcut);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -101,14 +101,14 @@ public class ShortCutImpl extends NoNElementImpl implements ShortCut
     {
       NotificationChain msgs = null;
       if (shortcut != null)
-        msgs = ((InternalEObject)shortcut).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Nlx2Package.SHORT_CUT__SHORTCUT, null, msgs);
+        msgs = ((InternalEObject)shortcut).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlxPackage.SHORT_CUT__SHORTCUT, null, msgs);
       if (newShortcut != null)
-        msgs = ((InternalEObject)newShortcut).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Nlx2Package.SHORT_CUT__SHORTCUT, null, msgs);
+        msgs = ((InternalEObject)newShortcut).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlxPackage.SHORT_CUT__SHORTCUT, null, msgs);
       msgs = basicSetShortcut(newShortcut, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.SHORT_CUT__SHORTCUT, newShortcut, newShortcut));
+      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.SHORT_CUT__SHORTCUT, newShortcut, newShortcut));
   }
 
   /**
@@ -121,7 +121,7 @@ public class ShortCutImpl extends NoNElementImpl implements ShortCut
   {
     switch (featureID)
     {
-      case Nlx2Package.SHORT_CUT__SHORTCUT:
+      case NlxPackage.SHORT_CUT__SHORTCUT:
         return basicSetShortcut(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -137,7 +137,7 @@ public class ShortCutImpl extends NoNElementImpl implements ShortCut
   {
     switch (featureID)
     {
-      case Nlx2Package.SHORT_CUT__SHORTCUT:
+      case NlxPackage.SHORT_CUT__SHORTCUT:
         return getShortcut();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -153,7 +153,7 @@ public class ShortCutImpl extends NoNElementImpl implements ShortCut
   {
     switch (featureID)
     {
-      case Nlx2Package.SHORT_CUT__SHORTCUT:
+      case NlxPackage.SHORT_CUT__SHORTCUT:
         setShortcut((EObject)newValue);
         return;
     }
@@ -170,7 +170,7 @@ public class ShortCutImpl extends NoNElementImpl implements ShortCut
   {
     switch (featureID)
     {
-      case Nlx2Package.SHORT_CUT__SHORTCUT:
+      case NlxPackage.SHORT_CUT__SHORTCUT:
         setShortcut((EObject)null);
         return;
     }
@@ -187,7 +187,7 @@ public class ShortCutImpl extends NoNElementImpl implements ShortCut
   {
     switch (featureID)
     {
-      case Nlx2Package.SHORT_CUT__SHORTCUT:
+      case NlxPackage.SHORT_CUT__SHORTCUT:
         return shortcut != null;
     }
     return super.eIsSet(featureID);

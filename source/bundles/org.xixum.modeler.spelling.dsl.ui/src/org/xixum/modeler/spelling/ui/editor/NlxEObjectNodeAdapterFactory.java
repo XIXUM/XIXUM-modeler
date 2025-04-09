@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 import org.eclipse.xtext.ui.editor.outline.impl.EObjectNode;
-import org.xixum.modeler.spelling.nlx.util.Nlx2AdapterFactory;
+import org.xixum.modeler.spelling.nlx.util.NlxAdapterFactory;
 import org.xixum.modeler.spelling.ui.editor.provider.NlxEObjectNodeItemProvider;
 import org.xixum.modeler.spelling.ui.editor.provider.NlxPropertyValueWrapper;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;

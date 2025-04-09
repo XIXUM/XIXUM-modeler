@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xixum.modeler.spelling.nlx.Array;
 import org.xixum.modeler.spelling.nlx.BracketSentence;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 import org.xixum.modeler.spelling.nlx.NoNElement;
 
 /**
@@ -74,7 +74,7 @@ public class ArrayImpl extends NoNElementImpl implements Array
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.ARRAY;
+    return NlxPackage.Literals.ARRAY;
   }
 
   /**
@@ -87,7 +87,7 @@ public class ArrayImpl extends NoNElementImpl implements Array
   {
     if (name == null)
     {
-      name = new EObjectContainmentEList<NoNElement>(NoNElement.class, this, Nlx2Package.ARRAY__NAME);
+      name = new EObjectContainmentEList<NoNElement>(NoNElement.class, this, NlxPackage.ARRAY__NAME);
     }
     return name;
   }
@@ -102,7 +102,7 @@ public class ArrayImpl extends NoNElementImpl implements Array
   {
     if (parameters == null)
     {
-      parameters = new EObjectContainmentEList<BracketSentence>(BracketSentence.class, this, Nlx2Package.ARRAY__PARAMETERS);
+      parameters = new EObjectContainmentEList<BracketSentence>(BracketSentence.class, this, NlxPackage.ARRAY__PARAMETERS);
     }
     return parameters;
   }
@@ -117,9 +117,9 @@ public class ArrayImpl extends NoNElementImpl implements Array
   {
     switch (featureID)
     {
-      case Nlx2Package.ARRAY__NAME:
+      case NlxPackage.ARRAY__NAME:
         return ((InternalEList<?>)getName()).basicRemove(otherEnd, msgs);
-      case Nlx2Package.ARRAY__PARAMETERS:
+      case NlxPackage.ARRAY__PARAMETERS:
         return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -135,9 +135,9 @@ public class ArrayImpl extends NoNElementImpl implements Array
   {
     switch (featureID)
     {
-      case Nlx2Package.ARRAY__NAME:
+      case NlxPackage.ARRAY__NAME:
         return getName();
-      case Nlx2Package.ARRAY__PARAMETERS:
+      case NlxPackage.ARRAY__PARAMETERS:
         return getParameters();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -154,11 +154,11 @@ public class ArrayImpl extends NoNElementImpl implements Array
   {
     switch (featureID)
     {
-      case Nlx2Package.ARRAY__NAME:
+      case NlxPackage.ARRAY__NAME:
         getName().clear();
         getName().addAll((Collection<? extends NoNElement>)newValue);
         return;
-      case Nlx2Package.ARRAY__PARAMETERS:
+      case NlxPackage.ARRAY__PARAMETERS:
         getParameters().clear();
         getParameters().addAll((Collection<? extends BracketSentence>)newValue);
         return;
@@ -176,10 +176,10 @@ public class ArrayImpl extends NoNElementImpl implements Array
   {
     switch (featureID)
     {
-      case Nlx2Package.ARRAY__NAME:
+      case NlxPackage.ARRAY__NAME:
         getName().clear();
         return;
-      case Nlx2Package.ARRAY__PARAMETERS:
+      case NlxPackage.ARRAY__PARAMETERS:
         getParameters().clear();
         return;
     }
@@ -196,9 +196,9 @@ public class ArrayImpl extends NoNElementImpl implements Array
   {
     switch (featureID)
     {
-      case Nlx2Package.ARRAY__NAME:
+      case NlxPackage.ARRAY__NAME:
         return name != null && !name.isEmpty();
-      case Nlx2Package.ARRAY__PARAMETERS:
+      case NlxPackage.ARRAY__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
     }
     return super.eIsSet(featureID);

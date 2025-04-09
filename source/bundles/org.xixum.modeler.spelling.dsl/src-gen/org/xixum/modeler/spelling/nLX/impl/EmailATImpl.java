@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xixum.modeler.spelling.nlx.EmailAT;
-import org.xixum.modeler.spelling.nlx.Nlx2Package;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,7 +59,7 @@ public class EmailATImpl extends MinimalEObjectImpl.Container implements EmailAT
   @Override
   protected EClass eStaticClass()
   {
-    return Nlx2Package.Literals.EMAIL_AT;
+    return NlxPackage.Literals.EMAIL_AT;
   }
 
   /**
@@ -72,7 +72,7 @@ public class EmailATImpl extends MinimalEObjectImpl.Container implements EmailAT
   {
     if (email == null)
     {
-      email = new EDataTypeEList<String>(String.class, this, Nlx2Package.EMAIL_AT__EMAIL);
+      email = new EDataTypeEList<String>(String.class, this, NlxPackage.EMAIL_AT__EMAIL);
     }
     return email;
   }
@@ -87,7 +87,7 @@ public class EmailATImpl extends MinimalEObjectImpl.Container implements EmailAT
   {
     switch (featureID)
     {
-      case Nlx2Package.EMAIL_AT__EMAIL:
+      case NlxPackage.EMAIL_AT__EMAIL:
         return getEmail();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -104,7 +104,7 @@ public class EmailATImpl extends MinimalEObjectImpl.Container implements EmailAT
   {
     switch (featureID)
     {
-      case Nlx2Package.EMAIL_AT__EMAIL:
+      case NlxPackage.EMAIL_AT__EMAIL:
         getEmail().clear();
         getEmail().addAll((Collection<? extends String>)newValue);
         return;
@@ -122,7 +122,7 @@ public class EmailATImpl extends MinimalEObjectImpl.Container implements EmailAT
   {
     switch (featureID)
     {
-      case Nlx2Package.EMAIL_AT__EMAIL:
+      case NlxPackage.EMAIL_AT__EMAIL:
         getEmail().clear();
         return;
     }
@@ -139,7 +139,7 @@ public class EmailATImpl extends MinimalEObjectImpl.Container implements EmailAT
   {
     switch (featureID)
     {
-      case Nlx2Package.EMAIL_AT__EMAIL:
+      case NlxPackage.EMAIL_AT__EMAIL:
         return email != null && !email.isEmpty();
     }
     return super.eIsSet(featureID);
