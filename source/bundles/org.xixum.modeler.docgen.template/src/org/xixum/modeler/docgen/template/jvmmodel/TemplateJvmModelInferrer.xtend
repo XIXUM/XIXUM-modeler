@@ -23,13 +23,13 @@ class TemplateJvmModelInferrer extends AbstractModelInferrer {
 	@Inject extension JvmTypesBuilder
 	
 	
- 	def dispatch void infer(Object element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
- 		if (element === null)
- 			return
- 		else 
- 			infer(element as TemplateFile, acceptor, isPreIndexingPhase)
- 			
- 	}
+    def dispatch printTypes(Number x, Integer y) { 
+      "it's some number and an int" 
+    }
+     
+    def dispatch printTypes(Integer x, Number y) { 
+      "it's an int and a number" 
+    }
 	
 	def dispatch void infer(TemplateFile element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
  		val simpleName = element.eResource.URI.trimFileExtension.lastSegment
