@@ -3,8 +3,8 @@
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package
-			uri = "http://www.xixum.org/modeler/spelling/NLX"
-			class = "org.xixum.modeler.spelling.nLX.NLXPackage"
+			uri = "http://www.validas.de/cqc/tcm/spelling/NLX"
+			class = "org.xixum.modeler.spelling.nlx.NlxPackage"
 			genModel = "model/generated/NLX.genmodel" />
 	</extension>
 </plugin>

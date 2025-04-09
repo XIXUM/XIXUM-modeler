@@ -6,12 +6,11 @@ package org.xixum.modeler.spelling.ide.contentassist.antlr;
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
-import de.validas.cqc.tcm.spelling.services.NLXGrammarAccess;
 import java.util.Map;
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.AbstractContentAssistParser;
 import org.xixum.modeler.spelling.ide.contentassist.antlr.internal.InternalNLXParser;
+import org.xixum.modeler.spelling.services.NLXGrammarAccess;
 
 public class NLXParser extends AbstractContentAssistParser {
 

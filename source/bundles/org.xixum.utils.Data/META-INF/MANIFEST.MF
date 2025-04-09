@@ -9,7 +9,7 @@ Require-Bundle: org.eclipse.ui,
  com.google.guava
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.xixum.utils.Data
-Bundle-Vendor: XIXUM
+Bundle-Vendor: XIXUM.ORG
 Export-Package: org.xixum.utils.data,
  org.xixum.utils.data.lists,
  org.xixum.utils.data.types,

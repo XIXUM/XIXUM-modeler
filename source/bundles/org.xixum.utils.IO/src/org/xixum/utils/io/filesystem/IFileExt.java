@@ -1,5 +1,5 @@
 /**
- * (c) 2025 XIXUM.ORG - all rights reserved
+ * (c) XIXUM.ORG - all rights reserved
  */
 package org.xixum.utils.io.filesystem;
 

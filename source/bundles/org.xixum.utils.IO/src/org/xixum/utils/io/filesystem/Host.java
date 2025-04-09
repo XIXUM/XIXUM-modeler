@@ -1,6 +1,8 @@
 /**
+ * (c) XIXUM.ORG - all rights reserved
  * @author felix.schaller
  */
+
 package org.xixum.utils.io.filesystem;
 
 public class Host extends PathElement implements IHost {

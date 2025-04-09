@@ -1,3 +1,8 @@
+/**
+ * (c) XIXUM.ORG - all rights reserved
+ * @author felix.schaller
+ */
+
 package org.xixum.utils.data.lists;
 
 public interface ILeafAppendable extends IAppendable {

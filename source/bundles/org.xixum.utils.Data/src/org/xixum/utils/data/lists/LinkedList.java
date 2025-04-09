@@ -1,6 +1,7 @@
 /**
- * 
+ * (c) XIXUM.ORG - all rights reserved
  */
+
 package org.xixum.utils.data.lists;
 
 import java.util.ArrayList;

@@ -4,8 +4,8 @@
     modelPluginID="org.xixum.modeler.docgen.template" forceOverwrite="true" modelName="Template"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="11.0" copyrightFields="false" runtimeVersion="2.29" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xAnnotations platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype">
-  <genPackages prefix="Template" basePackage="org.xixum.modeler.docgen.template"
-      disposableProviderFactory="true" fileExtensions="tdsl" ecorePackage="Template.ecore#/">
+  <genPackages prefix="Template" basePackage="org.xixum.modeler.docgen.template" disposableProviderFactory="true"
+      fileExtensions="tdsl" ecorePackage="Template.ecore#/">
     <genClasses ecoreClass="Template.ecore#//TemplateFile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Template.ecore#//TemplateFile/package"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Template.ecore#//TemplateFile/importSection"/>

@@ -4,7 +4,6 @@
 package org.xixum.modeler.docgen.template.ui;
 
 import com.google.inject.Injector;
-
 import org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
@@ -24,7 +23,7 @@ public class TemplateExecutableExtensionFactory extends AbstractGuiceAwareExecut
 	@Override
 	protected Injector getInjector() {
 		TemplateActivator activator = TemplateActivator.getInstance();
-		return activator != null ? activator.getInjector(TemplateActivator.DE_VALIDAS_CQC_SEC_DOCGEN_TEMPLATE_TEMPLATE) : null;
+		return activator != null ? activator.getInjector(TemplateActivator.ORG_XIXUM_MODELER_DOCGEN_TEMPLATE_TEMPLATE) : null;
 	}
 
 }

@@ -5,7 +5,6 @@ package org.xixum.modeler.docgen.template;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.ISetup;

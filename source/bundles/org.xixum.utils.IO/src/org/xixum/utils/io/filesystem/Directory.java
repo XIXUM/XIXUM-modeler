@@ -1,6 +1,8 @@
+
 /**
- * @author felix.schaller
+ * (c) XIXUM.ORG - all rights reserved
  */
+
 package org.xixum.utils.io.filesystem;
 
 import org.xixum.utils.data.lists.IAppendable;
@@ -12,7 +14,7 @@ import org.xixum.utils.data.lists.IAppendable;
 public class Directory extends PathElement implements IDirectory {
 
 	/**
-	 * represents a Directory inside a XPath 
+	 * represents a Directory inside a Path 
 	 */
 
 	

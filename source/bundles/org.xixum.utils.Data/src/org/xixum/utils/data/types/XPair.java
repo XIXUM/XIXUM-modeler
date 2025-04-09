@@ -1,7 +1,6 @@
 /**
  * (c) XIXUM.ORG - all rights reserved
  */
-
 package org.xixum.utils.data.types;
 
 import java.io.Serializable;

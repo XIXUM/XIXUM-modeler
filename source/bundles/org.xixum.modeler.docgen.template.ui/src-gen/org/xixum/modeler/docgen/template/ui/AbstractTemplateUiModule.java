@@ -6,7 +6,6 @@ package org.xixum.modeler.docgen.template.ui;
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
-
 import org.eclipse.compare.IViewerCreator;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -100,13 +99,12 @@ import org.eclipse.xtext.xbase.ui.labeling.XbaseDescriptionLabelProvider;
 import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider;
 import org.eclipse.xtext.xbase.ui.refactoring.XbaseReferenceUpdater;
 import org.eclipse.xtext.xbase.ui.templates.XbaseTemplateContextType;
-import org.xixum.modeler.docgen.template.ui.TemplateUiModule;
+import org.xixum.modeler.docgen.template.ide.contentassist.antlr.PartialTemplateContentAssistParser;
+import org.xixum.modeler.docgen.template.ide.contentassist.antlr.TemplateParser;
+import org.xixum.modeler.docgen.template.ide.contentassist.antlr.internal.InternalTemplateLexer;
 import org.xixum.modeler.docgen.template.ui.contentassist.TemplateProposalProvider;
 import org.xixum.modeler.docgen.template.ui.editor.TemplateEditor;
 import org.xixum.modeler.docgen.template.ui.quickfix.TemplateQuickfixProvider;
-import org.xixum.modelerc.docgen.template.ide.contentassist.antlr.PartialTemplateContentAssistParser;
-import org.xixum.modelerc.docgen.template.ide.contentassist.antlr.TemplateParser;
-import org.xixum.modelerc.docgen.template.ide.contentassist.antlr.internal.InternalTemplateLexer;
 
 /**
  * Manual modifications go to {@link TemplateUiModule}.

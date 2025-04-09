@@ -1,6 +1,7 @@
 /**
- * (c) 2025 XIXUM.ORG - all rights reserved
+ * (c) XIXUM.ORG - all rights reserved
  */
+
 package org.xixum.utils.io.filesystem;
 
 import java.io.IOException;
@@ -15,10 +16,10 @@ import org.xixum.utils.data.lists.IRootAppendable;
 public abstract class PathElement implements IAppendable{
 
 	//TODO: all PathElements and its descendants should trigger listeners to update info's in Mother Class via Listener calls
-	// Contained XPath Objects can be modified externally w.o. the Mother Class knowing about it.
+	// Contained Path Objects can be modified externally w.o. the Mother Class knowing about it.
 	
 	/**
-	 * Abstract Version of a XPath element used for XPath Objects
+	 * Abstract Version of a Path element used for Path Objects
 	 */
 	protected String name;
 	

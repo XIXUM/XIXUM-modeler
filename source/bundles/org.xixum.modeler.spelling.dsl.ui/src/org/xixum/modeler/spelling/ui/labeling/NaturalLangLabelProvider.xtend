@@ -4,22 +4,20 @@
 package org.xixum.modeler.spelling.ui.labeling
 
 import com.google.inject.Inject
-import org.xixum.modeler.spelling.nLX.NLXPackage
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.ui.editor.model.XtextDocument
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import org.eclipse.jface.viewers.StyledString
-import org.xixum.modeler.spelling.nLX.Word
-import org.xixum.modeler.spelling.nLX.ItWord
-import org.xixum.modeler.spelling.nLX.IgnoredText
-import org.xixum.modeler.spelling.nLX.UrlAdress
-import org.xixum.modeler.spelling.nLX.MailAdress
-import org.xixum.modeler.spelling.nLX.Unit
-import org.xixum.modeler.spelling.nLX.Symbols
-import org.xixum.modeler.spelling.nLX.ShortCut
-import org.xixum.modeler.spelling.nLX.EString
-import org.xixum.modeler.spelling.nLX.Elements
+import org.xixum.modeler.spelling.nlx.EString
+import org.xixum.modeler.spelling.nlx.Elements
+import org.xixum.modeler.spelling.nlx.IgnoredText
+import org.xixum.modeler.spelling.nlx.ItWord
+import org.xixum.modeler.spelling.nlx.MailAdress
+import org.xixum.modeler.spelling.nlx.Symbols
+import org.xixum.modeler.spelling.nlx.Unit
+import org.xixum.modeler.spelling.nlx.UrlAdress
+import org.xixum.modeler.spelling.nlx.Word
 
 /**
  * Provides labels for EObjects.

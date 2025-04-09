@@ -10,7 +10,7 @@ import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.DFA;
-import de.validas.cqc.tcm.spelling.services.NLXGrammarAccess;
+import org.xixum.modeler.spelling.services.NLXGrammarAccess;
 
 
 

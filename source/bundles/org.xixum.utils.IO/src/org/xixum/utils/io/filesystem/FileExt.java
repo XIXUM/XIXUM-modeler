@@ -1,6 +1,7 @@
 /**
- * @author felix.schaller
+ * (c) XIXUM.ORG - all rights reserved
  */
+
 package org.xixum.utils.io.filesystem;
 
 /**

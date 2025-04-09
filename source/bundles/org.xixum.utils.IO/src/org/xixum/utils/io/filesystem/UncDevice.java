@@ -1,11 +1,9 @@
 /**
- * (c) 2025 XIXUM.ORG - all rights reserved
- */
-package org.xixum.utils.io.filesystem;
-
-/**
+ * (c) XIXUM.ORG - all rights reserved
  * @author felix.schaller
  */
+
+package org.xixum.utils.io.filesystem;
 
 public class UncDevice extends Directory implements IUncDevice{
 

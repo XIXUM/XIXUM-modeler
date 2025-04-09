@@ -1,12 +1,11 @@
 /**
- * 
+ * (c) XIXUM.ORG - all rights reserved
+ * @author felix.schaller
  */
+
 package org.xixum.utils.data.lists;
 
-/**
- * @author Felix Schaller
- *
- */
+
 public interface IRootAppendable extends IAppendable {
 	
 	@Override

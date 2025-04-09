@@ -8,6 +8,10 @@ package org.xixum.utils.data.util;
  *
  */
 import java.lang.reflect.Field;
+/**
+ * (c) XIXUM.ORG - all rights reserved
+ * @author felix.schaller
+ */
 
 public class ClassUtil {
 

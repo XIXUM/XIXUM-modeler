@@ -16,15 +16,12 @@ import org.eclipse.xtext.ui.editor.validation.XtextAnnotation
 import org.eclipse.xtext.validation.Issue
 import org.xixum.modeler.spelling.constants.NaturalLangConstants
 
-import org.xixum.utils.data.util.ClassUtil
-
 import static org.xixum.modeler.spelling.ui.constants.EditorUiConstants._NLX_CAP_IMAGE_URL
 import static org.xixum.modeler.spelling.ui.constants.EditorUiConstants._NLX_DATA_KEY
 import static org.xixum.modeler.spelling.ui.constants.EditorUiConstants._NLX_INFO_ANNOTATION_TYPE
 import static org.xixum.modeler.spelling.ui.constants.EditorUiConstants._UI_CAPITALIZE_NAME
 import static org.xixum.modeler.spelling.ui.constants.EditorUiConstants._UI_CAPITALIZE_THE_NAME
-
-
+import org.xixum.utils.data.util.ClassUtil
 
 /**
  * Custom quickfixes.

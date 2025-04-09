@@ -22,8 +22,8 @@ import org.eclipse.xtext.ui.editor.reconciler.IReconcileStrategyFactory;
 import org.eclipse.xtext.ui.editor.reconciler.XtextSpellingReconcileStrategy;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.DefaultAntlrTokenToAttributeIdMapper;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
-import org.xixum.modeler.spelling.NLX.provider.NLXItemProviderAdapterFactory;
-import org.xixum.modeler.spelling.nLX.util.NLXAdapterFactory;
+import org.xixum.modeler.spelling.nlx.provider.NlxItemProviderAdapterFactory;
+import org.xixum.modeler.spelling.nlx.util.NlxAdapterFactory;
 import org.xixum.modeler.spelling.ui.AbstractNLXUiModule;
 import org.xixum.modeler.spelling.ui.editor.NlxBuildConsole;
 import org.xixum.modeler.spelling.ui.editor.NlxEObjectNodeAdapterFactory;
@@ -88,13 +88,13 @@ public class NLXUiModule extends AbstractNLXUiModule {
 	public void configureNaturalLangItemProviderAdapterFactory(final Binder binder) {
 		ComposedAdapterFactory eObjectAdapterFactory = new ComposedAdapterFactory(
 				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-		NLXItemProviderAdapterFactory _naturalLangItemProviderAdapterFactory = new NLXItemProviderAdapterFactory();
+		NlxItemProviderAdapterFactory _naturalLangItemProviderAdapterFactory = new NlxItemProviderAdapterFactory();
 		eObjectAdapterFactory.addAdapterFactory(_naturalLangItemProviderAdapterFactory);
 		binder.<AdapterFactory>bind(AdapterFactory.class).annotatedWith(Names.named("EObjectAdapterFactory"))
 				.toInstance(eObjectAdapterFactory);
 		LinkedBindingBuilder<AdapterFactory> _annotatedWith = binder.<AdapterFactory>bind(AdapterFactory.class)
 				.annotatedWith(Names.named("nlxAdapterFactory"));
-		NLXAdapterFactory _naturalLangAdapterFactory = new NLXAdapterFactory();
+		NlxAdapterFactory _naturalLangAdapterFactory = new NlxAdapterFactory();
 		_annotatedWith.toInstance(_naturalLangAdapterFactory);
 	}
 

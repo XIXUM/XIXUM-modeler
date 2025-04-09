@@ -6,6 +6,7 @@ package org.xixum.modeler.docgen.template.template.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.xtext.xbase.impl.XIfExpressionImpl;
+
 import org.xixum.modeler.docgen.template.template.RichStringIf;
 import org.xixum.modeler.docgen.template.template.TemplatePackage;
 

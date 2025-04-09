@@ -6,9 +6,6 @@ package org.xixum.modeler.docgen.template;
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
-
-import org.xixum.modeler.docgen.template.jvmmodel.TemplateJvmModelInferrer;
-import org.xixum.modeler.docgen.template.validation.TemplateValidator;
 import java.util.Properties;
 import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.IGrammarAccess;
@@ -54,6 +51,7 @@ import org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareBatchTyp
 import org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver;
 import org.eclipse.xtext.xbase.validation.FeatureNameValidator;
 import org.eclipse.xtext.xbase.validation.LogicalContainerAwareFeatureNameValidator;
+import org.xixum.modeler.docgen.template.jvmmodel.TemplateJvmModelInferrer;
 import org.xixum.modeler.docgen.template.parser.antlr.TemplateAntlrTokenFileProvider;
 import org.xixum.modeler.docgen.template.parser.antlr.TemplateParser;
 import org.xixum.modeler.docgen.template.parser.antlr.internal.InternalTemplateLexer;
@@ -61,6 +59,7 @@ import org.xixum.modeler.docgen.template.scoping.TemplateScopeProvider;
 import org.xixum.modeler.docgen.template.serializer.TemplateSemanticSequencer;
 import org.xixum.modeler.docgen.template.serializer.TemplateSyntacticSequencer;
 import org.xixum.modeler.docgen.template.services.TemplateGrammarAccess;
+import org.xixum.modeler.docgen.template.validation.TemplateValidator;
 
 /**
  * Manual modifications go to {@link TemplateRuntimeModule}.

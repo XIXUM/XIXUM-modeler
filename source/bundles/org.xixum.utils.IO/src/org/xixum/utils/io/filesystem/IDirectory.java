@@ -1,4 +1,5 @@
 /**
+ * (c) XIXUM.ORG - all rights reserved
  * @author felix.schaller
  */
 

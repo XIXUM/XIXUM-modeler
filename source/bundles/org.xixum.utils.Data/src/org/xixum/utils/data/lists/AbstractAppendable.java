@@ -1,6 +1,8 @@
 /**
+ * (c) XIXUM.ORG - all rights reserved
  * 
  */
+
 package org.xixum.utils.data.lists;
 
 /**
@@ -58,3 +60,4 @@ public abstract class AbstractAppendable implements IAppendable {
 	}
 
 }
+

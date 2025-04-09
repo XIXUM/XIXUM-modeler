@@ -22,9 +22,11 @@ class TemplateJvmModelInferrer extends AbstractModelInferrer {
 
 	@Inject extension JvmTypesBuilder
 	
-   	def dispatch void infer(TemplateFile element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-   		val simpleName = element.eResource.URI.trimFileExtension.lastSegment
-		val qualifiedName = element.getPackage !== null ? element.getPackage + "." + simpleName : simpleName
+	//dispatch removed. due unnecessary and doesn't work
+	
+	def void infer(TemplateFile element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+ 		val simpleName = element.eResource.URI.trimFileExtension.lastSegment
+		val qualifiedName = if (element.getPackage !== null) element.getPackage + "." + simpleName else simpleName
 		val javaClass = element.toClass(qualifiedName)
    		acceptor.accept(javaClass) [
 			for (param : element.params) {
