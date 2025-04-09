@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.xixum.nlx.model.edit;singleton:=true
+Automatic-Module-Name: org.xixum.nlx.model.edit
+Bundle-Version: 0.2.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.xixum.nlx.naturalLang.provider.NaturalLangEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.xixum.nlx.naturalLang.provider
+Require-Bundle: org.eclipse.core.runtime,
+ org.xixum.nlx.model;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.xtext.xbase.lib
+Bundle-ActivationPolicy: lazy
