@@ -3,6 +3,7 @@
  */
 package org.xixum.nlx.model.ui.contentassist
 
+import org.xixum.nlx.ui.contentassist.AbstractNaturalLangProposalProvider
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist

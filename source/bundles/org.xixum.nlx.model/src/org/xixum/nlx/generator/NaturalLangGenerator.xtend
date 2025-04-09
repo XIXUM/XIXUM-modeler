@@ -48,11 +48,6 @@ import java.util.HashMap
 import java.util.List
 import java.util.regex.Matcher
 import java.util.regex.Pattern
-import metaModel.referenceProcess.Process
-import metaModel.referenceProcess.ReferenceProcessFactory
-import metaModel.referenceProcess.RequiredDocument
-import metaModel.referenceProcess.Requirement
-import metaModel.suptertype.Named
 import org.apache.commons.lang.math.NumberUtils
 import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.common.util.TreeIterator

@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" uid="_EeoOUBFrEfC-BozCTKh3Sg" version="15.4.1.202403191723"/>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" uid="_EeoOUBFrEfC-BozCTKh3Sg" version="15.4.1.202403191723">
+  <semanticResources>model/generated/NaturalLang.ecore</semanticResources>
+  <semanticResources>model/generated/NaturalLang.genmodel</semanticResources>
+  <semanticResources>src/org/xixum/nlx/GenerateNaturalLang.mwe2</semanticResources>
+  <semanticResources>src/org/xixum/nlx/NaturalLangRuntimeModule.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/NaturalLangStandaloneSetup.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/constants/AbstractConstantClass.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/constants/NaturalLangConstants.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/constants/NaturalLangMessages.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/converters/NaturalLangValueConverters.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/generator/Context.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/generator/NaturalLangGenerator.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/generator/utils/NlxGeneratorUtil.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/scoping/NaturalLangScopeProvider.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/util/StaticUtils.xtend</semanticResources>
+  <semanticResources>src/org/xixum/nlx/validation/NaturalLangValidator.xtend</semanticResources>
+  <semanticResources>src-gen/org/xixum/nlx/NaturalLang.xtextbin</semanticResources>
+</viewpoint:DAnalysis>

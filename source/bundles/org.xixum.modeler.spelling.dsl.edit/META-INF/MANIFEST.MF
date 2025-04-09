@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.xixum.modeler.spelling.dsl.edit;singleton:=true
 Automatic-Module-Name: org.xixum.modeler.spelling.dsl.edit
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.xixum.modeler.spelling.nLX.provider.NLXEditPlugin$Implementation
+Bundle-Activator: org.xixum.modeler.spelling.nlx.provider.NLXEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11
