@@ -6,7 +6,6 @@ package org.xixum.modeler.spelling.dsl.ui.internal;
 import com.google.common.collect.Maps;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-
 import java.util.Collections;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -24,7 +23,7 @@ import org.xixum.modeler.spelling.ui.NLXUiModule;
 public class DslActivator extends AbstractUIPlugin {
 
 	public static final String PLUGIN_ID = "org.xixum.modeler.spelling.dsl.ui";
-	public static final String DE_VALIDAS_CQC_TCM_SPELLING_NLX = "org.xixum.modeler.spelling.NLX";
+	public static final String ORG_XIXUM_MODELER_SPELLING_NLX = "org.xixum.modeler.spelling.NLX";
 	
 	private static final Logger logger = Logger.getLogger(DslActivator.class);
 	
@@ -74,14 +73,14 @@ public class DslActivator extends AbstractUIPlugin {
 	}
 	
 	protected com.google.inject.Module getRuntimeModule(String grammar) {
-		if (DE_VALIDAS_CQC_TCM_SPELLING_NLX.equals(grammar)) {
+		if (ORG_XIXUM_MODELER_SPELLING_NLX.equals(grammar)) {
 			return new NLXRuntimeModule();
 		}
 		throw new IllegalArgumentException(grammar);
 	}
 	
 	protected com.google.inject.Module getUiModule(String grammar) {
-		if (DE_VALIDAS_CQC_TCM_SPELLING_NLX.equals(grammar)) {
+		if (ORG_XIXUM_MODELER_SPELLING_NLX.equals(grammar)) {
 			return new NLXUiModule(this);
 		}
 		throw new IllegalArgumentException(grammar);

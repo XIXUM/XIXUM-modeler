@@ -6,7 +6,6 @@ package org.xixum.modeler.spelling;
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
-
 import java.util.Properties;
 import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.IGrammarAccess;
@@ -42,7 +41,6 @@ import org.eclipse.xtext.serializer.sequencer.ISyntacticSequencer;
 import org.eclipse.xtext.service.DefaultRuntimeModule;
 import org.eclipse.xtext.service.SingletonBinding;
 import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
-import org.xixum.modeler.spelling.NLXRuntimeModule;
 import org.xixum.modeler.spelling.generator.NLXGenerator;
 import org.xixum.modeler.spelling.parser.antlr.NLXAntlrTokenFileProvider;
 import org.xixum.modeler.spelling.parser.antlr.NLXParser;
@@ -64,7 +62,7 @@ public abstract class AbstractNLXRuntimeModule extends DefaultRuntimeModule {
 
 	@Override
 	public void configure(Binder binder) {
-		properties = tryBindProperties(binder, "de/validas/cqc/tcm/spelling/NLX.properties");
+		properties = tryBindProperties(binder, "org/xixum/modeler/spelling/NLX.properties");
 		super.configure(binder);
 	}
 	

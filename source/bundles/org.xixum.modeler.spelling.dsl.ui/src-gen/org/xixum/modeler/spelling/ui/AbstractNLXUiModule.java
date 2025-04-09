@@ -6,7 +6,6 @@ package org.xixum.modeler.spelling.ui;
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
-
 import org.eclipse.compare.IViewerCreator;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -73,7 +72,6 @@ import org.eclipse.xtext.ui.validation.AbstractValidatorConfigurationBlock;
 import org.xixum.modeler.spelling.ide.contentassist.antlr.NLXParser;
 import org.xixum.modeler.spelling.ide.contentassist.antlr.PartialNLXContentAssistParser;
 import org.xixum.modeler.spelling.ide.contentassist.antlr.internal.InternalNLXLexer;
-import org.xixum.modeler.spelling.ui.NLXUiModule;
 import org.xixum.modeler.spelling.ui.contentassist.NLXProposalProvider;
 import org.xixum.modeler.spelling.ui.labeling.NLXDescriptionLabelProvider;
 import org.xixum.modeler.spelling.ui.labeling.NLXLabelProvider;
@@ -112,7 +110,7 @@ public abstract class AbstractNLXUiModule extends DefaultUiModule {
 	public void configureHighlightingLexer(Binder binder) {
 		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class)
 			.annotatedWith(Names.named(LexerIdeBindings.HIGHLIGHTING))
-			.to(de.validas.cqc.tcm.spelling.parser.antlr.internal.InternalNLXLexer.class);
+			.to(org.xixum.modeler.spelling.parser.antlr.internal.InternalNLXLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2

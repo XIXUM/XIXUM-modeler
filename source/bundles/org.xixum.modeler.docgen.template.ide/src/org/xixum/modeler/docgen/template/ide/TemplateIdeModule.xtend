@@ -3,6 +3,7 @@
  */
 package org.xixum.modeler.docgen.template.ide
 
+import org.xixum.modelerc.docgen.template.ide.AbstractTemplateIdeModule
 
 /**
  * Use this class to register ide components.

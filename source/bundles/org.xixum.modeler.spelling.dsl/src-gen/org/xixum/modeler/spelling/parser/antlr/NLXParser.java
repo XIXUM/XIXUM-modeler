@@ -4,7 +4,6 @@
 package org.xixum.modeler.spelling.parser.antlr;
 
 import com.google.inject.Inject;
-
 import org.eclipse.xtext.parser.antlr.AbstractAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.xixum.modeler.spelling.parser.antlr.internal.InternalNLXParser;

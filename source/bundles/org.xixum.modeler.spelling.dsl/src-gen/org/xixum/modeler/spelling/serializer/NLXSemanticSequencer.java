@@ -4,7 +4,6 @@
 package org.xixum.modeler.spelling.serializer;
 
 import com.google.inject.Inject;
-
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -15,36 +14,36 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.xixum.modeler.spelling.nLX.Array;
-import org.xixum.modeler.spelling.nLX.BracketSentence;
-import org.xixum.modeler.spelling.nLX.ChapterSentence;
-import org.xixum.modeler.spelling.nLX.EString;
-import org.xixum.modeler.spelling.nLX.Elements;
-import org.xixum.modeler.spelling.nLX.EmailAT;
-import org.xixum.modeler.spelling.nLX.ExtBracketSentence;
-import org.xixum.modeler.spelling.nLX.FootNote;
-import org.xixum.modeler.spelling.nLX.Formula;
-import org.xixum.modeler.spelling.nLX.IgnoredText;
-import org.xixum.modeler.spelling.nLX.ItWord;
-import org.xixum.modeler.spelling.nLX.ListSentence;
-import org.xixum.modeler.spelling.nLX.MailAdress;
-import org.xixum.modeler.spelling.nLX.Model;
-import org.xixum.modeler.spelling.nLX.NLXPackage;
-import org.xixum.modeler.spelling.nLX.ParagraphBlock;
-import org.xixum.modeler.spelling.nLX.Quote;
-import org.xixum.modeler.spelling.nLX.Sentence;
-import org.xixum.modeler.spelling.nLX.SentenceChain;
-import org.xixum.modeler.spelling.nLX.ShortCut;
-import org.xixum.modeler.spelling.nLX.SimpleUnit;
-import org.xixum.modeler.spelling.nLX.SubSentence;
-import org.xixum.modeler.spelling.nLX.Symbols;
-import org.xixum.modeler.spelling.nLX.Table;
-import org.xixum.modeler.spelling.nLX.TableColumnSeparator;
-import org.xixum.modeler.spelling.nLX.TableLine;
-import org.xixum.modeler.spelling.nLX.TableRow;
-import org.xixum.modeler.spelling.nLX.Unit;
-import org.xixum.modeler.spelling.nLX.UrlAdress;
-import org.xixum.modeler.spelling.nLX.Word;
+import org.xixum.modeler.spelling.nlx.Array;
+import org.xixum.modeler.spelling.nlx.BracketSentence;
+import org.xixum.modeler.spelling.nlx.ChapterSentence;
+import org.xixum.modeler.spelling.nlx.EString;
+import org.xixum.modeler.spelling.nlx.Elements;
+import org.xixum.modeler.spelling.nlx.EmailAT;
+import org.xixum.modeler.spelling.nlx.ExtBracketSentence;
+import org.xixum.modeler.spelling.nlx.FootNote;
+import org.xixum.modeler.spelling.nlx.Formula;
+import org.xixum.modeler.spelling.nlx.IgnoredText;
+import org.xixum.modeler.spelling.nlx.ItWord;
+import org.xixum.modeler.spelling.nlx.ListSentence;
+import org.xixum.modeler.spelling.nlx.MailAdress;
+import org.xixum.modeler.spelling.nlx.Model;
+import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.ParagraphBlock;
+import org.xixum.modeler.spelling.nlx.Quote;
+import org.xixum.modeler.spelling.nlx.Sentence;
+import org.xixum.modeler.spelling.nlx.SentenceChain;
+import org.xixum.modeler.spelling.nlx.ShortCut;
+import org.xixum.modeler.spelling.nlx.SimpleUnit;
+import org.xixum.modeler.spelling.nlx.SubSentence;
+import org.xixum.modeler.spelling.nlx.Symbols;
+import org.xixum.modeler.spelling.nlx.Table;
+import org.xixum.modeler.spelling.nlx.TableColumnSeparator;
+import org.xixum.modeler.spelling.nlx.TableLine;
+import org.xixum.modeler.spelling.nlx.TableRow;
+import org.xixum.modeler.spelling.nlx.Unit;
+import org.xixum.modeler.spelling.nlx.UrlAdress;
+import org.xixum.modeler.spelling.nlx.Word;
 import org.xixum.modeler.spelling.services.NLXGrammarAccess;
 
 @SuppressWarnings("all")
@@ -59,15 +58,15 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		ParserRule rule = context.getParserRule();
 		Action action = context.getAssignedAction();
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
-		if (epackage == NLXPackage.eINSTANCE)
+		if (epackage == NlxPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case NLXPackage.ARRAY:
+			case NlxPackage.ARRAY:
 				sequence_Array(context, (Array) semanticObject); 
 				return; 
-			case NLXPackage.BRACKET_SENTENCE:
+			case NlxPackage.BRACKET_SENTENCE:
 				sequence_BracketSentence(context, (BracketSentence) semanticObject); 
 				return; 
-			case NLXPackage.CHAPTER_SENTENCE:
+			case NlxPackage.CHAPTER_SENTENCE:
 				if (rule == grammarAccess.getChapterSentenceRule()) {
 					sequence_ChapterSentence(context, (ChapterSentence) semanticObject); 
 					return; 
@@ -77,7 +76,7 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case NLXPackage.ESTRING:
+			case NlxPackage.ESTRING:
 				if (rule == grammarAccess.getShortcutGenRule()) {
 					sequence_ShortcutGen(context, (EString) semanticObject); 
 					return; 
@@ -87,13 +86,13 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case NLXPackage.ELEMENTS:
+			case NlxPackage.ELEMENTS:
 				sequence_New_Line(context, (Elements) semanticObject); 
 				return; 
-			case NLXPackage.EMAIL_AT:
+			case NlxPackage.EMAIL_AT:
 				sequence_EmailAT(context, (EmailAT) semanticObject); 
 				return; 
-			case NLXPackage.EXT_BRACKET_SENTENCE:
+			case NlxPackage.EXT_BRACKET_SENTENCE:
 				if (rule == grammarAccess.getExtBracketSentenceCRule()) {
 					sequence_ExtBracketSentenceC(context, (ExtBracketSentence) semanticObject); 
 					return; 
@@ -112,28 +111,28 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case NLXPackage.FOOT_NOTE:
+			case NlxPackage.FOOT_NOTE:
 				sequence_FootNote(context, (FootNote) semanticObject); 
 				return; 
-			case NLXPackage.FORMULA:
+			case NlxPackage.FORMULA:
 				sequence_Formula(context, (Formula) semanticObject); 
 				return; 
-			case NLXPackage.IGNORED_TEXT:
+			case NlxPackage.IGNORED_TEXT:
 				sequence_IgnoredText(context, (IgnoredText) semanticObject); 
 				return; 
-			case NLXPackage.IT_WORD:
+			case NlxPackage.IT_WORD:
 				sequence_ItWord(context, (ItWord) semanticObject); 
 				return; 
-			case NLXPackage.LIST_SENTENCE:
+			case NlxPackage.LIST_SENTENCE:
 				sequence_ListSentence(context, (ListSentence) semanticObject); 
 				return; 
-			case NLXPackage.MAIL_ADRESS:
+			case NlxPackage.MAIL_ADRESS:
 				sequence_MailAdress(context, (MailAdress) semanticObject); 
 				return; 
-			case NLXPackage.MODEL:
+			case NlxPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case NLXPackage.PARAGRAPH_BLOCK:
+			case NlxPackage.PARAGRAPH_BLOCK:
 				if (rule == grammarAccess.getParagraphBlockRule()) {
 					sequence_ParagraphBlock(context, (ParagraphBlock) semanticObject); 
 					return; 
@@ -143,10 +142,10 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case NLXPackage.QUOTE:
+			case NlxPackage.QUOTE:
 				sequence_Quote(context, (Quote) semanticObject); 
 				return; 
-			case NLXPackage.SENTENCE:
+			case NlxPackage.SENTENCE:
 				if (rule == grammarAccess.getFreeSentenceRule()) {
 					sequence_FreeSentence(context, (Sentence) semanticObject); 
 					return; 
@@ -164,7 +163,7 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case NLXPackage.SENTENCE_CHAIN:
+			case NlxPackage.SENTENCE_CHAIN:
 				if (rule == grammarAccess.getLineSentenceChainRule()) {
 					sequence_LineSentenceChain(context, (SentenceChain) semanticObject); 
 					return; 
@@ -179,13 +178,13 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case NLXPackage.SHORT_CUT:
+			case NlxPackage.SHORT_CUT:
 				sequence_ShortCut(context, (ShortCut) semanticObject); 
 				return; 
-			case NLXPackage.SIMPLE_UNIT:
+			case NlxPackage.SIMPLE_UNIT:
 				sequence_SimpleUnit(context, (SimpleUnit) semanticObject); 
 				return; 
-			case NLXPackage.SUB_SENTENCE:
+			case NlxPackage.SUB_SENTENCE:
 				if (rule == grammarAccess.getFreeSubSentenceRule()) {
 					sequence_FreeSubSentence(context, (SubSentence) semanticObject); 
 					return; 
@@ -203,7 +202,7 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case NLXPackage.SYMBOLS:
+			case NlxPackage.SYMBOLS:
 				if (rule == grammarAccess.getNoNElementRule()
 						|| rule == grammarAccess.getNoNElementXRule()
 						|| rule == grammarAccess.getNoNElementX2Rule()
@@ -221,7 +220,7 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case NLXPackage.TABLE:
+			case NlxPackage.TABLE:
 				if (rule == grammarAccess.getSentenceTypeRule()) {
 					sequence_SentenceType_Table(context, (Table) semanticObject); 
 					return; 
@@ -231,16 +230,16 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case NLXPackage.TABLE_COLUMN_SEPARATOR:
+			case NlxPackage.TABLE_COLUMN_SEPARATOR:
 				sequence_TableColumnSeparator(context, (TableColumnSeparator) semanticObject); 
 				return; 
-			case NLXPackage.TABLE_LINE:
+			case NlxPackage.TABLE_LINE:
 				sequence_TableLine(context, (TableLine) semanticObject); 
 				return; 
-			case NLXPackage.TABLE_ROW:
+			case NlxPackage.TABLE_ROW:
 				sequence_TableRow(context, (TableRow) semanticObject); 
 				return; 
-			case NLXPackage.UNIT:
+			case NlxPackage.UNIT:
 				if (rule == grammarAccess.getNoNElementX2Rule()
 						|| rule == grammarAccess.getElementsRule()
 						|| rule == grammarAccess.getAllElementsRule()) {
@@ -274,10 +273,10 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case NLXPackage.URL_ADRESS:
+			case NlxPackage.URL_ADRESS:
 				sequence_UrlAdress(context, (UrlAdress) semanticObject); 
 				return; 
-			case NLXPackage.WORD:
+			case NlxPackage.WORD:
 				if (rule == grammarAccess.getWordShortRule()) {
 					sequence_WordShort(context, (Word) semanticObject); 
 					return; 
@@ -531,10 +530,10 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_FootNote(ISerializationContext context, FootNote semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NLXPackage.Literals.FOOT_NOTE__NUMBER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NLXPackage.Literals.FOOT_NOTE__NUMBER));
-			if (transientValues.isValueTransient(semanticObject, NLXPackage.Literals.FOOT_NOTE__SENTENCE_CHAIN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NLXPackage.Literals.FOOT_NOTE__SENTENCE_CHAIN));
+			if (transientValues.isValueTransient(semanticObject, NlxPackage.Literals.FOOT_NOTE__NUMBER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlxPackage.Literals.FOOT_NOTE__NUMBER));
+			if (transientValues.isValueTransient(semanticObject, NlxPackage.Literals.FOOT_NOTE__SENTENCE_CHAIN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlxPackage.Literals.FOOT_NOTE__SENTENCE_CHAIN));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFootNoteAccess().getNumberSimpleNumParserRuleCall_0_0(), semanticObject.getNumber());
@@ -623,8 +622,8 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_IgnoredText(ISerializationContext context, IgnoredText semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NLXPackage.Literals.IGNORED_TEXT__IGNORED) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NLXPackage.Literals.IGNORED_TEXT__IGNORED));
+			if (transientValues.isValueTransient(semanticObject, NlxPackage.Literals.IGNORED_TEXT__IGNORED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlxPackage.Literals.IGNORED_TEXT__IGNORED));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getIgnoredTextAccess().getIgnoredIGNOREDTerminalRuleCall_0(), semanticObject.getIgnored());
@@ -751,10 +750,7 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
-		try {
-			genericSequencer.createSequence(context, semanticObject);
-		} catch (Exception e) {
-		}
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -770,8 +766,8 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_New_Line(ISerializationContext context, Elements semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NLXPackage.Literals.ELEMENTS__NL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NLXPackage.Literals.ELEMENTS__NL));
+			if (transientValues.isValueTransient(semanticObject, NlxPackage.Literals.ELEMENTS__NL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlxPackage.Literals.ELEMENTS__NL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNew_LineAccess().getNlNEWLINETerminalRuleCall_1_0(), semanticObject.getNl());
@@ -823,8 +819,8 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Quote(ISerializationContext context, Quote semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NLXPackage.Literals.QUOTE__QUOTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NLXPackage.Literals.QUOTE__QUOTE));
+			if (transientValues.isValueTransient(semanticObject, NlxPackage.Literals.QUOTE__QUOTE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlxPackage.Literals.QUOTE__QUOTE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getQuoteAccess().getQuoteSTRINGTerminalRuleCall_0(), semanticObject.getQuote());
@@ -947,8 +943,8 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_ShortcutLib(ISerializationContext context, EString semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NLXPackage.Literals.ESTRING__SHORTCUT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NLXPackage.Literals.ESTRING__SHORTCUT));
+			if (transientValues.isValueTransient(semanticObject, NlxPackage.Literals.ESTRING__SHORTCUT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlxPackage.Literals.ESTRING__SHORTCUT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getShortcutLibAccess().getShortcutSHORTCUTSTerminalRuleCall_1_0(), semanticObject.getShortcut());
@@ -1018,8 +1014,8 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_SymbolsX(ISerializationContext context, Symbols semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NLXPackage.Literals.SYMBOLS__SYMBOL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NLXPackage.Literals.SYMBOLS__SYMBOL));
+			if (transientValues.isValueTransient(semanticObject, NlxPackage.Literals.SYMBOLS__SYMBOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlxPackage.Literals.SYMBOLS__SYMBOL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSymbolsXAccess().getSymbolSpecialSymbolsParserRuleCall_1_0(), semanticObject.getSymbol());
@@ -1038,8 +1034,8 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Symbols(ISerializationContext context, Symbols semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NLXPackage.Literals.SYMBOLS__SYMBOL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NLXPackage.Literals.SYMBOLS__SYMBOL));
+			if (transientValues.isValueTransient(semanticObject, NlxPackage.Literals.SYMBOLS__SYMBOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlxPackage.Literals.SYMBOLS__SYMBOL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSymbolsAccess().getSymbolSpecialChParserRuleCall_1_0(), semanticObject.getSymbol());
@@ -1074,8 +1070,8 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_TableColumnSeparator(ISerializationContext context, TableColumnSeparator semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NLXPackage.Literals.TABLE_COLUMN_SEPARATOR__CHAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NLXPackage.Literals.TABLE_COLUMN_SEPARATOR__CHAR));
+			if (transientValues.isValueTransient(semanticObject, NlxPackage.Literals.TABLE_COLUMN_SEPARATOR__CHAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlxPackage.Literals.TABLE_COLUMN_SEPARATOR__CHAR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTableColumnSeparatorAccess().getCharHORIZ_SEPTerminalRuleCall_0(), semanticObject.getChar());
@@ -1095,8 +1091,8 @@ public class NLXSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_TableLine(ISerializationContext context, TableLine semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, NLXPackage.Literals.TABLE_LINE__CONTENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NLXPackage.Literals.TABLE_LINE__CONTENT));
+			if (transientValues.isValueTransient(semanticObject, NlxPackage.Literals.TABLE_LINE__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, NlxPackage.Literals.TABLE_LINE__CONTENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTableLineAccess().getContentTABLE_LINETerminalRuleCall_0(), semanticObject.getContent());

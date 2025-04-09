@@ -4,7 +4,7 @@
     modelPluginID="org.xixum.modeler.spelling.dsl" forceOverwrite="true" modelName="NLX"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="11.0" copyrightFields="false" runtimeVersion="2.29">
-  <genPackages prefix="NLX" basePackage="org.xixum.modeler.spelling" disposableProviderFactory="true"
+  <genPackages prefix="Nlx" basePackage="org.xixum.modeler.spelling" disposableProviderFactory="true"
       fileExtensions="nlx" ecorePackage="NLX.ecore#/">
     <genClasses ecoreClass="NLX.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NLX.ecore#//Model/sentences"/>

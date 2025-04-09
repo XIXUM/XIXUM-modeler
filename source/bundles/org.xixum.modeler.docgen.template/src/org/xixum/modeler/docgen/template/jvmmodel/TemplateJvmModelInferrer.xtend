@@ -22,16 +22,9 @@ class TemplateJvmModelInferrer extends AbstractModelInferrer {
 
 	@Inject extension JvmTypesBuilder
 	
+	//dispatch removed. due unnecessary and doesn't work
 	
-    def dispatch printTypes(Number x, Integer y) { 
-      "it's some number and an int" 
-    }
-     
-    def dispatch printTypes(Integer x, Number y) { 
-      "it's an int and a number" 
-    }
-	
-	def dispatch void infer(TemplateFile element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+	def void infer(TemplateFile element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
  		val simpleName = element.eResource.URI.trimFileExtension.lastSegment
 		val qualifiedName = if (element.getPackage !== null) element.getPackage + "." + simpleName else simpleName
 		val javaClass = element.toClass(qualifiedName)

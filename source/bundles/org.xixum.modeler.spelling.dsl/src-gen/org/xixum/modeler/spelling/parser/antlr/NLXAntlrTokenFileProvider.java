@@ -11,6 +11,6 @@ public class NLXAntlrTokenFileProvider implements IAntlrTokenFileProvider {
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-		return classLoader.getResourceAsStream("de/validas/cqc/tcm/spelling/parser/antlr/internal/InternalNLX.tokens");
+		return classLoader.getResourceAsStream("org/xixum/modeler/spelling/parser/antlr/internal/InternalNLX.tokens");
 	}
 }
