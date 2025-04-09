@@ -4,9 +4,9 @@
  * */
 package org.xixum.nlx.model.ui.actions;
 
-import static org.xixum.nlx.ui.constants.EditorUiConstants._UI_EDITOR_SAVEAS_OVERWRITE_TITLE;
-import static org.xixum.nlx.ui.constants.EditorUiConstants._UI_ENCODING;
-import static org.xixum.nlx.ui.constants.EditorUiConstants._UI_Editor_saveAs_overwrite_message;
+import static org.xixum.nlx.model.ui.constants.EditorUiConstants._UI_EDITOR_SAVEAS_OVERWRITE_TITLE;
+import static org.xixum.nlx.model.ui.constants.EditorUiConstants._UI_ENCODING;
+import static org.xixum.nlx.model.ui.constants.EditorUiConstants._UI_Editor_saveAs_overwrite_message;
 
 import java.io.File;
 import java.io.IOException;

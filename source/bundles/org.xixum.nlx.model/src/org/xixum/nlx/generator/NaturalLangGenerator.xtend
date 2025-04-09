@@ -69,6 +69,11 @@ import static org.xixum.nlx.generator.utils.ReflectiveUtils.getAllChildrenRecurs
 
 import static extension org.eclipse.xtext.nodemodel.util.NodeModelUtils.*
 import org.xixum.utils.io.filesystem.XPath
+import metaModel.referenceProcess.RequiredDocument
+import metaModel.referenceProcess.Requirement
+import metaModel.referenceProcess.ReferenceProcessFactory
+import metaModel.referenceProcess.Process
+import metaModel.suptertype.Named
 
 /**
  * Generates code from your model files on save.
