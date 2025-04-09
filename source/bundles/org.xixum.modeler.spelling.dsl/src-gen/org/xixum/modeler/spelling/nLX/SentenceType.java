@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.SentenceType#getPEnd <em>PEnd</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSentenceType()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSentenceType()
  * @model
  * @generated
  */
@@ -29,7 +29,7 @@ public interface SentenceType extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>PEnd</em>' attribute.
    * @see #setPEnd(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSentenceType_PEnd()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSentenceType_PEnd()
    * @model
    * @generated
    */

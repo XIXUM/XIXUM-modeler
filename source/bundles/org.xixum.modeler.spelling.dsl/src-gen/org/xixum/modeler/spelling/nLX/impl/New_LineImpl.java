@@ -6,7 +6,7 @@ package org.xixum.modeler.spelling.nlx.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.xixum.modeler.spelling.nlx.New_Line;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public class New_LineImpl extends AllElementsImpl implements New_Line
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.NEW_LINE;
+    return Nlx2Package.Literals.NEW_LINE;
   }
 
 } //New_LineImpl

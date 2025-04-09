@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.Table#getLines <em>Lines</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getTable()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getTable()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface Table extends SentenceType
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Lines</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getTable_Lines()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getTable_Lines()
    * @model containment="true"
    * @generated
    */

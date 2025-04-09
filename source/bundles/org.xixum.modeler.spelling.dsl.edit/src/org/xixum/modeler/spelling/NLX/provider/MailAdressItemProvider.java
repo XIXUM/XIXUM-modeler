@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.MailAdress;
 import org.xixum.modeler.spelling.nlx.NlxFactory;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.MailAdress} object.
@@ -63,7 +63,7 @@ public class MailAdressItemProvider extends NoNElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NlxPackage.Literals.MAIL_ADRESS__EMAIL);
+			childrenFeatures.add(Nlx2Package.Literals.MAIL_ADRESS__EMAIL);
 		}
 		return childrenFeatures;
 	}
@@ -119,7 +119,7 @@ public class MailAdressItemProvider extends NoNElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(MailAdress.class)) {
-			case NlxPackage.MAIL_ADRESS__EMAIL:
+			case Nlx2Package.MAIL_ADRESS__EMAIL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -139,272 +139,272 @@ public class MailAdressItemProvider extends NoNElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createModel()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createSentenceType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createParagraphBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createBlockElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createFootNote()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createTableBorder()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createTableLine()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createTableRow()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createTableColumnSeparator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createTable()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createLineSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createSentenceChainX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createLineSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createFreeSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createSentenceX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createListSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createChapterSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createTrailSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createFreeSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createLineSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createNoNElementX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createNoNElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createBrackets()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createAllElements()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createElements()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createNoNElementX2()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createWord()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createWordShort()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createItWord()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createQuote()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createSimpleUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createChapter_Unit_HI()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createChapter_Unit_Low()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createHashNumber()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createChapterAlpha()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createSymbolsX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createSymbols()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createShortcutGen()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createShortcutLib()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createShortCut()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createIgnoredText()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createUrlAdress()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createEmailAT()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createMailAdress()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createArray()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createNew_Line()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createExtBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MAIL_ADRESS__EMAIL,
+				(Nlx2Package.Literals.MAIL_ADRESS__EMAIL,
 				 NlxFactory.eINSTANCE.createEString()));
 	}
 

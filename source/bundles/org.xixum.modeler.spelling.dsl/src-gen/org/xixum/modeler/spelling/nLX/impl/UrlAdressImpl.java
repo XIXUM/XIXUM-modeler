@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.UrlAdress;
 
 /**
@@ -82,7 +82,7 @@ public class UrlAdressImpl extends NoNElementImpl implements UrlAdress
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.URL_ADRESS;
+    return Nlx2Package.Literals.URL_ADRESS;
   }
 
   /**
@@ -107,7 +107,7 @@ public class UrlAdressImpl extends NoNElementImpl implements UrlAdress
     String oldProtocol = protocol;
     protocol = newProtocol;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.URL_ADRESS__PROTOCOL, oldProtocol, protocol));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.URL_ADRESS__PROTOCOL, oldProtocol, protocol));
   }
 
   /**
@@ -120,7 +120,7 @@ public class UrlAdressImpl extends NoNElementImpl implements UrlAdress
   {
     if (url == null)
     {
-      url = new EDataTypeEList<String>(String.class, this, NlxPackage.URL_ADRESS__URL);
+      url = new EDataTypeEList<String>(String.class, this, Nlx2Package.URL_ADRESS__URL);
     }
     return url;
   }
@@ -135,9 +135,9 @@ public class UrlAdressImpl extends NoNElementImpl implements UrlAdress
   {
     switch (featureID)
     {
-      case NlxPackage.URL_ADRESS__PROTOCOL:
+      case Nlx2Package.URL_ADRESS__PROTOCOL:
         return getProtocol();
-      case NlxPackage.URL_ADRESS__URL:
+      case Nlx2Package.URL_ADRESS__URL:
         return getUrl();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -154,10 +154,10 @@ public class UrlAdressImpl extends NoNElementImpl implements UrlAdress
   {
     switch (featureID)
     {
-      case NlxPackage.URL_ADRESS__PROTOCOL:
+      case Nlx2Package.URL_ADRESS__PROTOCOL:
         setProtocol((String)newValue);
         return;
-      case NlxPackage.URL_ADRESS__URL:
+      case Nlx2Package.URL_ADRESS__URL:
         getUrl().clear();
         getUrl().addAll((Collection<? extends String>)newValue);
         return;
@@ -175,10 +175,10 @@ public class UrlAdressImpl extends NoNElementImpl implements UrlAdress
   {
     switch (featureID)
     {
-      case NlxPackage.URL_ADRESS__PROTOCOL:
+      case Nlx2Package.URL_ADRESS__PROTOCOL:
         setProtocol(PROTOCOL_EDEFAULT);
         return;
-      case NlxPackage.URL_ADRESS__URL:
+      case Nlx2Package.URL_ADRESS__URL:
         getUrl().clear();
         return;
     }
@@ -195,9 +195,9 @@ public class UrlAdressImpl extends NoNElementImpl implements UrlAdress
   {
     switch (featureID)
     {
-      case NlxPackage.URL_ADRESS__PROTOCOL:
+      case Nlx2Package.URL_ADRESS__PROTOCOL:
         return PROTOCOL_EDEFAULT == null ? protocol != null : !PROTOCOL_EDEFAULT.equals(protocol);
-      case NlxPackage.URL_ADRESS__URL:
+      case Nlx2Package.URL_ADRESS__URL:
         return url != null && !url.isEmpty();
     }
     return super.eIsSet(featureID);

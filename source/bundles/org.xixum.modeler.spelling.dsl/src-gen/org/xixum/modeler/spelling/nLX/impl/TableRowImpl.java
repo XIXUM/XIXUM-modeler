@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.TableRow;
 
 /**
@@ -64,7 +64,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.TABLE_ROW;
+    return Nlx2Package.Literals.TABLE_ROW;
   }
 
   /**
@@ -77,7 +77,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
   {
     if (content == null)
     {
-      content = new EObjectContainmentEList<EObject>(EObject.class, this, NlxPackage.TABLE_ROW__CONTENT);
+      content = new EObjectContainmentEList<EObject>(EObject.class, this, Nlx2Package.TABLE_ROW__CONTENT);
     }
     return content;
   }
@@ -92,7 +92,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
   {
     switch (featureID)
     {
-      case NlxPackage.TABLE_ROW__CONTENT:
+      case Nlx2Package.TABLE_ROW__CONTENT:
         return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -108,7 +108,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
   {
     switch (featureID)
     {
-      case NlxPackage.TABLE_ROW__CONTENT:
+      case Nlx2Package.TABLE_ROW__CONTENT:
         return getContent();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -125,7 +125,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
   {
     switch (featureID)
     {
-      case NlxPackage.TABLE_ROW__CONTENT:
+      case Nlx2Package.TABLE_ROW__CONTENT:
         getContent().clear();
         getContent().addAll((Collection<? extends EObject>)newValue);
         return;
@@ -143,7 +143,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
   {
     switch (featureID)
     {
-      case NlxPackage.TABLE_ROW__CONTENT:
+      case Nlx2Package.TABLE_ROW__CONTENT:
         getContent().clear();
         return;
     }
@@ -160,7 +160,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
   {
     switch (featureID)
     {
-      case NlxPackage.TABLE_ROW__CONTENT:
+      case Nlx2Package.TABLE_ROW__CONTENT:
         return content != null && !content.isEmpty();
     }
     return super.eIsSet(featureID);

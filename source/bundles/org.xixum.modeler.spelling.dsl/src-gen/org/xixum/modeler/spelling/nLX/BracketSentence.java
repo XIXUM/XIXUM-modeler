@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xixum.modeler.spelling.nlx.BracketSentence#getClose <em>Close</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getBracketSentence()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getBracketSentence()
  * @model
  * @generated
  */
@@ -32,7 +32,7 @@ public interface BracketSentence extends Brackets
    * <!-- end-user-doc -->
    * @return the value of the '<em>Open</em>' attribute.
    * @see #setOpen(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getBracketSentence_Open()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getBracketSentence_Open()
    * @model
    * @generated
    */
@@ -54,7 +54,7 @@ public interface BracketSentence extends Brackets
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Bracked Sentences</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getBracketSentence_BrackedSentences()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getBracketSentence_BrackedSentences()
    * @model containment="true"
    * @generated
    */
@@ -66,7 +66,7 @@ public interface BracketSentence extends Brackets
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Separator</em>' attribute list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getBracketSentence_Separator()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getBracketSentence_Separator()
    * @model unique="false"
    * @generated
    */
@@ -78,7 +78,7 @@ public interface BracketSentence extends Brackets
    * <!-- end-user-doc -->
    * @return the value of the '<em>Close</em>' attribute.
    * @see #setClose(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getBracketSentence_Close()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getBracketSentence_Close()
    * @model
    * @generated
    */

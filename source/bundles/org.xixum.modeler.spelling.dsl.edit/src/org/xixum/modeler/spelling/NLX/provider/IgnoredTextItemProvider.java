@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.IgnoredText;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.IgnoredText} object.
@@ -65,7 +65,7 @@ public class IgnoredTextItemProvider extends BlockElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Elements_nl_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Elements_nl_feature", "_UI_Elements_type"),
-				 NlxPackage.Literals.ELEMENTS__NL,
+				 Nlx2Package.Literals.ELEMENTS__NL,
 				 true,
 				 false,
 				 false,
@@ -87,7 +87,7 @@ public class IgnoredTextItemProvider extends BlockElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_IgnoredText_ignored_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_IgnoredText_ignored_feature", "_UI_IgnoredText_type"),
-				 NlxPackage.Literals.IGNORED_TEXT__IGNORED,
+				 Nlx2Package.Literals.IGNORED_TEXT__IGNORED,
 				 true,
 				 false,
 				 false,
@@ -134,8 +134,8 @@ public class IgnoredTextItemProvider extends BlockElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(IgnoredText.class)) {
-			case NlxPackage.IGNORED_TEXT__NL:
-			case NlxPackage.IGNORED_TEXT__IGNORED:
+			case Nlx2Package.IGNORED_TEXT__NL:
+			case Nlx2Package.IGNORED_TEXT__IGNORED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

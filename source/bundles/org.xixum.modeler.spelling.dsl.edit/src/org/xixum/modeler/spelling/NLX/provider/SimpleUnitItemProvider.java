@@ -15,7 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.SimpleUnit;
 
 /**
@@ -64,7 +64,7 @@ public class SimpleUnitItemProvider extends NoNElementX2ItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SimpleUnit_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SimpleUnit_value_feature", "_UI_SimpleUnit_type"),
-				 NlxPackage.Literals.SIMPLE_UNIT__VALUE,
+				 Nlx2Package.Literals.SIMPLE_UNIT__VALUE,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class SimpleUnitItemProvider extends NoNElementX2ItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SimpleUnit.class)) {
-			case NlxPackage.SIMPLE_UNIT__VALUE:
+			case Nlx2Package.SIMPLE_UNIT__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

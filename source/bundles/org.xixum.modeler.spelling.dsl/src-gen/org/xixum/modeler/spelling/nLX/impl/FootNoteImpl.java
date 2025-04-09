@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xixum.modeler.spelling.nlx.FootNote;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.SentenceChain;
 
 /**
@@ -79,7 +79,7 @@ public class FootNoteImpl extends BlockElementImpl implements FootNote
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.FOOT_NOTE;
+    return Nlx2Package.Literals.FOOT_NOTE;
   }
 
   /**
@@ -104,7 +104,7 @@ public class FootNoteImpl extends BlockElementImpl implements FootNote
     String oldNumber = number;
     number = newNumber;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.FOOT_NOTE__NUMBER, oldNumber, number));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.FOOT_NOTE__NUMBER, oldNumber, number));
   }
 
   /**
@@ -129,7 +129,7 @@ public class FootNoteImpl extends BlockElementImpl implements FootNote
     sentenceChain = newSentenceChain;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlxPackage.FOOT_NOTE__SENTENCE_CHAIN, oldSentenceChain, newSentenceChain);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Nlx2Package.FOOT_NOTE__SENTENCE_CHAIN, oldSentenceChain, newSentenceChain);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -147,14 +147,14 @@ public class FootNoteImpl extends BlockElementImpl implements FootNote
     {
       NotificationChain msgs = null;
       if (sentenceChain != null)
-        msgs = ((InternalEObject)sentenceChain).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlxPackage.FOOT_NOTE__SENTENCE_CHAIN, null, msgs);
+        msgs = ((InternalEObject)sentenceChain).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Nlx2Package.FOOT_NOTE__SENTENCE_CHAIN, null, msgs);
       if (newSentenceChain != null)
-        msgs = ((InternalEObject)newSentenceChain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlxPackage.FOOT_NOTE__SENTENCE_CHAIN, null, msgs);
+        msgs = ((InternalEObject)newSentenceChain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Nlx2Package.FOOT_NOTE__SENTENCE_CHAIN, null, msgs);
       msgs = basicSetSentenceChain(newSentenceChain, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.FOOT_NOTE__SENTENCE_CHAIN, newSentenceChain, newSentenceChain));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.FOOT_NOTE__SENTENCE_CHAIN, newSentenceChain, newSentenceChain));
   }
 
   /**
@@ -167,7 +167,7 @@ public class FootNoteImpl extends BlockElementImpl implements FootNote
   {
     switch (featureID)
     {
-      case NlxPackage.FOOT_NOTE__SENTENCE_CHAIN:
+      case Nlx2Package.FOOT_NOTE__SENTENCE_CHAIN:
         return basicSetSentenceChain(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -183,9 +183,9 @@ public class FootNoteImpl extends BlockElementImpl implements FootNote
   {
     switch (featureID)
     {
-      case NlxPackage.FOOT_NOTE__NUMBER:
+      case Nlx2Package.FOOT_NOTE__NUMBER:
         return getNumber();
-      case NlxPackage.FOOT_NOTE__SENTENCE_CHAIN:
+      case Nlx2Package.FOOT_NOTE__SENTENCE_CHAIN:
         return getSentenceChain();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -201,10 +201,10 @@ public class FootNoteImpl extends BlockElementImpl implements FootNote
   {
     switch (featureID)
     {
-      case NlxPackage.FOOT_NOTE__NUMBER:
+      case Nlx2Package.FOOT_NOTE__NUMBER:
         setNumber((String)newValue);
         return;
-      case NlxPackage.FOOT_NOTE__SENTENCE_CHAIN:
+      case Nlx2Package.FOOT_NOTE__SENTENCE_CHAIN:
         setSentenceChain((SentenceChain)newValue);
         return;
     }
@@ -221,10 +221,10 @@ public class FootNoteImpl extends BlockElementImpl implements FootNote
   {
     switch (featureID)
     {
-      case NlxPackage.FOOT_NOTE__NUMBER:
+      case Nlx2Package.FOOT_NOTE__NUMBER:
         setNumber(NUMBER_EDEFAULT);
         return;
-      case NlxPackage.FOOT_NOTE__SENTENCE_CHAIN:
+      case Nlx2Package.FOOT_NOTE__SENTENCE_CHAIN:
         setSentenceChain((SentenceChain)null);
         return;
     }
@@ -241,9 +241,9 @@ public class FootNoteImpl extends BlockElementImpl implements FootNote
   {
     switch (featureID)
     {
-      case NlxPackage.FOOT_NOTE__NUMBER:
+      case Nlx2Package.FOOT_NOTE__NUMBER:
         return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
-      case NlxPackage.FOOT_NOTE__SENTENCE_CHAIN:
+      case Nlx2Package.FOOT_NOTE__SENTENCE_CHAIN:
         return sentenceChain != null;
     }
     return super.eIsSet(featureID);

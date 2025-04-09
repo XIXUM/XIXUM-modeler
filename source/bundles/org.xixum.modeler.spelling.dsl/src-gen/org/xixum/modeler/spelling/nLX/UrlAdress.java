@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xixum.modeler.spelling.nlx.UrlAdress#getUrl <em>Url</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getUrlAdress()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getUrlAdress()
  * @model
  * @generated
  */
@@ -30,7 +30,7 @@ public interface UrlAdress extends NoNElement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Protocol</em>' attribute.
    * @see #setProtocol(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getUrlAdress_Protocol()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getUrlAdress_Protocol()
    * @model
    * @generated
    */
@@ -52,7 +52,7 @@ public interface UrlAdress extends NoNElement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Url</em>' attribute list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getUrlAdress_Url()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getUrlAdress_Url()
    * @model unique="false"
    * @generated
    */

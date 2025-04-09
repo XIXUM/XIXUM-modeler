@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.Model#getSentences <em>Sentences</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getModel()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getModel()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface Model extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Sentences</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getModel_Sentences()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getModel_Sentences()
    * @model containment="true"
    * @generated
    */

@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getTrailSubSentence()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getTrailSubSentence()
  * @model
  * @generated
  */

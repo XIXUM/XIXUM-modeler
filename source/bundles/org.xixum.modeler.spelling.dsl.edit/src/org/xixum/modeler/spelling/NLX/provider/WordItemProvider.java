@@ -15,7 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.Word;
 
 /**
@@ -64,7 +64,7 @@ public class WordItemProvider extends NoNElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Word_word_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Word_word_feature", "_UI_Word_type"),
-				 NlxPackage.Literals.WORD__WORD,
+				 Nlx2Package.Literals.WORD__WORD,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class WordItemProvider extends NoNElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Word.class)) {
-			case NlxPackage.WORD__WORD:
+			case Nlx2Package.WORD__WORD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.TableRow#getContent <em>Content</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getTableRow()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getTableRow()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface TableRow extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Content</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getTableRow_Content()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getTableRow_Content()
    * @model containment="true"
    * @generated
    */

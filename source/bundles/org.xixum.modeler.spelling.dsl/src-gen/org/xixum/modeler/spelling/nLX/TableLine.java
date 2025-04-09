@@ -16,7 +16,7 @@ package org.xixum.modeler.spelling.nlx;
  *   <li>{@link org.xixum.modeler.spelling.nlx.TableLine#getContent <em>Content</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getTableLine()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getTableLine()
  * @model
  * @generated
  */
@@ -28,7 +28,7 @@ public interface TableLine extends TableBorder
    * <!-- end-user-doc -->
    * @return the value of the '<em>Content</em>' attribute.
    * @see #setContent(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getTableLine_Content()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getTableLine_Content()
    * @model
    * @generated
    */

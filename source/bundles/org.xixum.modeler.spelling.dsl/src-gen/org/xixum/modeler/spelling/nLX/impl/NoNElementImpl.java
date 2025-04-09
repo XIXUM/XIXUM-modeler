@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.xixum.modeler.spelling.nlx.AllElements;
 import org.xixum.modeler.spelling.nlx.Elements;
 import org.xixum.modeler.spelling.nlx.New_Line;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.NoNElement;
 import org.xixum.modeler.spelling.nlx.NoNElementX2;
 
@@ -69,7 +69,7 @@ public class NoNElementImpl extends NoNElementXImpl implements NoNElement
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.NO_NELEMENT;
+    return Nlx2Package.Literals.NO_NELEMENT;
   }
 
   /**
@@ -94,7 +94,7 @@ public class NoNElementImpl extends NoNElementXImpl implements NoNElement
     String oldNl = nl;
     nl = newNl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.NO_NELEMENT__NL, oldNl, nl));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.NO_NELEMENT__NL, oldNl, nl));
   }
 
   /**
@@ -107,7 +107,7 @@ public class NoNElementImpl extends NoNElementXImpl implements NoNElement
   {
     switch (featureID)
     {
-      case NlxPackage.NO_NELEMENT__NL:
+      case Nlx2Package.NO_NELEMENT__NL:
         return getNl();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class NoNElementImpl extends NoNElementXImpl implements NoNElement
   {
     switch (featureID)
     {
-      case NlxPackage.NO_NELEMENT__NL:
+      case Nlx2Package.NO_NELEMENT__NL:
         setNl((String)newValue);
         return;
     }
@@ -140,7 +140,7 @@ public class NoNElementImpl extends NoNElementXImpl implements NoNElement
   {
     switch (featureID)
     {
-      case NlxPackage.NO_NELEMENT__NL:
+      case Nlx2Package.NO_NELEMENT__NL:
         setNl(NL_EDEFAULT);
         return;
     }
@@ -157,7 +157,7 @@ public class NoNElementImpl extends NoNElementXImpl implements NoNElement
   {
     switch (featureID)
     {
-      case NlxPackage.NO_NELEMENT__NL:
+      case Nlx2Package.NO_NELEMENT__NL:
         return NL_EDEFAULT == null ? nl != null : !NL_EDEFAULT.equals(nl);
     }
     return super.eIsSet(featureID);
@@ -189,7 +189,7 @@ public class NoNElementImpl extends NoNElementXImpl implements NoNElement
     {
       switch (derivedFeatureID)
       {
-        case NlxPackage.NO_NELEMENT__NL: return NlxPackage.ELEMENTS__NL;
+        case Nlx2Package.NO_NELEMENT__NL: return Nlx2Package.ELEMENTS__NL;
         default: return -1;
       }
     }
@@ -229,7 +229,7 @@ public class NoNElementImpl extends NoNElementXImpl implements NoNElement
     {
       switch (baseFeatureID)
       {
-        case NlxPackage.ELEMENTS__NL: return NlxPackage.NO_NELEMENT__NL;
+        case Nlx2Package.ELEMENTS__NL: return Nlx2Package.NO_NELEMENT__NL;
         default: return -1;
       }
     }

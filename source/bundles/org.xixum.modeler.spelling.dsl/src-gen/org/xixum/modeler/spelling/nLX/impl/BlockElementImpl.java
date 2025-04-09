@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xixum.modeler.spelling.nlx.BlockElement;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class BlockElementImpl extends MinimalEObjectImpl.Container implements Bl
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.BLOCK_ELEMENT;
+    return Nlx2Package.Literals.BLOCK_ELEMENT;
   }
 
 } //BlockElementImpl

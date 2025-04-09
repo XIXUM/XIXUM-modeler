@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.Elements;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.Elements} object.
@@ -64,7 +64,7 @@ public class ElementsItemProvider extends AllElementsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Elements_nl_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Elements_nl_feature", "_UI_Elements_type"),
-				 NlxPackage.Literals.ELEMENTS__NL,
+				 Nlx2Package.Literals.ELEMENTS__NL,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class ElementsItemProvider extends AllElementsItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Elements.class)) {
-			case NlxPackage.ELEMENTS__NL:
+			case Nlx2Package.ELEMENTS__NL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

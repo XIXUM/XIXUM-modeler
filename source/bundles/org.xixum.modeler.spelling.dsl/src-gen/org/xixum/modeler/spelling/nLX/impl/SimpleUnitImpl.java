@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.SimpleUnit;
 
 /**
@@ -57,7 +57,7 @@ public class SimpleUnitImpl extends NoNElementX2Impl implements SimpleUnit
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.SIMPLE_UNIT;
+    return Nlx2Package.Literals.SIMPLE_UNIT;
   }
 
   /**
@@ -70,7 +70,7 @@ public class SimpleUnitImpl extends NoNElementX2Impl implements SimpleUnit
   {
     if (value == null)
     {
-      value = new EDataTypeEList<String>(String.class, this, NlxPackage.SIMPLE_UNIT__VALUE);
+      value = new EDataTypeEList<String>(String.class, this, Nlx2Package.SIMPLE_UNIT__VALUE);
     }
     return value;
   }
@@ -85,7 +85,7 @@ public class SimpleUnitImpl extends NoNElementX2Impl implements SimpleUnit
   {
     switch (featureID)
     {
-      case NlxPackage.SIMPLE_UNIT__VALUE:
+      case Nlx2Package.SIMPLE_UNIT__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -102,7 +102,7 @@ public class SimpleUnitImpl extends NoNElementX2Impl implements SimpleUnit
   {
     switch (featureID)
     {
-      case NlxPackage.SIMPLE_UNIT__VALUE:
+      case Nlx2Package.SIMPLE_UNIT__VALUE:
         getValue().clear();
         getValue().addAll((Collection<? extends String>)newValue);
         return;
@@ -120,7 +120,7 @@ public class SimpleUnitImpl extends NoNElementX2Impl implements SimpleUnit
   {
     switch (featureID)
     {
-      case NlxPackage.SIMPLE_UNIT__VALUE:
+      case Nlx2Package.SIMPLE_UNIT__VALUE:
         getValue().clear();
         return;
     }
@@ -137,7 +137,7 @@ public class SimpleUnitImpl extends NoNElementX2Impl implements SimpleUnit
   {
     switch (featureID)
     {
-      case NlxPackage.SIMPLE_UNIT__VALUE:
+      case Nlx2Package.SIMPLE_UNIT__VALUE:
         return value != null && !value.isEmpty();
     }
     return super.eIsSet(featureID);

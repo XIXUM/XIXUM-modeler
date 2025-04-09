@@ -16,7 +16,7 @@ package org.xixum.modeler.spelling.nlx;
  *   <li>{@link org.xixum.modeler.spelling.nlx.Elements#getNl <em>Nl</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getElements()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getElements()
  * @model
  * @generated
  */
@@ -28,7 +28,7 @@ public interface Elements extends AllElements, New_Line
    * <!-- end-user-doc -->
    * @return the value of the '<em>Nl</em>' attribute.
    * @see #setNl(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getElements_Nl()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getElements_Nl()
    * @model
    * @generated
    */

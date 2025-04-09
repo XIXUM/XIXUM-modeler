@@ -17,7 +17,7 @@ package org.xixum.modeler.spelling.nlx;
  *   <li>{@link org.xixum.modeler.spelling.nlx.ListSentence#getSentenceChain <em>Sentence Chain</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getListSentence()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getListSentence()
  * @model
  * @generated
  */
@@ -29,7 +29,7 @@ public interface ListSentence extends BlockElement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Listpoint</em>' attribute.
    * @see #setListpoint(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getListSentence_Listpoint()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getListSentence_Listpoint()
    * @model
    * @generated
    */
@@ -51,7 +51,7 @@ public interface ListSentence extends BlockElement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Sentence Chain</em>' containment reference.
    * @see #setSentenceChain(SentenceChainX)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getListSentence_SentenceChain()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getListSentence_SentenceChain()
    * @model containment="true"
    * @generated
    */

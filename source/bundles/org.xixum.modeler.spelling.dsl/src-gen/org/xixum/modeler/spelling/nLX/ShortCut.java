@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.ShortCut#getShortcut <em>Shortcut</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getShortCut()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getShortCut()
  * @model
  * @generated
  */
@@ -29,7 +29,7 @@ public interface ShortCut extends NoNElement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Shortcut</em>' containment reference.
    * @see #setShortcut(EObject)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getShortCut_Shortcut()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getShortCut_Shortcut()
    * @model containment="true"
    * @generated
    */

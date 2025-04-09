@@ -19,7 +19,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.BracketSentence;
 import org.xixum.modeler.spelling.nlx.NlxFactory;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.BracketSentence} object.
@@ -69,7 +69,7 @@ public class BracketSentenceItemProvider extends BracketsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_BracketSentence_open_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BracketSentence_open_feature", "_UI_BracketSentence_type"),
-				 NlxPackage.Literals.BRACKET_SENTENCE__OPEN,
+				 Nlx2Package.Literals.BRACKET_SENTENCE__OPEN,
 				 true,
 				 false,
 				 false,
@@ -91,7 +91,7 @@ public class BracketSentenceItemProvider extends BracketsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_BracketSentence_separator_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BracketSentence_separator_feature", "_UI_BracketSentence_type"),
-				 NlxPackage.Literals.BRACKET_SENTENCE__SEPARATOR,
+				 Nlx2Package.Literals.BRACKET_SENTENCE__SEPARATOR,
 				 true,
 				 false,
 				 false,
@@ -113,7 +113,7 @@ public class BracketSentenceItemProvider extends BracketsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_BracketSentence_close_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BracketSentence_close_feature", "_UI_BracketSentence_type"),
-				 NlxPackage.Literals.BRACKET_SENTENCE__CLOSE,
+				 Nlx2Package.Literals.BRACKET_SENTENCE__CLOSE,
 				 true,
 				 false,
 				 false,
@@ -134,7 +134,7 @@ public class BracketSentenceItemProvider extends BracketsItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NlxPackage.Literals.BRACKET_SENTENCE__BRACKED_SENTENCES);
+			childrenFeatures.add(Nlx2Package.Literals.BRACKET_SENTENCE__BRACKED_SENTENCES);
 		}
 		return childrenFeatures;
 	}
@@ -190,12 +190,12 @@ public class BracketSentenceItemProvider extends BracketsItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BracketSentence.class)) {
-			case NlxPackage.BRACKET_SENTENCE__OPEN:
-			case NlxPackage.BRACKET_SENTENCE__SEPARATOR:
-			case NlxPackage.BRACKET_SENTENCE__CLOSE:
+			case Nlx2Package.BRACKET_SENTENCE__OPEN:
+			case Nlx2Package.BRACKET_SENTENCE__SEPARATOR:
+			case Nlx2Package.BRACKET_SENTENCE__CLOSE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case NlxPackage.BRACKET_SENTENCE__BRACKED_SENTENCES:
+			case Nlx2Package.BRACKET_SENTENCE__BRACKED_SENTENCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -215,12 +215,12 @@ public class BracketSentenceItemProvider extends BracketsItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.BRACKET_SENTENCE__BRACKED_SENTENCES,
+				(Nlx2Package.Literals.BRACKET_SENTENCE__BRACKED_SENTENCES,
 				 NlxFactory.eINSTANCE.createSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.BRACKET_SENTENCE__BRACKED_SENTENCES,
+				(Nlx2Package.Literals.BRACKET_SENTENCE__BRACKED_SENTENCES,
 				 NlxFactory.eINSTANCE.createFreeSentence()));
 	}
 

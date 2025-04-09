@@ -6,7 +6,7 @@ package org.xixum.modeler.spelling.nlx.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.xixum.modeler.spelling.nlx.ChapterAlpha;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public class ChapterAlphaImpl extends NoNElementX2Impl implements ChapterAlpha
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.CHAPTER_ALPHA;
+    return Nlx2Package.Literals.CHAPTER_ALPHA;
   }
 
 } //ChapterAlphaImpl

@@ -15,7 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.UrlAdress;
 
 /**
@@ -65,7 +65,7 @@ public class UrlAdressItemProvider extends NoNElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_UrlAdress_protocol_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_UrlAdress_protocol_feature", "_UI_UrlAdress_type"),
-				 NlxPackage.Literals.URL_ADRESS__PROTOCOL,
+				 Nlx2Package.Literals.URL_ADRESS__PROTOCOL,
 				 true,
 				 false,
 				 false,
@@ -87,7 +87,7 @@ public class UrlAdressItemProvider extends NoNElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_UrlAdress_url_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_UrlAdress_url_feature", "_UI_UrlAdress_type"),
-				 NlxPackage.Literals.URL_ADRESS__URL,
+				 Nlx2Package.Literals.URL_ADRESS__URL,
 				 true,
 				 false,
 				 false,
@@ -134,8 +134,8 @@ public class UrlAdressItemProvider extends NoNElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(UrlAdress.class)) {
-			case NlxPackage.URL_ADRESS__PROTOCOL:
-			case NlxPackage.URL_ADRESS__URL:
+			case Nlx2Package.URL_ADRESS__PROTOCOL:
+			case Nlx2Package.URL_ADRESS__URL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

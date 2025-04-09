@@ -15,7 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.Unit;
 
 /**
@@ -67,7 +67,7 @@ public class UnitItemProvider extends NoNElementX2ItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SimpleUnit_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SimpleUnit_value_feature", "_UI_SimpleUnit_type"),
-				 NlxPackage.Literals.SIMPLE_UNIT__VALUE,
+				 Nlx2Package.Literals.SIMPLE_UNIT__VALUE,
 				 true,
 				 false,
 				 false,
@@ -89,7 +89,7 @@ public class UnitItemProvider extends NoNElementX2ItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Unit_signature_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Unit_signature_feature", "_UI_Unit_type"),
-				 NlxPackage.Literals.UNIT__SIGNATURE,
+				 Nlx2Package.Literals.UNIT__SIGNATURE,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class UnitItemProvider extends NoNElementX2ItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Unit_unit_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Unit_unit_feature", "_UI_Unit_type"),
-				 NlxPackage.Literals.UNIT__UNIT,
+				 Nlx2Package.Literals.UNIT__UNIT,
 				 true,
 				 false,
 				 false,
@@ -133,7 +133,7 @@ public class UnitItemProvider extends NoNElementX2ItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Unit_sign_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Unit_sign_feature", "_UI_Unit_type"),
-				 NlxPackage.Literals.UNIT__SIGN,
+				 Nlx2Package.Literals.UNIT__SIGN,
 				 true,
 				 false,
 				 false,
@@ -180,10 +180,10 @@ public class UnitItemProvider extends NoNElementX2ItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Unit.class)) {
-			case NlxPackage.UNIT__VALUE:
-			case NlxPackage.UNIT__SIGNATURE:
-			case NlxPackage.UNIT__UNIT:
-			case NlxPackage.UNIT__SIGN:
+			case Nlx2Package.UNIT__VALUE:
+			case Nlx2Package.UNIT__SIGNATURE:
+			case Nlx2Package.UNIT__UNIT:
+			case Nlx2Package.UNIT__SIGN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

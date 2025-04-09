@@ -13,7 +13,7 @@ import org.xixum.modeler.spelling.nlx.AllElements;
 import org.xixum.modeler.spelling.nlx.Elements;
 import org.xixum.modeler.spelling.nlx.IgnoredText;
 import org.xixum.modeler.spelling.nlx.New_Line;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.NoNElement;
 import org.xixum.modeler.spelling.nlx.NoNElementX;
 import org.xixum.modeler.spelling.nlx.NoNElementX2;
@@ -92,7 +92,7 @@ public class IgnoredTextImpl extends BlockElementImpl implements IgnoredText
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.IGNORED_TEXT;
+    return Nlx2Package.Literals.IGNORED_TEXT;
   }
 
   /**
@@ -117,7 +117,7 @@ public class IgnoredTextImpl extends BlockElementImpl implements IgnoredText
     String oldNl = nl;
     nl = newNl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.IGNORED_TEXT__NL, oldNl, nl));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.IGNORED_TEXT__NL, oldNl, nl));
   }
 
   /**
@@ -142,7 +142,7 @@ public class IgnoredTextImpl extends BlockElementImpl implements IgnoredText
     String oldIgnored = ignored;
     ignored = newIgnored;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.IGNORED_TEXT__IGNORED, oldIgnored, ignored));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.IGNORED_TEXT__IGNORED, oldIgnored, ignored));
   }
 
   /**
@@ -155,9 +155,9 @@ public class IgnoredTextImpl extends BlockElementImpl implements IgnoredText
   {
     switch (featureID)
     {
-      case NlxPackage.IGNORED_TEXT__NL:
+      case Nlx2Package.IGNORED_TEXT__NL:
         return getNl();
-      case NlxPackage.IGNORED_TEXT__IGNORED:
+      case Nlx2Package.IGNORED_TEXT__IGNORED:
         return getIgnored();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -173,10 +173,10 @@ public class IgnoredTextImpl extends BlockElementImpl implements IgnoredText
   {
     switch (featureID)
     {
-      case NlxPackage.IGNORED_TEXT__NL:
+      case Nlx2Package.IGNORED_TEXT__NL:
         setNl((String)newValue);
         return;
-      case NlxPackage.IGNORED_TEXT__IGNORED:
+      case Nlx2Package.IGNORED_TEXT__IGNORED:
         setIgnored((String)newValue);
         return;
     }
@@ -193,10 +193,10 @@ public class IgnoredTextImpl extends BlockElementImpl implements IgnoredText
   {
     switch (featureID)
     {
-      case NlxPackage.IGNORED_TEXT__NL:
+      case Nlx2Package.IGNORED_TEXT__NL:
         setNl(NL_EDEFAULT);
         return;
-      case NlxPackage.IGNORED_TEXT__IGNORED:
+      case Nlx2Package.IGNORED_TEXT__IGNORED:
         setIgnored(IGNORED_EDEFAULT);
         return;
     }
@@ -213,9 +213,9 @@ public class IgnoredTextImpl extends BlockElementImpl implements IgnoredText
   {
     switch (featureID)
     {
-      case NlxPackage.IGNORED_TEXT__NL:
+      case Nlx2Package.IGNORED_TEXT__NL:
         return NL_EDEFAULT == null ? nl != null : !NL_EDEFAULT.equals(nl);
-      case NlxPackage.IGNORED_TEXT__IGNORED:
+      case Nlx2Package.IGNORED_TEXT__IGNORED:
         return IGNORED_EDEFAULT == null ? ignored != null : !IGNORED_EDEFAULT.equals(ignored);
     }
     return super.eIsSet(featureID);
@@ -254,7 +254,7 @@ public class IgnoredTextImpl extends BlockElementImpl implements IgnoredText
     {
       switch (derivedFeatureID)
       {
-        case NlxPackage.IGNORED_TEXT__NL: return NlxPackage.ELEMENTS__NL;
+        case Nlx2Package.IGNORED_TEXT__NL: return Nlx2Package.ELEMENTS__NL;
         default: return -1;
       }
     }
@@ -308,7 +308,7 @@ public class IgnoredTextImpl extends BlockElementImpl implements IgnoredText
     {
       switch (baseFeatureID)
       {
-        case NlxPackage.ELEMENTS__NL: return NlxPackage.IGNORED_TEXT__NL;
+        case Nlx2Package.ELEMENTS__NL: return Nlx2Package.IGNORED_TEXT__NL;
         default: return -1;
       }
     }

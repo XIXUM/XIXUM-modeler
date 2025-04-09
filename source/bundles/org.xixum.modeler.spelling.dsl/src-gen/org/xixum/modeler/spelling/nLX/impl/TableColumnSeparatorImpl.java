@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.TableColumnSeparator;
 
 /**
@@ -65,7 +65,7 @@ public class TableColumnSeparatorImpl extends TableBorderImpl implements TableCo
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.TABLE_COLUMN_SEPARATOR;
+    return Nlx2Package.Literals.TABLE_COLUMN_SEPARATOR;
   }
 
   /**
@@ -90,7 +90,7 @@ public class TableColumnSeparatorImpl extends TableBorderImpl implements TableCo
     String oldChar = char_;
     char_ = newChar;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.TABLE_COLUMN_SEPARATOR__CHAR, oldChar, char_));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.TABLE_COLUMN_SEPARATOR__CHAR, oldChar, char_));
   }
 
   /**
@@ -103,7 +103,7 @@ public class TableColumnSeparatorImpl extends TableBorderImpl implements TableCo
   {
     switch (featureID)
     {
-      case NlxPackage.TABLE_COLUMN_SEPARATOR__CHAR:
+      case Nlx2Package.TABLE_COLUMN_SEPARATOR__CHAR:
         return getChar();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class TableColumnSeparatorImpl extends TableBorderImpl implements TableCo
   {
     switch (featureID)
     {
-      case NlxPackage.TABLE_COLUMN_SEPARATOR__CHAR:
+      case Nlx2Package.TABLE_COLUMN_SEPARATOR__CHAR:
         setChar((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class TableColumnSeparatorImpl extends TableBorderImpl implements TableCo
   {
     switch (featureID)
     {
-      case NlxPackage.TABLE_COLUMN_SEPARATOR__CHAR:
+      case Nlx2Package.TABLE_COLUMN_SEPARATOR__CHAR:
         setChar(CHAR_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class TableColumnSeparatorImpl extends TableBorderImpl implements TableCo
   {
     switch (featureID)
     {
-      case NlxPackage.TABLE_COLUMN_SEPARATOR__CHAR:
+      case Nlx2Package.TABLE_COLUMN_SEPARATOR__CHAR:
         return CHAR_EDEFAULT == null ? char_ != null : !CHAR_EDEFAULT.equals(char_);
     }
     return super.eIsSet(featureID);

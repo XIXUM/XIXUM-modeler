@@ -15,7 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.TableColumnSeparator;
 
 /**
@@ -64,7 +64,7 @@ public class TableColumnSeparatorItemProvider extends TableBorderItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_TableColumnSeparator_char_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TableColumnSeparator_char_feature", "_UI_TableColumnSeparator_type"),
-				 NlxPackage.Literals.TABLE_COLUMN_SEPARATOR__CHAR,
+				 Nlx2Package.Literals.TABLE_COLUMN_SEPARATOR__CHAR,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class TableColumnSeparatorItemProvider extends TableBorderItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TableColumnSeparator.class)) {
-			case NlxPackage.TABLE_COLUMN_SEPARATOR__CHAR:
+			case Nlx2Package.TABLE_COLUMN_SEPARATOR__CHAR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

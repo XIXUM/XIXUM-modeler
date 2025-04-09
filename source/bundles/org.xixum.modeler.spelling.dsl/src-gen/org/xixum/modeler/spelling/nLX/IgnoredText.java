@@ -16,7 +16,7 @@ package org.xixum.modeler.spelling.nlx;
  *   <li>{@link org.xixum.modeler.spelling.nlx.IgnoredText#getIgnored <em>Ignored</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getIgnoredText()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getIgnoredText()
  * @model
  * @generated
  */
@@ -28,7 +28,7 @@ public interface IgnoredText extends BlockElement, NoNElement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ignored</em>' attribute.
    * @see #setIgnored(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getIgnoredText_Ignored()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getIgnoredText_Ignored()
    * @model
    * @generated
    */

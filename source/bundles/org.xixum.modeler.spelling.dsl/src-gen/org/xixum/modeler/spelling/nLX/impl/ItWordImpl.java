@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xixum.modeler.spelling.nlx.ItWord;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +57,7 @@ public class ItWordImpl extends NoNElementImpl implements ItWord
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.IT_WORD;
+    return Nlx2Package.Literals.IT_WORD;
   }
 
   /**
@@ -70,7 +70,7 @@ public class ItWordImpl extends NoNElementImpl implements ItWord
   {
     if (word == null)
     {
-      word = new EDataTypeEList<String>(String.class, this, NlxPackage.IT_WORD__WORD);
+      word = new EDataTypeEList<String>(String.class, this, Nlx2Package.IT_WORD__WORD);
     }
     return word;
   }
@@ -85,7 +85,7 @@ public class ItWordImpl extends NoNElementImpl implements ItWord
   {
     switch (featureID)
     {
-      case NlxPackage.IT_WORD__WORD:
+      case Nlx2Package.IT_WORD__WORD:
         return getWord();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -102,7 +102,7 @@ public class ItWordImpl extends NoNElementImpl implements ItWord
   {
     switch (featureID)
     {
-      case NlxPackage.IT_WORD__WORD:
+      case Nlx2Package.IT_WORD__WORD:
         getWord().clear();
         getWord().addAll((Collection<? extends String>)newValue);
         return;
@@ -120,7 +120,7 @@ public class ItWordImpl extends NoNElementImpl implements ItWord
   {
     switch (featureID)
     {
-      case NlxPackage.IT_WORD__WORD:
+      case Nlx2Package.IT_WORD__WORD:
         getWord().clear();
         return;
     }
@@ -137,7 +137,7 @@ public class ItWordImpl extends NoNElementImpl implements ItWord
   {
     switch (featureID)
     {
-      case NlxPackage.IT_WORD__WORD:
+      case Nlx2Package.IT_WORD__WORD:
         return word != null && !word.isEmpty();
     }
     return super.eIsSet(featureID);

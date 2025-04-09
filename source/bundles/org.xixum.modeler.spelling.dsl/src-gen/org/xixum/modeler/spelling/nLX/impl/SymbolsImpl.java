@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.Symbols;
 
 /**
@@ -65,7 +65,7 @@ public class SymbolsImpl extends ElementsImpl implements Symbols
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.SYMBOLS;
+    return Nlx2Package.Literals.SYMBOLS;
   }
 
   /**
@@ -90,7 +90,7 @@ public class SymbolsImpl extends ElementsImpl implements Symbols
     String oldSymbol = symbol;
     symbol = newSymbol;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.SYMBOLS__SYMBOL, oldSymbol, symbol));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.SYMBOLS__SYMBOL, oldSymbol, symbol));
   }
 
   /**
@@ -103,7 +103,7 @@ public class SymbolsImpl extends ElementsImpl implements Symbols
   {
     switch (featureID)
     {
-      case NlxPackage.SYMBOLS__SYMBOL:
+      case Nlx2Package.SYMBOLS__SYMBOL:
         return getSymbol();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class SymbolsImpl extends ElementsImpl implements Symbols
   {
     switch (featureID)
     {
-      case NlxPackage.SYMBOLS__SYMBOL:
+      case Nlx2Package.SYMBOLS__SYMBOL:
         setSymbol((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class SymbolsImpl extends ElementsImpl implements Symbols
   {
     switch (featureID)
     {
-      case NlxPackage.SYMBOLS__SYMBOL:
+      case Nlx2Package.SYMBOLS__SYMBOL:
         setSymbol(SYMBOL_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class SymbolsImpl extends ElementsImpl implements Symbols
   {
     switch (featureID)
     {
-      case NlxPackage.SYMBOLS__SYMBOL:
+      case Nlx2Package.SYMBOLS__SYMBOL:
         return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
     }
     return super.eIsSet(featureID);

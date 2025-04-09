@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xixum.modeler.spelling.nlx.LineSubSentence;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class LineSubSentenceImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.LINE_SUB_SENTENCE;
+    return Nlx2Package.Literals.LINE_SUB_SENTENCE;
   }
 
 } //LineSubSentenceImpl

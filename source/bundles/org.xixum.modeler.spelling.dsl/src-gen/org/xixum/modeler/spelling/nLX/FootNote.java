@@ -17,7 +17,7 @@ package org.xixum.modeler.spelling.nlx;
  *   <li>{@link org.xixum.modeler.spelling.nlx.FootNote#getSentenceChain <em>Sentence Chain</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getFootNote()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getFootNote()
  * @model
  * @generated
  */
@@ -29,7 +29,7 @@ public interface FootNote extends BlockElement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Number</em>' attribute.
    * @see #setNumber(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getFootNote_Number()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getFootNote_Number()
    * @model
    * @generated
    */
@@ -51,7 +51,7 @@ public interface FootNote extends BlockElement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Sentence Chain</em>' containment reference.
    * @see #setSentenceChain(SentenceChain)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getFootNote_SentenceChain()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getFootNote_SentenceChain()
    * @model containment="true"
    * @generated
    */

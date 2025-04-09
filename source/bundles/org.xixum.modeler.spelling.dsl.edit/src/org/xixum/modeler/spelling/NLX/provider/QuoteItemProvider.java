@@ -15,7 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.Quote;
 
 /**
@@ -64,7 +64,7 @@ public class QuoteItemProvider extends NoNElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Quote_quote_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Quote_quote_feature", "_UI_Quote_type"),
-				 NlxPackage.Literals.QUOTE__QUOTE,
+				 Nlx2Package.Literals.QUOTE__QUOTE,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class QuoteItemProvider extends NoNElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Quote.class)) {
-			case NlxPackage.QUOTE__QUOTE:
+			case Nlx2Package.QUOTE__QUOTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

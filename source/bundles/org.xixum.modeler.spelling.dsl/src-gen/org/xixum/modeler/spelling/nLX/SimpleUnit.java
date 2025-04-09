@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xixum.modeler.spelling.nlx.SimpleUnit#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSimpleUnit()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSimpleUnit()
  * @model
  * @generated
  */
@@ -29,7 +29,7 @@ public interface SimpleUnit extends NoNElementX2
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSimpleUnit_Value()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSimpleUnit_Value()
    * @model unique="false"
    * @generated
    */

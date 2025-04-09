@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSentenceX()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSentenceX()
  * @model
  * @generated
  */

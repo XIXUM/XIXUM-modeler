@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xixum.modeler.spelling.nlx.ListSentence;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.SentenceChainX;
 
 /**
@@ -79,7 +79,7 @@ public class ListSentenceImpl extends BlockElementImpl implements ListSentence
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.LIST_SENTENCE;
+    return Nlx2Package.Literals.LIST_SENTENCE;
   }
 
   /**
@@ -104,7 +104,7 @@ public class ListSentenceImpl extends BlockElementImpl implements ListSentence
     String oldListpoint = listpoint;
     listpoint = newListpoint;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.LIST_SENTENCE__LISTPOINT, oldListpoint, listpoint));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.LIST_SENTENCE__LISTPOINT, oldListpoint, listpoint));
   }
 
   /**
@@ -129,7 +129,7 @@ public class ListSentenceImpl extends BlockElementImpl implements ListSentence
     sentenceChain = newSentenceChain;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NlxPackage.LIST_SENTENCE__SENTENCE_CHAIN, oldSentenceChain, newSentenceChain);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Nlx2Package.LIST_SENTENCE__SENTENCE_CHAIN, oldSentenceChain, newSentenceChain);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -147,14 +147,14 @@ public class ListSentenceImpl extends BlockElementImpl implements ListSentence
     {
       NotificationChain msgs = null;
       if (sentenceChain != null)
-        msgs = ((InternalEObject)sentenceChain).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NlxPackage.LIST_SENTENCE__SENTENCE_CHAIN, null, msgs);
+        msgs = ((InternalEObject)sentenceChain).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Nlx2Package.LIST_SENTENCE__SENTENCE_CHAIN, null, msgs);
       if (newSentenceChain != null)
-        msgs = ((InternalEObject)newSentenceChain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NlxPackage.LIST_SENTENCE__SENTENCE_CHAIN, null, msgs);
+        msgs = ((InternalEObject)newSentenceChain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Nlx2Package.LIST_SENTENCE__SENTENCE_CHAIN, null, msgs);
       msgs = basicSetSentenceChain(newSentenceChain, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.LIST_SENTENCE__SENTENCE_CHAIN, newSentenceChain, newSentenceChain));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.LIST_SENTENCE__SENTENCE_CHAIN, newSentenceChain, newSentenceChain));
   }
 
   /**
@@ -167,7 +167,7 @@ public class ListSentenceImpl extends BlockElementImpl implements ListSentence
   {
     switch (featureID)
     {
-      case NlxPackage.LIST_SENTENCE__SENTENCE_CHAIN:
+      case Nlx2Package.LIST_SENTENCE__SENTENCE_CHAIN:
         return basicSetSentenceChain(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -183,9 +183,9 @@ public class ListSentenceImpl extends BlockElementImpl implements ListSentence
   {
     switch (featureID)
     {
-      case NlxPackage.LIST_SENTENCE__LISTPOINT:
+      case Nlx2Package.LIST_SENTENCE__LISTPOINT:
         return getListpoint();
-      case NlxPackage.LIST_SENTENCE__SENTENCE_CHAIN:
+      case Nlx2Package.LIST_SENTENCE__SENTENCE_CHAIN:
         return getSentenceChain();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -201,10 +201,10 @@ public class ListSentenceImpl extends BlockElementImpl implements ListSentence
   {
     switch (featureID)
     {
-      case NlxPackage.LIST_SENTENCE__LISTPOINT:
+      case Nlx2Package.LIST_SENTENCE__LISTPOINT:
         setListpoint((String)newValue);
         return;
-      case NlxPackage.LIST_SENTENCE__SENTENCE_CHAIN:
+      case Nlx2Package.LIST_SENTENCE__SENTENCE_CHAIN:
         setSentenceChain((SentenceChainX)newValue);
         return;
     }
@@ -221,10 +221,10 @@ public class ListSentenceImpl extends BlockElementImpl implements ListSentence
   {
     switch (featureID)
     {
-      case NlxPackage.LIST_SENTENCE__LISTPOINT:
+      case Nlx2Package.LIST_SENTENCE__LISTPOINT:
         setListpoint(LISTPOINT_EDEFAULT);
         return;
-      case NlxPackage.LIST_SENTENCE__SENTENCE_CHAIN:
+      case Nlx2Package.LIST_SENTENCE__SENTENCE_CHAIN:
         setSentenceChain((SentenceChainX)null);
         return;
     }
@@ -241,9 +241,9 @@ public class ListSentenceImpl extends BlockElementImpl implements ListSentence
   {
     switch (featureID)
     {
-      case NlxPackage.LIST_SENTENCE__LISTPOINT:
+      case Nlx2Package.LIST_SENTENCE__LISTPOINT:
         return LISTPOINT_EDEFAULT == null ? listpoint != null : !LISTPOINT_EDEFAULT.equals(listpoint);
-      case NlxPackage.LIST_SENTENCE__SENTENCE_CHAIN:
+      case Nlx2Package.LIST_SENTENCE__SENTENCE_CHAIN:
         return sentenceChain != null;
     }
     return super.eIsSet(featureID);

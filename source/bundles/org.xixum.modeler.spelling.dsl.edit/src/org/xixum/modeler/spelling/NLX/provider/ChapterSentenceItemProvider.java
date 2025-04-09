@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.ChapterSentence;
 import org.xixum.modeler.spelling.nlx.NlxFactory;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.ChapterSentence} object.
@@ -63,8 +63,8 @@ public class ChapterSentenceItemProvider extends SentenceTypeItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER);
-			childrenFeatures.add(NlxPackage.Literals.CHAPTER_SENTENCE__HEADLINE);
+			childrenFeatures.add(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER);
+			childrenFeatures.add(Nlx2Package.Literals.CHAPTER_SENTENCE__HEADLINE);
 		}
 		return childrenFeatures;
 	}
@@ -120,8 +120,8 @@ public class ChapterSentenceItemProvider extends SentenceTypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ChapterSentence.class)) {
-			case NlxPackage.CHAPTER_SENTENCE__CHAPTER_NUMBER:
-			case NlxPackage.CHAPTER_SENTENCE__HEADLINE:
+			case Nlx2Package.CHAPTER_SENTENCE__CHAPTER_NUMBER:
+			case Nlx2Package.CHAPTER_SENTENCE__HEADLINE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -141,282 +141,282 @@ public class ChapterSentenceItemProvider extends SentenceTypeItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createModel()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createSentenceType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createParagraphBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createBlockElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createFootNote()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createTableBorder()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createTableLine()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createTableRow()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createTableColumnSeparator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createTable()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createLineSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createSentenceChainX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createLineSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createFreeSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createSentenceX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createListSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createChapterSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createTrailSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createFreeSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createLineSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createNoNElementX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createNoNElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createBrackets()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createAllElements()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createElements()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createNoNElementX2()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createWord()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createWordShort()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createItWord()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createQuote()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createSimpleUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createChapter_Unit_HI()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createChapter_Unit_Low()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createHashNumber()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createChapterAlpha()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createSymbolsX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createSymbols()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createShortcutGen()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createShortcutLib()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createShortCut()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createIgnoredText()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createUrlAdress()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createEmailAT()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createMailAdress()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createArray()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createNew_Line()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createExtBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER,
 				 NlxFactory.eINSTANCE.createEString()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__HEADLINE,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__HEADLINE,
 				 NlxFactory.eINSTANCE.createLineSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.CHAPTER_SENTENCE__HEADLINE,
+				(Nlx2Package.Literals.CHAPTER_SENTENCE__HEADLINE,
 				 NlxFactory.eINSTANCE.createSentenceChain()));
 	}
 
@@ -432,8 +432,8 @@ public class ChapterSentenceItemProvider extends SentenceTypeItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == NlxPackage.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER ||
-			childFeature == NlxPackage.Literals.CHAPTER_SENTENCE__HEADLINE;
+			childFeature == Nlx2Package.Literals.CHAPTER_SENTENCE__CHAPTER_NUMBER ||
+			childFeature == Nlx2Package.Literals.CHAPTER_SENTENCE__HEADLINE;
 
 		if (qualify) {
 			return getString

@@ -19,7 +19,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.ListSentence;
 import org.xixum.modeler.spelling.nlx.NlxFactory;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.ListSentence} object.
@@ -67,7 +67,7 @@ public class ListSentenceItemProvider extends BlockElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_ListSentence_listpoint_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ListSentence_listpoint_feature", "_UI_ListSentence_type"),
-				 NlxPackage.Literals.LIST_SENTENCE__LISTPOINT,
+				 Nlx2Package.Literals.LIST_SENTENCE__LISTPOINT,
 				 true,
 				 false,
 				 false,
@@ -88,7 +88,7 @@ public class ListSentenceItemProvider extends BlockElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NlxPackage.Literals.LIST_SENTENCE__SENTENCE_CHAIN);
+			childrenFeatures.add(Nlx2Package.Literals.LIST_SENTENCE__SENTENCE_CHAIN);
 		}
 		return childrenFeatures;
 	}
@@ -144,10 +144,10 @@ public class ListSentenceItemProvider extends BlockElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ListSentence.class)) {
-			case NlxPackage.LIST_SENTENCE__LISTPOINT:
+			case Nlx2Package.LIST_SENTENCE__LISTPOINT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case NlxPackage.LIST_SENTENCE__SENTENCE_CHAIN:
+			case Nlx2Package.LIST_SENTENCE__SENTENCE_CHAIN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -167,12 +167,12 @@ public class ListSentenceItemProvider extends BlockElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.LIST_SENTENCE__SENTENCE_CHAIN,
+				(Nlx2Package.Literals.LIST_SENTENCE__SENTENCE_CHAIN,
 				 NlxFactory.eINSTANCE.createSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.LIST_SENTENCE__SENTENCE_CHAIN,
+				(Nlx2Package.Literals.LIST_SENTENCE__SENTENCE_CHAIN,
 				 NlxFactory.eINSTANCE.createSentenceChainX()));
 	}
 

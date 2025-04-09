@@ -10,7 +10,7 @@ package org.xixum.modeler.spelling.nlx;
  * <!-- end-user-doc -->
  *
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getExtBracketSentence()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getExtBracketSentence()
  * @model
  * @generated
  */

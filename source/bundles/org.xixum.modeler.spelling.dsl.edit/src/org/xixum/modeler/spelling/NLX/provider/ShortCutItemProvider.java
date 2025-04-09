@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.NlxFactory;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.ShortCut;
 
 /**
@@ -63,7 +63,7 @@ public class ShortCutItemProvider extends NoNElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NlxPackage.Literals.SHORT_CUT__SHORTCUT);
+			childrenFeatures.add(Nlx2Package.Literals.SHORT_CUT__SHORTCUT);
 		}
 		return childrenFeatures;
 	}
@@ -119,7 +119,7 @@ public class ShortCutItemProvider extends NoNElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ShortCut.class)) {
-			case NlxPackage.SHORT_CUT__SHORTCUT:
+			case Nlx2Package.SHORT_CUT__SHORTCUT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -139,272 +139,272 @@ public class ShortCutItemProvider extends NoNElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createModel()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createSentenceType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createParagraphBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createBlockElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createFootNote()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createTableBorder()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createTableLine()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createTableRow()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createTableColumnSeparator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createTable()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createLineSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createSentenceChainX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createLineSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createFreeSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createSentenceX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createListSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createChapterSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createTrailSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createFreeSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createLineSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createNoNElementX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createNoNElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createBrackets()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createAllElements()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createElements()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createNoNElementX2()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createWord()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createWordShort()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createItWord()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createQuote()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createSimpleUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createChapter_Unit_HI()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createChapter_Unit_Low()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createHashNumber()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createChapterAlpha()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createSymbolsX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createSymbols()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createShortcutGen()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createShortcutLib()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createShortCut()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createIgnoredText()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createUrlAdress()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createEmailAT()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createMailAdress()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createArray()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createNew_Line()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createExtBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.SHORT_CUT__SHORTCUT,
+				(Nlx2Package.Literals.SHORT_CUT__SHORTCUT,
 				 NlxFactory.eINSTANCE.createEString()));
 	}
 

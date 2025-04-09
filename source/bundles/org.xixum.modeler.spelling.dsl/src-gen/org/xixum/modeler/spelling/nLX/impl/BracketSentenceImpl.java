@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xixum.modeler.spelling.nlx.BracketSentence;
 import org.xixum.modeler.spelling.nlx.FreeSentence;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,7 +119,7 @@ public class BracketSentenceImpl extends BracketsImpl implements BracketSentence
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.BRACKET_SENTENCE;
+    return Nlx2Package.Literals.BRACKET_SENTENCE;
   }
 
   /**
@@ -144,7 +144,7 @@ public class BracketSentenceImpl extends BracketsImpl implements BracketSentence
     String oldOpen = open;
     open = newOpen;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.BRACKET_SENTENCE__OPEN, oldOpen, open));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.BRACKET_SENTENCE__OPEN, oldOpen, open));
   }
 
   /**
@@ -157,7 +157,7 @@ public class BracketSentenceImpl extends BracketsImpl implements BracketSentence
   {
     if (brackedSentences == null)
     {
-      brackedSentences = new EObjectContainmentEList<FreeSentence>(FreeSentence.class, this, NlxPackage.BRACKET_SENTENCE__BRACKED_SENTENCES);
+      brackedSentences = new EObjectContainmentEList<FreeSentence>(FreeSentence.class, this, Nlx2Package.BRACKET_SENTENCE__BRACKED_SENTENCES);
     }
     return brackedSentences;
   }
@@ -172,7 +172,7 @@ public class BracketSentenceImpl extends BracketsImpl implements BracketSentence
   {
     if (separator == null)
     {
-      separator = new EDataTypeEList<String>(String.class, this, NlxPackage.BRACKET_SENTENCE__SEPARATOR);
+      separator = new EDataTypeEList<String>(String.class, this, Nlx2Package.BRACKET_SENTENCE__SEPARATOR);
     }
     return separator;
   }
@@ -199,7 +199,7 @@ public class BracketSentenceImpl extends BracketsImpl implements BracketSentence
     String oldClose = close;
     close = newClose;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.BRACKET_SENTENCE__CLOSE, oldClose, close));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.BRACKET_SENTENCE__CLOSE, oldClose, close));
   }
 
   /**
@@ -212,7 +212,7 @@ public class BracketSentenceImpl extends BracketsImpl implements BracketSentence
   {
     switch (featureID)
     {
-      case NlxPackage.BRACKET_SENTENCE__BRACKED_SENTENCES:
+      case Nlx2Package.BRACKET_SENTENCE__BRACKED_SENTENCES:
         return ((InternalEList<?>)getBrackedSentences()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -228,13 +228,13 @@ public class BracketSentenceImpl extends BracketsImpl implements BracketSentence
   {
     switch (featureID)
     {
-      case NlxPackage.BRACKET_SENTENCE__OPEN:
+      case Nlx2Package.BRACKET_SENTENCE__OPEN:
         return getOpen();
-      case NlxPackage.BRACKET_SENTENCE__BRACKED_SENTENCES:
+      case Nlx2Package.BRACKET_SENTENCE__BRACKED_SENTENCES:
         return getBrackedSentences();
-      case NlxPackage.BRACKET_SENTENCE__SEPARATOR:
+      case Nlx2Package.BRACKET_SENTENCE__SEPARATOR:
         return getSeparator();
-      case NlxPackage.BRACKET_SENTENCE__CLOSE:
+      case Nlx2Package.BRACKET_SENTENCE__CLOSE:
         return getClose();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -251,18 +251,18 @@ public class BracketSentenceImpl extends BracketsImpl implements BracketSentence
   {
     switch (featureID)
     {
-      case NlxPackage.BRACKET_SENTENCE__OPEN:
+      case Nlx2Package.BRACKET_SENTENCE__OPEN:
         setOpen((String)newValue);
         return;
-      case NlxPackage.BRACKET_SENTENCE__BRACKED_SENTENCES:
+      case Nlx2Package.BRACKET_SENTENCE__BRACKED_SENTENCES:
         getBrackedSentences().clear();
         getBrackedSentences().addAll((Collection<? extends FreeSentence>)newValue);
         return;
-      case NlxPackage.BRACKET_SENTENCE__SEPARATOR:
+      case Nlx2Package.BRACKET_SENTENCE__SEPARATOR:
         getSeparator().clear();
         getSeparator().addAll((Collection<? extends String>)newValue);
         return;
-      case NlxPackage.BRACKET_SENTENCE__CLOSE:
+      case Nlx2Package.BRACKET_SENTENCE__CLOSE:
         setClose((String)newValue);
         return;
     }
@@ -279,16 +279,16 @@ public class BracketSentenceImpl extends BracketsImpl implements BracketSentence
   {
     switch (featureID)
     {
-      case NlxPackage.BRACKET_SENTENCE__OPEN:
+      case Nlx2Package.BRACKET_SENTENCE__OPEN:
         setOpen(OPEN_EDEFAULT);
         return;
-      case NlxPackage.BRACKET_SENTENCE__BRACKED_SENTENCES:
+      case Nlx2Package.BRACKET_SENTENCE__BRACKED_SENTENCES:
         getBrackedSentences().clear();
         return;
-      case NlxPackage.BRACKET_SENTENCE__SEPARATOR:
+      case Nlx2Package.BRACKET_SENTENCE__SEPARATOR:
         getSeparator().clear();
         return;
-      case NlxPackage.BRACKET_SENTENCE__CLOSE:
+      case Nlx2Package.BRACKET_SENTENCE__CLOSE:
         setClose(CLOSE_EDEFAULT);
         return;
     }
@@ -305,13 +305,13 @@ public class BracketSentenceImpl extends BracketsImpl implements BracketSentence
   {
     switch (featureID)
     {
-      case NlxPackage.BRACKET_SENTENCE__OPEN:
+      case Nlx2Package.BRACKET_SENTENCE__OPEN:
         return OPEN_EDEFAULT == null ? open != null : !OPEN_EDEFAULT.equals(open);
-      case NlxPackage.BRACKET_SENTENCE__BRACKED_SENTENCES:
+      case Nlx2Package.BRACKET_SENTENCE__BRACKED_SENTENCES:
         return brackedSentences != null && !brackedSentences.isEmpty();
-      case NlxPackage.BRACKET_SENTENCE__SEPARATOR:
+      case Nlx2Package.BRACKET_SENTENCE__SEPARATOR:
         return separator != null && !separator.isEmpty();
-      case NlxPackage.BRACKET_SENTENCE__CLOSE:
+      case Nlx2Package.BRACKET_SENTENCE__CLOSE:
         return CLOSE_EDEFAULT == null ? close != null : !CLOSE_EDEFAULT.equals(close);
     }
     return super.eIsSet(featureID);

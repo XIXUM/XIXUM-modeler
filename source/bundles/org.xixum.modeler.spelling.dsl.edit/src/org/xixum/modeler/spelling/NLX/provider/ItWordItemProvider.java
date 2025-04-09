@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.ItWord;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.ItWord} object.
@@ -64,7 +64,7 @@ public class ItWordItemProvider extends NoNElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_ItWord_word_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ItWord_word_feature", "_UI_ItWord_type"),
-				 NlxPackage.Literals.IT_WORD__WORD,
+				 Nlx2Package.Literals.IT_WORD__WORD,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class ItWordItemProvider extends NoNElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ItWord.class)) {
-			case NlxPackage.IT_WORD__WORD:
+			case Nlx2Package.IT_WORD__WORD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

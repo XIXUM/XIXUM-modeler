@@ -16,7 +16,7 @@ package org.xixum.modeler.spelling.nlx;
  *   <li>{@link org.xixum.modeler.spelling.nlx.Quote#getQuote <em>Quote</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getQuote()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getQuote()
  * @model
  * @generated
  */
@@ -28,7 +28,7 @@ public interface Quote extends NoNElement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Quote</em>' attribute.
    * @see #setQuote(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getQuote_Quote()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getQuote_Quote()
    * @model
    * @generated
    */

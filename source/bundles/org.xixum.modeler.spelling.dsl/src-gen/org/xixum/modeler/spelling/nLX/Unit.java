@@ -18,7 +18,7 @@ package org.xixum.modeler.spelling.nlx;
  *   <li>{@link org.xixum.modeler.spelling.nlx.Unit#getSign <em>Sign</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getUnit()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getUnit()
  * @model
  * @generated
  */
@@ -30,7 +30,7 @@ public interface Unit extends NoNElementX2, SimpleUnit, Chapter_Unit_HI, Chapter
    * <!-- end-user-doc -->
    * @return the value of the '<em>Signature</em>' attribute.
    * @see #setSignature(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getUnit_Signature()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getUnit_Signature()
    * @model
    * @generated
    */
@@ -52,7 +52,7 @@ public interface Unit extends NoNElementX2, SimpleUnit, Chapter_Unit_HI, Chapter
    * <!-- end-user-doc -->
    * @return the value of the '<em>Unit</em>' attribute.
    * @see #setUnit(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getUnit_Unit()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getUnit_Unit()
    * @model
    * @generated
    */
@@ -74,7 +74,7 @@ public interface Unit extends NoNElementX2, SimpleUnit, Chapter_Unit_HI, Chapter
    * <!-- end-user-doc -->
    * @return the value of the '<em>Sign</em>' attribute.
    * @see #setSign(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getUnit_Sign()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getUnit_Sign()
    * @model
    * @generated
    */

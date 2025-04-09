@@ -15,7 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.NoNElement;
 
 /**
@@ -64,7 +64,7 @@ public class NoNElementItemProvider extends NoNElementXItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Elements_nl_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Elements_nl_feature", "_UI_Elements_type"),
-				 NlxPackage.Literals.ELEMENTS__NL,
+				 Nlx2Package.Literals.ELEMENTS__NL,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class NoNElementItemProvider extends NoNElementXItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(NoNElement.class)) {
-			case NlxPackage.NO_NELEMENT__NL:
+			case Nlx2Package.NO_NELEMENT__NL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

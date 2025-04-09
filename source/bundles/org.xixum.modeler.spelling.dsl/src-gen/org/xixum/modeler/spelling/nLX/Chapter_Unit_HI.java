@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getChapter_Unit_HI()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getChapter_Unit_HI()
  * @model
  * @generated
  */

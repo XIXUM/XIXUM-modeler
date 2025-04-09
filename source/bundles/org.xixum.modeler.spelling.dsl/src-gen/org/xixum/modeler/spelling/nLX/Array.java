@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xixum.modeler.spelling.nlx.Array#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getArray()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getArray()
  * @model
  * @generated
  */
@@ -30,7 +30,7 @@ public interface Array extends NoNElement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getArray_Name()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getArray_Name()
    * @model containment="true"
    * @generated
    */
@@ -42,7 +42,7 @@ public interface Array extends NoNElement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameters</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getArray_Parameters()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getArray_Parameters()
    * @model containment="true"
    * @generated
    */

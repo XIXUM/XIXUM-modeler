@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.Formula#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getFormula()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getFormula()
  * @model
  * @generated
  */
@@ -32,7 +32,7 @@ public interface Formula extends NoNElement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getFormula_Name()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getFormula_Name()
    * @model containment="true"
    * @generated
    */
@@ -44,7 +44,7 @@ public interface Formula extends NoNElement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameters</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getFormula_Parameters()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getFormula_Parameters()
    * @model containment="true"
    * @generated
    */

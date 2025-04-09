@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.EmailAT;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.EmailAT} object.
@@ -79,7 +79,7 @@ public class EmailATItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EmailAT_email_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EmailAT_email_feature", "_UI_EmailAT_type"),
-				 NlxPackage.Literals.EMAIL_AT__EMAIL,
+				 Nlx2Package.Literals.EMAIL_AT__EMAIL,
 				 true,
 				 false,
 				 false,
@@ -123,7 +123,7 @@ public class EmailATItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EmailAT.class)) {
-			case NlxPackage.EMAIL_AT__EMAIL:
+			case Nlx2Package.EMAIL_AT__EMAIL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

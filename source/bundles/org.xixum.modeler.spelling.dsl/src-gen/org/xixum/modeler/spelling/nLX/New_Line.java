@@ -10,7 +10,7 @@ package org.xixum.modeler.spelling.nlx;
  * <!-- end-user-doc -->
  *
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getNew_Line()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getNew_Line()
  * @model
  * @generated
  */

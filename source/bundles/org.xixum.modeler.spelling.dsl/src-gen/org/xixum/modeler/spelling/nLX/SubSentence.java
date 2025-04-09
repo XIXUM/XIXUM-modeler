@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.SubSentence#getElements <em>Elements</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSubSentence()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSubSentence()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface SubSentence extends TrailSubSentence, FreeSubSentence, LineSubS
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSubSentence_Elements()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSubSentence_Elements()
    * @model containment="true"
    * @generated
    */

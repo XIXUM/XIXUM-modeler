@@ -25,7 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.Model;
 import org.xixum.modeler.spelling.nlx.NlxFactory;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.Model} object.
@@ -78,7 +78,7 @@ public class ModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NlxPackage.Literals.MODEL__SENTENCES);
+			childrenFeatures.add(Nlx2Package.Literals.MODEL__SENTENCES);
 		}
 		return childrenFeatures;
 	}
@@ -131,7 +131,7 @@ public class ModelItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Model.class)) {
-			case NlxPackage.MODEL__SENTENCES:
+			case Nlx2Package.MODEL__SENTENCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -151,22 +151,22 @@ public class ModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MODEL__SENTENCES,
+				(Nlx2Package.Literals.MODEL__SENTENCES,
 				 NlxFactory.eINSTANCE.createSentenceType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MODEL__SENTENCES,
+				(Nlx2Package.Literals.MODEL__SENTENCES,
 				 NlxFactory.eINSTANCE.createParagraphBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MODEL__SENTENCES,
+				(Nlx2Package.Literals.MODEL__SENTENCES,
 				 NlxFactory.eINSTANCE.createTable()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.MODEL__SENTENCES,
+				(Nlx2Package.Literals.MODEL__SENTENCES,
 				 NlxFactory.eINSTANCE.createChapterSentence()));
 	}
 

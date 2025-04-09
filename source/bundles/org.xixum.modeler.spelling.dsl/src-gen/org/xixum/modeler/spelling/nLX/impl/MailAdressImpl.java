@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xixum.modeler.spelling.nlx.MailAdress;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,7 +62,7 @@ public class MailAdressImpl extends NoNElementImpl implements MailAdress
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.MAIL_ADRESS;
+    return Nlx2Package.Literals.MAIL_ADRESS;
   }
 
   /**
@@ -75,7 +75,7 @@ public class MailAdressImpl extends NoNElementImpl implements MailAdress
   {
     if (email == null)
     {
-      email = new EObjectContainmentEList<EObject>(EObject.class, this, NlxPackage.MAIL_ADRESS__EMAIL);
+      email = new EObjectContainmentEList<EObject>(EObject.class, this, Nlx2Package.MAIL_ADRESS__EMAIL);
     }
     return email;
   }
@@ -90,7 +90,7 @@ public class MailAdressImpl extends NoNElementImpl implements MailAdress
   {
     switch (featureID)
     {
-      case NlxPackage.MAIL_ADRESS__EMAIL:
+      case Nlx2Package.MAIL_ADRESS__EMAIL:
         return ((InternalEList<?>)getEmail()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class MailAdressImpl extends NoNElementImpl implements MailAdress
   {
     switch (featureID)
     {
-      case NlxPackage.MAIL_ADRESS__EMAIL:
+      case Nlx2Package.MAIL_ADRESS__EMAIL:
         return getEmail();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class MailAdressImpl extends NoNElementImpl implements MailAdress
   {
     switch (featureID)
     {
-      case NlxPackage.MAIL_ADRESS__EMAIL:
+      case Nlx2Package.MAIL_ADRESS__EMAIL:
         getEmail().clear();
         getEmail().addAll((Collection<? extends EObject>)newValue);
         return;
@@ -141,7 +141,7 @@ public class MailAdressImpl extends NoNElementImpl implements MailAdress
   {
     switch (featureID)
     {
-      case NlxPackage.MAIL_ADRESS__EMAIL:
+      case Nlx2Package.MAIL_ADRESS__EMAIL:
         getEmail().clear();
         return;
     }
@@ -158,7 +158,7 @@ public class MailAdressImpl extends NoNElementImpl implements MailAdress
   {
     switch (featureID)
     {
-      case NlxPackage.MAIL_ADRESS__EMAIL:
+      case Nlx2Package.MAIL_ADRESS__EMAIL:
         return email != null && !email.isEmpty();
     }
     return super.eIsSet(featureID);

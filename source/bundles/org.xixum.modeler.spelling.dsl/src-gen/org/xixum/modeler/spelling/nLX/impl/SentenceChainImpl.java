@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.SentenceChain;
 
 /**
@@ -98,7 +98,7 @@ public class SentenceChainImpl extends BlockElementImpl implements SentenceChain
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.SENTENCE_CHAIN;
+    return Nlx2Package.Literals.SENTENCE_CHAIN;
   }
 
   /**
@@ -111,7 +111,7 @@ public class SentenceChainImpl extends BlockElementImpl implements SentenceChain
   {
     if (sentences == null)
     {
-      sentences = new EObjectContainmentEList<EObject>(EObject.class, this, NlxPackage.SENTENCE_CHAIN__SENTENCES);
+      sentences = new EObjectContainmentEList<EObject>(EObject.class, this, Nlx2Package.SENTENCE_CHAIN__SENTENCES);
     }
     return sentences;
   }
@@ -126,7 +126,7 @@ public class SentenceChainImpl extends BlockElementImpl implements SentenceChain
   {
     if (separators == null)
     {
-      separators = new EDataTypeEList<String>(String.class, this, NlxPackage.SENTENCE_CHAIN__SEPARATORS);
+      separators = new EDataTypeEList<String>(String.class, this, Nlx2Package.SENTENCE_CHAIN__SEPARATORS);
     }
     return separators;
   }
@@ -153,7 +153,7 @@ public class SentenceChainImpl extends BlockElementImpl implements SentenceChain
     String oldEndpoint = endpoint;
     endpoint = newEndpoint;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.SENTENCE_CHAIN__ENDPOINT, oldEndpoint, endpoint));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.SENTENCE_CHAIN__ENDPOINT, oldEndpoint, endpoint));
   }
 
   /**
@@ -166,7 +166,7 @@ public class SentenceChainImpl extends BlockElementImpl implements SentenceChain
   {
     switch (featureID)
     {
-      case NlxPackage.SENTENCE_CHAIN__SENTENCES:
+      case Nlx2Package.SENTENCE_CHAIN__SENTENCES:
         return ((InternalEList<?>)getSentences()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -182,11 +182,11 @@ public class SentenceChainImpl extends BlockElementImpl implements SentenceChain
   {
     switch (featureID)
     {
-      case NlxPackage.SENTENCE_CHAIN__SENTENCES:
+      case Nlx2Package.SENTENCE_CHAIN__SENTENCES:
         return getSentences();
-      case NlxPackage.SENTENCE_CHAIN__SEPARATORS:
+      case Nlx2Package.SENTENCE_CHAIN__SEPARATORS:
         return getSeparators();
-      case NlxPackage.SENTENCE_CHAIN__ENDPOINT:
+      case Nlx2Package.SENTENCE_CHAIN__ENDPOINT:
         return getEndpoint();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -203,15 +203,15 @@ public class SentenceChainImpl extends BlockElementImpl implements SentenceChain
   {
     switch (featureID)
     {
-      case NlxPackage.SENTENCE_CHAIN__SENTENCES:
+      case Nlx2Package.SENTENCE_CHAIN__SENTENCES:
         getSentences().clear();
         getSentences().addAll((Collection<? extends EObject>)newValue);
         return;
-      case NlxPackage.SENTENCE_CHAIN__SEPARATORS:
+      case Nlx2Package.SENTENCE_CHAIN__SEPARATORS:
         getSeparators().clear();
         getSeparators().addAll((Collection<? extends String>)newValue);
         return;
-      case NlxPackage.SENTENCE_CHAIN__ENDPOINT:
+      case Nlx2Package.SENTENCE_CHAIN__ENDPOINT:
         setEndpoint((String)newValue);
         return;
     }
@@ -228,13 +228,13 @@ public class SentenceChainImpl extends BlockElementImpl implements SentenceChain
   {
     switch (featureID)
     {
-      case NlxPackage.SENTENCE_CHAIN__SENTENCES:
+      case Nlx2Package.SENTENCE_CHAIN__SENTENCES:
         getSentences().clear();
         return;
-      case NlxPackage.SENTENCE_CHAIN__SEPARATORS:
+      case Nlx2Package.SENTENCE_CHAIN__SEPARATORS:
         getSeparators().clear();
         return;
-      case NlxPackage.SENTENCE_CHAIN__ENDPOINT:
+      case Nlx2Package.SENTENCE_CHAIN__ENDPOINT:
         setEndpoint(ENDPOINT_EDEFAULT);
         return;
     }
@@ -251,11 +251,11 @@ public class SentenceChainImpl extends BlockElementImpl implements SentenceChain
   {
     switch (featureID)
     {
-      case NlxPackage.SENTENCE_CHAIN__SENTENCES:
+      case Nlx2Package.SENTENCE_CHAIN__SENTENCES:
         return sentences != null && !sentences.isEmpty();
-      case NlxPackage.SENTENCE_CHAIN__SEPARATORS:
+      case Nlx2Package.SENTENCE_CHAIN__SEPARATORS:
         return separators != null && !separators.isEmpty();
-      case NlxPackage.SENTENCE_CHAIN__ENDPOINT:
+      case Nlx2Package.SENTENCE_CHAIN__ENDPOINT:
         return ENDPOINT_EDEFAULT == null ? endpoint != null : !ENDPOINT_EDEFAULT.equals(endpoint);
     }
     return super.eIsSet(featureID);

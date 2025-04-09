@@ -16,7 +16,7 @@ package org.xixum.modeler.spelling.nlx;
  *   <li>{@link org.xixum.modeler.spelling.nlx.Symbols#getSymbol <em>Symbol</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSymbols()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSymbols()
  * @model
  * @generated
  */
@@ -28,7 +28,7 @@ public interface Symbols extends Elements, SymbolsX
    * <!-- end-user-doc -->
    * @return the value of the '<em>Symbol</em>' attribute.
    * @see #setSymbol(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSymbols_Symbol()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSymbols_Symbol()
    * @model
    * @generated
    */

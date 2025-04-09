@@ -15,7 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.Symbols;
 
 /**
@@ -64,7 +64,7 @@ public class SymbolsItemProvider extends ElementsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Symbols_symbol_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Symbols_symbol_feature", "_UI_Symbols_type"),
-				 NlxPackage.Literals.SYMBOLS__SYMBOL,
+				 Nlx2Package.Literals.SYMBOLS__SYMBOL,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class SymbolsItemProvider extends ElementsItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Symbols.class)) {
-			case NlxPackage.SYMBOLS__SYMBOL:
+			case Nlx2Package.SYMBOLS__SYMBOL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

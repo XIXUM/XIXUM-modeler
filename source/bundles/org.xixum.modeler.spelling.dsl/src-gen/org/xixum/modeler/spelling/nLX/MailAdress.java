@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.MailAdress#getEmail <em>Email</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getMailAdress()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getMailAdress()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface MailAdress extends NoNElement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Email</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getMailAdress_Email()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getMailAdress_Email()
    * @model containment="true"
    * @generated
    */

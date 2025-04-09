@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.EmailAT#getEmail <em>Email</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getEmailAT()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getEmailAT()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface EmailAT extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Email</em>' attribute list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getEmailAT_Email()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getEmailAT_Email()
    * @model unique="false"
    * @generated
    */

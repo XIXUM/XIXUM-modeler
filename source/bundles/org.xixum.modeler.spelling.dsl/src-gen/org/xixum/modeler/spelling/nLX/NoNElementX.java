@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getNoNElementX()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getNoNElementX()
  * @model
  * @generated
  */

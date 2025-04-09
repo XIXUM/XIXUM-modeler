@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xixum.modeler.spelling.nlx.EString;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,7 +82,7 @@ public class EStringImpl extends ShortcutGenImpl implements EString
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.ESTRING;
+    return Nlx2Package.Literals.ESTRING;
   }
 
   /**
@@ -95,7 +95,7 @@ public class EStringImpl extends ShortcutGenImpl implements EString
   {
     if (word == null)
     {
-      word = new EDataTypeEList<String>(String.class, this, NlxPackage.ESTRING__WORD);
+      word = new EDataTypeEList<String>(String.class, this, Nlx2Package.ESTRING__WORD);
     }
     return word;
   }
@@ -122,7 +122,7 @@ public class EStringImpl extends ShortcutGenImpl implements EString
     String oldShortcut = shortcut;
     shortcut = newShortcut;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, NlxPackage.ESTRING__SHORTCUT, oldShortcut, shortcut));
+      eNotify(new ENotificationImpl(this, Notification.SET, Nlx2Package.ESTRING__SHORTCUT, oldShortcut, shortcut));
   }
 
   /**
@@ -135,9 +135,9 @@ public class EStringImpl extends ShortcutGenImpl implements EString
   {
     switch (featureID)
     {
-      case NlxPackage.ESTRING__WORD:
+      case Nlx2Package.ESTRING__WORD:
         return getWord();
-      case NlxPackage.ESTRING__SHORTCUT:
+      case Nlx2Package.ESTRING__SHORTCUT:
         return getShortcut();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -154,11 +154,11 @@ public class EStringImpl extends ShortcutGenImpl implements EString
   {
     switch (featureID)
     {
-      case NlxPackage.ESTRING__WORD:
+      case Nlx2Package.ESTRING__WORD:
         getWord().clear();
         getWord().addAll((Collection<? extends String>)newValue);
         return;
-      case NlxPackage.ESTRING__SHORTCUT:
+      case Nlx2Package.ESTRING__SHORTCUT:
         setShortcut((String)newValue);
         return;
     }
@@ -175,10 +175,10 @@ public class EStringImpl extends ShortcutGenImpl implements EString
   {
     switch (featureID)
     {
-      case NlxPackage.ESTRING__WORD:
+      case Nlx2Package.ESTRING__WORD:
         getWord().clear();
         return;
-      case NlxPackage.ESTRING__SHORTCUT:
+      case Nlx2Package.ESTRING__SHORTCUT:
         setShortcut(SHORTCUT_EDEFAULT);
         return;
     }
@@ -195,9 +195,9 @@ public class EStringImpl extends ShortcutGenImpl implements EString
   {
     switch (featureID)
     {
-      case NlxPackage.ESTRING__WORD:
+      case Nlx2Package.ESTRING__WORD:
         return word != null && !word.isEmpty();
-      case NlxPackage.ESTRING__SHORTCUT:
+      case Nlx2Package.ESTRING__SHORTCUT:
         return SHORTCUT_EDEFAULT == null ? shortcut != null : !SHORTCUT_EDEFAULT.equals(shortcut);
     }
     return super.eIsSet(featureID);

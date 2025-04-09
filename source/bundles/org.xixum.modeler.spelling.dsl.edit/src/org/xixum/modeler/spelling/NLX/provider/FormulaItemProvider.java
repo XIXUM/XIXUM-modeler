@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.Formula;
 import org.xixum.modeler.spelling.nlx.NlxFactory;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.Formula} object.
@@ -63,8 +63,8 @@ public class FormulaItemProvider extends NoNElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NlxPackage.Literals.FORMULA__NAME);
-			childrenFeatures.add(NlxPackage.Literals.FORMULA__PARAMETERS);
+			childrenFeatures.add(Nlx2Package.Literals.FORMULA__NAME);
+			childrenFeatures.add(Nlx2Package.Literals.FORMULA__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -120,8 +120,8 @@ public class FormulaItemProvider extends NoNElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Formula.class)) {
-			case NlxPackage.FORMULA__NAME:
-			case NlxPackage.FORMULA__PARAMETERS:
+			case Nlx2Package.FORMULA__NAME:
+			case Nlx2Package.FORMULA__PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -141,282 +141,282 @@ public class FormulaItemProvider extends NoNElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createModel()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createSentenceType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createParagraphBlock()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createBlockElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createFootNote()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createTableBorder()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createTableLine()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createTableRow()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createTableColumnSeparator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createTable()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createLineSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createSentenceChainX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createLineSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createFreeSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createSentenceX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createListSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createChapterSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createTrailSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createFreeSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createLineSubSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createNoNElementX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createNoNElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createBrackets()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createAllElements()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createElements()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createNoNElementX2()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createWord()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createWordShort()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createItWord()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createQuote()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createSimpleUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createChapter_Unit_HI()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createChapter_Unit_Low()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createHashNumber()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createChapterAlpha()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createSymbolsX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createSymbols()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createShortcutGen()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createShortcutLib()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createShortCut()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createIgnoredText()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createUrlAdress()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createEmailAT()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createMailAdress()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createArray()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createNew_Line()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createExtBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__NAME,
+				(Nlx2Package.Literals.FORMULA__NAME,
 				 NlxFactory.eINSTANCE.createEString()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__PARAMETERS,
+				(Nlx2Package.Literals.FORMULA__PARAMETERS,
 				 NlxFactory.eINSTANCE.createBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FORMULA__PARAMETERS,
+				(Nlx2Package.Literals.FORMULA__PARAMETERS,
 				 NlxFactory.eINSTANCE.createExtBracketSentence()));
 	}
 
@@ -432,8 +432,8 @@ public class FormulaItemProvider extends NoNElementItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == NlxPackage.Literals.FORMULA__NAME ||
-			childFeature == NlxPackage.Literals.FORMULA__PARAMETERS;
+			childFeature == Nlx2Package.Literals.FORMULA__NAME ||
+			childFeature == Nlx2Package.Literals.FORMULA__PARAMETERS;
 
 		if (qualify) {
 			return getString

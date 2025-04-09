@@ -15,7 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.TableLine;
 
 /**
@@ -64,7 +64,7 @@ public class TableLineItemProvider extends TableBorderItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_TableLine_content_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TableLine_content_feature", "_UI_TableLine_type"),
-				 NlxPackage.Literals.TABLE_LINE__CONTENT,
+				 Nlx2Package.Literals.TABLE_LINE__CONTENT,
 				 true,
 				 false,
 				 false,
@@ -111,7 +111,7 @@ public class TableLineItemProvider extends TableBorderItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TableLine.class)) {
-			case NlxPackage.TABLE_LINE__CONTENT:
+			case Nlx2Package.TABLE_LINE__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

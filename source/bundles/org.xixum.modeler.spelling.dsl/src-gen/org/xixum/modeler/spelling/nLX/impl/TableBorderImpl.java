@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.TableBorder;
 
 /**
@@ -37,7 +37,7 @@ public class TableBorderImpl extends MinimalEObjectImpl.Container implements Tab
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.TABLE_BORDER;
+    return Nlx2Package.Literals.TABLE_BORDER;
   }
 
 } //TableBorderImpl

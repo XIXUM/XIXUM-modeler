@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xixum.modeler.spelling.nlx.Chapter_Unit_Low;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class Chapter_Unit_LowImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return NlxPackage.Literals.CHAPTER_UNIT_LOW;
+    return Nlx2Package.Literals.CHAPTER_UNIT_LOW;
   }
 
 } //Chapter_Unit_LowImpl

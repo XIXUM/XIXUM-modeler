@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xixum.modeler.spelling.nlx.EString#getShortcut <em>Shortcut</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getEString()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getEString()
  * @model
  * @generated
  */
@@ -30,7 +30,7 @@ public interface EString extends ShortcutGen, ShortcutLib
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Word</em>' attribute list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getEString_Word()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getEString_Word()
    * @model unique="false"
    * @generated
    */
@@ -42,7 +42,7 @@ public interface EString extends ShortcutGen, ShortcutLib
    * <!-- end-user-doc -->
    * @return the value of the '<em>Shortcut</em>' attribute.
    * @see #setShortcut(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getEString_Shortcut()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getEString_Shortcut()
    * @model
    * @generated
    */

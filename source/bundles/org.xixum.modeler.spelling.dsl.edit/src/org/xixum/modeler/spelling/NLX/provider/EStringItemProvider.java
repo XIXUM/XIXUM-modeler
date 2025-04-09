@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.EString;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.EString} object.
@@ -65,7 +65,7 @@ public class EStringItemProvider extends ShortcutGenItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_EString_word_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EString_word_feature", "_UI_EString_type"),
-				 NlxPackage.Literals.ESTRING__WORD,
+				 Nlx2Package.Literals.ESTRING__WORD,
 				 true,
 				 false,
 				 false,
@@ -87,7 +87,7 @@ public class EStringItemProvider extends ShortcutGenItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_EString_shortcut_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EString_shortcut_feature", "_UI_EString_type"),
-				 NlxPackage.Literals.ESTRING__SHORTCUT,
+				 Nlx2Package.Literals.ESTRING__SHORTCUT,
 				 true,
 				 false,
 				 false,
@@ -134,8 +134,8 @@ public class EStringItemProvider extends ShortcutGenItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EString.class)) {
-			case NlxPackage.ESTRING__WORD:
-			case NlxPackage.ESTRING__SHORTCUT:
+			case Nlx2Package.ESTRING__WORD:
+			case Nlx2Package.ESTRING__SHORTCUT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

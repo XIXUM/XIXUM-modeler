@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xixum.modeler.spelling.nlx.ParagraphBlock#getBlock <em>Block</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getParagraphBlock()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getParagraphBlock()
  * @model
  * @generated
  */
@@ -29,7 +29,7 @@ public interface ParagraphBlock extends SentenceType
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Block</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getParagraphBlock_Block()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getParagraphBlock_Block()
    * @model containment="true"
    * @generated
    */

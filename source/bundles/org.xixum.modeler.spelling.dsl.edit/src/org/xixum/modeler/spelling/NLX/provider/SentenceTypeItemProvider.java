@@ -23,7 +23,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.SentenceType;
 
 /**
@@ -79,7 +79,7 @@ public class SentenceTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SentenceType_pEnd_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SentenceType_pEnd_feature", "_UI_SentenceType_type"),
-				 NlxPackage.Literals.SENTENCE_TYPE__PEND,
+				 Nlx2Package.Literals.SENTENCE_TYPE__PEND,
 				 true,
 				 false,
 				 false,
@@ -126,7 +126,7 @@ public class SentenceTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SentenceType.class)) {
-			case NlxPackage.SENTENCE_TYPE__PEND:
+			case Nlx2Package.SENTENCE_TYPE__PEND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

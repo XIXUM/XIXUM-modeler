@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.NlxFactory;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 import org.xixum.modeler.spelling.nlx.ParagraphBlock;
 
 /**
@@ -63,7 +63,7 @@ public class ParagraphBlockItemProvider extends SentenceTypeItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NlxPackage.Literals.PARAGRAPH_BLOCK__BLOCK);
+			childrenFeatures.add(Nlx2Package.Literals.PARAGRAPH_BLOCK__BLOCK);
 		}
 		return childrenFeatures;
 	}
@@ -119,7 +119,7 @@ public class ParagraphBlockItemProvider extends SentenceTypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ParagraphBlock.class)) {
-			case NlxPackage.PARAGRAPH_BLOCK__BLOCK:
+			case Nlx2Package.PARAGRAPH_BLOCK__BLOCK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -139,27 +139,27 @@ public class ParagraphBlockItemProvider extends SentenceTypeItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.PARAGRAPH_BLOCK__BLOCK,
+				(Nlx2Package.Literals.PARAGRAPH_BLOCK__BLOCK,
 				 NlxFactory.eINSTANCE.createBlockElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.PARAGRAPH_BLOCK__BLOCK,
+				(Nlx2Package.Literals.PARAGRAPH_BLOCK__BLOCK,
 				 NlxFactory.eINSTANCE.createFootNote()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.PARAGRAPH_BLOCK__BLOCK,
+				(Nlx2Package.Literals.PARAGRAPH_BLOCK__BLOCK,
 				 NlxFactory.eINSTANCE.createSentenceChain()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.PARAGRAPH_BLOCK__BLOCK,
+				(Nlx2Package.Literals.PARAGRAPH_BLOCK__BLOCK,
 				 NlxFactory.eINSTANCE.createListSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.PARAGRAPH_BLOCK__BLOCK,
+				(Nlx2Package.Literals.PARAGRAPH_BLOCK__BLOCK,
 				 NlxFactory.eINSTANCE.createIgnoredText()));
 	}
 

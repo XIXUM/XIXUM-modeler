@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xixum.modeler.spelling.nlx.ItWord#getWord <em>Word</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getItWord()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getItWord()
  * @model
  * @generated
  */
@@ -29,7 +29,7 @@ public interface ItWord extends NoNElement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Word</em>' attribute list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getItWord_Word()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getItWord_Word()
    * @model unique="false"
    * @generated
    */

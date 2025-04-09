@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.Array;
 import org.xixum.modeler.spelling.nlx.NlxFactory;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.Array} object.
@@ -63,8 +63,8 @@ public class ArrayItemProvider extends NoNElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NlxPackage.Literals.ARRAY__NAME);
-			childrenFeatures.add(NlxPackage.Literals.ARRAY__PARAMETERS);
+			childrenFeatures.add(Nlx2Package.Literals.ARRAY__NAME);
+			childrenFeatures.add(Nlx2Package.Literals.ARRAY__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -120,8 +120,8 @@ public class ArrayItemProvider extends NoNElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Array.class)) {
-			case NlxPackage.ARRAY__NAME:
-			case NlxPackage.ARRAY__PARAMETERS:
+			case Nlx2Package.ARRAY__NAME:
+			case Nlx2Package.ARRAY__PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -141,97 +141,97 @@ public class ArrayItemProvider extends NoNElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createNoNElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createBrackets()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createWord()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createItWord()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createQuote()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createUnit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createHashNumber()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createSymbolsX()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createSymbols()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createShortCut()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createIgnoredText()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createUrlAdress()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createMailAdress()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createArray()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__NAME,
+				(Nlx2Package.Literals.ARRAY__NAME,
 				 NlxFactory.eINSTANCE.createExtBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__PARAMETERS,
+				(Nlx2Package.Literals.ARRAY__PARAMETERS,
 				 NlxFactory.eINSTANCE.createBracketSentence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.ARRAY__PARAMETERS,
+				(Nlx2Package.Literals.ARRAY__PARAMETERS,
 				 NlxFactory.eINSTANCE.createExtBracketSentence()));
 	}
 
@@ -247,8 +247,8 @@ public class ArrayItemProvider extends NoNElementItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == NlxPackage.Literals.ARRAY__NAME ||
-			childFeature == NlxPackage.Literals.ARRAY__PARAMETERS;
+			childFeature == Nlx2Package.Literals.ARRAY__NAME ||
+			childFeature == Nlx2Package.Literals.ARRAY__PARAMETERS;
 
 		if (qualify) {
 			return getString

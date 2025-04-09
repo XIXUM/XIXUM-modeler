@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.ChapterSentence#getHeadline <em>Headline</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getChapterSentence()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getChapterSentence()
  * @model
  * @generated
  */
@@ -30,7 +30,7 @@ public interface ChapterSentence extends SentenceType
    * <!-- end-user-doc -->
    * @return the value of the '<em>Chapter Number</em>' containment reference.
    * @see #setChapterNumber(EObject)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getChapterSentence_ChapterNumber()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getChapterSentence_ChapterNumber()
    * @model containment="true"
    * @generated
    */
@@ -52,7 +52,7 @@ public interface ChapterSentence extends SentenceType
    * <!-- end-user-doc -->
    * @return the value of the '<em>Headline</em>' containment reference.
    * @see #setHeadline(LineSentenceChain)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getChapterSentence_Headline()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getChapterSentence_Headline()
    * @model containment="true"
    * @generated
    */

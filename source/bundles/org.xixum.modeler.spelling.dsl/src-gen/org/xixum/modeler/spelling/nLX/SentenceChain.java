@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xixum.modeler.spelling.nlx.SentenceChain#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSentenceChain()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSentenceChain()
  * @model
  * @generated
  */
@@ -33,7 +33,7 @@ public interface SentenceChain extends BlockElement, LineSentenceChain, Sentence
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Sentences</em>' containment reference list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSentenceChain_Sentences()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSentenceChain_Sentences()
    * @model containment="true"
    * @generated
    */
@@ -45,7 +45,7 @@ public interface SentenceChain extends BlockElement, LineSentenceChain, Sentence
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Separators</em>' attribute list.
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSentenceChain_Separators()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSentenceChain_Separators()
    * @model unique="false"
    * @generated
    */
@@ -57,7 +57,7 @@ public interface SentenceChain extends BlockElement, LineSentenceChain, Sentence
    * <!-- end-user-doc -->
    * @return the value of the '<em>Endpoint</em>' attribute.
    * @see #setEndpoint(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getSentenceChain_Endpoint()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getSentenceChain_Endpoint()
    * @model
    * @generated
    */

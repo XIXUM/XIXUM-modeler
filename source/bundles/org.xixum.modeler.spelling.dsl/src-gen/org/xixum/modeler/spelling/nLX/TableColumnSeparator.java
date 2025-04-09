@@ -16,7 +16,7 @@ package org.xixum.modeler.spelling.nlx;
  *   <li>{@link org.xixum.modeler.spelling.nlx.TableColumnSeparator#getChar <em>Char</em>}</li>
  * </ul>
  *
- * @see org.xixum.modeler.spelling.nlx.NlxPackage#getTableColumnSeparator()
+ * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getTableColumnSeparator()
  * @model
  * @generated
  */
@@ -28,7 +28,7 @@ public interface TableColumnSeparator extends TableBorder
    * <!-- end-user-doc -->
    * @return the value of the '<em>Char</em>' attribute.
    * @see #setChar(String)
-   * @see org.xixum.modeler.spelling.nlx.NlxPackage#getTableColumnSeparator_Char()
+   * @see org.xixum.modeler.spelling.nlx.Nlx2Package#getTableColumnSeparator_Char()
    * @model
    * @generated
    */

@@ -19,7 +19,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.xixum.modeler.spelling.nlx.FootNote;
 import org.xixum.modeler.spelling.nlx.NlxFactory;
-import org.xixum.modeler.spelling.nlx.NlxPackage;
+import org.xixum.modeler.spelling.nlx.Nlx2Package;
 
 /**
  * This is the item provider adapter for a {@link org.xixum.modeler.spelling.nlx.FootNote} object.
@@ -67,7 +67,7 @@ public class FootNoteItemProvider extends BlockElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_FootNote_number_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_FootNote_number_feature", "_UI_FootNote_type"),
-				 NlxPackage.Literals.FOOT_NOTE__NUMBER,
+				 Nlx2Package.Literals.FOOT_NOTE__NUMBER,
 				 true,
 				 false,
 				 false,
@@ -88,7 +88,7 @@ public class FootNoteItemProvider extends BlockElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(NlxPackage.Literals.FOOT_NOTE__SENTENCE_CHAIN);
+			childrenFeatures.add(Nlx2Package.Literals.FOOT_NOTE__SENTENCE_CHAIN);
 		}
 		return childrenFeatures;
 	}
@@ -144,10 +144,10 @@ public class FootNoteItemProvider extends BlockElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(FootNote.class)) {
-			case NlxPackage.FOOT_NOTE__NUMBER:
+			case Nlx2Package.FOOT_NOTE__NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case NlxPackage.FOOT_NOTE__SENTENCE_CHAIN:
+			case Nlx2Package.FOOT_NOTE__SENTENCE_CHAIN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -167,7 +167,7 @@ public class FootNoteItemProvider extends BlockElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(NlxPackage.Literals.FOOT_NOTE__SENTENCE_CHAIN,
+				(Nlx2Package.Literals.FOOT_NOTE__SENTENCE_CHAIN,
 				 NlxFactory.eINSTANCE.createSentenceChain()));
 	}
 
