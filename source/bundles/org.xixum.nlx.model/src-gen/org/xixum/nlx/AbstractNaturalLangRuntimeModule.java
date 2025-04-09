@@ -41,19 +41,19 @@ import org.eclipse.xtext.serializer.sequencer.ISyntacticSequencer;
 import org.eclipse.xtext.service.DefaultRuntimeModule;
 import org.eclipse.xtext.service.SingletonBinding;
 import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
-import org.xixum.modeler.spelling.generator.NLXGenerator;
-import org.xixum.modeler.spelling.parser.antlr.NLXAntlrTokenFileProvider;
-import org.xixum.modeler.spelling.parser.antlr.NLXParser;
-import org.xixum.modeler.spelling.parser.antlr.internal.InternalNLXLexer;
-import org.xixum.modeler.spelling.scoping.NLXScopeProvider;
-import org.xixum.modeler.spelling.serializer.NLXSemanticSequencer;
-import org.xixum.modeler.spelling.serializer.NLXSyntacticSequencer;
-import org.xixum.modeler.spelling.services.NLXGrammarAccess;
-import org.xixum.modeler.spelling.validation.NLXConfigurableIssueCodesProvider;
-import org.xixum.modeler.spelling.validation.NLXValidator;
+import org.xixum.modeler.spelling.generator.NaturalLangGenerator;
+import org.xixum.modeler.spelling.parser.antlr.NaturalLangAntlrTokenFileProvider;
+import org.xixum.modeler.spelling.parser.antlr.NaturalLangParser;
+import org.xixum.modeler.spelling.parser.antlr.internal.InternalNaturalLangLexer;
+import org.xixum.modeler.spelling.scoping.NaturalLangScopeProvider;
+import org.xixum.modeler.spelling.serializer.NaturalLangSemanticSequencer;
+import org.xixum.modeler.spelling.serializer.NaturalLangSyntacticSequencer;
+import org.xixum.modeler.spelling.services.NaturalLangGrammarAccess;
+import org.xixum.modeler.spelling.validation.NaturalLangConfigurableIssueCodesProvider;
+import org.xixum.modeler.spelling.validation.NaturalLangValidator;
 
 /**
- * Manual modifications go to {@link NLXRuntimeModule}.
+ * Manual modifications go to {@link NaturalLangRuntimeModule}.
  */
 @SuppressWarnings("all")
 public abstract class AbstractNaturalLangRuntimeModule extends DefaultRuntimeModule {
@@ -62,12 +62,12 @@ public abstract class AbstractNaturalLangRuntimeModule extends DefaultRuntimeMod
 
 	@Override
 	public void configure(Binder binder) {
-		properties = tryBindProperties(binder, "org/xixum/modeler/spelling/NLX.properties");
+		properties = tryBindProperties(binder, "org/xixum/modeler/spelling/NaturalLang.properties");
 		super.configure(binder);
 	}
 	
 	public void configureLanguageName(Binder binder) {
-		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("org.xixum.modeler.spelling.NLX");
+		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("org.xixum.modeler.spelling.NaturalLang");
 	}
 	
 	public void configureFileExtensions(Binder binder) {
@@ -82,17 +82,17 @@ public abstract class AbstractNaturalLangRuntimeModule extends DefaultRuntimeMod
 	
 	// contributed by org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2
 	public Class<? extends IGrammarAccess> bindIGrammarAccess() {
-		return NLXGrammarAccess.class;
+		return NaturalLangGrammarAccess.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
 	public Class<? extends ISemanticSequencer> bindISemanticSequencer() {
-		return NLXSemanticSequencer.class;
+		return NaturalLangSemanticSequencer.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
 	public Class<? extends ISyntacticSequencer> bindISyntacticSequencer() {
-		return NLXSyntacticSequencer.class;
+		return NaturalLangSyntacticSequencer.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
@@ -102,7 +102,7 @@ public abstract class AbstractNaturalLangRuntimeModule extends DefaultRuntimeMod
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public Class<? extends IParser> bindIParser() {
-		return NLXParser.class;
+		return NaturalLangParser.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
@@ -112,12 +112,12 @@ public abstract class AbstractNaturalLangRuntimeModule extends DefaultRuntimeMod
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public Class<? extends IAntlrTokenFileProvider> bindIAntlrTokenFileProvider() {
-		return NLXAntlrTokenFileProvider.class;
+		return NaturalLangAntlrTokenFileProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public Class<? extends Lexer> bindLexer() {
-		return InternalNLXLexer.class;
+		return InternalNaturalLangLexer.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
@@ -126,31 +126,31 @@ public abstract class AbstractNaturalLangRuntimeModule extends DefaultRuntimeMod
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
-	public Provider<? extends InternalNLXLexer> provideInternalNLXLexer() {
-		return LexerProvider.create(InternalNLXLexer.class);
+	public Provider<? extends InternalNaturalLangLexer> provideInternalNaturalLangLexer() {
+		return LexerProvider.create(InternalNaturalLangLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public void configureRuntimeLexer(Binder binder) {
 		binder.bind(Lexer.class)
 			.annotatedWith(Names.named(LexerBindings.RUNTIME))
-			.to(InternalNLXLexer.class);
+			.to(InternalNaturalLangLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
 	@SingletonBinding(eager=true)
-	public Class<? extends NLXValidator> bindNLXValidator() {
-		return NLXValidator.class;
+	public Class<? extends NaturalLangValidator> bindNaturalLangValidator() {
+		return NaturalLangValidator.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
 	public Class<? extends ConfigurableIssueCodesProvider> bindConfigurableIssueCodesProvider() {
-		return NLXConfigurableIssueCodesProvider.class;
+		return NaturalLangConfigurableIssueCodesProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
 	public Class<? extends IScopeProvider> bindIScopeProvider() {
-		return NLXScopeProvider.class;
+		return NaturalLangScopeProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2
@@ -195,7 +195,7 @@ public abstract class AbstractNaturalLangRuntimeModule extends DefaultRuntimeMod
 	
 	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
 	public Class<? extends IGenerator2> bindIGenerator2() {
-		return NLXGenerator.class;
+		return NaturalLangGenerator.class;
 	}
 	
 }
