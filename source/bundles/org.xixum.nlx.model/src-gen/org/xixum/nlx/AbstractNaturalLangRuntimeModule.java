@@ -41,16 +41,16 @@ import org.eclipse.xtext.serializer.sequencer.ISyntacticSequencer;
 import org.eclipse.xtext.service.DefaultRuntimeModule;
 import org.eclipse.xtext.service.SingletonBinding;
 import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
-import org.xixum.modeler.spelling.generator.NaturalLangGenerator;
-import org.xixum.modeler.spelling.parser.antlr.NaturalLangAntlrTokenFileProvider;
-import org.xixum.modeler.spelling.parser.antlr.NaturalLangParser;
-import org.xixum.modeler.spelling.parser.antlr.internal.InternalNaturalLangLexer;
-import org.xixum.modeler.spelling.scoping.NaturalLangScopeProvider;
-import org.xixum.modeler.spelling.serializer.NaturalLangSemanticSequencer;
-import org.xixum.modeler.spelling.serializer.NaturalLangSyntacticSequencer;
-import org.xixum.modeler.spelling.services.NaturalLangGrammarAccess;
-import org.xixum.modeler.spelling.validation.NaturalLangConfigurableIssueCodesProvider;
-import org.xixum.modeler.spelling.validation.NaturalLangValidator;
+import org.xixum.nlx.generator.NaturalLangGenerator;
+import org.xixum.nlx.parser.antlr.NaturalLangAntlrTokenFileProvider;
+import org.xixum.nlx.parser.antlr.NaturalLangParser;
+import org.xixum.nlx.parser.antlr.internal.InternalNaturalLangLexer;
+import org.xixum.nlx.scoping.NaturalLangScopeProvider;
+import org.xixum.nlx.serializer.NaturalLangSemanticSequencer;
+import org.xixum.nlx.serializer.NaturalLangSyntacticSequencer;
+import org.xixum.nlx.services.NaturalLangGrammarAccess;
+import org.xixum.nlx.validation.NaturalLangConfigurableIssueCodesProvider;
+import org.xixum.nlx.validation.NaturalLangValidator;
 
 /**
  * Manual modifications go to {@link NaturalLangRuntimeModule}.
@@ -67,7 +67,7 @@ public abstract class AbstractNaturalLangRuntimeModule extends DefaultRuntimeMod
 	}
 	
 	public void configureLanguageName(Binder binder) {
-		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("org.xixum.modeler.spelling.NaturalLang");
+		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("org.xixum.nlx.model.NaturalLang");
 	}
 	
 	public void configureFileExtensions(Binder binder) {
