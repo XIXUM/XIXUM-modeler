@@ -40,7 +40,8 @@ Require-Bundle: org.xixum.nlx.model,
  org.eclipse.core.expressions;bundle-version="3.6.100",
  org.eclipse.e4.core.di.annotations;bundle-version="1.6.100",
  org.eclipse.equinox.common,
- org.eclipse.core.filesystem;bundle-version="1.7.100"
+ org.eclipse.core.filesystem;bundle-version="1.7.100",
+ org.xixum.neo4j.driver;bundle-version="0.0.1"
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.xixum.nlx.ui.quickfix,

@@ -5,8 +5,6 @@ package org.xixum.nlx.model.ui
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
-import org.xixum.nlx.ai.IDbAccess
-import org.xixum.nlx.ai.neo4j.Neo4jAccess
 import org.xixum.nlx.dictionary.DictionaryAccess
 import org.xixum.nlx.dictionary.IDictionaryAccess
 import org.xixum.nlx.dictionary.util.LogUtils
@@ -25,7 +23,7 @@ import org.xixum.nlx.model.ui.highlighting.NlxAntlrTokenToAttributeIdMapper
 import org.xixum.nlx.model.ui.highlighting.NlxTerminalsTokenTypeToPartitionMapper
 import org.xixum.nlx.model.ui.highlighting.NlxTokenScanner
 import org.xixum.nlx.model.ui.highlighting.NlxTokenToAttributeMapper
-import org.xixum.nlx.ui.quickfix.NlxQuickAssistProcessor
+import org.xixum.nlx.model.ui.quickfix.NlxQuickAssistProcessor
 import org.eclipse.emf.common.notify.AdapterFactory
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory
 import org.eclipse.jface.text.rules.ITokenScanner
@@ -43,10 +41,10 @@ import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution
 import org.eclipse.xtext.ui.editor.outline.actions.OutlineWithEditorLinker
 import org.eclipse.xtext.ui.editor.quickfix.XtextQuickAssistProcessor
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration
-import org.neo4j.driver.v1.exceptions.ServiceUnavailableException
+import org.neo4j.driver.exceptions.ServiceUnavailableException
 import com.google.inject.util.Providers
-import org.xixum.nlx.view.fxviews.cache.NodeCacheManager
-import org.xixum.nlx.view.fxviews.cache.INodeCacheManager
+//import org.xixum.nlx.view.fxviews.cache.NodeCacheManager
+//import org.xixum.nlx.view.fxviews.cache.INodeCacheManager
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage
 import org.eclipse.xtext.ui.editor.outline.impl.OutlinePage
 import org.xixum.nlx.model.ui.outline.NlxOutlinePage

@@ -55,8 +55,8 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 import org.xixum.nlx.dictionary.IDictionaryAccess;
-import org.xixum.nlx.model.view.fxviews.views.ISemanticViewSelector;
-import org.xixum.nlx.model.view.fxviews.views.SemanticViewSelector;
+//import org.xixum.nlx.model.view.fxviews.views.ISemanticViewSelector;
+//import org.xixum.nlx.model.view.fxviews.views.SemanticViewSelector;
 import org.xixum.nlx.model.ui.model.NaturalLangEditorPlugin;
 
 /**
@@ -125,8 +125,8 @@ public class NaturalLangEditor extends XtextEditor implements ISelectionProvider
 
 		if (key.equals(IPropertySheetPage.class)) {
 			return getPropertySheetPage();
-		} else if (key.equals(ISemanticViewSelector.class)) {
-			return getSemanticViewSelector();
+		//} else if (key.equals(ISemanticViewSelector.class)) {
+		//	return getSemanticViewSelector();
 		} else if (key.equals(NaturalLangEditor.class)){
 			return this;
 		} else if(key.equals(XtextBuildConsole.class)){
@@ -140,31 +140,31 @@ public class NaturalLangEditor extends XtextEditor implements ISelectionProvider
 		}
 	}
 
-	public ISelectionListener getSemanticViewSelector() {
-
-		// TODO: multiple selectors for multible views
-		if (semanticViewSelector != null)
-			return semanticViewSelector;
-
-		ISelectionListener selector = new SemanticViewSelector(dictAcc) {
-			@Override
-			public void setSelectionToViewer(List<?> selection) {
-				this.setSelectionToViewer(selection);
-				this.setFocus();
-			}
-
-			@Override
-			public void setActionBars(IActionBars actionBars) {
-				super.setActionBars(actionBars);
-				// getActionBarContributor().shareGlobalActions(this, actionBars);
-			}
-		};
-		getSite().getPage().addPostSelectionListener(selector);
-		semanticViewSelector = selector;
-		return selector;
-
-		// return null;
-	}
+//	public ISelectionListener getSemanticViewSelector() {
+//
+//		// TODO: multiple selectors for multible views
+//		if (semanticViewSelector != null)
+//			return semanticViewSelector;
+//
+//		ISelectionListener selector = new SemanticViewSelector(dictAcc) {
+//			@Override
+//			public void setSelectionToViewer(List<?> selection) {
+//				this.setSelectionToViewer(selection);
+//				this.setFocus();
+//			}
+//
+//			@Override
+//			public void setActionBars(IActionBars actionBars) {
+//				super.setActionBars(actionBars);
+//				// getActionBarContributor().shareGlobalActions(this, actionBars);
+//			}
+//		};
+//		getSite().getPage().addPostSelectionListener(selector);
+//		semanticViewSelector = selector;
+//		return selector;
+//
+//		// return null;
+//	}
 
 	public IPropertySheetPage getPropertySheetPage() {
 		PropertySheetPage propertySheetPage = null;

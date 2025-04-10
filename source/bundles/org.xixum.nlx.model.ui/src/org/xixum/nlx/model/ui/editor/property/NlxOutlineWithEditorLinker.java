@@ -48,8 +48,8 @@ public class NlxOutlineWithEditorLinker extends OutlineWithEditorLinker {
 						if (part instanceof XtextEditor) {
 							IPropertySheetPage page = ((NaturalLangEditor)part).getPropertySheetPage();
 								page.selectionChanged((IWorkbenchPart) part, sel);
-								ISelectionListener trainerPage = ((NaturalLangEditor)part).getSemanticViewSelector();
-								trainerPage.selectionChanged((IWorkbenchPart) part, sel);
+								//ISelectionListener trainerPage = ((NaturalLangEditor)part).getSemanticViewSelector();
+								//trainerPage.selectionChanged((IWorkbenchPart) part, sel);
 						}
 						// else:? what if part is not Editor???
 					}

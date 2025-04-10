@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.xixum.nlx.ui.quickfix;
+package org.xixum.nlx.model.ui.quickfix;
 
 import static java.util.Arrays.asList;
 

@@ -13,11 +13,11 @@ import org.xixum.nlx.model.ui.util.ReflectionUtil
 
 class NlxOutlinePage extends OutlinePage {
 	
-	Thread thread
+	//Thread thread
 	
 	protected override refreshViewer(IOutlineNode rootNode, Collection<IOutlineNode> nodesToBeExpanded,
 			Collection<IOutlineNode> selectedNodes) {
-//		var fields_super = this.getClass.declaredFields
+
 		val labelProvider_super = ReflectionUtil.getPrivateFromSuper(this, "labelProvider") as OutlineNodeLabelProvider
 		val contentProvider_super = ReflectionUtil.getPrivateFromSuper(this, "contentProvider") as OutlineNodeContentProvider
 		val LOG_super = ReflectionUtil.getPrivateFromSuper(this, "LOG") as Logger
@@ -29,12 +29,12 @@ class NlxOutlinePage extends OutlinePage {
 					if (!treeViewer.getTree().isDisposed()) {
 						getTreeViewer().getTree().setRedraw(false);
 						if (treeViewer.getLabelProvider() != labelProvider_super) {
-							if (treeViewer.getInput() != null && treeViewer.getContentProvider() != null)
+							if (treeViewer.getInput() !== null && treeViewer.getContentProvider() !== null)
 								treeViewer.setInput(null);
 							treeViewer.setLabelProvider(labelProvider_super);
 						}
 						if (treeViewer.getContentProvider() != contentProvider_super) {
-							if (treeViewer.getInput() != null && treeViewer.getContentProvider() != null)
+							if (treeViewer.getInput() !== null && treeViewer.getContentProvider() !== null)
 								treeViewer.setInput(null);
 							treeViewer.setContentProvider(contentProvider_super);
 						}
