@@ -27,8 +27,8 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.builder;bundle-version="2.16.0",
  org.eclipse.ui.console;bundle-version="3.8.0",
  org.apache.commons.lang;bundle-version="2.6.0",
- com.ibm.icu.base;bundle-version="58.2.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+ com.ibm.icu;bundle-version="67.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: org.xixum.nlx,
  org.xixum.nlx.generator,
  org.xixum.nlx.generator.utils,
@@ -43,11 +43,6 @@ Export-Package: org.xixum.nlx,
  org.xixum.nlx.serializer,
  org.xixum.nlx.services,
  org.xixum.nlx.validation
-Import-Package: com.ibm.icu.impl;version="[58.2.0,59.0.0)",
- com.ibm.icu.impl.locale;version="[58.2.0,59.0.0)",
- com.ibm.icu.math;version="[58.2.0,59.0.0)",
- com.ibm.icu.text;version="[58.2.0,59.0.0)",
- com.ibm.icu.util;version="[58.2.0,59.0.0)",
- org.apache.log4j
+Import-Package: org.apache.log4j
 Bundle-ClassPath: lib/commons-collections4-4.0.jar,
  .
