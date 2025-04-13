@@ -5,28 +5,10 @@ package org.xixum.nlx.model.ui
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
-import org.xixum.nlx.dictionary.DictionaryAccess
-import org.xixum.nlx.dictionary.IDictionaryAccess
-import org.xixum.nlx.dictionary.util.LogUtils
-import org.xixum.nlx.naturalLang.provider.NaturalLangItemProviderAdapterFactory
-import org.xixum.nlx.naturalLang.util.NaturalLangAdapterFactory
-import org.xixum.nlx.model.ui.editor.NlxBuildConsole
-import org.xixum.nlx.model.ui.editor.NlxEObjectNodeAdapterFactory
-import org.xixum.nlx.model.ui.editor.embedded.NlxBuilder
-import org.xixum.nlx.model.ui.editor.hover.NlxAnnotationWithQuickFixesHover
-import org.xixum.nlx.model.ui.editor.model.NlxDocument
-import org.xixum.nlx.model.ui.editor.model.NlxDocumentProvider
-import org.xixum.nlx.model.ui.editor.property.NlxLinkWithEditorOutlineContribution
-import org.xixum.nlx.model.ui.editor.property.NlxOutlineWithEditorLinker
-import org.xixum.nlx.model.ui.highlighting.NaturalLangHighlightingConfiguration
-import org.xixum.nlx.model.ui.highlighting.NlxAntlrTokenToAttributeIdMapper
-import org.xixum.nlx.model.ui.highlighting.NlxTerminalsTokenTypeToPartitionMapper
-import org.xixum.nlx.model.ui.highlighting.NlxTokenScanner
-import org.xixum.nlx.model.ui.highlighting.NlxTokenToAttributeMapper
-import org.xixum.nlx.model.ui.quickfix.NlxQuickAssistProcessor
 import org.eclipse.emf.common.notify.AdapterFactory
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory
 import org.eclipse.jface.text.rules.ITokenScanner
+import org.eclipse.ui.views.contentoutline.IContentOutlinePage
 import org.eclipse.ui.views.properties.IPropertySourceProvider
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 import org.eclipse.xtext.builder.debug.IBuildLogger
@@ -41,13 +23,26 @@ import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution
 import org.eclipse.xtext.ui.editor.outline.actions.OutlineWithEditorLinker
 import org.eclipse.xtext.ui.editor.quickfix.XtextQuickAssistProcessor
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration
-import org.neo4j.driver.exceptions.ServiceUnavailableException
-import com.google.inject.util.Providers
-//import org.xixum.nlx.view.fxviews.cache.NodeCacheManager
-//import org.xixum.nlx.view.fxviews.cache.INodeCacheManager
-import org.eclipse.ui.views.contentoutline.IContentOutlinePage
-import org.eclipse.xtext.ui.editor.outline.impl.OutlinePage
+import org.xixum.nlx.dictionary.DictionaryAccess
+import org.xixum.nlx.dictionary.IDictionaryAccess
+import org.xixum.nlx.dictionary.util.LogUtils
+import org.xixum.nlx.model.ui.editor.NlxBuildConsole
+import org.xixum.nlx.model.ui.editor.NlxEObjectNodeAdapterFactory
+import org.xixum.nlx.model.ui.editor.embedded.NlxBuilder
+import org.xixum.nlx.model.ui.editor.hover.NlxAnnotationWithQuickFixesHover
+import org.xixum.nlx.model.ui.editor.model.NlxDocument
+import org.xixum.nlx.model.ui.editor.model.NlxDocumentProvider
+import org.xixum.nlx.model.ui.editor.property.NlxLinkWithEditorOutlineContribution
+import org.xixum.nlx.model.ui.editor.property.NlxOutlineWithEditorLinker
+import org.xixum.nlx.model.ui.highlighting.NaturalLangHighlightingConfiguration
+import org.xixum.nlx.model.ui.highlighting.NlxAntlrTokenToAttributeIdMapper
+import org.xixum.nlx.model.ui.highlighting.NlxTerminalsTokenTypeToPartitionMapper
+import org.xixum.nlx.model.ui.highlighting.NlxTokenScanner
+import org.xixum.nlx.model.ui.highlighting.NlxTokenToAttributeMapper
 import org.xixum.nlx.model.ui.outline.NlxOutlinePage
+import org.xixum.nlx.model.ui.quickfix.NlxQuickAssistProcessor
+import org.xixum.nlx.naturalLang.provider.NaturalLangItemProviderAdapterFactory
+import org.xixum.nlx.naturalLang.util.NaturalLangAdapterFactory
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.

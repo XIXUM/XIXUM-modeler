@@ -31,11 +31,10 @@ Require-Bundle: org.xixum.nlx.model,
  org.eclipse.xtend.lib;bundle-version="2.14.0";resolution:=optional,
  org.eclipse.ui.ide;bundle-version="3.14.0",
  org.eclipse.ui.workbench.texteditor;bundle-version="3.11.0",
- org.xixum.nlx.ai,
+ org.xixum.neo4j.driver,
  org.xixum.nlx.dictionary,
  org.xixum.utils.Data,
  org.apache.commons.lang;bundle-version="2.6.0",
- org.xixum.nlx.view.fxviews,
  org.eclipse.ui.console,
  org.eclipse.core.expressions;bundle-version="3.6.100",
  org.eclipse.e4.core.di.annotations;bundle-version="1.6.100",
@@ -43,8 +42,8 @@ Require-Bundle: org.xixum.nlx.model,
  org.eclipse.core.filesystem;bundle-version="1.7.100",
  org.xixum.neo4j.driver;bundle-version="0.0.1"
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: org.xixum.nlx.ui.quickfix,
  org.xixum.nlx.model.ui.internal,
  org.xixum.nlx.ui.contentassist
-Bundle-Activator: org.xixum.nlx.model.ui.internal.IeditActivator
+Bundle-Activator: org.xixum.nlx.model.ui.internal.ModelActivator
