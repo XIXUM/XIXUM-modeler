@@ -21,6 +21,7 @@ about_xixum_modeler.jpg
 ## Installation
 
 currently only cloning from source code is available, but we are working on a first release version that may come out soon...
+right now load all plugins into eclipse IDE and launch `org.xixum.modeler.core.product`
 
 ## More Details Coming Soon...
 This repository is just initialized. It will soon hold all the required information including a full description
