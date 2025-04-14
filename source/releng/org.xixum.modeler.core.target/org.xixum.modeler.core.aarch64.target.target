@@ -107,7 +107,7 @@
 			<unit id="junit-jupiter-params" version="5.10.1"/>
 			<unit id="org.eclipse.orbit.maven.org.antlr.3.2.feature.group" version="4.30.0.v20230929-1400"/>
 		</location>
-		<location includeDependencyDepth="none" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
+		<location includeDependencyDepth="direct" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
 			<dependencies>
 				<dependency>
 					<groupId>io.netty</groupId>
