@@ -82,6 +82,9 @@
 			<unit id="org.antlr.runtime" version="4.7.2.v20200218-0804"/>
 			<unit id="org.apache.commons.logging" version="1.2.0.v20180409-1502"/>
 			<unit id="com.ibm.icu" version="67.1.0.v20200706-1749"/>
+			<unit id="org.slf4j.api" version="1.7.30.v20200204-2150"/>
+			<unit id="org.slf4j.binding.simple" version="1.7.30.v20200204-2150"/>
+			<unit id="org.bouncycastle.bcprov" version="1.70.0.v20220105-1522"/>
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 			<repository location="https://download.eclipse.org/justj/jres/21/updates/release/21.0.6/"/>
@@ -106,6 +109,15 @@
 			<unit id="junit-jupiter-migrationsupport" version="5.10.1"/>
 			<unit id="junit-jupiter-params" version="5.10.1"/>
 			<unit id="org.eclipse.orbit.maven.org.antlr.3.2.feature.group" version="4.30.0.v20230929-1400"/>
+		</location>
+		<location includeDependencyDepth="infinite" includeDependencyScopes="compile,runtime" includeSource="true" missingManifest="generate" type="Maven">
+			<dependencies>
+				<dependency>
+				    <groupId>org.bouncycastle</groupId>
+				    <artifactId>bctls-jdk18on</artifactId>
+				    <version>1.78</version>
+				</dependency>
+			</dependencies>
 		</location>
 		<location includeDependencyDepth="direct" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
 			<dependencies>

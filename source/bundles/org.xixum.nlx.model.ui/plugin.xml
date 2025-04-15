@@ -17,7 +17,7 @@
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.xixum.nlx.ui.editor.NaturalLangEditor"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.xixum.nlx.model.ui.editor.NaturalLangEditor"
 			contributorClass="org.xixum.nlx.ui.editor.NaturalLangActionBarContributor"
 			default="true"
 			extensions="nlx"
@@ -28,7 +28,7 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
 			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
 			<activeWhen>
 				<reference
@@ -37,7 +37,7 @@
 			</activeWhen>
 		</handler>
 		<handler
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
 			commandId="org.xixum.nlx.naturalLang.validate">
 		<activeWhen>
 			<reference
@@ -47,14 +47,14 @@
 		</handler>
 		<!-- copy qualified name -->
 		<handler
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
 			<activeWhen>
 				<reference definitionId="org.xixum.nlx.naturalLang.Editor.opened" />
 			</activeWhen>
 		</handler>
 		<handler
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
 			<activeWhen>
 				<and>
@@ -91,21 +91,21 @@
 	<extension
 			point="org.eclipse.ui.preferencePages">
 		<page
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
 			id="org.xixum.nlx.naturalLang"
 			name="NaturalLang">
 			<keywordReference id="org.xixum.nlx.ui.keyword_NaturalLang"/>
 		</page>
 		<page
 			category="org.xixum.nlx.naturalLang"
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
 			id="org.xixum.nlx.naturalLang.coloring"
 			name="Syntax Coloring">
 			<keywordReference id="org.xixum.nlx.ui.keyword_NaturalLang"/>
 		</page>
 		<page
 			category="org.xixum.nlx.naturalLang"
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
 			id="org.xixum.nlx.naturalLang.templates"
 			name="Templates">
 			<keywordReference id="org.xixum.nlx.ui.keyword_NaturalLang"/>
@@ -114,7 +114,7 @@
 	<extension
 			point="org.eclipse.ui.propertyPages">
 		<page
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
 			id="org.xixum.nlx.naturalLang"
 			name="NaturalLang">
 			<keywordReference id="org.xixum.nlx.ui.keyword_NaturalLang"/>
@@ -208,7 +208,7 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
 			commandId="org.eclipse.xtext.ui.editor.FindReferences">
 			<activeWhen>
 				<reference
@@ -230,13 +230,13 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
 			type="nlx">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 		<resourceServiceProvider
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
 			uriExtension="nlx">
 		</resourceServiceProvider>
 	</extension>
@@ -265,7 +265,7 @@
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
 			category="org.xixum.nlx.naturalLang"
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
 			id="org.xixum.nlx.naturalLang.validator.preferencePage"
 			name="Errors/Warnings">
 			<keywordReference id="org.xixum.nlx.ui.keyword_NaturalLang"/>
@@ -273,7 +273,7 @@
 	</extension>
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
 			fileExtensions="nlx"/>
 	</extension>
 	<!-- Annotation Spec -->
@@ -305,7 +305,7 @@
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
 			category="org.xixum.nlx.naturalLang"
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
 			id="org.xixum.nlx.naturalLang.compiler.preferencePage"
 			name="Compiler">
 			<keywordReference id="org.xixum.nlx.ui.keyword_NaturalLang"/>
@@ -314,7 +314,7 @@
 	<extension point="org.eclipse.ui.propertyPages">
 		<page
 			category="org.xixum.nlx.naturalLang"
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
 			id="org.xixum.nlx.naturalLang.compiler.propertyPage"
 			name="Compiler">
 			<keywordReference id="org.xixum.nlx.ui.keyword_NaturalLang"/>
@@ -338,7 +338,7 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
 			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
 			<activeWhen>
 				<reference definitionId="org.xixum.nlx.naturalLang.Editor.opened" />
@@ -349,7 +349,7 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler 
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
@@ -382,7 +382,7 @@
 	<extension
 			point="org.eclipse.ui.ide.markerResolution">
 		<markerResolutionGenerator
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="org.xixum.nlx.model.ui.naturallang.check.fast">
 			<attribute
 				name="FIXABLE_KEY"
@@ -390,7 +390,7 @@
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="org.xixum.nlx.model.ui.naturallang.check.normal">
 			<attribute
 				name="FIXABLE_KEY"
@@ -398,7 +398,7 @@
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="org.xixum.nlx.model.ui.naturallang.check.expensive">
 			<attribute
 				name="FIXABLE_KEY"
@@ -409,7 +409,7 @@
 	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
 				<reference
@@ -434,7 +434,7 @@
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
 			category="org.xixum.nlx.naturalLang"
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
 			id="org.xixum.nlx.naturalLang.refactoring"
 			name="Refactoring">
 			<keywordReference id="org.xixum.nlx.ui.keyword_NaturalLang"/>
@@ -442,7 +442,7 @@
 	</extension>
 	<extension point="org.eclipse.compare.contentViewers">
 		<viewer id="org.xixum.nlx.naturalLang.compare.contentViewers"
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="nlx">
 		</viewer>
 		<contentTypeBinding
@@ -451,7 +451,7 @@
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
 		<viewer id="org.xixum.nlx.naturalLang.compare.contentMergeViewers"
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="nlx" label="NaturalLang Compare">
 		</viewer>
 		<contentTypeBinding
@@ -460,7 +460,7 @@
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
 		<provider id="org.xixum.nlx.naturalLang.editors.documentProviders"
-			class="org.xixum.nlx.ui.NaturalLangExecutableExtensionFactory:org.xixum.nlx.ui.editor.model.NlxDocumentProvider"
+			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.xixum.nlx.ui.editor.model.NlxDocumentProvider"
 			extensions="nlx">
 		</provider>
 	</extension>
