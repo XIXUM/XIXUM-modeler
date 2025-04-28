@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metaModel" nsURI="http://www.validas.de/spedit/metaModel" nsPrefix="de.validas">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metaModel" nsURI="http://www.xixum.org/nlx/metaModel" nsPrefix="org.xixum">
   <eClassifiers xsi:type="ecore:EClass" name="Workaround">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="issue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eSubpackages name="suptertype" nsURI="http://www.validas.de/spedit/superType" nsPrefix="de.validas">
+  <eSubpackages name="suptertype" nsURI="http://www.xixum.org/nlx/superType" nsPrefix="org.xixum">
     <eClassifiers xsi:type="ecore:EClass" name="Named" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="DescriptionOK TypeUniqueName GlobalUniqueName"/>
@@ -54,8 +54,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="referenceProcess" nsURI="http://www.validas.de/spedit/referenceProcess"
-      nsPrefix="de.validas">
+  <eSubpackages name="referenceProcess" nsURI="http://www.xixum.org/nlx/referenceProcess"
+      nsPrefix="org.xixum">
     <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//suptertype/Named">
       <eStructuralFeatures xsi:type="ecore:EReference" name="tools" upperBound="-1"
           eType="#//referenceProcess/Tool" containment="true"/>
@@ -314,8 +314,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Criterion" eSuperTypes="#//suptertype/Variantable"/>
   </eSubpackages>
-  <eSubpackages name="modellDescr" nsURI="http://www.validas.de/spedit/modellDescr"
-      nsPrefix="de.validas">
+  <eSubpackages name="modellDescr" nsURI="http://www.xixum.org/nlx/modellDescr" nsPrefix="org.xixum">
     <eClassifiers xsi:type="ecore:EClass" name="MMCondition" eSuperTypes="#//suptertype/Named">
       <eStructuralFeatures xsi:type="ecore:EReference" name="MetaModellElements" upperBound="-1"
           eType="#//modellDescr/MetaModelElement" eOpposite="#//modellDescr/MetaModelElement/MMConditions"/>
@@ -399,7 +398,7 @@
       <eLiterals name="CARDINALITY_0_to_N" literal="CARDINALITY_0_to_N"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="terms" nsURI="http://www.validas.de/spedit/terms" nsPrefix="de.validas">
+  <eSubpackages name="terms" nsURI="http://www.xixum.org/nlx/terms" nsPrefix="org.xixum">
     <eClassifiers xsi:type="ecore:EClass" name="Term">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="TypesOK"/>

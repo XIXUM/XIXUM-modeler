@@ -41,7 +41,7 @@ public interface ModellDescrPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.validas.de/spedit/modellDescr";
+	String eNS_URI = "http://www.xixum.org/nlx/modellDescr";
 
 	/**
 	 * The package namespace name.
@@ -49,7 +49,7 @@ public interface ModellDescrPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "de.validas";
+	String eNS_PREFIX = "org.xixum";
 
 	/**
 	 * The singleton instance of the package.

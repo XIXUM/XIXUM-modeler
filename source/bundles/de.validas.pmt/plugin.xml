@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated referenceModel -->
       <package
-            uri="http://www.validas.de/spedit/metaModel"
+            uri="http://www.xixum.org/nlx/metaModel"
             class="metaModel.MetaModelPackage"
             genModel="model/referenceModel.genmodel"/>
    </extension>
@@ -17,7 +17,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated referenceModel -->
       <package
-            uri="http://www.validas.de/spedit/superType"
+            uri="http://www.xixum.org/nlx/superType"
             class="metaModel.suptertype.SuptertypePackage"
             genModel="model/referenceModel.genmodel"/>
    </extension>
@@ -25,7 +25,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated referenceModel -->
       <package
-            uri="http://www.validas.de/spedit/referenceProcess"
+            uri="http://www.xixum.org/nlx/referenceProcess"
             class="metaModel.referenceProcess.ReferenceProcessPackage"
             genModel="model/referenceModel.genmodel"/>
    </extension>
@@ -33,7 +33,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated referenceModel -->
       <package
-            uri="http://www.validas.de/spedit/modellDescr"
+            uri="http://www.xixum.org/nlx/modellDescr"
             class="metaModel.modellDescr.ModellDescrPackage"
             genModel="model/referenceModel.genmodel"/>
    </extension>
@@ -41,7 +41,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated referenceModel -->
       <package
-            uri="http://www.validas.de/spedit/terms"
+            uri="http://www.xixum.org/nlx/terms"
             class="metaModel.terms.TermsPackage"
             genModel="model/referenceModel.genmodel"/>
    </extension>

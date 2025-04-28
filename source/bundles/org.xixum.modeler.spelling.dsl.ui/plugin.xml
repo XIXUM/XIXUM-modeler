@@ -3,9 +3,9 @@
 <plugin>
 	<extension point="org.eclipse.xtext.ui.shared.overridingGuiceModule">
     	<module
-	        class="de.validas.spedit.ui.NlxBuilderModule">
+	        class="org.xixum.modeler.spelling.ui.NlxBuilderModule">
     	</module>
-	</extension>
+	</extension>˝
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor

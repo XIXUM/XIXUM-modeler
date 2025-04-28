@@ -67,7 +67,7 @@ public abstract class AbstractNaturalLangRuntimeModule extends DefaultRuntimeMod
 	}
 	
 	public void configureLanguageName(Binder binder) {
-		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("org.xixum.nlx.model.NaturalLang");
+		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance("org.xixum.nlx.NaturalLang");
 	}
 	
 	public void configureFileExtensions(Binder binder) {

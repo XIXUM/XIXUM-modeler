@@ -3,7 +3,7 @@
 <plugin>
 	<extension point="org.eclipse.xtext.ui.shared.overridingGuiceModule">
     	<module
-	        class="org.xixum.nlx.ui.NlxBuilderModule">
+	        class="org.xixum.nlx.model.ui.NlxBuilderModule">
     	</module>
 	</extension>
 	<extension
@@ -18,10 +18,10 @@
 		point="org.eclipse.ui.editors">
 		<editor
 			class="org.xixum.nlx.model.ui.NaturalLangExecutableExtensionFactory:org.xixum.nlx.model.ui.editor.NaturalLangEditor"
-			contributorClass="org.xixum.nlx.ui.editor.NaturalLangActionBarContributor"
+			contributorClass="org.xixum.nlx.model.ui.editor.NaturalLangActionBarContributor"
 			default="true"
 			extensions="nlx"
-			id="org.xixum.nlx.naturalLang"
+			id="org.xixum.nlx.NaturalLang"
 			name="NaturalLang Editor">
 		</editor>
 	</extension>
@@ -289,7 +289,7 @@
 	<extension
          point="org.eclipse.ui.editors.markerAnnotationSpecification">
       <specification
-            annotationImageProvider="org.xixum.nlx.ui.model.NlxMarkerAnnotationImageProvider"
+            annotationImageProvider="org.xixum.nlx.model.ui.model.NlxMarkerAnnotationImageProvider"
             annotationType="org.xixum.nlx.ui.NaturalLang.Annotation"
             icon="/icons/nature_overlay3.png"
             includeOnPreferencePage="true"

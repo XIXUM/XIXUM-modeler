@@ -40,7 +40,7 @@ public interface TermsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.validas.de/spedit/terms";
+	String eNS_URI = "http://www.xixum.org/nlx/terms";
 
 	/**
 	 * The package namespace name.
@@ -48,7 +48,7 @@ public interface TermsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "de.validas";
+	String eNS_PREFIX = "org.xixum";
 
 	/**
 	 * The singleton instance of the package.

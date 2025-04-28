@@ -10,7 +10,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated NaturalLang -->
       <factory
-            uri="http://www.validas.de/spedit/NaturalLang"
+            uri="http://www.xixum.org/nlx/NaturalLang"
             class="org.xixum.nlx.naturalLang.provider.NaturalLangItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

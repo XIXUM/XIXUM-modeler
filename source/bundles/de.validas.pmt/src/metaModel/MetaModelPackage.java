@@ -37,7 +37,7 @@ public interface MetaModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.validas.de/spedit/metaModel";
+	String eNS_URI = "http://www.xixum.org/nlx/metaModel";
 
 	/**
 	 * The package namespace name.
@@ -45,7 +45,7 @@ public interface MetaModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "de.validas";
+	String eNS_PREFIX = "org.xixum";
 
 	/**
 	 * The singleton instance of the package.

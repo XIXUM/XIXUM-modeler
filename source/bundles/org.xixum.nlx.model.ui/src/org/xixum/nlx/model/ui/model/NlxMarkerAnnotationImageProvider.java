@@ -1,5 +1,5 @@
 /**
- * 
+ * (c) XIXUM.ORG 2025
  */
 package org.xixum.nlx.model.ui.model;
 

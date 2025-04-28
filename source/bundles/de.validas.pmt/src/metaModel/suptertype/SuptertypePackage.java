@@ -39,7 +39,7 @@ public interface SuptertypePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.validas.de/spedit/superType";
+	String eNS_URI = "http://www.xixum.org/nlx/superType";
 
 	/**
 	 * The package namespace name.
@@ -47,7 +47,7 @@ public interface SuptertypePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "de.validas";
+	String eNS_PREFIX = "org.xixum";
 
 	/**
 	 * The singleton instance of the package.

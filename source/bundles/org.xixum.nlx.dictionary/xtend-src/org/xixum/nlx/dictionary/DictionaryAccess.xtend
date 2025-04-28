@@ -259,9 +259,10 @@ class DictionaryAccess implements IDictionaryAccess {
 «					»OPTIONAL MATCH «_CL» = («_N»)-[«_L»*«min»..«max»]-(«_W»)'''
 		}
 		// TODO: 02.12.21 This query is awkward. should be improved to better display the dependencies Network
-		'''«typeMatch.get(fromType)» WHERE NONE(«_A» IN relationships(«_CL») WHERE type(«_A») = '«_OF_CLASS»') AND 
-«		»FILTER(«_A» IN labels(«_W») WHERE «_A» IN [«FOR f : nodeFilter SEPARATOR ','»"«f»"«ENDFOR»])
-'''
+		'''«typeMatch.get(fromType)» WHERE NONE(«_A» IN relationships(«_CL») WHERE type(«_A») = '«_OF_CLASS»')
+''' //AND 
+//«		»FILTER(«_A» IN labels(«_W») WHERE «_A» IN [«FOR f : nodeFilter SEPARATOR ','»"«f»"«ENDFOR»])
+//'''
 	}
 
 	/**
@@ -603,6 +604,7 @@ class DictionaryAccess implements IDictionaryAccess {
 			return null // TODO: externalize Strings
 		var result = dbAccessor.runCodeRecords(String.format("MATCH (%1$s:Dictionary {name:'%2$s'}) Return %1$s", _N, _GLOBAL), Action.READ)
 		if (result.isEmpty()) {
+			//TODO: 28.04.25 create global Dictionary here
 			result = dbAccessor.runCodeRecords(String.format("CREATE (n:Dictionary {name:'%s'})", _GLOBAL), Action.WRITE)
 		}
 		if (!result.isEmpty())
