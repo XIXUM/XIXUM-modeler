@@ -84,27 +84,26 @@
    
 <!-- Associate HTML/HTM files with the internal browser -->
 
-<extension point="org.eclipse.ui.editors">
+<!--<extension point="org.eclipse.ui.editors">
   <editor
-        class="org.eclipse.ui.internal.browser.WebBrowserEditor"
-        contributorClass="org.eclipse.ui.internal.browser.WebBrowserEditorActionBarContributor"
-        default="false"
-        extensions="html,htm"
-        icon="icons/obj16/internal_browser.png"
-        id="org.xixum.html.browser.editor"
-        name="HTML Viewer">
+    id="com.example.html.browser.editor"
+    name="HTML Browser Editor"
+    extensions="html,htm"
+    class="org.eclipse.ui.internal.browser.WebBrowserEditor"
+    contributorClass="org.eclipse.ui.internal.browser.WebBrowserEditorActionBarContributor"
+    default="true">
   </editor>
 </extension>
 
-<!-- Override default editor associations -->
-<!--<extension point="org.eclipse.ui.ide.editorAssociationOverride">
+<- Override default editor associations ->
+<extension point="org.eclipse.ui.ide.editorAssociationOverride">
   <override
-    id="org.xixum.html.override"
+    id="com.example.html.override"
     editorId="org.eclipse.ui.browser.editor"
     fileNamePattern="*.html">
   </override>
   <override
-    id="org.xixum.htm.override"
+    id="com.example.htm.override"
     editorId="org.eclipse.ui.browser.editor"
     fileNamePattern="*.htm">
   </override>
