@@ -88,7 +88,7 @@
   <editor
         class="org.eclipse.ui.internal.browser.WebBrowserEditor"
         contributorClass="org.eclipse.ui.internal.browser.WebBrowserEditorActionBarContributor"
-        default="true"
+        default="false"
         extensions="html,htm"
         icon="icons/obj16/internal_browser.png"
         id="org.xixum.html.browser.editor"
@@ -97,7 +97,7 @@
 </extension>
 
 <!-- Override default editor associations -->
-<extension point="org.eclipse.ui.ide.editorAssociationOverride">
+<!--<extension point="org.eclipse.ui.ide.editorAssociationOverride">
   <override
     id="org.xixum.html.override"
     editorId="org.eclipse.ui.browser.editor"
@@ -108,7 +108,7 @@
     editorId="org.eclipse.ui.browser.editor"
     fileNamePattern="*.htm">
   </override>
-</extension> 
+</extension> -->
 
   <extension point="org.eclipse.core.runtime.products" id="org.xixum.modeler.core.application.product">
     <product name="XIXUM Modeler" application="org.eclipse.ui.ide.workbench">
