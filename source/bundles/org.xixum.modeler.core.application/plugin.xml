@@ -84,30 +84,31 @@
    
 <!-- Associate HTML/HTM files with the internal browser -->
 
-<!--<extension point="org.eclipse.ui.editors">
+<extension point="org.eclipse.ui.editors">
   <editor
-    id="com.example.html.browser.editor"
-    name="HTML Browser Editor"
-    extensions="html,htm"
-    class="org.eclipse.ui.internal.browser.WebBrowserEditor"
-    contributorClass="org.eclipse.ui.internal.browser.WebBrowserEditorActionBarContributor"
-    default="true">
+        class="org.eclipse.ui.internal.browser.WebBrowserEditor"
+        contributorClass="org.eclipse.ui.internal.browser.WebBrowserEditorActionBarContributor"
+        default="true"
+        extensions="html,htm"
+        icon="icons/obj16/internal_browser.png"
+        id="org.xixum.html.browser.editor"
+        name="HTML Viewer">
   </editor>
 </extension>
 
-<- Override default editor associations ->
+<!-- Override default editor associations -->
 <extension point="org.eclipse.ui.ide.editorAssociationOverride">
   <override
-    id="com.example.html.override"
+    id="org.xixum.html.override"
     editorId="org.eclipse.ui.browser.editor"
     fileNamePattern="*.html">
   </override>
   <override
-    id="com.example.htm.override"
+    id="org.xixum.htm.override"
     editorId="org.eclipse.ui.browser.editor"
     fileNamePattern="*.htm">
   </override>
-</extension> -->
+</extension> 
 
   <extension point="org.eclipse.core.runtime.products" id="org.xixum.modeler.core.application.product">
     <product name="XIXUM Modeler" application="org.eclipse.ui.ide.workbench">
