@@ -109,6 +109,17 @@
   </override>
 </extension> -->
 
+  <extension
+	    point="org.eclipse.ui.editors">
+	    <editor
+	        id="org.xixum.modeler.core.application.editors.internalWebBrowser"
+	        name="Internal Web Browser"
+	        extensions="html"
+	        class="org.xixum.modeler.core.application.editors.CreateInteralWebBrowserEditor"
+	        default="true">
+	    </editor>
+  </extension>
+
   <extension point="org.eclipse.core.runtime.products" id="org.xixum.modeler.core.application.product">
     <product name="XIXUM Modeler" application="org.eclipse.ui.ide.workbench">
       <property name="windowImages" value="icons/logo_16.png,icons/logo_32.png,icons/logo_48.png,icons/logo_128.png,icons/logo_256.png"/>
