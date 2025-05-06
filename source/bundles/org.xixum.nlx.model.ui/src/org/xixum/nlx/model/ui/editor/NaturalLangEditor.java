@@ -87,7 +87,7 @@ public class NaturalLangEditor extends XtextEditor implements ISelectionProvider
 
 	protected Viewer viewer;
 	protected OutlinePage contentOutline;
-	protected ISelectionListener semanticViewSelector;
+	//protected ISelectionListener semanticViewSelector;
 
 	@Inject
 	protected IDictionaryAccess dictAcc;
@@ -258,7 +258,8 @@ public class NaturalLangEditor extends XtextEditor implements ISelectionProvider
 		editorSelection = selection;
 //		initSelectionViewer();
 		
-		semanticViewSelector.selectionChanged(getSite().getPage().getActivePart(), selection);
+		//TODO 0505.25: Semantic View Deprecated. Java FX No longer supported
+		//semanticViewSelector.selectionChanged(getSite().getPage().getActivePart(), selection);
 		
 		for (ISelectionChangedListener listener : selectionChangedListeners) {
 			listener.selectionChanged(new SelectionChangedEvent(this, selection));

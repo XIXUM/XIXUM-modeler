@@ -466,7 +466,8 @@ class DictionaryAccess implements IDictionaryAccess {
 		// (verb) -> (adjective)
 		// think  -> thinkable
 		// may be covered by LinkProcessor PostProcess		
-		result = findShortCut(wordToLc)
+		//TODO 05.05.25: deprecated Cypher-Syntax. deactivated:
+//		result = findShortCut(wordToLc)
 		logResult(result, "All | shortcut", "Found shortcut relation", wordToLc)
 	}
 
