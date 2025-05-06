@@ -797,8 +797,12 @@ class DictionaryAccess implements IDictionaryAccess {
 	 * Functions to extract results from records
 	 */
 	def getNode(Value value) {
-		if (value instanceof NodeValue)
+		var type = value.type
+		if (type.name.equals("NODE"))
 			return value.asNode
+		//TODO 05.05.2025: deprecated
+//		if (value instanceof NodeValue)
+//			return value.asNode
 		else
 			return null
 	}
