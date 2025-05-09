@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <!-- <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.xixum.nlxide.actions.SaveModelHandler"
+            id="org.xixum.nlx.model.ide.savemodel"
+            name="Save Model (handler)">
+      </command>
+      
+      <command
+            defaultHandler="org.xixum.nlxide.actions.SaveModelHandler"
+            id="org.xixum.nlx.model.ide.savemodeloutline"
+            name="Save Model (outline)">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="org.xixum.nlx.model.ide.SaveModelAction"
+            objectClass="org.eclipse.core.resources.IResource">
+         <action
+               class="org.xixum.nlxide.actions.SaveModelAction"
+               id="org.xixum.nlx.model.ide.savemodel"
+               label="Save Model (action)">
+         </action>
+      </objectContribution>
+      
+      <objectContribution
+            adaptable="false"
+            id="org.xixum.nlx.model.ide.outlinerSaveModelAction"
+            objectClass="org.eclipse.emf.ecore.EObject">
+         <action
+               class="org.xixum.nlxide.actions.SaveModelAction"
+               id="org.xixum.nlx.model.ide.savemodel"
+               label="Save Model (ol)">
+         </action>
+      </objectContribution>
+      
+      
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               label="Save Model (addition)">
+            <command
+                  commandId="org.xixum.nlx.model.ide.savemodel"
+                  label="Save"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <iterate
+                        ifEmpty="false">
+                        <or>
+                        <instanceof
+                              value="org.eclipse.core.resources.IResource">
+                        </instanceof>
+                        <instanceof
+                              value="org.eclipse.core.resources.IFile">
+                        </instanceof>
+                        </or>
+                  </iterate>
+               </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+      
+      <menuContribution
+        locationURI="menu:org.eclipse.ui.views.ContentOutline">
+     <command
+           commandId="org.xixum.nlx.model.ide.savemodel"
+           label="Save Model (outline)"
+           style="push">
+     </command>
+  </menuContribution>
+      
+    </extension>-->
+
+</plugin>

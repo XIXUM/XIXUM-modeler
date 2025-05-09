@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Neo4j Reexport Driver Internals Fragment
+Bundle-SymbolicName: org.xixum.neo4j.driver.fragment
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: XIXUM
+Fragment-Host: org.neo4j.driver.neo4j-java-driver;bundle-version="5.28.2"
+Automatic-Module-Name: org.xixum.neo4j.driver.fragment
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: org.neo4j.driver.internal;version="5.28.2"

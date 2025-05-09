@@ -1,8 +1,7 @@
 /**
- * (c) XIXUM.ORG - all rights reserved
+ * (c) 2025 XIXUM.ORG - all rights reserved
  * @author felix.schaller
  */
-
 package org.xixum.utils.io;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;

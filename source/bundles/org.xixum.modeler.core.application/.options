@@ -1,0 +1,5 @@
+org.eclipse.ui/debug=true
+org.eclipse.ui/debug/swtdebugglobal=true
+org.eclipse.ui/debug/showAllJobs=true
+org.eclipse.ui/debug/declaredImages=true
+org.eclipse.ui/trace/graphics=true

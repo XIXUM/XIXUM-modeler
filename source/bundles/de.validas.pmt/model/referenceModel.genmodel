@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.validas.pmt/src" modelPluginID="de.validas.pmt"
+    modelName="ReferenceModel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    colorProviders="true" operationReflection="true" runtimePlatform="RCP" importOrganizing="true">
+  <foreignModel>referenceModel.ecore</foreignModel>
+  <genPackages prefix="MetaModel" disposableProviderFactory="true" ecorePackage="referenceModel.ecore#/">
+    <genClasses ecoreClass="referenceModel.ecore#//Workaround">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//Workaround/issue"/>
+    </genClasses>
+    <nestedGenPackages prefix="Suptertype" disposableProviderFactory="true" ecorePackage="referenceModel.ecore#//suptertype">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="referenceModel.ecore#//suptertype/SafetyLevel">
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/ASIL_A"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/ASIL_B"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/ASIL_C"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/ASIL_D"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/SIL_1"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/SIL_2"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/SIL_3"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/SIL_4"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/TQL_5"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/TQL_4"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/TQL_3"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/TQL_2"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/SafetyLevel/TQL_1"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="referenceModel.ecore#//suptertype/Layout">
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/Layout/TOP_BOTTOM"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/Layout/BOTTOM_TOP"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/Layout/LEFT_RIGTH"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//suptertype/Layout/RIGHT_LEFT"/>
+      </genEnums>
+      <genClasses ecoreClass="referenceModel.ecore#//suptertype/Named">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//suptertype/Named/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//suptertype/Named/description"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//suptertype/Named/ID"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute referenceModel.ecore#//suptertype/Named/comment"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute referenceModel.ecore#//suptertype/Named/longDescription"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//suptertype/Named/deactivated"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//suptertype/Variantable">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//suptertype/Variantable/Variants"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//suptertype/Variantable/LayoutBefore"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//suptertype/Variantable/LayoutAfter"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//suptertype/Variantable/LayoutPriority"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//suptertype/Preference">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//suptertype/Preference/Name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//suptertype/Preference/Value"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="ReferenceProcess" disposableProviderFactory="true"
+        fileExtensions="pmt" ecorePackage="referenceModel.ecore#//referenceProcess">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="referenceModel.ecore#//referenceProcess/ProcessStatus">
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//referenceProcess/ProcessStatus/DEFINED"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//referenceProcess/ProcessStatus/PLANNED"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//referenceProcess/ProcessStatus/READY"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//referenceProcess/ProcessStatus/IN_PROGRESS"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//referenceProcess/ProcessStatus/DONE"/>
+      </genEnums>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/Process">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/tools"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/requirements"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/artifacts"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/methods"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/processModules"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/stakeHolders"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/processConditions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/Parameters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/Bindings"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/Types"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Process/MaximalSafetyLevel"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/preferences"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Process/filterScope"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/Tool">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Tool/processModules"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Tool/Methods"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Tool/MetaModel"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Tool/PreliminaryClassification"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Tool/ClassificationExplanation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Tool/ToolOwner"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/StakeHolder">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/StakeHolder/OwnedModules"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/StakeHolder/InvolvedModules"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/StakeHolder/Compliances"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/StakeHolder/AssignedPerson"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/StakeHolder/OwnedArtifacts"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/StakeHolder/InvolvedArtifacts"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/StakeHolder/OwnedTools"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/StakeHolder/Layout"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/Model">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Model/MetaModel"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Model/Includes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Model/IsIncludedIn"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Model/MandatoryElements"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Model/MandatoryAttributes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Model/MandatoryAssociations"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Model/OptionalElements"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Model/OptionalAttributes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Model/OptionalAssociations"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/ProcessModule">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/requirements"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/subProcessModules"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/inputArtifacts"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/tools"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/beforeProcessModules"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/afterProcessModules"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/InvolvedStakeHolders"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/preMMCondition"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/postMMCondition"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/outputArtifacts"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/ProcessModule/URI"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/parameters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/bindings"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/ProcessModule/NumberOfInstances"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/ProcessModule/Effort"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/ProcessModule/Progress"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/ProcessModule/PlannedStartDate"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/ProcessModule/PlannedEndDate"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/ProcessModule/EndDate"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/SubProcessModuleReferences"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/InstanceOfProcessModule"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/InstantiatedInProcessModules"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/Compliances"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/StakeHolder"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/ClaimedComplianceRequirements"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/ProcessModule/Status"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/parameterReferences"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/DeterminedVariables"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/ProcessModule/Layout"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/artifacts"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/stakeHolders"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/ProcessModule/Types"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/Requirement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Requirement/subRequirements"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Requirement/requiredRequirements"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Requirement/requiredByRequirements"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Requirement/recommentedFrom"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Requirement/recommentedTo"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Requirement/Compliances"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Requirement/ClaimingProcessModules"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/Artifact">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Artifact/documentStatus"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Artifact/version"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Artifact/readByProcessModules"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Artifact/processConditions"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Artifact/createdByProcessModules"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Artifact/SubArtifacts"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Artifact/SubArtifactReferences"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Artifact/Compliances"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Artifact/InvolvedStakeHolders"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Artifact/StakeHolder"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Artifact/Path"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Artifact/Status"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Artifact/PartOfProduct"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Artifact/ReferedByArtifacts"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Artifact/ProjectInput"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Artifact/Layout"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/Alternative">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Alternative/processModules"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Alternative/Condition"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/Parallel">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Parallel/processModules"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/Method">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Method/Tools"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="referenceModel.ecore#//referenceProcess/IVerified">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/IVerified/verifiedBy"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="referenceModel.ecore#//referenceProcess/IVerifier">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/IVerifier/verifies"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/Compliance">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Compliance/ProcessModules"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Compliance/StakeHolders"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Compliance/VerificationModules"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Compliance/Artifatcs"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/Compliance/SubCompliances"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/Compliance/Applicable"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/VerificationModule">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/VerificationModule/VerifiedCompliances"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//referenceProcess/VerificationModule/Implicit"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/VerificationModule/Criteria"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/RequiredDocument">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//referenceProcess/RequiredDocument/Artifacts"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//referenceProcess/Criterion"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="ModellDescr" disposableProviderFactory="true" ecorePackage="referenceModel.ecore#//modellDescr">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="referenceModel.ecore#//modellDescr/Cardinality">
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//modellDescr/Cardinality/CARDINALITY_0_to_1"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//modellDescr/Cardinality/CARDINALITY_1"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//modellDescr/Cardinality/CARDINALITY_N"/>
+        <genEnumLiterals ecoreEnumLiteral="referenceModel.ecore#//modellDescr/Cardinality/CARDINALITY_0_to_N"/>
+      </genEnums>
+      <genClasses ecoreClass="referenceModel.ecore#//modellDescr/MMCondition">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MMCondition/MetaModellElements"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MMCondition/MetaModellAttributes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MMCondition/MetaModellAssociations"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MMCondition/Variant"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MMCondition/ProcessCondition"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//modellDescr/MetaModelElement">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelElement/MMConditions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelElement/MetaModelAttributes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelElement/MetaModelAssociations"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelElement/MandatoryInModels"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelElement/Parents"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//modellDescr/MetaModelElement/IsRoot"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//modellDescr/MetaModelElement/IsAbstract"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelElement/OptionalInModels"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//modellDescr/MetaModelAssociation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelAssociation/MMConditions"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelAssociation/MandatoryInModels"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelAssociation/ToElement"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//modellDescr/MetaModelAssociation/Containment"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//modellDescr/MetaModelAssociation/Cardinality"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelAssociation/OptionalInModels"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//modellDescr/MetaModelAttribute">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelAttribute/MMConditions"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelAttribute/MandatoryInModels"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//modellDescr/MetaModelAttribute/Type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModelAttribute/OptionalInModels"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//modellDescr/ProzessCondition">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/ProzessCondition/artefakt"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/ProzessCondition/processmodule"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/ProzessCondition/Variant"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/ProzessCondition/MMConditions"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//modellDescr/MetaModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModel/MetaModelElements"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//modellDescr/MetaModel/Tool"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Terms" disposableProviderFactory="true" ecorePackage="referenceModel.ecore#//terms">
+      <genClasses ecoreClass="referenceModel.ecore#//terms/Term">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/Term/Type"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/BoolTerm">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//terms/BoolTerm/Terms"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/ListTerm">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//terms/ListTerm/Terms"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/Constant">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute referenceModel.ecore#//terms/Constant/Value"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/ParamRef">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/ParamRef/Parameter"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/Parameter">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/Parameter/Type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/Parameter/Binding"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/Parameter/ValueFromListParameter"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/Parameter/IteratorParameters"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/Parameter/ReusingProcessModules"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/Type">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/Type/Parameters"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/EnumType">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//terms/EnumType/EnumValues"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/EnumValue"/>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/ANDTerm"/>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/ORTerm"/>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/EQTerm"/>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/NOTTerm"/>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/Binding">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/Binding/Parameter"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference referenceModel.ecore#//terms/Binding/Value"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/EnumValueRef">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/EnumValueRef/EnumValue"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/ProjectParameter"/>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/ProcessParameter"/>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/ListType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/ListType/BaseType"/>
+      </genClasses>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/PlanningParameter"/>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/InList"/>
+      <genClasses ecoreClass="referenceModel.ecore#//terms/ProcessVariable">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference referenceModel.ecore#//terms/ProcessVariable/DeterminedByProcessModules"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

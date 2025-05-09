@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/de.validas.vvt/src-gen" creationIcons="false"
+    editDirectory="/de.validas.vvt.edit/src-gen" editorDirectory="/de.validas.vvt.editor/src-gen"
+    modelPluginID="de.validas.vvt" modelName="Vvt" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" colorProviders="true" fontProviders="true" operationReflection="true"
+    runtimePlatform="RCP" importOrganizing="true">
+  <foreignModel>vvt.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Vvt" basePackage="de.validas" disposableProviderFactory="true"
+      ecorePackage="vvt.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="vvt.ecore#//CheckStatus">
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//CheckStatus/CREATED"/>
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//CheckStatus/ASSIGNED"/>
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//CheckStatus/FAILED"/>
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//CheckStatus/ANALYZED"/>
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//CheckStatus/PASSED"/>
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//CheckStatus/UPDATED_FROM_FAILED"/>
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//CheckStatus/UPDATED_FROM_PASSED"/>
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//CheckStatus/UPDATED_FROM_ANALYZED"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="vvt.ecore#//Severity">
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//Severity/BLOCKER"/>
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//Severity/CRITICAL"/>
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//Severity/MAJOR"/>
+      <genEnumLiterals ecoreEnumLiteral="vvt.ecore#//Severity/MINOR"/>
+    </genEnums>
+    <genClasses ecoreClass="vvt.ecore#//Project">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vvt.ecore#//Project/checks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vvt.ecore#//Project/repository"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vvt.ecore#//Project/persons"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vvt.ecore#//Project/artifacts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vvt.ecore#//Project/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Project/verdict"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vvt.ecore#//Project/issues"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Project/IssueTracker"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Project/product"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Project/version"/>
+    </genClasses>
+    <genClasses ecoreClass="vvt.ecore#//Described">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Described/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Described/description"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute vvt.ecore#//Described/longDescription"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute vvt.ecore#//Described/comment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Described/id"/>
+    </genClasses>
+    <genClasses ecoreClass="vvt.ecore#//Check">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vvt.ecore#//Check/checkResults"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Check/verdict"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//Check/checkedArtifact"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//Check/requiredArtifacts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//Check/author"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vvt.ecore#//Check/instances"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//Check/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vvt.ecore#//Check/subChecks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Check/implicit"/>
+    </genClasses>
+    <genClasses ecoreClass="vvt.ecore#//Person">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Person/fullName"/>
+    </genClasses>
+    <genClasses ecoreClass="vvt.ecore#//Artifact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Artifact/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Artifact/modified"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//Artifact/repository"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//Artifact/devleopers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Artifact/revision"/>
+    </genClasses>
+    <genClasses ecoreClass="vvt.ecore#//Repository">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Repository/URL"/>
+    </genClasses>
+    <genClasses ecoreClass="vvt.ecore#//CheckResult">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//CheckResult/verdict"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//CheckResult/timeStamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//CheckResult/artifactRevisionOrDate"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute vvt.ecore#//CheckResult/justification"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//CheckResult/instances"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//CheckResult/issues"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//CheckResult/author"/>
+    </genClasses>
+    <genClasses ecoreClass="vvt.ecore#//Instance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//Instance/parameter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//Instance/parameterValue"/>
+    </genClasses>
+    <genClasses ecoreClass="vvt.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Parameter/Type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vvt.ecore#//Parameter/parameterValues"/>
+    </genClasses>
+    <genClasses ecoreClass="vvt.ecore#//ParameterValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//ParameterValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="vvt.ecore#//Issue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Issue/link"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute vvt.ecore#//Issue/workaround"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Issue/foundInRevisionOrDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Issue/fixedInRevisionOrDate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference vvt.ecore#//Issue/artifact"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vvt.ecore#//Issue/Severity"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

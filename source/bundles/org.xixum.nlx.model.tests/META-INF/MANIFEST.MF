@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xixum.nlx.model.tests
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xixum.nlx.model.tests
+Bundle-Vendor: My Company
+Bundle-Version: 0.1.5.qualifier
+Bundle-SymbolicName: org.xixum.nlx.model.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.xixum.nlx.model,
+ junit-jupiter-api;bundle-version="[5.0.0,6.0.0)",
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.xixum.nlx.tests;x-internal=true

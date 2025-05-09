@@ -3,7 +3,7 @@
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package
-			uri = "http://www.xtext.org/template/Template"
+			uri = "http://www.xixum.org/modeler/docgen/Template"
 			class = "org.xixum.modeler.docgen.template.template.TemplatePackage"
 			genModel = "model/generated/Template.genmodel" />
 	</extension>
