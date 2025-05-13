@@ -1,0 +1,53 @@
+train_dataset_path: null
+val_dataset_path: null
+test_dataset_path: null
+
+shared_params:
+  documents_path: null
+  max_passage_length: 64
+  passage_batch_size: 64
+  question_batch_size: 64
+
+datamodule:
+  _target_: relik.retriever.lightning_modules.pl_data_modules.GoldenRetrieverPLDataModule
+  datasets:
+    train:
+      _target_: relik.retriever.data.datasets.InBatchNegativesDataset
+      name: "train"
+      path: ${data.train_dataset_path}
+      tokenizer: ${model.language_model}
+      max_passage_length: ${data.shared_params.max_passage_length}
+      question_batch_size: ${data.shared_params.question_batch_size}
+      passage_batch_size: ${data.shared_params.passage_batch_size}
+      subsample_strategy: random
+      subsample_portion: 0.1
+      metadata_fields: ['definition']
+      metadata_separator: ' <def> '
+      shuffle: True
+
+    val:
+      - _target_: relik.retriever.data.datasets.InBatchNegativesDataset
+        name: "val"
+        path: ${data.val_dataset_path}
+        tokenizer: ${model.language_model}
+        max_passage_length: ${data.shared_params.max_passage_length}
+        question_batch_size: ${data.shared_params.question_batch_size}
+        metadata_fields: ['definition']
+        metadata_separator: ' <def> '
+        passage_batch_size: ${data.shared_params.passage_batch_size}
+
+    test:
+      - _target_: relik.retriever.data.datasets.InBatchNegativesDataset
+        name: "test"
+        path: ${data.test_dataset_path}
+        tokenizer: ${model.language_model}
+        max_passage_length: ${data.shared_params.max_passage_length}
+        question_batch_size: ${data.shared_params.question_batch_size}
+        passage_batch_size: ${data.shared_params.passage_batch_size}
+        metadata_fields: ['definition']
+        metadata_separator: ' <def> '
+
+  num_workers:
+    train: 0
+    val: 0
+    test: 0

@@ -1,0 +1,6 @@
+_target_: relik.retriever.indexers.inmemory.InMemoryDocumentIndex
+documents:
+  _target_: relik.retriever.indexers.document.DocumentStore.from_file
+  file_path: ${data.shared_params.documents_path}
+device: "cuda"
+precision: "16"
