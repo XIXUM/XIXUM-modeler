@@ -39,3 +39,6 @@ ray[serve]>=2.34,<=2.35 # needed by: ray
 pre-commit # needed by: dev
 black[d] # needed by: dev
 isort # needed by: dev
+
+langchain-core
+langchain-experimental
